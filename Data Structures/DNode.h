@@ -41,7 +41,7 @@ DNode<T>::DNode( const T& r_Item, DNode<T>* nextNodePtr, DNode<T>* prevNodePtr)
 {
 	item = r_Item;
 	next = nextNodePtr;
-	prev = prevNodeptr;
+	prev = prevNodePtr;
 }
 template < typename T>
 void DNode<T>::setItem( const T& r_Item)

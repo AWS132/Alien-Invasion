@@ -41,5 +41,8 @@
     <ClInclude Include="Data Structures\StackADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Data Structures\DLinkedQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
