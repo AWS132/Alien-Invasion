@@ -21,6 +21,15 @@
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Army units\ArmyUnit.h" />
+    <ClInclude Include="Data Structures\ArrayStack.h" />
+    <ClInclude Include="Data Structures\DNode.h" />
+    <ClInclude Include="Data Structures\LinkedQueue.h" />
+    <ClInclude Include="Data Structures\Node.h" />
+    <ClInclude Include="Data Structures\QueueADT.h" />
+    <ClInclude Include="Data Structures\StackADT.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
