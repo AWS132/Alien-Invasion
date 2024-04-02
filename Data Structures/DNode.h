@@ -9,9 +9,9 @@ private :
 	DNode<T>* next; // Pointer to next node
 	DNode<T>* prev; //Pointer to previous node
 public :
-	Node();
-	Node( const T & r_Item);	
-	Node( const T & r_Item, DNode<T>* nextNodePtr, DNode<T>* prevNodePtr);
+	DNode();
+	DNode( const T & r_Item);	
+	DNode( const T & r_Item, DNode<T>* nextNodePtr, DNode<T>* prevNodePtr);
 	void setItem( const T & r_Item);
 	void setNext(DNode<T>* nextNodePtr);
 	void setPrev(DNode<T>* prevNodePtr);
