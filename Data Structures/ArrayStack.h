@@ -15,7 +15,7 @@ template<typename T>
 class ArrayStack : public StackADT<T>
 {
 	enum { MAX_SIZE = 100 };
-private:
+protected:
 	T items[MAX_SIZE];		// Array of stack items
 	int top;                   // Index to top of stack
 

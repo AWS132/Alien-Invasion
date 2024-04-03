@@ -24,6 +24,9 @@
     <ClCompile Include="Army units\ArmyUnit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Army units\Tanks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Army units\ArmyUnit.h">
@@ -48,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Data Structures\DLinkedQueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\Tanks.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
