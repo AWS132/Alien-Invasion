@@ -26,6 +26,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Army units\ArmyUnit.h" />
+    <ClInclude Include="Army units\Drones.h" />
     <ClInclude Include="Army units\Tanks.h" />
     <ClInclude Include="Data Structures\ArrayStack.h" />
     <ClInclude Include="Data Structures\DLinkedQueue.h" />

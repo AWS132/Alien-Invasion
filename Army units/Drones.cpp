@@ -2,18 +2,42 @@
 #include "Drones.h"
 #include <iostream>
 #include"ArmyUnit.h"
+#include "..\Data Structures\DNode.h"
 using namespace std;
 
-Drones::Drones(int id, unitType Type, int tj, int health, int power, int capacity): ArmyUnit(id,Type,tj,health,power,capacity)
+Drones::Drones()
 {
+	count = 0;
 }
 
-void Drones::Attack(ArmyUnit* opponent)
+bool Drones::CreatDrone(int id, int tj, int health, int power, int capacity)
 {
-//ADD ATTACK LOGIC 
+	ArmyUnit* D= new ArmyUnit (id, AD, tj, health, power, capacity);
+	count++;
+	return enqueue(D);
 }
 
-void Drones::Print() const
+bool Drones::pickDrones(ArmyUnit* D1, ArmyUnit* D2)
 {
-	ArmyUnit::Print();
+	if(count<2)
+	return false;
+	dequeue(D2);
+	return pop(D1);
 }
+
+int Drones::getCount() const
+{
+	return count;
+}
+
+void Drones::printDrones() const
+{
+	DNode<ArmyUnit*> * temp = frontPtr;
+	while (temp!=nullptr) {
+		temp->getItem()->Print();
+		temp = temp->getNext();
+	}
+
+}
+
+

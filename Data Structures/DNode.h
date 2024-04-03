@@ -19,7 +19,7 @@ public :
 	DNode<T>* getNext() const ;
 	DNode<T>* getPrev() const;
 }; // end Node
-#endif
+
 
 template < typename T>
 DNode<T>::DNode() 
@@ -75,3 +75,4 @@ DNode<T>* DNode<T>::getPrev() const
 {
 	return prev;
 }
+#endif

@@ -18,7 +18,7 @@ using namespace std;
 template <typename T>
 class DLinkedQueue:public QueueADT<T>
 {
-private :
+protected :
 	
 	DNode<T>* backPtr;
 	DNode<T>* frontPtr;
@@ -224,17 +224,11 @@ removes all DNodes from the queue by DLinkedQueueuing them
 template <typename T>
 DLinkedQueue<T>::~DLinkedQueue()
 {
-	//Note that the cout statements here is just for learning purpose
-	//They should be normally removed from the destructor
-	cout<<"\nStarting DLinkedQueue destructor...";
-	cout<<"\nFreeing all DNodes in the queue...";
+	
 
 	//Free all DNodes in the queue
 	T temp;
 	while(dequeue(temp));
-	
-	cout<<"\n Is DLinkedQueue Empty now?? ==> "<<boolalpha<<isEmpty();
-	cout<<"\nEnding DLinkedQueue destructor..."<<endl;
 }
 /////////////////////////////////////////////////////////////////////////////////////////
 /*
