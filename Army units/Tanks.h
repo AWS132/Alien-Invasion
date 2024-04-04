@@ -2,7 +2,7 @@
 #include <iostream>
 #include "../Data Structures/ArrayStack.h"
 #include "../Army units/ArmyUnit.h"
-class Tanks :protected stack<ArmyUnit>
+class Tanks :protected stack<ArmyUnit*>
 {
 public:
 	bool CreatTank(int id, int tj, int health, int power, int capacity);
