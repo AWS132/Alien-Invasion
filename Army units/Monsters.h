@@ -3,9 +3,14 @@
 #include "../Army units/ArmyUnit.h"
 class Monsters 
 {
+	enum { MAX_SIZE = 1000 };
+protected:
+	ArmyUnit* monsters[MAX_SIZE];
+	int counter;
 public:
+	Monsters();
 	bool CreatMonster(int id, int tj, int health, int power, int capacity);
+	int getCount();
 	ArmyUnit* pickMonster();
 	void printMonsters();
-	int getCount();
 };
