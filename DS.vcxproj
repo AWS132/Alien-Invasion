@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Army units\ArmyUnit.cpp" />
     <ClCompile Include="Army units\Drones.cpp" />
+    <ClCompile Include="Army units\Gunnery.cpp" />
     <ClCompile Include="Army units\Monsters.cpp" />
     <ClCompile Include="Army units\Tanks.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -28,6 +29,7 @@
   <ItemGroup>
     <ClInclude Include="Army units\ArmyUnit.h" />
     <ClInclude Include="Army units\Drones.h" />
+    <ClInclude Include="Army units\Gunnery.h" />
     <ClInclude Include="Army units\Monsters.h" />
     <ClInclude Include="Army units\Tanks.h" />
     <ClInclude Include="Data Structures\ArrayStack.h" />
@@ -35,6 +37,7 @@
     <ClInclude Include="Data Structures\DNode.h" />
     <ClInclude Include="Data Structures\LinkedQueue.h" />
     <ClInclude Include="Data Structures\Node.h" />
+    <ClInclude Include="Data Structures\Pqueue.h" />
     <ClInclude Include="Data Structures\QueueADT.h" />
     <ClInclude Include="Data Structures\StackADT.h" />
   </ItemGroup>

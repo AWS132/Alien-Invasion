@@ -27,7 +27,9 @@ ArmyUnit* Monsters::pickMonster()
 	{
 		srand(time(0));
 		int randomdx = floor((rand() * 1.0 / RAND_MAX) * counter);
-		return monsters[randomdx];
+		ArmyUnit* target = monsters[randomdx];
+		monsters[randomdx] = monsters[--counter];
+		return target;
 	}
 	else
 		return nullptr;

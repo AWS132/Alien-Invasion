@@ -7,6 +7,16 @@ ArmyUnit::ArmyUnit()
 {
 }
 
+int ArmyUnit::getPower()
+{
+	return pwr;
+}
+
+int ArmyUnit::getHealth()
+{
+	return hlth;
+}
+
 ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int capacity){ //TO ADD: a pointer to game class in the constructor's arguement
 		
 		ID = id;
