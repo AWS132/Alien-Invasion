@@ -59,4 +59,16 @@ public:
 
 }; // end ArrayStack
 
+template<class t>
+class stack :public ArrayStack<t>
+{
+protected:
+public:
+	t* pop()
+	{
+
+		if (ArrayStack<t>::isEmpty()) return nullptr;
+		return  ArrayStack<t>:: items[ArrayStack<t>::top--];
+	}
+};
 #endif
