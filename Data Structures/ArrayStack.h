@@ -64,7 +64,7 @@ class stack :public ArrayStack<t>
 {
 protected:
 public:
-	t* pop()
+	t pop()
 	{
 
 		if (ArrayStack<t>::isEmpty()) return nullptr;
