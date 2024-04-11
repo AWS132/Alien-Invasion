@@ -24,6 +24,7 @@
     <ClCompile Include="Army units\Gunnery.cpp" />
     <ClCompile Include="Army units\Monsters.cpp" />
     <ClCompile Include="Army units\Tanks.cpp" />
+    <ClCompile Include="GameClass.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +41,7 @@
     <ClInclude Include="Data Structures\Pqueue.h" />
     <ClInclude Include="Data Structures\QueueADT.h" />
     <ClInclude Include="Data Structures\StackADT.h" />
+    <ClInclude Include="GameClass.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

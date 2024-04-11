@@ -21,6 +21,7 @@ bool Drones::pickDrones(ArmyUnit* D1, ArmyUnit* D2)
 {
 	if(count<2)
 	return false;
+	count--;
 	dequeue(D2);
 	return pop(D1);
 }
