@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "../Army units/ArmyUnit.h"
-class Monster:public:ArmyUnit
+class Monster :public ArmyUnit
 {
 
 public:
