@@ -1,6 +1,6 @@
 #include "Tank.h"
 
-Tank::Tank(int id, unitType Type, int tj, int health, int power, int capacity) :ArmyUnit(id, Type, tj, health, power, capacity)
+Tank::Tank(int id, int tj, int health, int power, int capacity) :ArmyUnit(id, ET, tj, health, power, capacity)
 {
 }
 

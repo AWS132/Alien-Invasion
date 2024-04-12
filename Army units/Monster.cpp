@@ -1,6 +1,6 @@
 #include "Monster.h"
 
-Monster::Monster(int id, int tj, int health, int power, int capacity):ArmyUnit(id, Type, tj, health, power, capacity)
+Monster::Monster(int id, int tj, int health, int power, int capacity):ArmyUnit(id, AM, tj, health, power, capacity)
 {
 }
 

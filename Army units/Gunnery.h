@@ -3,6 +3,6 @@
 class Gunnery :public ArmyUnit
 {
 public:
-	Gunnery(int id, unitType Type, int tj, int health, int power, int capacity);
+	Gunnery(int id, int tj, int health, int power, int capacity);
 	void Attack(ArmyUnit* opponent);
 };
