@@ -39,10 +39,6 @@ ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int cap
 	
 }
 
-void ArmyUnit::Attack(ArmyUnit* opponent)
-{
-}
-
 bool ArmyUnit::DecHlth(int value)
 {
 	hlth -= value;

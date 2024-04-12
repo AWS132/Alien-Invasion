@@ -9,7 +9,8 @@ protected:
 	int counter;
 public:
 	Monsters();
-	bool CreatMonster(int id, int tj, int health, int power, int capacity);
+	//bool CreatMonster(int id, int tj, int health, int power, int capacity);
+	bool AddMonster(ArmyUnit* mns);
 	int getCount();
 	ArmyUnit* pickMonster();
 	void printMonsters();
