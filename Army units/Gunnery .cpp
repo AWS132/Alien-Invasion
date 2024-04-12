@@ -1,6 +1,6 @@
 #include "Gunnery.h"
 
-Gunnery::Gunnery(int id, unitType Type, int tj, int health, int power, int capacity) :ArmyUnit(id, Type, tj, health, power, capacity)
+Gunnery::Gunnery(int id, int tj, int health, int power, int capacity) :ArmyUnit(id, EG, tj, health, power, capacity)
 {
 }
 
