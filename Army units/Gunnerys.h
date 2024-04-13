@@ -8,7 +8,7 @@ private:
 	int counter;
 public:
 	Gunnerys();
-	bool AddGunnery(ArmyUnit* gn);
+	bool addUnit(ArmyUnit* gn);
 	int getCount();
 	ArmyUnit* pickGunnery();
 	void printGunnery();

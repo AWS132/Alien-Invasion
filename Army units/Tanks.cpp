@@ -5,7 +5,7 @@
 //	return push(tnk);
 //}
 
-bool Tanks::AddTank(ArmyUnit* tnk)
+bool Tanks::addUnit(ArmyUnit* tnk)
 {
 	return push(tnk);
 }

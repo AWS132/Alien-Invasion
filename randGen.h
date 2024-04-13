@@ -7,8 +7,8 @@ class randGen
 {
 private: 
 	GameClass* game;
-	
-	int ESpc, ETpc, EGpc, EUP1, EH1, EACap1, EUP2, EH2, EACap2,	//earth attack cap 1-->start , 2-->end boundaries of ranges 
+	// pc stands for PerCentage
+	int ESpc, ETpc, EGpc, EUP1, EH1, EACap1, EUP2, EH2, EACap2,	//earth attack cap //1-->start , 2-->end boundaries of ranges 
 		ASpc, ADpc, AMpc, AUP1, AH1, AACap1, AUP2, AH2, AACap2,	//alien attack cap 
 		N, prob;
 	ArmyUnit* createUnit(int type);	//utility function

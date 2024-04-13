@@ -16,15 +16,14 @@ Monsters::Monsters()
 //	return false;
 //}
 
-bool Monsters::AddMonster(ArmyUnit* mns)
+bool Monsters::addUnit(ArmyUnit* mns)
 {
-	if(counter<MAX_SIZE)
-	{ 
-	monsters[counter++] = mns;
-	return true;
+	if (counter < MAX_SIZE)
+	{
+		monsters[counter++] = mns;
+		return true;
 	}
 	return false;
-
 }
 
 int Monsters::getCount()

@@ -12,7 +12,7 @@ Esoldiers::Esoldiers()
 //    return enqueue(Es);
 //}
 
-bool Esoldiers::addUnit(ArmyUnit* es)
+bool Esoldiers::addEsoldier(ArmyUnit* es)
 {
     count++;
     return enqueue(es);

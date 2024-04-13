@@ -10,7 +10,7 @@ protected:
 public:
 	Monsters();
 	//bool CreatMonster(int id, int tj, int health, int power, int capacity);
-	bool AddMonster(ArmyUnit* mns);
+	bool addUnit(ArmyUnit* mns);
 	int getCount();
 	ArmyUnit* pickMonster();
 	void printMonsters();
