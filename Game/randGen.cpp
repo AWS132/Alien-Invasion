@@ -48,8 +48,6 @@ ArmyUnit* randGen::createUnit(unitType type)
 randGen::randGen(GameClass*game)
 {
 	this->game = game;
-	setParameters(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 000, 0, 0);
-
 }
 
 void randGen::generator()

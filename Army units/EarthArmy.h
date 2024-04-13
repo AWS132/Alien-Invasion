@@ -24,4 +24,5 @@ public:
 	void AddUnit(ArmyUnit* unit);
 	void PrintArmy();
 	~EarthArmy();
+	ArmyUnit* pickEUnit(unitType u);
 };
