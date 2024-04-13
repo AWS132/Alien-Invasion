@@ -1,11 +1,11 @@
 #include "GameClass.h"
-
-
-
 GameClass::GameClass()
 {
     crntTime = 0;
-    this->randGenerator = nullptr;
+    this->AArmy = new AlienArmy();
+    this->EArmy = new EarthArmy();
+    this->randGenerator = new randGen(this);
+    this->klst = new KilledList();
 }
 
 void GameClass::incrementTime()
@@ -53,7 +53,52 @@ void GameClass::loadData()
         EHend = abs(EHend);     AHend = abs(AHend);
         EACapend = abs(EACapend);   AACapend = abs(AACapend);
     }
-        this->randGenerator = new randGen(this);
 	    randGenerator->setParameters(N, prob, ESPer, ETPer, EGPer, EUPstart, EHstart, EACapstart, EUPend, EHend, EACapend,
 		ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend);
 }
+
+ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit* d1 = nullptr, ArmyUnit* d2=nullptr)
+{
+    switch (unit)
+    {
+    case ES:
+        return EArmy->pickEUnit(ES);
+    case ET:
+        return EArmy->pickEUnit(ET);
+    case EG:
+        return EArmy->pickEUnit(EG);
+    case AS:
+        return AArmy->PickAunit(AS,d1,d2);
+    case AM:
+        return AArmy->PickAunit(AM, d1, d2);
+    case AD:
+        return AArmy->PickAunit(AD, d1, d2);
+    default:
+        return nullptr;
+    }
+}
+
+void GameClass::insert(ArmyUnit* unt)
+{
+    switch (unt->getType())
+    {
+    case ES:
+    case ET:
+    case EG:
+       EArmy->AddUnit(unt); break;
+    case AS:
+    case AM:
+    case AD:
+         AArmy->AddUnit(unt); break;
+
+    }
+}
+
+bool GameClass::AddToKilledList(ArmyUnit* unit)
+{
+    return klst->addUnit(unit);
+}
+
+
+
+

@@ -46,3 +46,21 @@ EarthArmy::~EarthArmy()
 	delete es;
 	delete g;
 }
+
+ArmyUnit* EarthArmy::pickEUnit(unitType u)
+{
+	switch (u)
+	{
+	case ES:
+	return es->pickEsoldiers();
+		break;
+	case ET:
+	return t->pickTank();
+		break;
+	case EG:
+	return g->pickGunnery();
+		break;
+	default:
+		break;
+	}
+}

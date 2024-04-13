@@ -39,6 +39,21 @@ void AlienArmy::PrintArmy()
 	d->printDrones();
 }
 
+ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit* &d1, ArmyUnit* &d2)
+{
+	switch (u)
+	{
+	case AS:
+		return as->pickAsoldiers();
+	case AM:
+		return m->pickMonster();
+	case AD:
+		d->pickDrones(d1,d2);
+	default:
+		return nullptr;
+	}
+}
+
 AlienArmy::~AlienArmy()
 {
 	delete as;

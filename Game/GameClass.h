@@ -2,6 +2,7 @@
 #include "../Army units/EarthArmy.h"
 #include "../Army units/AlienArmy.h"
 #include "../Game/randGen.h"
+#include "../Army units/KilledList.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
@@ -12,6 +13,7 @@ private:
 	EarthArmy* EArmy;
 	AlienArmy* AArmy;
 	randGen* randGenerator;
+	KilledList* klst;
 	int crntTime;
 public:
 	GameClass();
@@ -21,5 +23,8 @@ public:
 	AlienArmy* getAArmy();
 	void initializer();
 	void loadData();//needs to be edited
+	ArmyUnit* PickUnit(unitType unit, ArmyUnit* d1, ArmyUnit* d2);
+	void insert(ArmyUnit* unt);
+	bool AddToKilledList(ArmyUnit* unit);
 };
 
