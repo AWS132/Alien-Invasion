@@ -40,4 +40,24 @@ int main()
 	gn.addUnit(d3);
 	gn.addUnit(e3);
 	gn.printGunnerys();
+
+	Esoldiers es;
+	Esoldier* es1 = new Esoldier(14, 14, 100, 200, 2);
+	Esoldier* es2 = new Esoldier(150, 15, 130, 150, 5);
+	es.addUnit(es1);
+	es.addUnit(es2);
+	es.printEsoldiers();
+
+	Esoldiers as;
+	Esoldier* as1 = new Esoldier(77, 134, 134, 130, 1);
+	Esoldier* as2 = new Esoldier(140, 11, 50, 123, 4);
+	es.addUnit(as1);
+	es.addUnit(as2);
+	es.printEsoldiers();
+
+	/*Drones d;
+	Drone* d1 = new Drone(77, 134, 134, 130, 1);
+	Drone* d2 = new Drone(149055, 20, 30, 40, 50);
+	*/
+
 }

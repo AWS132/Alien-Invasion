@@ -34,13 +34,16 @@ ArmyUnit* Asoldiers::pickAsoldiers()
 
 void Asoldiers::printAsoldiers()
 {
-	Node<ArmyUnit*>* temp = frontPtr;
+	Node<ArmyUnit*>* ptr = frontPtr;
+
 	cout << count << " AS [";
-	if (!temp)cout << ']';
-	while (temp != nullptr) {
-		temp->getItem()->Print();
-		temp = temp->getNext();
-		if (!temp)cout << ", ";
-		else cout << ']' << endl;
+	while (ptr and ptr->getNext())
+	{
+		ptr->getItem()->Print();
+		ptr = ptr->getNext();
+		cout << ", ";
 	}
+	if (ptr)
+		ptr->getItem()->Print();
+	cout << "]\n";
 }
