@@ -2,7 +2,7 @@
 #include <iostream>
 #include "../Army units/ArmyUnit.h"
 
-class Drone :protected ArmyUnit
+class Drone :public ArmyUnit
 {
 public:
 	Drone(int id, int tj, int health, int power, int capacity);

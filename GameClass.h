@@ -11,8 +11,11 @@ private:
 	EarthArmy* EArmy;
 	AlienArmy* AArmy;
 	randGen* randGenerator;
+	int crntTime;
 public:
-
+	GameClass();
+	void incrementTime();
+	int getTime()const;
 	EarthArmy* getEArmy();
 	AlienArmy* getAArmy();
 	void initializer();

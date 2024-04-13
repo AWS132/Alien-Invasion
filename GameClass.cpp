@@ -1,5 +1,20 @@
 #include "GameClass.h"
 
+GameClass::GameClass()
+{
+    crntTime = 0;
+}
+
+void GameClass::incrementTime()
+{
+    crntTime++;
+}
+
+int GameClass::getTime() const
+{
+    return crntTime;
+}
+
 EarthArmy* GameClass::getEArmy()
 {
 	return EArmy;

@@ -13,23 +13,27 @@ ArmyUnit* randGen::createUnit(int type)
 		int Upwr = (rand() % (EUP2 - EUP1 + 1)) + EUP1;
 		int h = (rand() % (EH2 - EH1 + 1)) + EH1;
 		int atk = (rand() % (EACap2 - EACap1 + 1)) + EACap1;
+		int eID = game->getEArmy()->getId();
+		int aID = game->getAArmy()->getId();
+		int tj = game->getTime();
     case ES:
-		Esoldier* es = new Esoldier(0, 0, h, Upwr, atk);//id and tj need to be modified
+		Esoldier* es = new Esoldier(eID, tj, h, Upwr, atk);
 		return es;
 	case ET:
-		Tank* t = new Tank(0, 0, h, Upwr, atk);//id and tj need to be modified
+		Tank* t = new Tank(eID, tj, h, Upwr, atk);
 		return t;
 	case EG:
-		Gunnery* g = new Gunnery(0, 0, h, Upwr, atk);//id and tj need to be modified
+		Gunnery* g = new Gunnery(eID, tj, h, Upwr, atk);
 		return g;
 	case AS:
-		Asoldier* as = new Asoldier(0, 0, h, Upwr, atk);//id and tj need to be modified
+		Asoldier* as = new Asoldier(aID, tj, h, Upwr, atk);
 		return as;
 	case AM:
-		Monster* m = new Monster(0, 0, h, Upwr, atk);//id and tj need to be modified
+		Monster* m = new Monster(aID, tj, h, Upwr, atk);
 		return m;
 	case AD:
-		break;//waiting waleed
+		Drone* d = new Drone(aID, tj, h, Upwr, atk);
+		return d;
 	default:
 		break;
     }
@@ -37,7 +41,7 @@ ArmyUnit* randGen::createUnit(int type)
 
 ArmyUnit* randGen::generator()
 {
-
+	game->incrementTime();
 	srand(time(0));
 	int A = (rand() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb
 	if (A <= prob) {

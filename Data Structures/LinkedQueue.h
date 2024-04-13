@@ -201,24 +201,5 @@ LinkedQueue<T>::LinkedQueue(const LinkedQueue<T> & LQ)
 		NodePtr = NodePtr->getNext();
 	}	
 }
-template <typename t>
-class queue :protected LinkedQueue<t> {
-public:
-	t dequeue() {
-		if (LinkedQueue<t>::isEmpty())
-			return false;
-		t frntEntry;
-		Node<T>* nodeToDeletePtr = LinkedQueue<t>::frontPtr;
-		frntEntry = LinkedQueue<t>::frontPtr->getItem();
-		LinkedQueue<t>::frontPtr = LinkedQueue<t>::frontPtr->getNext();
-		// Queue is not empty; remove front
-		if (nodeToDeletePtr == LinkedQueue<t>::backPtr)	 // Special case: last node in the queue
-			LinkedQueue<t>::backPtr = nullptr;
 
-		// Free memory reserved for the dequeued node
-		delete nodeToDeletePtr;
-
-		return frntEntry;
-	}
-};
 #endif

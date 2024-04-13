@@ -1,5 +1,5 @@
 #pragma once
-#include "Army units/ArmyUnit.h"
+#include "ArmyUnit.h"
 class Asoldier : public ArmyUnit
 {
 public:

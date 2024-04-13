@@ -1,6 +1,7 @@
 #pragma once
-#include "Data Structures/Pqueue.h"
-class Esoldiers:protected queue<ArmyUnit*>
+#include "Data Structures/LinkedQueue.h"
+#include "Army units/ArmyUnit.h"
+class Esoldiers:protected LinkedQueue<ArmyUnit*>
 {
 private:
 	int count;
@@ -11,5 +12,6 @@ public:
 	ArmyUnit* pickEsoldiers();
 	void printEsoldiers();
 	int getCount();
+	~Esoldiers();
 };
 

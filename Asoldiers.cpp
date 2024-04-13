@@ -23,7 +23,20 @@ int Asoldiers::getCount()
 	return count;
 }
 
+Asoldiers::~Asoldiers()
+{
+	ArmyUnit* x;
+	while (dequeue(x)) {
+		if (x) delete x;
+	}
+}
+
 ArmyUnit* Asoldiers::pickAsoldiers()
 {
-	return dequeue();
+	if (!count)
+		return false;
+	count--;
+	ArmyUnit* as;
+	dequeue(as);
+	return as;
 }
