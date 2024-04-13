@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
-#include "Asoldiers.h"
-#include "Asoldier.h"
+#include"../Army units/Asoldier.h"
+#include"../Army units/Asoldiers.h"
 #include "Monsters.h"
 #include "Monster.h"
 #include "Drones.h"

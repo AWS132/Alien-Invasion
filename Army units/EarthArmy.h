@@ -1,10 +1,10 @@
 #pragma once
 #include <iostream>
-#include "Esoldiers.h"
+#include "../Army units/Esoldier.h"
+#include "../Army units/Esoldiers.h"
 #include "Tanks.h"
 #include "Gunnerys.h"
 #include "ArmyUnit.h"
-#include "Esoldier.h"
 #include "Tank.h"
 #include "Gunnery.h"
 using namespace std;

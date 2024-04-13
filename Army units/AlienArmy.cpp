@@ -1,5 +1,4 @@
 #include "AlienArmy.h"
-#include "Asoldiers.h"
 AlienArmy::AlienArmy() {
 	m = new Monsters;
 	as = new Asoldiers;

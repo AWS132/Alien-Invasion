@@ -1,8 +1,11 @@
 #include "GameClass.h"
 
-GameClass::GameClass()
+
+
+GameClass::GameClass(randGen* randGenerator)
 {
     crntTime = 0;
+    this->randGenerator = randGenerator;
 }
 
 void GameClass::incrementTime()

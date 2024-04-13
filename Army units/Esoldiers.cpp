@@ -12,7 +12,7 @@ Esoldiers::Esoldiers()
 //    return enqueue(Es);
 //}
 
-bool Esoldiers::addEsoldier(ArmyUnit* es)
+bool Esoldiers::addUnit(ArmyUnit* es)
 {
     count++;
     return enqueue(es);
@@ -20,7 +20,12 @@ bool Esoldiers::addEsoldier(ArmyUnit* es)
 
 ArmyUnit* Esoldiers::pickEsoldiers()
 {
-    return dequeue();
+    if (!count)
+        return nullptr;
+    count--;
+    ArmyUnit* es;
+    dequeue(es);
+    return es;
 }
 
 void Esoldiers::printEsoldiers()
@@ -35,5 +40,13 @@ void Esoldiers::printEsoldiers()
 int Esoldiers::getCount()
 {
     return count;
+}
+
+Esoldiers::~Esoldiers()
+{
+    ArmyUnit* x;
+    while (dequeue(x)) {
+        if (x) delete x;
+    }
 }
 

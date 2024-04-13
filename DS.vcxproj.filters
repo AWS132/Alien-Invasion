@@ -33,13 +33,43 @@
     <ClCompile Include="Army units\Gunnery.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameClass.cpp">
+    <ClCompile Include="Army units\AlienArmy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="randGen.cpp">
+    <ClCompile Include="Army units\Drone.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Esoldiers.cpp">
+    <ClCompile Include="Army units\EarthArmy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\Gunnerys.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\Monster.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\Tank.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\Asoldier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\Asoldiers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\Esoldier.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\Esoldiers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\GameClass.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\randGen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RANDGEN.CPP">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -83,13 +113,40 @@
     <ClInclude Include="Data Structures\Pqueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameClass.h">
+    <ClInclude Include="Army units\AlienArmy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="randGen.h">
+    <ClInclude Include="Army units\Drone.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Esoldiers.h">
+    <ClInclude Include="Army units\EarthArmy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\Gunnerys.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\Monster.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\Tank.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\Asoldier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\Asoldiers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\Esoldier.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\Esoldiers.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\GameClass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\randGen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

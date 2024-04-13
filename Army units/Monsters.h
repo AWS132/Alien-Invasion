@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+using namespace std;
 #include "../Army units/ArmyUnit.h"
 class Monsters 
 {
@@ -14,4 +15,5 @@ public:
 	int getCount();
 	ArmyUnit* pickMonster();
 	void printMonsters();
+	~Monsters();
 };
