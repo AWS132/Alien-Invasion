@@ -8,7 +8,8 @@
 #include "Tank.h"
 #include "Gunnery.h"
 using namespace std;
-class EarthArmy {
+class EarthArmy
+{
 private:
 	Esoldiers* es;
 	Tanks* t;
