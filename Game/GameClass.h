@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+class randGen;
 class GameClass
 {
 private:
@@ -13,7 +14,7 @@ private:
 	randGen* randGenerator;
 	int crntTime;
 public:
-	GameClass(randGen* randGenerator);
+	GameClass();
 	void incrementTime();
 	int getTime()const;
 	EarthArmy* getEArmy();

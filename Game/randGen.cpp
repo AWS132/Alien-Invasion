@@ -8,45 +8,51 @@
 ArmyUnit* randGen::createUnit(unitType type)
 {
 	//stack<ArmyUnit*> createdUnit;
-    switch (type) {
-		srand(time(0));
-		int Upwr = (rand() % (EUP2 - EUP1 + 1)) + EUP1;
-		int h = (rand() % (EH2 - EH1 + 1)) + EH1;
-		int atk = (rand() % (EACap2 - EACap1 + 1)) + EACap1;
-		int eID = game->getEArmy()->getId();
-		int aID = game->getAArmy()->getId();
-		int tj = game->getTime();
+	srand(time(0));
+	int Upwr = (rand() % (EUP2 - EUP1 + 1)) + EUP1;
+	int h = (rand() % (EH2 - EH1 + 1)) + EH1;
+	int atk = (rand() % (EACap2 - EACap1 + 1)) + EACap1;
+	int eID = game->getEArmy()->getId();
+	int aID = game->getAArmy()->getId();
+	int tj = game->getTime();
+	ArmyUnit* createdUnit=nullptr;
+    switch (type)
+	{
     case ES:
-		Esoldier* es = new Esoldier(eID, tj, h, Upwr, atk);
-		return es;
+		createdUnit = new Esoldier(eID, tj, h, Upwr, atk);
+	 break;
 	case ET:
-		Tank* t = new Tank(eID, tj, h, Upwr, atk);
-		return t;
+		createdUnit = new Tank(eID, tj, h, Upwr, atk);
+		 break;
 	case EG:
-		Gunnery* g = new Gunnery(eID, tj, h, Upwr, atk);
-		return g;
+		createdUnit = new Gunnery(eID, tj, h, Upwr, atk);
+		 break;
 	case AS:
-		Asoldier* as = new Asoldier(aID, tj, h, Upwr, atk);
-		return as;
+		createdUnit = new Asoldier(aID, tj, h, Upwr, atk);
+		 break;
 	case AM:
-		Monster* m = new Monster(aID, tj, h, Upwr, atk);
-		return m;
+		createdUnit = new Monster(aID, tj, h, Upwr, atk);
+		 break;
 	case AD:
-		Drone* d = new Drone(aID, tj, h, Upwr, atk);
-		return d;
+		createdUnit = new Drone(aID, tj, h, Upwr, atk);
+		 break;
 	default:
-		break;
+		createdUnit = nullptr;
+
     }
+	return createdUnit;
 }
 
 
 
-randGen::randGen(GameClass* game)
+randGen::randGen(GameClass*game)
 {
 	this->game = game;
+	setParameters(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 000, 0, 0);
+
 }
 
-ArmyUnit* randGen::generator()
+void randGen::generator()
 {
 	game->incrementTime();
 	srand(time(0));
@@ -70,12 +76,12 @@ ArmyUnit* randGen::generator()
 				game->getAArmy()->AddUnit(createUnit(AS));
 			}
 			else if (B <= ASpc + AMpc) {
-				game->getEArmy()->AddUnit(createUnit(AM));
+				game->getAArmy()->AddUnit(createUnit(AM));
 			}
-			game->getEArmy()->AddUnit(createUnit(AD));
+			game->getAArmy()->AddUnit(createUnit(AD));
 		}
 	}
-
+	
 }
 
 void randGen::setParameters(int N, int prob, int ESPer, int ETPer, int EGPer, int EUPstart, int EHstart, int EACapstart, int EUPend, int EHend, int EACapend,
@@ -83,10 +89,10 @@ void randGen::setParameters(int N, int prob, int ESPer, int ETPer, int EGPer, in
 {
 
 
-	ESpc = ESPer, ETPer = ETpc, EGPer = EGpc,	//setting Earths' %
-		EUP1 = EUPstart, EH1 = EHstart, EACap1 = EACapstart, EUP2 = EUPend, EH2 = EHend, EACap2 = EACapend;	//setting Earths' ranges
-	ASpc = ASPer, ADPer = ADpc, AMPer = AMpc,	//setting Aliens' %
-		AUP1 = AUPstart, AH1 = AHstart, AACap1 = EACapstart, AUP2 = AUPend, AH2 = AHend, AACap2 = AACapend;	//setting Aliens' ranges
+	ESpc = ESPer; ETPer = ETpc; EGPer = EGpc;	//setting Earths' %
+	EUP1 = EUPstart; EH1 = EHstart; EACap1 = EACapstart; EUP2 = EUPend; EH2 = EHend; EACap2 = EACapend;	//setting Earths' ranges
+	ASpc = ASPer; ADPer = ADpc, AMPer = AMpc;	//setting Aliens' %
+	AUP1 = AUPstart; AH1 = AHstart; AACap1 = EACapstart; AUP2 = AUPend; AH2 = AHend; AACap2 = AACapend;	//setting Aliens' ranges
 
 
 }

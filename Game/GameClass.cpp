@@ -2,10 +2,10 @@
 
 
 
-GameClass::GameClass(randGen* randGenerator)
+GameClass::GameClass()
 {
     crntTime = 0;
-    this->randGenerator = randGenerator;
+    this->randGenerator = nullptr;
 }
 
 void GameClass::incrementTime()
@@ -53,8 +53,7 @@ void GameClass::loadData()
         EHend = abs(EHend);     AHend = abs(AHend);
         EACapend = abs(EACapend);   AACapend = abs(AACapend);
     }
-
-
-	randGenerator->setParameters(N, prob, ESPer, ETPer, EGPer, EUPstart, EHstart, EACapstart, EUPend, EHend, EACapend,
+        this->randGenerator = new randGen(this);
+	    randGenerator->setParameters(N, prob, ESPer, ETPer, EGPer, EUPstart, EHstart, EACapstart, EUPend, EHend, EACapend,
 		ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend);
 }
