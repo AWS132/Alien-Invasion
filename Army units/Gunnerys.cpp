@@ -44,14 +44,14 @@ void Gunnerys::printGunnerys()
 
 Gunnerys::~Gunnerys()
 {
-	//Node<ArmyUnit*>* ptr1 = frontPtr;
-	//Node<ArmyUnit*>* ptr2 = frontPtr;
-	//while (ptr1)
-	//{
-	//	ptr2 = ptr1;
-	//	ptr1 = ptr1->getNext();
-	//	delete ptr2;
-	//}
+	Node<ArmyUnit*>* ptr1 = frontPtr;
+	Node<ArmyUnit*>* ptr2 = frontPtr;
+	while (ptr1)
+	{
+		ptr2 = ptr1;
+		ptr1 = ptr1->getNext();
+		delete ptr2->getItem();
+	}
 }
 
 //void Gunnerys::printGunnery()
