@@ -1,12 +1,12 @@
 #pragma once
-#include "Data Structures/Pqueue.h"
-class Asoldiers :protected queue<ArmyUnit*>
+#include "../Data Structures/LinkedQueue.h"
+class Asoldiers :protected LinkedQueue<ArmyUnit*>
 {
 private:
 	int count;
 public:
 	Asoldiers();
-	bool addAsoldier(ArmyUnit* as);
+	bool addUnit(ArmyUnit* as);
 	ArmyUnit* pickAsoldiers();
 	void printAsoldiers();
 	int getCount();

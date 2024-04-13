@@ -10,7 +10,9 @@ Drones::Drones()
 	count = 0;
 }
 
-bool Drones::AddDrone(ArmyUnit* D)
+
+
+bool Drones::addDrone(ArmyUnit* D)
 {
 	count++;
 	return enqueue(D);
@@ -40,6 +42,14 @@ void Drones::printDrones() const
 		temp = temp->getNext();
 		if (temp) cout << ", ";
 		else cout << "]\n";
+	}
+}
+
+Drones::~Drones()
+{
+	ArmyUnit* x;
+	while (dequeue(x)) {
+		if (x) delete x;
 	}
 }
 

@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Army units\AlienArmy.cpp" />
     <ClCompile Include="Army units\ArmyUnit.cpp" />
     <ClCompile Include="Army units\Drone.cpp" />
     <ClCompile Include="Army units\Drones.cpp" />
+    <ClCompile Include="Army units\EarthArmy.cpp" />
     <ClCompile Include="Army units\Gunnery.cpp" />
     <ClCompile Include="Army units\Gunnerys.cpp" />
     <ClCompile Include="Army units\Monster.cpp" />
@@ -37,9 +39,11 @@
     <ClCompile Include="randGen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Army units\AlienArmy.h" />
     <ClInclude Include="Army units\ArmyUnit.h" />
     <ClInclude Include="Army units\Drone.h" />
     <ClInclude Include="Army units\Drones.h" />
+    <ClInclude Include="Army units\EarthArmy.h" />
     <ClInclude Include="Army units\Gunnery.h" />
     <ClInclude Include="Army units\Gunnerys.h" />
     <ClInclude Include="Army units\Monster.h" />

@@ -7,6 +7,7 @@
 #include "Esoldier.h"
 #include "Tank.h"
 #include "Gunnery.h"
+using namespace std;
 class EarthArmy {
 private:
 	Esoldiers* es;
@@ -14,13 +15,7 @@ private:
 	Gunnerys* g;
 public:
 	EarthArmy();
-	void AddUnit(ArmyUnit* unit) {
-		if (dynamic_cast<Esoldier*>(unit))
-			es->addEsoldier(unit);
-		else if (dynamic_cast<Tank*>(unit))
-			t->addUnit(unit);
-		else if (dynamic_cast<Gunnery*>(unit))
-			g->addUnit(unit);
-	};//needs to be moved to .cpp file
+	void AddUnit(ArmyUnit* unit);
+	void PrintArmy();
 	~EarthArmy();
 };

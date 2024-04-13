@@ -1,13 +1,13 @@
 #pragma once
-#include "Data Structures/Pqueue.h"
-class Esoldiers:protected queue<ArmyUnit*>
+#include "../Data Structures/LinkedQueue.h"
+class Esoldiers:protected LinkedQueue<ArmyUnit*>
 {
 private:
 	int count;
 public:
 	Esoldiers();
 	//bool CreateEsoldiers(int id, int tj, int health, int power, int capacity);
-	bool addEsoldier(ArmyUnit* es);
+	bool addUnit(ArmyUnit* es);
 	ArmyUnit* pickEsoldiers();
 	void printEsoldiers();
 	int getCount();

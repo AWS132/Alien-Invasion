@@ -12,4 +12,5 @@ public:
 	bool pickDrones(ArmyUnit* D1, ArmyUnit*D2);
 	int getCount() const;
 	void printDrones() const;
+	~Drones();
 };
