@@ -13,8 +13,10 @@ private:
 	Asoldiers* as;
 	Monsters* m;
 	Drones* d;
+	int id;
 public:
 	AlienArmy();
+	int getId()const;
 	void AddUnit(ArmyUnit* unit);
 	void PrintArmy();
 	~AlienArmy();

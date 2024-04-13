@@ -13,8 +13,10 @@ private:
 	Esoldiers* es;
 	Tanks* t;
 	Gunnerys* g;
+	int id;
 public:
 	EarthArmy();
+	int getId()const;
 	void AddUnit(ArmyUnit* unit);
 	void PrintArmy();
 	~EarthArmy();
