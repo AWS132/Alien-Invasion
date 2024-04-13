@@ -2,6 +2,7 @@
 #include <iostream>
 #include "../Army units/ArmyUnit.h"
 #include "../Data Structures/Pqueue.h"
+using namespace std;
 class Gunnerys :public pQueue
 {
 private:
@@ -11,5 +12,6 @@ public:
 	bool addUnit(ArmyUnit* gn);
 	int getCount();
 	ArmyUnit* pickGunnery();
-	void printGunnery();
+	void printGunnerys();
+	~Gunnerys();
 };
