@@ -31,9 +31,13 @@ ArmyUnit* Esoldiers::pickEsoldiers()
 void Esoldiers::printEsoldiers()
 {
     Node<ArmyUnit*>* temp = frontPtr;
+    cout << count << " ES [";
+    if (!temp)cout << ']';
     while (temp != nullptr) {
         temp->getItem()->Print();
         temp = temp->getNext();
+        if (!temp)cout << ", ";
+        else cout << ']' << endl;
     }
 }
 

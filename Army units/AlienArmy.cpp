@@ -14,12 +14,21 @@ int AlienArmy::getId() const
 void AlienArmy::AddUnit(ArmyUnit* unit)
 {
 	id += 1;
-	if (dynamic_cast<Asoldier*>(unit))
+	unitType type = unit->getType();
+	switch (type)
+	{
+	case AS:
 		as->addUnit(unit);
-	else if (dynamic_cast<Monster*>(unit))
+		break;
+	case AM:
 		m->addUnit(unit);
-	else if (dynamic_cast<Drone*>(unit))
+		break;
+	case AD:
 		d->addUnit(unit);
+		break;
+	default:
+		break;
+	}
 }
 
 void AlienArmy::PrintArmy()

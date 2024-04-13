@@ -39,6 +39,11 @@ ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int cap
 	
 }
 
+unitType ArmyUnit::getType()
+{
+	return type;
+}
+
 bool ArmyUnit::DecHlth(int value)
 {
 	hlth -= value;

@@ -21,6 +21,7 @@ public:
 	int getHealth();
 	ArmyUnit(int id, unitType Type, int tj, int health, int power, int capacity);// TO ADD: pointer to game class
 	//virtual bool addUnit(ArmyUnit* unit) = 0;
+	unitType getType();
 	virtual void Attack(ArmyUnit* opponent)=0; 
 	virtual bool DecHlth(int value);// Decreases the Health by a certain "value" returns false if killed
 	virtual void Print() const;

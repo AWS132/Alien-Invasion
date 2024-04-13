@@ -14,13 +14,21 @@ int EarthArmy::getId() const
 
 void EarthArmy::AddUnit(ArmyUnit* unit)
 {
-	id += 1;
-	if (dynamic_cast<Esoldier*>(unit))
+	unitType type = unit->getType();
+	switch (type)
+	{
+	case ES:
 		es->addUnit(unit);
-	else if (dynamic_cast<Tank*>(unit))
+		break;
+	case ET:
 		t->addUnit(unit);
-	else if (dynamic_cast<Gunnery*>(unit))
+		break;
+	case EG:
 		g->addUnit(unit);
+		break;
+	default:
+		break;
+	}
 }
 
 void EarthArmy::PrintArmy()
