@@ -30,6 +30,7 @@
     <ClCompile Include="Army units\Esoldiers.cpp" />
     <ClCompile Include="Army units\Gunnery.cpp" />
     <ClCompile Include="Army units\Gunnerys.cpp" />
+    <ClCompile Include="Army units\KilledList.cpp" />
     <ClCompile Include="Army units\Monster.cpp" />
     <ClCompile Include="Army units\Monsters.cpp" />
     <ClCompile Include="Army units\Tank.cpp" />
@@ -51,6 +52,7 @@
     <ClInclude Include="Army units\Esoldiers.h" />
     <ClInclude Include="Army units\Gunnery.h" />
     <ClInclude Include="Army units\Gunnerys.h" />
+    <ClInclude Include="Army units\KilledList.h" />
     <ClInclude Include="Army units\Monster.h" />
     <ClInclude Include="Army units\Monsters.h" />
     <ClInclude Include="Army units\Tank.h" />
