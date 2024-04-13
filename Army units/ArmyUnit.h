@@ -23,5 +23,7 @@ public:
 	virtual void Attack(ArmyUnit* opponent)=0; 
 	virtual bool DecHlth(int value);// Decreases the Health by a certain "value" returns false if killed
 	virtual void Print() const;
+	virtual void Output() const;
+
 };
 

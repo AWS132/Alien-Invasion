@@ -1,15 +1,10 @@
 #pragma once
 #include <iostream>
-#include "../Data Structures/DLinkedQueue.h"
 #include "../Army units/ArmyUnit.h"
 
-class Drones :protected DLinkedQueue<ArmyUnit*>
+class Drone :protected ArmyUnit
 {
-	int count;
 public:
-	Drones();
-	bool AddDrone(ArmyUnit* D);
-	bool pickDrones(ArmyUnit* D1, ArmyUnit*D2);
-	int getCount() const;
-	void printDrones() const;
+	Drone(int id, int tj, int health, int power, int capacity);
+	void Attack(ArmyUnit* opponent);
 };

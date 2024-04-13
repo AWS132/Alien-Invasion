@@ -47,7 +47,12 @@ bool ArmyUnit::DecHlth(int value)
 	return true;
 }
 
-void ArmyUnit::Print() const //prints the unit's info to the console
+void ArmyUnit::Print() const
+{
+	cout << ID;
+}
+
+void ArmyUnit::Output() const //prints the unit's info to the console
 {
 	switch (type)
 	{
@@ -72,3 +77,4 @@ void ArmyUnit::Print() const //prints the unit's info to the console
 	cout <<Td<< setw(6)<<ID<<setw(6)<<Tj<< setw(6) <<Ta-Tj <<setw(6)<<Td-Ta<<setw(6)<<Td-Tj<<endl;
 
 }
+
