@@ -12,7 +12,7 @@ Drones::Drones()
 
 
 
-bool Drones::addDrone(ArmyUnit* D)
+bool Drones::addUnit(ArmyUnit* D)
 {
 	count++;
 	return enqueue(D);

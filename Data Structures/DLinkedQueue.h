@@ -224,8 +224,6 @@ removes all DNodes from the queue by DLinkedQueueuing them
 template <typename T>
 DLinkedQueue<T>::~DLinkedQueue()
 {
-	
-
 	//Free all DNodes in the queue
 	T temp;
 	while(dequeue(temp));
