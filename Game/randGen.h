@@ -1,9 +1,9 @@
 #pragma once
-#include "../Game/GameClass.h"
 #include "../Army units/ArmyUnit.h"
 #include "../Army units/EarthArmy.h"
 #include "../Army units/AlienArmy.h"
-class GameClass;
+#include "../Game/GameClass.h"
+class ArmyUnit;
 class randGen
 {
 private: 
@@ -13,6 +13,9 @@ private:
 		ASpc, ADpc, AMpc, AUP1, AH1, AACap1, AUP2, AH2, AACap2,	//alien attack cap 
 		N, prob;
 public:
+	enum unitType {
+		ES, ET, EG, AS, AM, AD
+	};
 	ArmyUnit* createUnit(unitType type);	//utility function
 	randGen(GameClass*game);
 	void generator();

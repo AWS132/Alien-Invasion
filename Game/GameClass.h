@@ -6,6 +6,8 @@
 #include <fstream>
 using namespace std;
 class randGen;
+class EarthArmy;
+class AlienArmy;
 class GameClass
 {
 private:

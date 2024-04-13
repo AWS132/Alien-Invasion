@@ -19,22 +19,22 @@ ArmyUnit* randGen::createUnit(unitType type)
     switch (type)
 	{
     case ES:
-		createdUnit = new Esoldier(eID, tj, h, Upwr, atk);
+		createdUnit = new Esoldier(eID, tj, h, Upwr, atk,game);
 	 break;
 	case ET:
-		createdUnit = new Tank(eID, tj, h, Upwr, atk);
+		createdUnit = new Tank(eID, tj, h, Upwr, atk,game);
 		 break;
 	case EG:
-		createdUnit = new Gunnery(eID, tj, h, Upwr, atk);
+		createdUnit = new Gunnery(eID, tj, h, Upwr, atk,game);
 		 break;
 	case AS:
-		createdUnit = new Asoldier(aID, tj, h, Upwr, atk);
+		createdUnit = new Asoldier(aID, tj, h, Upwr, atk,game);
 		 break;
 	case AM:
-		createdUnit = new Monster(aID, tj, h, Upwr, atk);
+		createdUnit = new Monster(aID, tj, h, Upwr, atk,game);
 		 break;
 	case AD:
-		createdUnit = new Drone(aID, tj, h, Upwr, atk);
+		createdUnit = new Drone(aID, tj, h, Upwr, atk,game);
 		 break;
 	default:
 		createdUnit = nullptr;

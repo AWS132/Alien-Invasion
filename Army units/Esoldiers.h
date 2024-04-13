@@ -1,6 +1,7 @@
 #pragma once
 #include "../Data Structures/LinkedQueue.h"
 #include "../Army units/ArmyUnit.h"
+class ArmyUnit;
 class Esoldiers:protected LinkedQueue<ArmyUnit*>
 {
 private:

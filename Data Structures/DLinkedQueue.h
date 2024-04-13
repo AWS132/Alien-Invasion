@@ -1,11 +1,4 @@
 
-/*
-This is a program that implements the DLinkedQueue abstract data type using a linked list.
-The queue is implemented as a chain of linked DNodes that has two pointers, 
-a frontPtr pointer for the front of the queue and a backPtr pointer for the back of the queue.
-*/
-
-
 #ifndef D_LINKED_QUEUE_
 #define D_LINKED_QUEUE_
 

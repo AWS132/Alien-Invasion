@@ -2,13 +2,16 @@
 #include <iostream>
 #include"../Army units/Asoldier.h"
 #include"../Army units/Asoldiers.h"
-#include "Monsters.h"
-#include "Monster.h"
-#include "Drones.h"
-#include "Drone.h"
-#include "ArmyUnit.h"
-//#include "Drone.h"
-class AlienArmy {
+#include "../Army units/Monsters.h"
+#include "../Army units/Monster.h"
+#include "../Army units/Drones.h"
+#include "../Army units/Drone.h"
+#include "../Army units/ArmyUnit.h"
+class Asoldiers;
+class Monsters;
+class Drones;
+class AlienArmy 
+{
 private:
 	Asoldiers* as;
 	Monsters* m;

@@ -5,7 +5,7 @@
 
 using namespace std;
 
-Drone::Drone(int id, int tj, int health, int power, int capacity): ArmyUnit(id,AD,tj,health,power,capacity)
+Drone::Drone(int id, int tj, int health, int power, int capacity, GameClass* game): ArmyUnit(id,AD,tj,health,power,capacity,game)
 {
 }
 

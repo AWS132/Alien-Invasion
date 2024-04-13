@@ -1,7 +1,5 @@
 #include "GameClass.h"
 
-
-
 GameClass::GameClass()
 {
     crntTime = 0;
