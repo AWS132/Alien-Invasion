@@ -21,12 +21,15 @@
   <ItemGroup>
     <ClCompile Include="Army units\ArmyUnit.cpp" />
     <ClCompile Include="Army units\Drones.cpp" />
-    <ClCompile Include="Army units\Gunnery .cpp" />
+    <ClCompile Include="Army units\Gunnery.cpp" />
     <ClCompile Include="Army units\Gunnerys.cpp" />
     <ClCompile Include="Army units\Monster.cpp" />
     <ClCompile Include="Army units\Monsters.cpp" />
     <ClCompile Include="Army units\Tank.cpp" />
     <ClCompile Include="Army units\Tanks.cpp" />
+    <ClCompile Include="Asoldier.cpp" />
+    <ClCompile Include="Asoldiers.cpp" />
+    <ClCompile Include="Esoldier.cpp" />
     <ClCompile Include="Esoldiers.cpp" />
     <ClCompile Include="GameClass.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -41,6 +44,8 @@
     <ClInclude Include="Army units\Monsters.h" />
     <ClInclude Include="Army units\Tank.h" />
     <ClInclude Include="Army units\Tanks.h" />
+    <ClInclude Include="Asoldier.h" />
+    <ClInclude Include="Asoldiers.h" />
     <ClInclude Include="Data Structures\ArrayStack.h" />
     <ClInclude Include="Data Structures\DLinkedQueue.h" />
     <ClInclude Include="Data Structures\DNode.h" />
@@ -49,6 +54,7 @@
     <ClInclude Include="Data Structures\Pqueue.h" />
     <ClInclude Include="Data Structures\QueueADT.h" />
     <ClInclude Include="Data Structures\StackADT.h" />
+    <ClInclude Include="Esoldier.h" />
     <ClInclude Include="Esoldiers.h" />
     <ClInclude Include="GameClass.h" />
     <ClInclude Include="randGen.h" />

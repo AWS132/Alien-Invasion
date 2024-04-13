@@ -10,9 +10,15 @@ Drones::Drones()
 	count = 0;
 }
 
-bool Drones::CreatDrone(int id, int tj, int health, int power, int capacity)
+//bool Drones::CreatDrone(int id, int tj, int health, int power, int capacity)
+//{
+//	ArmyUnit* D= new ArmyUnit (id, AD, tj, health, power, capacity);
+//	count++;
+//	return enqueue(D);
+//}
+
+bool Drones::addUnit(ArmyUnit* D)
 {
-	ArmyUnit* D= new ArmyUnit (id, AD, tj, health, power, capacity);
 	count++;
 	return enqueue(D);
 }

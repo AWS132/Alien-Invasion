@@ -7,7 +7,7 @@ private:
 public:
 	Esoldiers();
 	//bool CreateEsoldiers(int id, int tj, int health, int power, int capacity);
-	bool addUnit(ArmyUnit* es);
+	bool addEsoldier(ArmyUnit* es);
 	ArmyUnit* pickEsoldiers();
 	void printEsoldiers();
 	int getCount();
