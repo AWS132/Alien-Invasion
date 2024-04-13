@@ -1,6 +1,4 @@
 #include "Gunnerys.h"
-
-
 Gunnerys::Gunnerys()
 {
 	counter = 0;
@@ -29,15 +27,41 @@ ArmyUnit* Gunnerys::pickGunnery()
 	counter--;
 	return dequeue();
 }
-
-void Gunnerys::printGunnery()
+void Gunnerys::printGunnerys()
 {
 	Node<ArmyUnit*>* ptr = frontPtr;
-	while (ptr)
+
+	cout << counter << " EG [";
+	while (ptr->getNext())
 	{
 		ptr->getItem()->Print();
 		ptr = ptr->getNext();
+		cout << ", ";
 	}
+	ptr->getItem()->Print();
+	cout << "]\n";
 }
+
+Gunnerys::~Gunnerys()
+{
+	//Node<ArmyUnit*>* ptr1 = frontPtr;
+	//Node<ArmyUnit*>* ptr2 = frontPtr;
+	//while (ptr1)
+	//{
+	//	ptr2 = ptr1;
+	//	ptr1 = ptr1->getNext();
+	//	delete ptr2;
+	//}
+}
+
+//void Gunnerys::printGunnery()
+//{
+//	Node<ArmyUnit*>* ptr = frontPtr;
+//	while (ptr)
+//	{
+//		ptr->getItem()->Print();
+//		ptr = ptr->getNext();
+//	}
+//}
 
 

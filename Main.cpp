@@ -19,4 +19,25 @@ int main()
 	a.addUnit(d);
 	a.addUnit(e);
 	a.printMonsters();
+	Tanks tn;
+	Tank *b2=new Tank(150, 20, 30, 40, 50);
+	Tank *c2=new Tank(1060, 20, 30, 40, 50);
+	Tank *d2=new Tank(140, 20, 30, 40, 50);
+	Tank *e2=new Tank(1490, 20, 30, 40, 50);
+	tn.addUnit(b2);
+	tn.addUnit(c2);
+	tn.addUnit(d2);
+	tn.addUnit(e2);
+	tn.printTanks();
+
+	Gunnerys gn;
+	Gunnery* b3 = new Gunnery(1500, 20, 30, 40, 50);
+	Gunnery* c3 = new Gunnery(10600, 20, 30, 40, 50);
+	Gunnery* d3 = new Gunnery(1402, 20, 30, 40, 50);
+	Gunnery* e3 = new Gunnery(149055, 20, 30, 40, 50);
+	gn.addUnit(b3);
+	gn.addUnit(c3);
+	gn.addUnit(d3);
+	gn.addUnit(e3);
+	gn.printGunnerys();
 }

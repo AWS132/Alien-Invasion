@@ -48,12 +48,13 @@ ArmyUnit* Monsters::pickMonster()
 void Monsters::printMonsters()
 {
 	cout << counter<<" AM [";
-	for (int i = 0; i < counter; i++)
+	for (int i = 0; i < counter-1; i++)
 	{
 		monsters[i]->Print();
 		cout<< ", ";
 	}
-	cout << " ]\n";
+	monsters[counter - 1]->Print();
+	cout << "]\n";
 }
 Monsters::~Monsters()
 {

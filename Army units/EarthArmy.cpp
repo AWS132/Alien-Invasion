@@ -28,7 +28,7 @@ void EarthArmy::PrintArmy()
 	cout << "=============== Earth Army Alive Units===============\n";
 	es->printEsoldiers();
 	t->printTanks();
-	g->printGunnery();
+	g->printGunnerys();
 
 }
 
