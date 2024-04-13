@@ -72,6 +72,9 @@
     <ClCompile Include="RANDGEN.CPP">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Army units\KilledList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Army units\ArmyUnit.h">
@@ -147,6 +150,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\randGen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\KilledList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
