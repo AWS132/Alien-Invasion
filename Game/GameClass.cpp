@@ -10,7 +10,7 @@ GameClass::GameClass()
 
 void GameClass::incrementTime()
 {
-    PrintGame();
+   // PrintGame();
     crntTime++;
 }
 
@@ -31,7 +31,9 @@ AlienArmy* GameClass::getAArmy()
 
 void GameClass::initializer()//needs to be modified
 {
+    if(crntTime==0)
 	loadData();
+
 	randGenerator->generator();
 }
 
@@ -91,7 +93,7 @@ void GameClass::PrintGame() const
     EArmy->PrintArmy();
     AArmy->PrintArmy();
     klst->printKilled();
-    tmpLst->printTmpList();
+//    tmpLst->printTmpList();
     cout << "==============================================================================\n\n";
 }
 

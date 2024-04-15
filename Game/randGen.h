@@ -3,6 +3,8 @@
 #include "../Army units/ArmyUnit.h"
 #include "../Army units/EarthArmy.h"
 #include "../Army units/AlienArmy.h"
+#include <random>
+#include <time.h>
 class GameClass;
 class randGen
 {

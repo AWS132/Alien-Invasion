@@ -35,8 +35,9 @@ ArmyUnit* Monsters::pickMonster()
 {
 	if (counter>0)
 	{
-		srand(time(0));
-		int randomdx = floor((rand() * 1.0 / RAND_MAX) * counter);
+		random_device rd;
+		mt19937 gen(rd());
+		int randomdx = (gen() % (counter-1 - 0 + 1)) + 0;	//(rand() % (ub - lb + 1)) + lb
 		ArmyUnit* target = monsters[randomdx];
 		monsters[randomdx] = monsters[--counter];
 		return target;

@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <random>
+#include <time.h>
 using namespace std;
 #include "../Army units/ArmyUnit.h"
 class Monsters 

@@ -53,12 +53,17 @@ randGen::randGen(GameClass*game)
 void randGen::generator()
 {
 	game->incrementTime();
-	srand(time(0));
-	int A = (rand() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb
-	if (A <= prob) {
+	random_device rd;
+	mt19937 gen(rd());
+	
+	int A = (gen() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb
+	cout << A<<endl;
+	if (A <= prob)
+	{
 		//for earth
-		for (int i{};i < N;i++) {
-			int B = (rand() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb			
+		for (int i{};i < N;i++) 
+		{
+			int B = (gen() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb			
 			if (B <= ESpc) {
 				game->getEArmy()->AddUnit(createUnit(ES));
 			}
@@ -69,7 +74,7 @@ void randGen::generator()
 		}
 		//for aliens
 		for (int i{};i < N;i++) {
-			int B = (rand() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb			
+			int B = (gen() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb			
 			if (B <= ASpc) {
 				game->getAArmy()->AddUnit(createUnit(AS));
 			}
@@ -85,7 +90,7 @@ void randGen::generator()
 void randGen::setParameters(int N, int prob, int ESPer, int ETPer, int EGPer, int EUPstart, int EHstart, int EACapstart, int EUPend, int EHend, int EACapend,
 	int ASPer, int ADPer, int AMPer, int AUPstart, int AHstart, int AACapstart, int AUPend, int AHend, int AACapend)
 {
-
+	this->N = N;
 	this->prob = prob;
 	this->ESpc = ESPer; this->ETpc = ETPer; this->EGpc = EGPer;	//setting Earths' %
 	EUP1 = EUPstart; EH1 = EHstart; EACap1 = EACapstart; EUP2 = EUPend; EH2 = EHend; EACap2 = EACapend;	//setting Earths' ranges
