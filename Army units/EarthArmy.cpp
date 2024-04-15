@@ -62,6 +62,7 @@ ArmyUnit* EarthArmy::pickEUnit(unitType u)
 	return g->pickGunnery();
 		break;
 	default:
+		return nullptr;
 		break;
 	}
 }

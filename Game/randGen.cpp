@@ -8,10 +8,11 @@
 ArmyUnit* randGen::createUnit(unitType type)
 {
 	//stack<ArmyUnit*> createdUnit;
-	srand(time(0));
-	int Upwr = (rand() % (EUP2 - EUP1 + 1)) + EUP1;
-	int h = (rand() % (EH2 - EH1 + 1)) + EH1;
-	int atk = (rand() % (EACap2 - EACap1 + 1)) + EACap1;
+	random_device rd;
+	mt19937 gen(rd());
+	int Upwr = (gen() % (EUP2 - EUP1 + 1)) + EUP1;
+	int h = (gen() % (EH2 - EH1 + 1)) + EH1;
+	int atk = (gen() % (EACap2 - EACap1 + 1)) + EACap1;
 	int eID = game->getEArmy()->getId();
 	int aID = game->getAArmy()->getId();
 	int tj = game->getTime();
@@ -56,31 +57,38 @@ void randGen::generator()
 	random_device rd;
 	mt19937 gen(rd());
 	
-	int A = (gen() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb
-	cout << A<<endl;
+	int A = (gen() % (100 )) + 1;	//(rand() % (ub - lb + 1)) + lb
+	
 	if (A <= prob)
 	{
 		//for earth
+		float  S=N*ESpc/100.0, T= N * ETpc / 100.0, G = N * EGpc / 100.0;
+		if (S / 1 == 0) S = ceil(S);
+		if (T / 1 == 0) T = ceil(T);
+		if (G / 1 == 0) G = ceil(G);
 		for (int i{};i < N;i++) 
-		{
-			int B = (gen() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb			
-			if (B <= ESpc) {
-				game->getEArmy()->AddUnit(createUnit(ES));
-			}
-			else if (B <= ESpc + ETpc) {
+		{			
+			if(i<S)
+				game->getEArmy()->AddUnit(createUnit(ES));	
+			else if(i<S+T)
 				game->getEArmy()->AddUnit(createUnit(ET));
-			}else
+			else	
 				game->getEArmy()->AddUnit(createUnit(EG));
 		}
 		//for aliens
+		float So = N * ASpc / 100.0, M = N * AMpc / 100.0, D = N * ADpc / 100;
+		if (So / 1 == 0) So = ceil(So);
+		if (M / 1 == 0) M = ceil(M);
+		if (D / 1 == 0) D = ceil(D);
 		for (int i{};i < N;i++) {
-			int B = (gen() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb			
-			if (B <= ASpc) {
+					
+			if (i < So) {
 				game->getAArmy()->AddUnit(createUnit(AS));
 			}
-			else if (B <= ASpc + AMpc) {
+			else if (i<So+M) {
 				game->getAArmy()->AddUnit(createUnit(AM));
 			}
+			else
 			game->getAArmy()->AddUnit(createUnit(AD));
 		}
 	}

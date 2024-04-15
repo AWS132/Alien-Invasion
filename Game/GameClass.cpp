@@ -10,7 +10,7 @@ GameClass::GameClass()
 
 void GameClass::incrementTime()
 {
-   // PrintGame();
+    PrintGame();
     crntTime++;
 }
 
