@@ -5,7 +5,7 @@ tmpList::tmpList()
     count = 0;
 }
 
-bool tmpList::addUnit(ArmyUnit* Unit)
+bool tmpList::addUnit(ArmyUnit*& Unit)
 {
     count++;
     return enqueue(Unit);

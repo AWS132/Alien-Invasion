@@ -9,7 +9,7 @@ class Drones :protected DLinkedQueue<ArmyUnit*>
 public:
 	Drones();
 	bool addUnit(ArmyUnit* D);
-	bool pickDrones(ArmyUnit* D1, ArmyUnit*D2);
+	bool pickDrones(ArmyUnit*&D1, ArmyUnit*&D2);
 	int getCount() const;
 	void printDrones() const;
 	~Drones();

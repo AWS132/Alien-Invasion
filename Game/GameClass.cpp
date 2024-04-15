@@ -6,11 +6,12 @@ GameClass::GameClass()
     this->EArmy = new EarthArmy();
     this->randGenerator = new randGen(this);
     this->klst = new KilledList();
+    this->tmpLst = new tmpList();
 }
 
 void GameClass::incrementTime()
 {
-   // PrintGame();
+    PrintGame();
     crntTime++;
 }
 
@@ -60,7 +61,7 @@ void GameClass::loadData()
 		ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend);
 }
 
-ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit* d1 = nullptr, ArmyUnit* d2=nullptr)
+ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2)
 {
     switch (unit)
     {
@@ -82,7 +83,7 @@ ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit* d1 = nullptr, ArmyUnit* d2
 }
 
 
-bool GameClass::AddToKilledList(ArmyUnit* unit)
+bool GameClass::AddToKilledList(ArmyUnit*& unit)
 {
     return klst->addUnit(unit);
 }
@@ -93,26 +94,29 @@ void GameClass::PrintGame() const
     EArmy->PrintArmy();
     AArmy->PrintArmy();
     klst->printKilled();
-//    tmpLst->printTmpList();
+    tmpLst->printTmpList();
     cout << "==============================================================================\n\n";
 }
 
-void GameClass::AddUnit(ArmyUnit* u1)
+void GameClass::AddUnit(ArmyUnit*& u1)
 {
-    switch (u1->getType())
+    if(u1)
     {
-    case ES:
-    case ET:
-    case EG:
-        EArmy->AddUnit(u1); break;
-    case AS:
-    case AM:
-    case AD:
-        AArmy->AddUnit(u1); break;
+        switch (u1->getType())
+        {
+        case ES:
+        case ET:
+        case EG:
+            EArmy->AddUnit(u1); break;
+        case AS:
+        case AM:
+        case AD:
+            AArmy->AddUnit(u1); break;
+        }
     }
 }
 
-bool GameClass::AddtoTmpList(ArmyUnit* unt)
+bool GameClass::AddtoTmpList(ArmyUnit*& unt)
 {
     return tmpLst->addUnit(unt);
 }

@@ -24,7 +24,9 @@ int Gunnerys::getCount()
 
 ArmyUnit* Gunnerys::pickGunnery()
 {
+	if(counter>0){
 	counter--;
+	}
 	return dequeue();
 }
 void Gunnerys::printGunnerys()

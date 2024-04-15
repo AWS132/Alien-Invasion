@@ -18,10 +18,11 @@ bool Drones::addUnit(ArmyUnit* D)
 	return enqueue(D);
 }
 
-bool Drones::pickDrones(ArmyUnit* D1, ArmyUnit* D2)
+bool Drones::pickDrones(ArmyUnit*&D1, ArmyUnit*&D2)
 {
 	if(count<2)
 	return false;
+	if(count>2)
 	count--;
 	dequeue(D2);
 	return pop(D1);

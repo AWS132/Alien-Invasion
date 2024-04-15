@@ -8,10 +8,11 @@
 ArmyUnit* randGen::createUnit(unitType type)
 {
 	//stack<ArmyUnit*> createdUnit;
-	srand(time(0));
-	int Upwr = (rand() % (EUP2 - EUP1 + 1)) + EUP1;
-	int h = (rand() % (EH2 - EH1 + 1)) + EH1;
-	int atk = (rand() % (EACap2 - EACap1 + 1)) + EACap1;
+	srand(time(0));	random_device rd;
+	mt19937 gen(rd());
+	int Upwr = (gen() % (EUP2 - EUP1 + 1)) + EUP1;
+	int h = (gen() % (EH2 - EH1 + 1)) + EH1;
+	int atk = (gen() % (EACap2 - EACap1 + 1)) + EACap1;
 	int eID = game->getEArmy()->getId();
 	int aID = game->getAArmy()->getId();
 	int tj = game->getTime();
@@ -55,9 +56,7 @@ void randGen::generator()
 	game->incrementTime();
 	random_device rd;
 	mt19937 gen(rd());
-	
 	int A = (gen() % (100 - 1 + 1)) + 1;	//(rand() % (ub - lb + 1)) + lb
-	cout << A<<endl;
 	if (A <= prob)
 	{
 		//for earth

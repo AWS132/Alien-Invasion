@@ -18,19 +18,19 @@ int KilledList::getCount() const
 
 void KilledList::printKilled()
 {
-   Node< ArmyUnit*>* temp= frontPtr;
+   Node< ArmyUnit*>* ptr= frontPtr;
    cout << "============== Killed/Destructed Units ===============\n";
-   cout << count << " units [";
-   if (temp==nullptr)
-   {
-       cout << "]\n";
-   }
-   while (temp&&temp->getItem()) {
-       temp->getItem()->Print();
-       if (!(temp->getNext()))cout << "]\n";
-       else cout << ", ";
-       temp = temp->getNext();
-   }
+	   cout << count << " units [";
+	   while (ptr and ptr->getNext())
+	   {
+		   ptr->getItem()->Print();
+		   ptr = ptr->getNext();
+		   cout << ", ";
+	   }
+	   if (ptr)
+		   ptr->getItem()->Print();
+	   cout << "]\n";;
+ 
 }
 
 KilledList::~KilledList()

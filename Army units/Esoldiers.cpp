@@ -22,6 +22,7 @@ ArmyUnit* Esoldiers::pickEsoldiers()
 {
     if (!count)
         return nullptr;
+    if(count>0)
     count--;
     ArmyUnit* es;
     dequeue(es);
