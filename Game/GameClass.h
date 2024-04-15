@@ -26,5 +26,6 @@ public:
 	ArmyUnit* PickUnit(unitType unit, ArmyUnit* d1, ArmyUnit* d2);
 	void insert(ArmyUnit* unt);
 	bool AddToKilledList(ArmyUnit* unit);
+	void PrintGame()const;
 };
 

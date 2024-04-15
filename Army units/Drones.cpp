@@ -36,7 +36,7 @@ void Drones::printDrones() const
 {
 	DNode<ArmyUnit*> * temp = frontPtr;
 	cout << count<<" ED [";
-	if (!temp) cout << "]";
+	if (!temp) cout << "]\n";
 	while (temp!=nullptr) {
 		temp->getItem()->Print();
 		temp = temp->getNext();

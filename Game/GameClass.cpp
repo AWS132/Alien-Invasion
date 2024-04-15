@@ -10,6 +10,7 @@ GameClass::GameClass()
 
 void GameClass::incrementTime()
 {
+    PrintGame();
     crntTime++;
 }
 
@@ -97,6 +98,15 @@ void GameClass::insert(ArmyUnit* unt)
 bool GameClass::AddToKilledList(ArmyUnit* unit)
 {
     return klst->addUnit(unit);
+}
+
+void GameClass::PrintGame() const
+{
+    cout << "Current time step: " << this->crntTime<<endl;
+    EArmy->PrintArmy();
+    AArmy->PrintArmy();
+    klst->printKilled();
+    cout << "==============================================================================\n\n";
 }
 
 
