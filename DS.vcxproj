@@ -35,6 +35,7 @@
     <ClCompile Include="Army units\Monsters.cpp" />
     <ClCompile Include="Army units\Tank.cpp" />
     <ClCompile Include="Army units\Tanks.cpp" />
+    <ClCompile Include="Army units\tmpList.cpp" />
     <ClCompile Include="Game\GameClass.cpp" />
     <ClCompile Include="Game\randGen.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -57,6 +58,7 @@
     <ClInclude Include="Army units\Monsters.h" />
     <ClInclude Include="Army units\Tank.h" />
     <ClInclude Include="Army units\Tanks.h" />
+    <ClInclude Include="Army units\tmpList.h" />
     <ClInclude Include="Data Structures\ArrayStack.h" />
     <ClInclude Include="Data Structures\DLinkedQueue.h" />
     <ClInclude Include="Data Structures\DNode.h" />

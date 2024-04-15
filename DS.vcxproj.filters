@@ -75,6 +75,9 @@
     <ClCompile Include="Army units\KilledList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Army units\tmpList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Army units\ArmyUnit.h">
@@ -153,6 +156,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Army units\KilledList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\tmpList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

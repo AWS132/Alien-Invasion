@@ -79,21 +79,6 @@ ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit* d1 = nullptr, ArmyUnit* d2
     }
 }
 
-void GameClass::insert(ArmyUnit* unt)
-{
-    switch (unt->getType())
-    {
-    case ES:
-    case ET:
-    case EG:
-       EArmy->AddUnit(unt); break;
-    case AS:
-    case AM:
-    case AD:
-         AArmy->AddUnit(unt); break;
-
-    }
-}
 
 bool GameClass::AddToKilledList(ArmyUnit* unit)
 {
@@ -106,7 +91,33 @@ void GameClass::PrintGame() const
     EArmy->PrintArmy();
     AArmy->PrintArmy();
     klst->printKilled();
+    tmpLst->printTmpList();
     cout << "==============================================================================\n\n";
+}
+
+void GameClass::AddUnit(ArmyUnit* u1)
+{
+    switch (u1->getType())
+    {
+    case ES:
+    case ET:
+    case EG:
+        EArmy->AddUnit(u1); break;
+    case AS:
+    case AM:
+    case AD:
+        AArmy->AddUnit(u1); break;
+    }
+}
+
+bool GameClass::AddtoTmpList(ArmyUnit* unt)
+{
+    return tmpLst->addUnit(unt);
+}
+
+ArmyUnit* GameClass::pickFromTmpList()
+{
+    return tmpLst->PickUnit();
 }
 
 

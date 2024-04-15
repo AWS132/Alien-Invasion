@@ -21,11 +21,11 @@ void KilledList::printKilled()
    Node< ArmyUnit*>* temp= frontPtr;
    cout << "============== Killed/Destructed Units ===============\n";
    cout << count << " units [";
-   if (!temp)
+   if (temp==nullptr)
    {
        cout << "]\n";
    }
-   while (temp) {
+   while (temp&&temp->getItem()) {
        temp->getItem()->Print();
        if (!(temp->getNext()))cout << "]\n";
        else cout << ", ";
