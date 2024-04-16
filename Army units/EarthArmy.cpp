@@ -14,6 +14,7 @@ int EarthArmy::getId() const
 
 void EarthArmy::AddUnit(ArmyUnit* unit)
 {
+	 
 	unitType type = unit->getType();
 	id += 1;
 	switch (type)
@@ -29,6 +30,7 @@ void EarthArmy::AddUnit(ArmyUnit* unit)
 		break;
 	default:
 		break;
+	
 	}
 }
 

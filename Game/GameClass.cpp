@@ -61,7 +61,7 @@ void GameClass::loadData()
 		ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend);
 }
 
-ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2)
+ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit* d1, ArmyUnit* d2)
 {
     switch (unit)
     {
@@ -83,9 +83,11 @@ ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2)
 }
 
 
-bool GameClass::AddToKilledList(ArmyUnit*& unit)
+bool GameClass::AddToKilledList(ArmyUnit* unit)
 {
-    return klst->addUnit(unit);
+    if (unit)
+        return klst->addUnit(unit);
+    else return false;
 }
 
 void GameClass::PrintGame() const
@@ -98,7 +100,7 @@ void GameClass::PrintGame() const
     cout << "==============================================================================\n\n";
 }
 
-void GameClass::AddUnit(ArmyUnit*& u1)
+void GameClass::AddUnit(ArmyUnit* u1)
 {
     if(u1)
     {
@@ -116,9 +118,11 @@ void GameClass::AddUnit(ArmyUnit*& u1)
     }
 }
 
-bool GameClass::AddtoTmpList(ArmyUnit*& unt)
+bool GameClass::AddtoTmpList(ArmyUnit* unt)
 {
-    return tmpLst->addUnit(unt);
+    if (unt)
+        return tmpLst->addUnit(unt);
+    else return false;
 }
 
 ArmyUnit* GameClass::pickFromTmpList()

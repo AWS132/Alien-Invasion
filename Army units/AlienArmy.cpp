@@ -39,7 +39,7 @@ void AlienArmy::PrintArmy()
 	d->printDrones();
 }
 
-ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit* &d1, ArmyUnit* &d2)
+ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit* d1, ArmyUnit* d2)
 {
 	switch (u)
 	{

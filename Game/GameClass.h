@@ -25,11 +25,11 @@ public:
 	AlienArmy* getAArmy();
 	void initializer();
 	void loadData();//needs to be edited
-	ArmyUnit* PickUnit(unitType unit, ArmyUnit* &d1, ArmyUnit* &d2);
-	bool AddToKilledList(ArmyUnit*& unit);
+	ArmyUnit* PickUnit(unitType unit, ArmyUnit* d1, ArmyUnit* d2);
+	bool AddToKilledList(ArmyUnit* unit);
 	void PrintGame()const;
-	void AddUnit(ArmyUnit*&u1);
-	bool AddtoTmpList(ArmyUnit*& unt);
+	void AddUnit(ArmyUnit*u1);
+	bool AddtoTmpList(ArmyUnit* unt);
 	ArmyUnit* pickFromTmpList();
 };
 

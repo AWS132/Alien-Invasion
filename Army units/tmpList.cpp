@@ -14,8 +14,16 @@ bool tmpList::addUnit(ArmyUnit*& Unit)
 ArmyUnit* tmpList::PickUnit()
 {
     ArmyUnit* unt;
-     dequeue(unt);
+    if (dequeue(unt))
+    { 
+        count--;
      return unt;
+    }
+    else
+    {
+        return nullptr;
+    }
+
 }
 
 int tmpList::getCount() const
