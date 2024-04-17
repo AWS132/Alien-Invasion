@@ -18,7 +18,7 @@ bool Drones::addUnit(ArmyUnit* D)
 	return enqueue(D);
 }
 
-bool Drones::pickDrones(ArmyUnit* D1, ArmyUnit* D2)
+bool Drones::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2)
 {
 	bool flag1;
 	bool flag2;
@@ -45,7 +45,7 @@ int Drones::getCount() const
 void Drones::printDrones() const
 {
 	DNode<ArmyUnit*> * temp = frontPtr;
-	cout << count<<" ED [";
+	cout << count<<" AD [";
 	if (!temp) cout << "]\n";
 	while (temp!=nullptr) {
 		temp->getItem()->Print();

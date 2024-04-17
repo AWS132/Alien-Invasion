@@ -9,7 +9,7 @@ private:
 public:
 
 	tmpList();
-	bool addUnit(ArmyUnit*& Unit);
+	bool addUnit(ArmyUnit* Unit);
 	ArmyUnit* PickUnit();
 	int getCount() const;
 	void printTmpList();

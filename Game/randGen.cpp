@@ -61,14 +61,14 @@ void randGen::generator()
 
     int A = (gen() % (100)) + 1;    //(rand() % (ub - lb + 1)) + lb
 
-    if (A <= prob)
+    if (A <= prob)//!!!!!NEEDS TO BE CHANGED!!!!!!
     {
         //for earth
         float  S = N * ESpc / 100.0, T = N * ETpc / 100.0, G = N * EGpc / 100.0;
         if (S / 1 == 0) S = ceil(S);
         if (T / 1 == 0) T = ceil(T);
         if (G / 1 == 0) G = ceil(G);
-        for (int i{}; i < N; i++)
+		for (int i = 0; i < N; i++)
         {
             if (i < S)
                 game->getEArmy()->AddUnit(createUnit(ES));

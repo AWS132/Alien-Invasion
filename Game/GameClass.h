@@ -24,8 +24,8 @@ public:
 	EarthArmy* getEArmy();
 	AlienArmy* getAArmy();
 	void initializer();
-	void loadData();//needs to be edited
-	ArmyUnit* PickUnit(unitType unit, ArmyUnit* d1, ArmyUnit* d2);
+	void loadData();
+	ArmyUnit* PickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2);
 	bool AddToKilledList(ArmyUnit* unit);
 	void PrintGame()const;
 	void AddUnit(ArmyUnit*u1);

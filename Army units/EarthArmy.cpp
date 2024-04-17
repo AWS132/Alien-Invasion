@@ -4,7 +4,7 @@ EarthArmy::EarthArmy() {
 	t = new Tanks;
 	es = new Esoldiers;
 	g = new Gunnerys;
-	id = 0;
+	id = 1;
 }
 
 int EarthArmy::getId() const

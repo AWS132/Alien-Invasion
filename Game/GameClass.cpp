@@ -30,11 +30,10 @@ AlienArmy* GameClass::getAArmy()
 	return AArmy;
 }
 
-void GameClass::initializer()//needs to be modified
+void GameClass::initializer()
 {
     if(crntTime==0)
-	loadData();
-
+	    loadData(); 
 	randGenerator->generator();
 }
 
@@ -52,7 +51,7 @@ void GameClass::loadData()
         dataFile >> N >> ESPer >> ETPer >> EGPer >> ASPer >> AMPer >> ADPer >> prob >>
             EUPstart >> EUPend >> EHstart >> EHend >> EACapstart >> EACapend >>	//ranges for earths' units
             AUPstart >> AUPend >> AHstart >> AHend >> AACapstart >> AACapend;	//ranges for aliens' units
-        //for the - sign in the input file (needs to be in a better way)
+        //for the - sign in the input file
         EUPend = abs(EUPend);   AUPend = abs(AUPend);
         EHend = abs(EHend);     AHend = abs(AHend);
         EACapend = abs(EACapend);   AACapend = abs(AACapend);
@@ -61,7 +60,7 @@ void GameClass::loadData()
 		ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend);
 }
 
-ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit* d1, ArmyUnit* d2)
+ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2)
 {
     switch (unit)
     {
@@ -120,6 +119,7 @@ void GameClass::AddUnit(ArmyUnit* u1)
 
 bool GameClass::AddtoTmpList(ArmyUnit* unt)
 {
+
     if (unt)
         return tmpLst->addUnit(unt);
     else return false;
