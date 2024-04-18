@@ -61,39 +61,36 @@ void randGen::generator()
 
     int A = (gen() % (100)) + 1;    //(rand() % (ub - lb + 1)) + lb
 
-    if (A <= prob)//!!!!!NEEDS TO BE CHANGED!!!!!!
-    {
-        //for earth
-        float  S = N * ESpc / 100.0, T = N * ETpc / 100.0, G = N * EGpc / 100.0;
-        if (S / 1 == 0) S = ceil(S);
-        if (T / 1 == 0) T = ceil(T);
-        if (G / 1 == 0) G = ceil(G);
-		for (int i = 0; i < N; i++)
-        {
-            if (i < S)
-                game->getEArmy()->AddUnit(createUnit(ES));
-            else if (i < S + T)
-                game->getEArmy()->AddUnit(createUnit(ET));
-            else
-                game->getEArmy()->AddUnit(createUnit(EG));
-        }
-        //for aliens
-        float So = N * ASpc / 100.0, M = N * AMpc / 100.0, D = N * ADpc / 100;
-        if (So / 1 == 0) So = ceil(So);
-        if (M / 1 == 0) M = ceil(M);
-        if (D / 1 == 0) D = ceil(D);
-        for (int i{}; i < N; i++) {
-
-            if (i < So) {
-                game->getAArmy()->AddUnit(createUnit(AS));
-            }
-            else if (i < So + M) {
-                game->getAArmy()->AddUnit(createUnit(AM));
-            }
-            else
-                game->getAArmy()->AddUnit(createUnit(AD));
-        }
-    }
+	if (A <= prob) {
+		//for earth
+		for (int i{};i < N;i++) {
+			random_device rd;
+			mt19937 gen(rd());
+			int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
+			if (B <= ESpc) {
+				game->getEArmy()->AddUnit(createUnit(ES));
+			}
+			else if (B <= ESpc + ETpc) {
+				game->getEArmy()->AddUnit(createUnit(ET));
+			}
+			else
+				game->getEArmy()->AddUnit(createUnit(EG));
+		}
+		//for aliens
+		for (int i{};i < N;i++) {
+			random_device rd;
+			mt19937 gen(rd());
+			int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
+			if (B <= ASpc) {
+				game->getAArmy()->AddUnit(createUnit(AS));
+			}
+			else if (B <= ASpc + AMpc) {
+				game->getAArmy()->AddUnit(createUnit(AM));
+			}
+			else
+			game->getAArmy()->AddUnit(createUnit(AD));
+		}
+	}
 
 }
 
