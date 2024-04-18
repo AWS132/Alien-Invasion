@@ -15,7 +15,6 @@ private:
 	AlienArmy* AArmy;
 	randGen* randGenerator;
 	KilledList* klst;
-	tmpList* tmpLst;
 	int crntTime;
 public:
 	GameClass();
@@ -29,7 +28,7 @@ public:
 	bool AddToKilledList(ArmyUnit* unit);
 	void PrintGame()const;
 	void AddUnit(ArmyUnit*u1);
-	bool AddtoTmpList(ArmyUnit* unt);
-	ArmyUnit* pickFromTmpList();
+	bool TmpListfn(ArmyUnit* unt);
+	//ArmyUnit* pickFromTmpList();
 };
 

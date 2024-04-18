@@ -26,7 +26,7 @@ int ArmyUnit::getHealth()
 	return hlth;
 }
 
-ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int capacity){ //TO ADD: a pointer to game class in the constructor's arguement
+ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int capacity,GameClass* game){ //TO ADD: a pointer to game class in the constructor's arguement
 		
 		ID = id;
 		type = Type;
@@ -36,6 +36,7 @@ ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int cap
 		cap = capacity;
 		Td = -1;
 		Ta = -1;
+		this->game = game;
 	
 }
 

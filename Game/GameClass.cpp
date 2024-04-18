@@ -6,7 +6,6 @@ GameClass::GameClass()
     this->EArmy = new EarthArmy();
     this->randGenerator = new randGen(this);
     this->klst = new KilledList();
-    this->tmpLst = new tmpList();
 }
 
 void GameClass::incrementTime()
@@ -95,7 +94,6 @@ void GameClass::PrintGame() const
     EArmy->PrintArmy();
     AArmy->PrintArmy();
     klst->printKilled();
-    tmpLst->printTmpList();
     cout << "==============================================================================\n\n";
 }
 
@@ -117,18 +115,30 @@ void GameClass::AddUnit(ArmyUnit* u1)
     }
 }
 
-bool GameClass::AddtoTmpList(ArmyUnit* unt)
+bool GameClass::TmpListfn(ArmyUnit* unt)
 {
+    tmpList tmpLst;
 
     if (unt)
-        return tmpLst->addUnit(unt);
+    { 
+        if (tmpLst.addUnit(unt))
+        {
+            this->AddUnit(tmpLst.PickUnit());
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+       
+    }
     else return false;
 }
 
-ArmyUnit* GameClass::pickFromTmpList()
-{
-    return tmpLst->PickUnit();
-}
+//ArmyUnit* GameClass::pickFromTmpList()
+//{
+//    return tmpLst->PickUnit();
+//}
 
 
 

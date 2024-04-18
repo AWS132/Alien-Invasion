@@ -7,7 +7,6 @@
 #include "Drones.h"
 #include "Drone.h"
 #include "ArmyUnit.h"
-//#include "Drone.h"
 class AlienArmy {
 private:
 	Asoldiers* as;

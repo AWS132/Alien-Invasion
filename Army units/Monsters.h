@@ -2,9 +2,9 @@
 #include <iostream>
 #include <random>
 #include <time.h>
-using namespace std;
 #include "../Army units/ArmyUnit.h"
-class Monsters 
+using namespace std;
+class Monsters
 {
 	enum { MAX_SIZE = 1000 };
 protected:

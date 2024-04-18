@@ -57,14 +57,15 @@ int main()
 
 			for (int i = 0; i < 5; i++)
 			{
-				game.AddtoTmpList(soldiers[i]);
+				game.TmpListfn(soldiers[i]);
 			}
-			for (int i = 0; i < 5; i++)
+		/*	for (int i = 0; i < 5; i++)
 			{
 				ArmyUnit* unit;
 				unit = game.pickFromTmpList();
 				game.AddUnit(unit);
 			}
+		*/
 		}
 		else if (x > 40 && x < 50)
 		{
