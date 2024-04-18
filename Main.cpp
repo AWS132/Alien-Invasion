@@ -14,9 +14,10 @@ int main()
 	random_device rd;
 	mt19937 gen(rd());
 	ArmyUnit* nl = nullptr;
+	x=35;
 	while (game.getTime() <= 50)
 	{
-		x = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb
+		//x = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb
 		game.initializer();
 		if (x > 0 && x < 10)
 		{
