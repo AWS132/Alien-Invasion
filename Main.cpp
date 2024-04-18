@@ -14,10 +14,9 @@ int main()
 	random_device rd;
 	mt19937 gen(rd());
 	ArmyUnit* nl = nullptr;
-	x=35;
 	while (game.getTime() <= 50)
 	{
-		//x = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb
+		x = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb
 		game.initializer();
 		if (x > 0 && x < 10)
 		{
@@ -44,28 +43,7 @@ int main()
 
 		else if (x > 30 && x < 40)
 		{
-			//ArmyUnit* soldiers[5];
-			//for (int i = 0; i < 5; i++)
-			//{
-			//	soldiers[i] = nullptr;
-			//}
-			//for (int i = 0; i < 5; i++)
-			//{
-			//	soldiers[i] = game.PickUnit(AS, nl, nl);
-			//	if (soldiers[i]) 
-			//		soldiers[i]->DecHlth(soldiers[i]->getHealth() * 0.8);
-			//}
-
-			
 			game.TmpListfn(AS,5,10);
-			
-		/*	for (int i = 0; i < 5; i++)
-			{
-				ArmyUnit* unit;
-				unit = game.pickFromTmpList();
-				game.AddUnit(unit);
-			}
-		*/
 		}
 		else if (x > 40 && x < 50)
 		{
