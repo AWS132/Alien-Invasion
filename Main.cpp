@@ -43,22 +43,21 @@ int main()
 
 		else if (x > 30 && x < 40)
 		{
-			ArmyUnit* soldiers[5];
-			for (int i = 0; i < 5; i++)
-			{
-				soldiers[i] = nullptr;
-			}
-			for (int i = 0; i < 5; i++)
-			{
-				soldiers[i] = game.PickUnit(AS, nl, nl);
-				if (soldiers[i]) 
-					soldiers[i]->DecHlth(soldiers[i]->getHealth() * 0.8);
-			}
+			//ArmyUnit* soldiers[5];
+			//for (int i = 0; i < 5; i++)
+			//{
+			//	soldiers[i] = nullptr;
+			//}
+			//for (int i = 0; i < 5; i++)
+			//{
+			//	soldiers[i] = game.PickUnit(AS, nl, nl);
+			//	if (soldiers[i]) 
+			//		soldiers[i]->DecHlth(soldiers[i]->getHealth() * 0.8);
+			//}
 
-			for (int i = 0; i < 5; i++)
-			{
-				game.TmpListfn(soldiers[i]);
-			}
+			
+			game.TmpListfn(AS,5,10);
+			
 		/*	for (int i = 0; i < 5; i++)
 			{
 				ArmyUnit* unit;

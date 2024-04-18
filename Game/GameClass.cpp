@@ -115,24 +115,42 @@ void GameClass::AddUnit(ArmyUnit* u1)
     }
 }
 
-bool GameClass::TmpListfn(ArmyUnit* unt)
+void GameClass::TmpListfn(unitType type, int capacity, int damage)
 {
+    ArmyUnit* nl1,*nl2;
     tmpList tmpLst;
+    if (type == AD)
+    {
+        for (int i = 0; i < capacity/2; i++)
+        {
+            PickUnit(type, nl1, nl2);
+            if(nl1)
+            { 
+            nl1->DecHlth(damage);
+            tmpLst.addUnit(nl1);
 
-    if (unt)
-    { 
-        if (tmpLst.addUnit(unt))
-        {
-            this->AddUnit(tmpLst.PickUnit());
-            return true;
+            }
+            if(nl2)
+            { 
+            nl2->DecHlth(damage);
+            tmpLst.addUnit(nl2);
+            }
         }
-        else
-        {
-            return false;
-        }
-       
     }
-    else return false;
+    else
+    { 
+        for (int i = 0; i < capacity; i++)
+        {
+            ArmyUnit* unt = PickUnit(type, nl1, nl2);
+            unt->DecHlth(damage);
+            tmpLst.addUnit(unt);
+        }
+    }
+    for (int i = 0; i < tmpLst.getCount(); i++)
+    {
+        nl1=tmpLst.PickUnit();
+        AddUnit(nl1);
+    }
 }
 
 //ArmyUnit* GameClass::pickFromTmpList()

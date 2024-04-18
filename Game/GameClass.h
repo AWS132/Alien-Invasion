@@ -28,7 +28,7 @@ public:
 	bool AddToKilledList(ArmyUnit* unit);
 	void PrintGame()const;
 	void AddUnit(ArmyUnit*u1);
-	bool TmpListfn(ArmyUnit* unt);
+	void TmpListfn(unitType type,int capacity,int damage);
 	//ArmyUnit* pickFromTmpList();
 };
 
