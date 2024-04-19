@@ -5,8 +5,7 @@
 using namespace std;
 class Tanks :protected stack<ArmyUnit*>
 {
-private:
-	int counter;
+
 public:	
 	Tanks();
 	bool addUnit(ArmyUnit* tnk);

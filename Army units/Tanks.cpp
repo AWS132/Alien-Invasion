@@ -1,14 +1,12 @@
 #include "Tanks.h"
 Tanks::Tanks()
 {
-	counter = 0;
 }
 
 bool Tanks::addUnit(ArmyUnit* tnk)
 {
 	if (push(tnk))
 	{
-		counter++;
 		return true;
 	}
 	else
@@ -20,17 +18,13 @@ bool Tanks::addUnit(ArmyUnit* tnk)
 ArmyUnit* Tanks::pickTank()
 {
 	ArmyUnit* tnk = pop();
-	if (tnk)
-	{
-		counter--;
-	}
 	return tnk;
 }
 
 
 void Tanks::printTanks()
 {
-	cout << counter << " ET [";
+	cout << getCount() << " ET [";
 	if(top>1)
 	{ 
 	for (int i = 0; i < top; i++)
