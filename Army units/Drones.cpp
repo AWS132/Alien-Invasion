@@ -18,13 +18,20 @@ bool Drones::addUnit(ArmyUnit* D)
 	return enqueue(D);
 }
 
-bool Drones::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2)
+bool Drones::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2, int dum )
 {
-	bool flag1;
-	bool flag2;
-	if (count < 2)
+	if (count < 2 && dum || count == 0)
 		return false;
-	flag1 = dequeue(D2);
+	count--;
+	if (dum)
+	{
+		pop(D2);
+		count--;
+	}
+	return dequeue(D1);
+	/*bool flag1;
+	bool flag2;*/
+	/*flag1 = dequeue(D2);
 	flag2 = pop(D1);
 	if (flag1)
 	{
@@ -34,7 +41,8 @@ bool Drones::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2)
 	{
 		count--;	
 	}
-	return(flag1 && flag2);
+	return(flag1 && flag2);*/
+
 }
 
 int Drones::getCount() const

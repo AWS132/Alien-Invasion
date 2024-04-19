@@ -3,7 +3,7 @@ AlienArmy::AlienArmy() {
 	m = new Monsters;
 	as = new Asoldiers;
 	d = new Drones;
-	id = 1999;
+	id = 2000;
 }
 
 int AlienArmy::getId() const
