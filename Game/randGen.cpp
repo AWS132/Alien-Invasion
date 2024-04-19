@@ -7,9 +7,6 @@
 #include "../Army units/Monster.h"
 ArmyUnit* randGen::createUnit(unitType type)
 {
-	//stack<ArmyUnit*> createdUnit;
-
-	srand(time(0));
 	random_device rd;
 	mt19937 gen(rd());
 	int Upwr = (gen() % (EUP2 - EUP1 + 1)) + EUP1;
@@ -103,8 +100,4 @@ void randGen::setParameters(int N, int prob, int ESPer, int ETPer, int EGPer, in
 	EUP1 = EUPstart; EH1 = EHstart; EACap1 = EACapstart; EUP2 = EUPend; EH2 = EHend; EACap2 = EACapend;	//setting Earths' ranges
 	ASpc = ASPer;  ADpc= ADPer,   AMpc= AMPer;	//setting Aliens' %
 	AUP1 = AUPstart; AH1 = AHstart; AACap1 = EACapstart; AUP2 = AUPend; AH2 = AHend; AACap2 = AACapend;	//setting Aliens' ranges
-
-	//this->prob = prob;
-	//this->EUP1 = EUPstart; this->EH1 = EHstart; this->EACap1 = EACapstart; this->EUP2 = EUPend; this->EH2 = EHend; this->EACap2 = EACapend;	//setting Earths' ranges
-
 }

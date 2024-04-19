@@ -4,18 +4,6 @@ Monsters::Monsters()
 {
 	counter = 0;
 }
-
-//bool Monsters::CreatMonster(int id, int tj, int health, int power, int capacity)
-//{
-//	if(counter<MAX_SIZE)
-//	{ 
-//	ArmyUnit* mns = new ArmyUnit(id, AM, tj, health, power, capacity);
-//	monsters[counter++] = mns;
-//	return true;
-//	}
-//	return false;
-//}
-
 bool Monsters::addUnit(ArmyUnit* mns)
 {
 	if (counter < MAX_SIZE)
@@ -68,10 +56,3 @@ Monsters::~Monsters()
 		delete monsters[i];
 	}
 }
-//void Monsters::printMonsters()
-//{
-//	for (int i = 0; i < counter; i++)
-//	{
-//		monsters[i]->Print();
-//	}
-//}

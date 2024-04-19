@@ -9,7 +9,6 @@ private:
 	int counter;
 public:	
 	Tanks();
-	//bool CreatTank(int id, int tj, int health, int power, int capacity);
 	bool addUnit(ArmyUnit* tnk);
 	ArmyUnit* pickTank();
 	void printTanks();

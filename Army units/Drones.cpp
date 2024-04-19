@@ -29,19 +29,6 @@ bool Drones::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2, int dum )
 		count--;
 	}
 	return dequeue(D1);
-	/*bool flag1;
-	bool flag2;*/
-	/*flag1 = dequeue(D2);
-	flag2 = pop(D1);
-	if (flag1)
-	{
-		count--;
-	}
-	if (flag2)
-	{
-		count--;	
-	}
-	return(flag1 && flag2);*/
 
 }
 

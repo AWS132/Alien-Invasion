@@ -10,13 +10,6 @@ bool Gunnerys::addUnit(ArmyUnit* gn)
 	return enqueue(gn);
 }
 
-//bool Gunnerys::PushGunnery(Army)
-//{
-//	ArmyUnit* gn = new ArmyUnit(id, EG, tj, health, power, capacity);
-//	counter++;
-//	return enqueue(gn);
-//}
-
 int Gunnerys::getCount()
 {
 	return counter;
@@ -57,14 +50,5 @@ Gunnerys::~Gunnerys()
 	}
 }
 
-//void Gunnerys::printGunnery()
-//{
-//	Node<ArmyUnit*>* ptr = frontPtr;
-//	while (ptr)
-//	{
-//		ptr->getItem()->Print();
-//		ptr = ptr->getNext();
-//	}
-//}
 
 

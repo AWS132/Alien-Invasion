@@ -39,7 +39,6 @@
     <ClCompile Include="Game\GameClass.cpp" />
     <ClCompile Include="Game\randGen.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="RANDGEN.CPP" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Army units\AlienArmy.h" />

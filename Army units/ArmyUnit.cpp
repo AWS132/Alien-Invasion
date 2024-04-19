@@ -5,15 +5,6 @@ using namespace std;
 
 ArmyUnit::ArmyUnit()
 {
-	// for testing randGen
-	/*ID = 0;
-	type = ET;
-	Tj = 0;
-	hlth = 100;
-	pwr = 50;
-	cap = 2;
-	Td = 0;
-	Ta = 0;*/
 }
 
 int ArmyUnit::getPower()

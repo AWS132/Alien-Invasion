@@ -156,11 +156,6 @@ void GameClass::TmpListfn(unitType type, int capacity, int damage)
     }
 }
 
-//ArmyUnit* GameClass::pickFromTmpList()
-//{
-//    return tmpLst->PickUnit();
-//}
-
 
 
 

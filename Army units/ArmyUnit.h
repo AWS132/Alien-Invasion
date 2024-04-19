@@ -7,7 +7,6 @@ enum unitType {
 class ArmyUnit
 {
 private:
-	// TO ADD: pointer to game class
 	int ID;
 	unitType type;
 	int  Tj		//joining time,
@@ -21,8 +20,7 @@ public:
 	ArmyUnit();
 	int getPower();
 	int getHealth();
-	ArmyUnit(int id, unitType Type, int tj, int health, int power, int capacity, GameClass* game);// TO ADD: pointer to game class
-	//virtual bool addUnit(ArmyUnit* unit) = 0;
+	ArmyUnit(int id, unitType Type, int tj, int health, int power, int capacity, GameClass* game);
 	unitType getType();
 	virtual void Attack(ArmyUnit* opponent)=0; 
 	virtual bool DecHlth(int value);// Decreases the Health by a certain "value" returns false if killed

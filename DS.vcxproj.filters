@@ -69,9 +69,6 @@
     <ClCompile Include="Game\randGen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RANDGEN.CPP">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Army units\KilledList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
