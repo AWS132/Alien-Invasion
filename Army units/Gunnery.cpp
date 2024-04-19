@@ -4,6 +4,6 @@ Gunnery::Gunnery(int id, int tj, int health, int power, int capacity, GameClass*
 {
 }
 
-void Gunnery::Attack(ArmyUnit* opponent)
+void Gunnery::Attack()
 {
 }

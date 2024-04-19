@@ -4,6 +4,6 @@ Asoldier::Asoldier(int id, int tj, int health, int power, int capacity, GameClas
 {
 }
 
-void Asoldier::Attack(ArmyUnit* opponent)
+void Asoldier::Attack()
 {
 }

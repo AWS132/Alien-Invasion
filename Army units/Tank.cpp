@@ -4,6 +4,6 @@ Tank::Tank(int id, int tj, int health, int power, int capacity, GameClass* game)
 {
 }
 
-void Tank::Attack(ArmyUnit* opponent)
+void Tank::Attack()
 {
 }

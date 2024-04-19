@@ -9,6 +9,6 @@ Drone::Drone(int id, int tj, int health, int power, int capacity, GameClass* gam
 {
 }
 
-void Drone::Attack(ArmyUnit* opponent)
+void Drone::Attack()
 {
 }

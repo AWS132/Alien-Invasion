@@ -4,6 +4,6 @@ Monster::Monster(int id, int tj, int health, int power, int capacity, GameClass*
 {
 }
 
-void Monster::Attack(ArmyUnit* opponent)
+void Monster::Attack()
 {
 }
