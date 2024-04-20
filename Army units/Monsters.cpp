@@ -38,14 +38,15 @@ void Monsters::printMonsters()
 {
 	
 	cout << counter<<" AM [";
-	if(counter>1)
+	if(counter>0)
 	{ 
-	for (int i = 0; i < counter-1; i++)
+	for (int i = 0; i < counter; i++)
 	{
 		monsters[i]->Print();
-		cout<< ", ";
+		if (counter - i - 1)
+			cout << ", ";
 	}
-	monsters[counter - 1]->Print();
+	
 	}
 	cout << "]\n";
 }

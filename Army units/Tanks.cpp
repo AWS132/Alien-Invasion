@@ -25,17 +25,14 @@ ArmyUnit* Tanks::pickTank()
 void Tanks::printTanks()
 {
 	cout << getCount() << " ET [";
-	if(top>1)
-	{ 
-	for (int i = 0; i < top; i++)
-	{
-		items[i]->Print();
-		cout << ", ";
-	}
-	}
 	if(top>0)
 	{ 
-	items[top]->Print();
+	for (int i = 0; i <= top; i++)
+	{
+		items[i]->Print();
+		if(i-top)
+		cout << ", ";
+	}
 	}
 	cout << "]\n";
 }

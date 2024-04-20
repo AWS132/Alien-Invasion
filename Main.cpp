@@ -18,20 +18,24 @@ int main()
 	{
 		x = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb
 		game.initializer();
+		cout <<"X = " << x;
 		if (x > 0 && x < 10)
 		{
+			cout << ": Pick Earth Soldier and insert it again";
 			ArmyUnit* unit = nullptr;
 			unit = game.PickUnit(ES, nl, nl);
 			game.AddUnit(unit);
 		}
 		else if (x > 10 && x < 20)
 		{
+			cout << ": Pick Earth tank from its list and move it to the kld lst";
 			ArmyUnit* unit = nullptr;
 			unit = game.PickUnit(ET, nl, nl);
 			game.AddToKilledList(unit);
 		}
 		else if (x > 20 && x < 30)
 		{
+			cout << ": Pick Eath gunnery from its list, and decrement its health to half then insert it again";
 			ArmyUnit* unit=nullptr;
 			unit = game.PickUnit(EG, nl, nl);
 			if(unit)
@@ -43,10 +47,12 @@ int main()
 
 		else if (x > 30 && x < 40)
 		{
+			cout << ": Pick 5 Alien soldiers, decrement their health, put them in a tmp lst and return them to their list";
 			game.TmpListfn(AS,5,10);
 		}
 		else if (x > 40 && x < 50)
 		{
+			cout << ": Pick 5 Monsters and insert them again\n";
 			ArmyUnit* mns[5];
 			for (int i = 0; i < 5; i++)
 			{
@@ -62,6 +68,7 @@ int main()
 		}
 		else if (x > 50 && x < 60)
 		{
+			cout << ": Pick 6 drones and move them to killed list";
 			ArmyUnit* drns[6];
 			for (int i = 0; i < 6; i++)
 			{
@@ -76,5 +83,6 @@ int main()
 				game.AddToKilledList(drns[i]);
 			}
 		}
+		cout << endl;
 	}
 }
