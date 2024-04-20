@@ -39,7 +39,7 @@ void AlienArmy::PrintArmy()
 	d->printDrones();
 }
 
-ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2)
+ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 {
 	switch (u)
 	{
@@ -48,7 +48,7 @@ ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2)
 	case AM:
 		return m->pickMonster();
 	case AD:
-		d->pickDrones(d1,d2);
+		d->pickDrones(d1,d2,dm);
 	default:
 		return nullptr;
 	}

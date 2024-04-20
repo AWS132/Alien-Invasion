@@ -7,7 +7,10 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+class AlienArmy;
+class EarthArmy;
 class randGen;
+class KilledList;
 class GameClass
 {
 private:
@@ -24,7 +27,7 @@ public:
 	AlienArmy* getAArmy();
 	void initializer();
 	void loadData();
-	ArmyUnit* PickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2);
+	ArmyUnit* PickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
 	bool AddToKilledList(ArmyUnit* unit);
 	void PrintGame()const;
 	void AddUnit(ArmyUnit*u1);

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Army units/ArmyUnit.h"   
+#include "../Game/GameClass.h"   
 class Tank :public ArmyUnit
 {
 public:

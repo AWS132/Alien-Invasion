@@ -36,7 +36,7 @@ unitType ArmyUnit::getType()
 	return type;
 }
 
-bool ArmyUnit::DecHlth(int value)
+bool ArmyUnit::DecHlth(double value)
 {
 	hlth -= value;
 	if(hlth<=0)

@@ -1,12 +1,13 @@
 #pragma once
 #include <iostream>
+#include<../../Army units/tmpList.h>
 class GameClass;
 enum unitType {
 	ES,ET,EG,AS,AM,AD
 };
 class ArmyUnit
 {
-private:
+protected:
 	int ID;
 	unitType type;
 	int  Tj		//joining time,
@@ -23,7 +24,7 @@ public:
 	ArmyUnit(int id, unitType Type, int tj, int health, int power, int capacity, GameClass* game);
 	unitType getType();
 	virtual void Attack()=0; 
-	virtual bool DecHlth(int value);// Decreases the Health by a certain "value" returns false if killed
+	virtual bool DecHlth(double value);// Decreases the Health by a certain "value" returns false if killed
 	virtual void Print() const;
 	virtual void Output() const;
 

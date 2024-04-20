@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "../Army units/ArmyUnit.h"
+#include "../Game/GameClass.h"
 class Monster :public ArmyUnit
 {
 

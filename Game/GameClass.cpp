@@ -59,7 +59,7 @@ void GameClass::loadData()
 		ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend);
 }
 
-ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2)
+ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 {
     switch (unit)
     {
@@ -74,7 +74,7 @@ ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2)
     case AM:
         return AArmy->PickAunit(AM, d1, d2);
     case AD:
-        return AArmy->PickAunit(AD, d1, d2);
+        return AArmy->PickAunit(AD, d1, d2,dm);
     default:
         return nullptr;
     }

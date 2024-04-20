@@ -2,7 +2,7 @@
 #include <iostream>
 #include "ArmyUnit.h"
 #include "../Data Structures/LinkedQueue.h"
-
+class ArmyUnit;
 class tmpList:protected LinkedQueue<ArmyUnit*> {
 private:
 	int count;

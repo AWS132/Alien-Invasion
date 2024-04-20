@@ -18,6 +18,6 @@ public:
 	int getId()const;
 	void AddUnit(ArmyUnit* unit);
 	void PrintArmy();
-	ArmyUnit* PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2);
+	ArmyUnit* PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
 	~AlienArmy();
 };
