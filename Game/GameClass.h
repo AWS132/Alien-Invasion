@@ -32,5 +32,6 @@ public:
 	void PrintGame()const;
 	void AddUnit(ArmyUnit*u1);
 	void TmpListfn(unitType type,int capacity,int damage);
+	int CountOf(unitType ut);
 };
 

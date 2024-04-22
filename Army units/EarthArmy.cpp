@@ -43,6 +43,21 @@ void EarthArmy::PrintArmy()
 
 }
 
+int EarthArmy::CountOf(unitType ut)
+{
+	switch (ut)
+	{
+	case ES:
+		return es->getCount();
+	case ET:
+		return t->getCount();
+	case EG:
+		return g->getCount();
+	default:
+		return 0;
+	}
+}
+
 EarthArmy::~EarthArmy()
 {
 	delete t;

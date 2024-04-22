@@ -71,4 +71,8 @@ void Gunnery::Attack() //Attacks drones and monsters
             }
         }
     }
+    while (lst.getCount())
+    {
+        game->AddUnit(lst.PickUnit());
+    }
 }

@@ -54,6 +54,21 @@ ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 	}
 }
 
+int AlienArmy::CountOf(unitType ut)
+{
+	switch (ut)
+	{
+	case AS:
+		return as->getCount();
+	case AM:
+		return m->getCount();
+	case AD:
+		return d->getCount();
+	default:
+		return 0;
+	}
+}
+
 AlienArmy::~AlienArmy()
 {
 	delete as;

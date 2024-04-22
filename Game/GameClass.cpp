@@ -156,6 +156,22 @@ void GameClass::TmpListfn(unitType type, int capacity, int damage)
     }
 }
 
+int GameClass::CountOf(unitType ut)
+{
+    switch (ut)
+    {
+    case ES:
+    case ET:
+    case EG:
+        return EArmy->CountOf(ut);
+    case AS:
+    case AM:
+    case AD:    
+        return AArmy->CountOf(ut);
+    default:return 0;
+    }
+}
+
 
 
 

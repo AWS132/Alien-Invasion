@@ -20,6 +20,7 @@ public:
 	int getId()const;
 	void AddUnit(ArmyUnit* unit);
 	void PrintArmy();
+	int CountOf(unitType ut);
 	~EarthArmy();
 	ArmyUnit* pickEUnit(unitType u);
 };

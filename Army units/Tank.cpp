@@ -6,25 +6,69 @@ Tank::Tank(int id, int tj, int health, int power, int capacity, GameClass* game)
 
 void Tank::Attack() //attack monsters
 {
-     tmpList lst;
-    int AMtoAttack = cap;
+    tmpList lst;
+    int AStoAttack = cap / 2;
+    int AMtoAttack = cap - AStoAttack;
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
     double damage;
-    for (int i = 0; i < AMtoAttack; i++)
-    {
-        ArmyUnit* unt = game->PickUnit(AM, nl1, nl2);
-        if (unt)
+    int no_ES = game->CountOf(ES);
+    int no_AS = game->CountOf(AS);
+
+    if((long double)(no_ES/ no_AS)*100<30)
+    { 
+        double currPercent = (long double)(no_ES / no_AS) * 100;
+        for (int i = 0; i < AStoAttack; i++)
         {
-            damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
-            if (unt->DecHlth(damage))
+            if (currPercent < 80)
             {
-                lst.addUnit(unt);
+                ArmyUnit* unt = game->PickUnit(AS, nl1, nl2);
+                if (unt)
+                {
+                    damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
+                    if (unt->DecHlth(damage))
+                    {
+                        lst.addUnit(unt);
+                    }
+                    else
+                    {
+                        game->AddToKilledList(unt);
+                    }
+                }
+                no_ES = game->CountOf(ES);
+                no_AS = game->CountOf(AS);
+                currPercent = (long double)(no_ES / no_AS) * 100;
             }
             else
             {
-                game->AddToKilledList(unt);
+                AMtoAttack += AStoAttack - (i); // if there are more AS to be attack
+                break;
             }
         }
     }
+    else
+    {
+        AMtoAttack = cap;
+    }
+
+        for (int i = 0; i < AMtoAttack; i++)
+        {
+            ArmyUnit* unt = game->PickUnit(AM, nl1, nl2);
+            if (unt)
+            {
+                damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
+                if (unt->DecHlth(damage))
+                {
+                    lst.addUnit(unt);
+                }
+                else
+                {
+                    game->AddToKilledList(unt);
+                }
+            }
+        }
+        while (lst.getCount())
+        {
+            game->AddUnit(lst.PickUnit());
+        }
 }

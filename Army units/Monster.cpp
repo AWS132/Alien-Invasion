@@ -28,6 +28,7 @@ void Monster::Attack() // Attack both ET && ES
            }
        }
     }
+
     for (int i = 0; i < EStoAttack; i++)
     {
        ArmyUnit* unt = game->PickUnit(ES,nl1,nl2);
@@ -43,5 +44,9 @@ void Monster::Attack() // Attack both ET && ES
                game->AddToKilledList(unt);
            }
        }
+    }
+    while (lst.getCount())
+    {
+        game->AddUnit(lst.PickUnit());
     }
 }
