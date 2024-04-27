@@ -1,6 +1,7 @@
 #include "ArmyUnit.h"
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 using namespace std;
 
 ArmyUnit::ArmyUnit()
@@ -36,6 +37,16 @@ unitType ArmyUnit::getType()
 	return type;
 }
 
+int ArmyUnit::getDf() const
+{
+	return Ta - Tj;
+}
+
+int ArmyUnit::getDd() const
+{
+	return Td - Ta;
+}
+
 bool ArmyUnit::DecHlth(double value)
 {
 	hlth -= value;
@@ -49,29 +60,9 @@ void ArmyUnit::Print() const
 	cout << ID;
 }
 
-void ArmyUnit::Output() const //prints the unit's info to the console
+void ArmyUnit::Output(ofstream& oFile)  //prints the unit's info to the output file
 {
-	switch (type)
-	{
-	case ES:
-		break;
-	case ET:
-		cout << "Type: Tank\n";
-		break;
-	case EG:
-		break;
-	case AS:
-		break;
-	case AM:
-		break;
-	case AD:
-		cout << "Type: Drones\n";
-		break;
-	default:
-		break;
-	}
-	cout << "Td" << setw(6) << "ID" << setw(6) << "Tj" << setw(6) << "Df" << setw(6) << "Dd" << setw(6) << "Db" << endl;
-	cout <<Td<< setw(6)<<ID<<setw(6)<<Tj<< setw(6) <<Ta-Tj <<setw(6)<<Td-Ta<<setw(6)<<Td-Tj<<endl;
-
+	oFile << "Td" << setw(6) << "ID" << setw(6) << "Tj" << setw(6) << "Df" << setw(6) << "Dd" << setw(6) << "Db" << endl;
+	oFile << Td<< setw(6)<<ID<<setw(6)<<Tj<< setw(6) <<getDf() <<setw(6)<<getDd()<<setw(6)<<getDf()+getDd()<<endl;
 }
 

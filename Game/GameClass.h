@@ -11,6 +11,7 @@ class AlienArmy;
 class EarthArmy;
 class randGen;
 class KilledList;
+
 class GameClass
 {
 private:
@@ -25,12 +26,13 @@ public:
 	int getTime()const;
 	EarthArmy* getEArmy();
 	AlienArmy* getAArmy();
-	void initializer();
+	void initializer(int x);
 	void loadData();
 	ArmyUnit* PickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
 	bool AddToKilledList(ArmyUnit* unit);
-	void PrintGame()const;
+	void PrintArmies()const;
 	void AddUnit(ArmyUnit*u1);
+	void createOFile(int winner);
 	void TmpListfn(unitType type,int capacity,int damage);
 	int CountOf(unitType ut);
 };

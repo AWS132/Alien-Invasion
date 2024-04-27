@@ -33,6 +33,32 @@ void KilledList::printKilled()
  
 }
 
+void KilledList::outKilled(ofstream& oFile,int& S,int& T,int& G,int& Df,int& Dd ,int type)
+{
+	Node< ArmyUnit*>* ptr = frontPtr;
+	S = T = G = Df = Dd = 0;
+	while (ptr)
+	{
+		unitType x = ptr->getItem()->getType();
+		if (x > type && x < type + 2)
+		{
+			if (x == ES + type)
+				S++;
+			else if (x == ET + type)
+				T++;
+			else if (x == EG + type)
+				G++;
+			
+			ptr->getItem()->Output(oFile);
+			Dd+=ptr->getItem()->getDd();
+			Df += ptr->getItem()->getDf();
+		}
+			ptr = ptr->getNext();
+	}
+}
+	
+
+
 KilledList::~KilledList()
 {
     ArmyUnit* x=nullptr;

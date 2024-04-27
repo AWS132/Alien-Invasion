@@ -39,6 +39,11 @@ void AlienArmy::PrintArmy()
 	d->printDrones();
 }
 
+int AlienArmy::getCount() const
+{
+	return as->getCount()+m->getCount()+d->getCount();
+}
+
 ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 {
 	switch (u)

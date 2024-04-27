@@ -43,6 +43,11 @@ void EarthArmy::PrintArmy()
 
 }
 
+int EarthArmy::getCount() const
+{
+	return es->getCount()+t->getCount()+g->getCount();
+}
+
 int EarthArmy::CountOf(unitType ut)
 {
 	switch (ut)

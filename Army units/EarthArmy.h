@@ -20,6 +20,7 @@ public:
 	int getId()const;
 	void AddUnit(ArmyUnit* unit);
 	void PrintArmy();
+	int getCount() const;//returns the total count of the current Earth Army
 	int CountOf(unitType ut);
 	~EarthArmy();
 	ArmyUnit* pickEUnit(unitType u);

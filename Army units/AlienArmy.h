@@ -18,6 +18,7 @@ public:
 	int getId()const;
 	void AddUnit(ArmyUnit* unit);
 	void PrintArmy();
+	int getCount() const;
 	ArmyUnit* PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
 	int CountOf(unitType ut);
 	~AlienArmy();
