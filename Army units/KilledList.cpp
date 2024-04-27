@@ -40,7 +40,7 @@ void KilledList::outKilled(ofstream& oFile,int& S,int& T,int& G,int& Df,int& Dd 
 	while (ptr)
 	{
 		unitType x = ptr->getItem()->getType();
-		if (x > type && x < type + 2)
+		if (x > type && x < type + 3)
 		{
 			if (x == ES + type)
 				S++;
