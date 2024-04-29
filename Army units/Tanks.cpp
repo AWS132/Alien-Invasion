@@ -17,6 +17,7 @@ bool Tanks::addUnit(ArmyUnit* tnk)
 
 ArmyUnit* Tanks::pickTank()
 {
+
 	ArmyUnit* tnk = pop();
 	return tnk;
 }

@@ -22,7 +22,7 @@ private:
 public:
 	EarthArmy();
 	int getId()const;
-	void AddUnit(ArmyUnit* unit);
+	void AddUnit(ArmyUnit* unit, bool flag = 1);
 	void PrintArmy();
 	int getCount() const;//returns the total count of the current Earth Army
 	int CountOf(unitType ut);

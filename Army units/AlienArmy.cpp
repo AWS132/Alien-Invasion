@@ -11,8 +11,9 @@ int AlienArmy::getId() const
 	return id;
 }
 
-void AlienArmy::AddUnit(ArmyUnit* unit)
+void AlienArmy::AddUnit(ArmyUnit* unit,bool flag)
 {
+	if(flag)
 	id += 1;
 	unitType type = unit->getType();
 	switch (type)

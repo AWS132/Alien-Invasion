@@ -12,8 +12,9 @@ class ArmyUnit
 protected:
 	int ID;
 	unitType type;
+	double hlth;// health
+
 	int  Tj		//joining time,
-		,hlth	// health,
 		,startHlth //start health
 		,pwr	// power,
 		,cap	// attack capacity,

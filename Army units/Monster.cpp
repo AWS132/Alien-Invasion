@@ -47,6 +47,6 @@ void Monster::Attack() // Attack both ET && ES
     }
     while (lst.getCount())
     {
-        game->AddUnit(lst.PickUnit());
+        game->AddUnit(lst.PickUnit(),0);
     }
 }

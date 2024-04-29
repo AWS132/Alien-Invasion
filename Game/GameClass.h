@@ -32,7 +32,7 @@ public:
 	ArmyUnit* PickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
 	bool AddToKilledList(ArmyUnit* unit);
 	void PrintArmies()const;
-	void AddUnit(ArmyUnit*u1);
+	void AddUnit(ArmyUnit*u1, bool flag=1);
 	void createOFile(int winner);
 	void TmpListfn(unitType type,int capacity,int damage);
 	int CountOf(unitType ut);

@@ -14,10 +14,11 @@ int EarthArmy::getId() const
 	return id;
 }
 
-void EarthArmy::AddUnit(ArmyUnit* unit)
+void EarthArmy::AddUnit(ArmyUnit* unit,bool flag)  // flag==>0 returning unit to its list from 
 {
 	 
 	unitType type = unit->getType();
+	if(flag)
 	id += 1;
 	switch (type)
 	{
@@ -55,6 +56,7 @@ int EarthArmy::getCount() const
 
 int EarthArmy::CountOf(unitType ut)
 {
+
 	switch (ut)
 	{
 	case ES:

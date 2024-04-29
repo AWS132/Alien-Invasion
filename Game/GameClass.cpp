@@ -39,10 +39,12 @@ void GameClass::initializer(int flag)
     else
         cout << "Silent Mode\n";
     cout << "Simulation Starts.....\n";
-    while (EArmy->getCount() && AArmy->getCount() || crntTime <= 40) {
+    while (EArmy->getCount() && AArmy->getCount() || crntTime <= 40)
+    {
 	randGenerator->generator();
     if(flag)
     PrintArmies();
+    pokeUnits();
     //attack(flag);
     if (flag) {
 
@@ -59,10 +61,16 @@ void GameClass::initializer(int flag)
 
 void GameClass::pokeUnits()
 {
+    ArmyUnit* nl1=nullptr;
+    ArmyUnit* nl2=nullptr;
     if (EArmy->CountOf(ET))
         EArmy->pickEUnit(ET)->Attack();
     if(EArmy->CountOf(EG))
         EArmy->pickEUnit(EG)->Attack();
+
+    if(AArmy->CountOf(AM))
+        AArmy->PickAunit(AM,nl1,nl2)->Attack();
+
 
 }
 
@@ -90,7 +98,8 @@ void GameClass::loadData()
 }
 
 ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
-{
+
+ {
     switch (unit)
     {
     case ES:
@@ -126,7 +135,7 @@ void GameClass::PrintArmies() const
   
 }
 
-void GameClass::AddUnit(ArmyUnit* u1)
+void GameClass::AddUnit(ArmyUnit* u1,bool flag)
 {
     if(u1)
     {
@@ -135,11 +144,11 @@ void GameClass::AddUnit(ArmyUnit* u1)
         case ES:
         case ET:
         case EG:
-            EArmy->AddUnit(u1); break;
+            EArmy->AddUnit(u1,flag); break;
         case AS:
         case AM:
         case AD:
-            AArmy->AddUnit(u1); break;
+            AArmy->AddUnit(u1,flag); break;
         }
     }
 }
