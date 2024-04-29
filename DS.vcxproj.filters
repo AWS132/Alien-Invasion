@@ -75,6 +75,15 @@
     <ClCompile Include="Army units\tmpList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Army units\UML.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\HU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\HL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Army units\ArmyUnit.h">
@@ -158,5 +167,19 @@
     <ClInclude Include="Army units\tmpList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Data Structures\priQueue.h">
+      <Filter>Header Files</Filter>
+    </Text>
+    <Text Include="Army units\UML.h">
+      <Filter>Header Files</Filter>
+    </Text>
+    <Text Include="Army units\HU.h">
+      <Filter>Header Files</Filter>
+    </Text>
+    <Text Include="Army units\HL.h">
+      <Filter>Header Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

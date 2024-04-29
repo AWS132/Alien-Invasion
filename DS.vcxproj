@@ -30,12 +30,15 @@
     <ClCompile Include="Army units\Esoldiers.cpp" />
     <ClCompile Include="Army units\Gunnery.cpp" />
     <ClCompile Include="Army units\Gunnerys.cpp" />
+    <ClCompile Include="Army units\HL.cpp" />
+    <ClCompile Include="Army units\HU.cpp" />
     <ClCompile Include="Army units\KilledList.cpp" />
     <ClCompile Include="Army units\Monster.cpp" />
     <ClCompile Include="Army units\Monsters.cpp" />
     <ClCompile Include="Army units\Tank.cpp" />
     <ClCompile Include="Army units\Tanks.cpp" />
     <ClCompile Include="Army units\tmpList.cpp" />
+    <ClCompile Include="Army units\UML.cpp" />
     <ClCompile Include="Game\GameClass.cpp" />
     <ClCompile Include="Game\randGen.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -68,6 +71,12 @@
     <ClInclude Include="Data Structures\StackADT.h" />
     <ClInclude Include="Game\GameClass.h" />
     <ClInclude Include="Game\randGen.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Army units\HL.h" />
+    <Text Include="Army units\HU.h" />
+    <Text Include="Army units\UML.h" />
+    <Text Include="Data Structures\priQueue.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

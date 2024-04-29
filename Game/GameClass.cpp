@@ -57,9 +57,18 @@ void GameClass::initializer(int flag)
     cout << "Simulation Ends, output file is created\n";
 }
 
+void GameClass::pokeUnits()
+{
+    if (EArmy->CountOf(ET))
+        EArmy->pickEUnit(ET)->Attack();
+    if(EArmy->CountOf(EG))
+        EArmy->pickEUnit(EG)->Attack();
+
+}
+
 void GameClass::loadData()
 {
-    int N, prob, ESPer, ETPer, EGPer, EUPstart, EUPend, EHstart, EHend, EACapstart, EACapend,
+    int N, prob, ESPer, ETPer, EGPer, HUPer, EUPstart, EUPend, EHstart, EHend, EACapstart, EACapend,
         ASPer, AMPer, ADPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend;
     ifstream dataFile("data.txt");
     int a;
@@ -68,7 +77,7 @@ void GameClass::loadData()
     else
     {
         //according to the input file's order
-        dataFile >> N >> ESPer >> ETPer >> EGPer >> ASPer >> AMPer >> ADPer >> prob >>
+        dataFile >> N >> ESPer >> ETPer >> EGPer >> HUPer >> ASPer >> AMPer >> ADPer >> prob >>
             EUPstart >> EUPend >> EHstart >> EHend >> EACapstart >> EACapend >>	//ranges for earths' units
             AUPstart >> AUPend >> AHstart >> AHend >> AACapstart >> AACapend;	//ranges for aliens' units
         //for the - sign in the input file
@@ -76,8 +85,8 @@ void GameClass::loadData()
         EHend = abs(EHend);     AHend = abs(AHend);
         EACapend = abs(EACapend);   AACapend = abs(AACapend);
     }
-	    randGenerator->setParameters(N, prob, ESPer, ETPer, EGPer, EUPstart, EHstart, EACapstart, EUPend, EHend, EACapend,
-		ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend);
+    randGenerator->setParameters(N, prob, ESPer, ETPer, EGPer, HUPer, EUPstart, EHstart, EACapstart, EUPend, EHend, EACapend,
+        ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend);
 }
 
 ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)

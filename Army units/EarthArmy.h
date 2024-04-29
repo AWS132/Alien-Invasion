@@ -7,6 +7,8 @@
 #include "ArmyUnit.h"
 #include "Tank.h"
 #include "Gunnery.h"
+#include "HL.h"
+#include "UML.h"
 using namespace std;
 class EarthArmy
 {
@@ -14,6 +16,8 @@ private:
 	Esoldiers* es;
 	Tanks* t;
 	Gunnerys* g;
+	HL* hl;
+	UML* uml;
 	int id;
 public:
 	EarthArmy();
@@ -22,6 +26,8 @@ public:
 	void PrintArmy();
 	int getCount() const;//returns the total count of the current Earth Army
 	int CountOf(unitType ut);
+	ArmyUnit* pickFromUML();
+	bool AddToUML(ArmyUnit* unit);
 	~EarthArmy();
 	ArmyUnit* pickEUnit(unitType u);
 };

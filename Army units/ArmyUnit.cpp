@@ -23,6 +23,7 @@ ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int cap
 		ID = id;
 		type = Type;
 		Tj = tj;
+		startHlth = health;
 		hlth = health;
 		pwr = power;
 		cap = capacity;
@@ -47,12 +48,24 @@ int ArmyUnit::getDd() const
 	return Td - Ta;
 }
 
+int ArmyUnit::getTa()
+{
+	return Ta;
+}
+
 bool ArmyUnit::DecHlth(double value)
 {
 	hlth -= value;
 	if(hlth<=0)
 	return false;
 	return true;
+}
+
+bool ArmyUnit::IncHlth(double product)
+{
+	double imp = (product / 100) / sqrt(hlth);
+	hlth += imp;
+	return (hlth > (0.2 * startHlth));
 }
 
 void ArmyUnit::Print() const

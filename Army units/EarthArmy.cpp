@@ -4,6 +4,8 @@ EarthArmy::EarthArmy() {
 	t = new Tanks;
 	es = new Esoldiers;
 	g = new Gunnerys;
+	hl = new HL;
+	uml = new UML;
 	id = 1;
 }
 
@@ -28,6 +30,9 @@ void EarthArmy::AddUnit(ArmyUnit* unit)
 	case EG:
 		g->addUnit(unit);
 		break;
+	case HU_:
+		hl->addUnit(unit);
+		break;
 	default:
 		break;
 	
@@ -40,12 +45,12 @@ void EarthArmy::PrintArmy()
 	es->printEsoldiers();
 	t->printTanks();
 	g->printGunnerys();
-
+	hl->printHeal();
 }
 
 int EarthArmy::getCount() const
 {
-	return es->getCount()+t->getCount()+g->getCount();
+	return es->getCount() + t->getCount() + g->getCount() + hl->getCount();
 }
 
 int EarthArmy::CountOf(unitType ut)
@@ -63,11 +68,22 @@ int EarthArmy::CountOf(unitType ut)
 	}
 }
 
+ArmyUnit* EarthArmy::pickFromUML()
+{
+	return  uml->pickUnit();
+}
+
+bool EarthArmy::AddToUML(ArmyUnit* unit)
+{
+	return uml->addUnit(unit);
+}
+
 EarthArmy::~EarthArmy()
 {
 	delete t;
 	delete es;
 	delete g;
+	delete hl;
 }
 
 ArmyUnit* EarthArmy::pickEUnit(unitType u)
