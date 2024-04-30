@@ -27,7 +27,7 @@ public:
 	EarthArmy* getEArmy();
 	AlienArmy* getAArmy();
 	void initializer(int x);
-	void pokeUnits();
+	void pokeUnits(int flag);
 	void loadData();
 	ArmyUnit* PickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
 	bool AddToKilledList(ArmyUnit* unit);

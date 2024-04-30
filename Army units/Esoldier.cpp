@@ -4,7 +4,7 @@ Esoldier::Esoldier(int id, int tj, int health, int power, int capacity, GameClas
 
 }
 
-void Esoldier::Attack()
+void Esoldier::Attack(int flag)
 {
 
 }

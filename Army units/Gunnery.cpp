@@ -4,7 +4,7 @@ Gunnery::Gunnery(int id, int tj, int health, int power, int capacity, GameClass*
 {
 }
 
-void Gunnery::Attack() //Attacks drones and monsters
+void Gunnery::Attack(int flag) //Attacks drones and monsters
 {
     tmpList lst;
     int ADtoAttack = cap / 2;
@@ -17,6 +17,8 @@ void Gunnery::Attack() //Attacks drones and monsters
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
     double damage;
+    if (flag)
+        cout <<"EG " << ID << " shoots ";
   /*  if ((ADtoAttack & 1) == 0)
     { */
         for (int i = 0; i < ADtoAttack;)
@@ -28,14 +30,11 @@ void Gunnery::Attack() //Attacks drones and monsters
                 if (nl1)
                 {
                     damage = (pwr * hlth / 100) / sqrt(nl1->getHealth());
-                    if (nl1->DecHlth(damage))
-                    {
+                    nl1->DecHlth(damage);
+                    
                         lst.addUnit(nl1);
-                    }
-                    else
-                    {
-                        game->AddToKilledList(nl1);
-                    }
+                    
+                   
                 }
             }
             else
@@ -46,26 +45,14 @@ void Gunnery::Attack() //Attacks drones and monsters
                 if (nl1)
                 {
                     damage = (pwr * hlth / 100) / sqrt(nl1->getHealth());
-                    if (nl1->DecHlth(damage))
-                    {
-                        lst.addUnit(nl1);
-                    }
-                    else
-                    {
-                        game->AddToKilledList(nl1);
-                    }
+                    nl1->DecHlth(damage);
+                    lst.addUnit(nl1);
                 } 
                 if (nl2)
                 {
                     damage = (pwr * hlth / 100) / sqrt(nl2->getHealth());
-                    if (nl2->DecHlth(damage))
-                    {
-                        lst.addUnit(nl2);
-                    }
-                    else
-                    {
-                        game->AddToKilledList(nl2);
-                    }
+                    nl2->DecHlth(damage);
+                    lst.addUnit(nl2);                
                 }
             }
         }
@@ -95,20 +82,21 @@ void Gunnery::Attack() //Attacks drones and monsters
         if (unt)
         {
             damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
-            if (unt->DecHlth(damage))
-            {
-                lst.addUnit(unt);
-            }
-            else
-            {
-                game->AddToKilledList(unt);
-            }
+            unt->DecHlth(damage);
+            lst.addUnit(unt);
         }
     }
 
-
+    if (flag)
+        lst.printTmpList();
     while (lst.getCount())
     {
-        game->AddUnit(lst.PickUnit(),0);
+        ArmyUnit* unt = lst.PickUnit();
+        if (unt && unt->getHealth() > 0)
+            game->AddUnit(unt,0);
+        else
+        {
+            game->AddToKilledList(unt);
+        }
     }
 }

@@ -15,7 +15,7 @@ int main()
 	cin >> x;
 	game.initializer(x%2);
 
-	/*game.pokeUnits();*/
+
 
 	//int x; 
 	//random_device rd;

@@ -44,10 +44,8 @@ void GameClass::initializer(int flag)
 	randGenerator->generator();
     if(flag)
     PrintArmies();
-    pokeUnits();
-    //attack(flag);
+    pokeUnits(flag);
     if (flag) {
-
     klst->printKilled();
     cout << "==============================================================================\n\n";
     cout << "Press Enter to Continue";
@@ -59,17 +57,19 @@ void GameClass::initializer(int flag)
     cout << "Simulation Ends, output file is created\n";
 }
 
-void GameClass::pokeUnits()
+void GameClass::pokeUnits(int flag )
 {
     ArmyUnit* nl1=nullptr;
     ArmyUnit* nl2=nullptr;
+    // !!!!!!!!!!!! DON"T FORGET TO CHANGE PICK TO PEEK !!!!!!!!!!!!!!!
+    if (flag)
+        cout << "===========Units Fighting at Current Step=============\n";
     if (EArmy->CountOf(ET))
-        EArmy->pickEUnit(ET)->Attack();
+        EArmy->pickEUnit(ET)->Attack(flag);
     if(EArmy->CountOf(EG))
-        EArmy->pickEUnit(EG)->Attack();
-
+        EArmy->pickEUnit(EG)->Attack(flag);
     if(AArmy->CountOf(AM))
-        AArmy->PickAunit(AM,nl1,nl2)->Attack();
+        AArmy->PickAunit(AM,nl1,nl2)->Attack(flag);
 
 
 }

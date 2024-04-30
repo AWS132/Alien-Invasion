@@ -35,8 +35,7 @@ int tmpList::getCount() const
 void tmpList::printTmpList()
 {
     Node< ArmyUnit*>* temp = frontPtr;
-    cout << "============== TempList Units ===============\n";
-    cout << count << " units [";
+    cout << count << " [";
     if (temp == nullptr)
     {
         cout << "]\n";

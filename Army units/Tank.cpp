@@ -4,7 +4,7 @@ Tank::Tank(int id, int tj, int health, int power, int capacity, GameClass* game)
 {
 }
 
-void Tank::Attack() //attack monsters
+void Tank::Attack(int flag) //attack monsters
 {
     tmpList lst;
     int AMtoAttack = cap / 2;
@@ -14,7 +14,8 @@ void Tank::Attack() //attack monsters
     double damage;
     int no_ES = game->CountOf(ES);
     int no_AS = game->CountOf(AS);
-
+    if (flag)
+        cout <<"ET " << ID << " shoots";
     if((long double)(no_ES*1.0/ no_AS)*100<30)
     { 
         double currPercent = (long double)(no_ES *1.0/ no_AS) * 100;
@@ -26,14 +27,8 @@ void Tank::Attack() //attack monsters
                 if (unt)
                 {
                     damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
-                    if (unt->DecHlth(damage))
-                    {
-                        lst.addUnit(unt);
-                    }
-                    else
-                    {
-                        game->AddToKilledList(unt);
-                    }
+                    unt->DecHlth(damage);
+                    lst.addUnit(unt);
                 }
                 no_ES = game->CountOf(ES);
                 no_AS = game->CountOf(AS);
@@ -57,18 +52,23 @@ void Tank::Attack() //attack monsters
             if (unt)
             {
                 damage = (pwr * hlth / 100.0) / sqrt(unt->getHealth());
-                if (unt->DecHlth(damage))
-                {
+                unt->DecHlth(damage);
+                
                     lst.addUnit(unt);
-                }
-                else
-                {
-                    game->AddToKilledList(unt);
-                }
+                
+             
             }
         }
+        if (flag)
+            lst.printTmpList();
         while (lst.getCount())
         {
-            game->AddUnit(lst.PickUnit(),0);
+            ArmyUnit* unt = lst.PickUnit();
+            if (unt && unt->getHealth() > 0)
+                game->AddUnit(unt);
+            else
+            {
+                game->AddToKilledList(unt);
+            }
         }
 }

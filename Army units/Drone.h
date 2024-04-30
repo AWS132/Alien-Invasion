@@ -6,5 +6,5 @@ class Drone :public ArmyUnit
 {
 public:
 	Drone(int id, int tj, int health, int power, int capacity, GameClass* game);
-	void Attack();
+	void Attack(int flag);
 };
