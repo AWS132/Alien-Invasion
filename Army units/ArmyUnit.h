@@ -12,10 +12,9 @@ class ArmyUnit
 protected:
 	int ID;
 	unitType type;
-	double hlth;// health
+	double hlth, startHlth;// health, startHealth
 
 	int  Tj		//joining time,
-		,startHlth //start health
 		,pwr	// power,
 		,cap	// attack capacity,
 		,Ta		// time it was first attacked initially -1,
@@ -24,12 +23,15 @@ protected:
 public:
 	ArmyUnit();
 	int getPower();
-	int getHealth();
+	double getHealth()const;
+	double getStartHlth()const;
 	ArmyUnit(int id, unitType Type, int tj, int health, int power, int capacity, GameClass* game);
 	unitType getType();
 	int getDf()const;
 	int getDd()const;
-	int getTa();
+	int getTa()const;
+	void setTa(int time);
+	void setTd(int time);
 	virtual void Attack(int)=0; 
 	virtual bool DecHlth(double value);// Decreases the Health by a certain "value" returns false if killed
 	virtual bool IncHlth(double product);// increases the heath by a certain value determined by a given equation,returns false if not over 20%

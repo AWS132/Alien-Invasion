@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+
 #include "../Army units/Esoldier.h"
 #include "../Army units/Esoldiers.h"
 #include "Tanks.h"
@@ -13,6 +14,7 @@ using namespace std;
 class EarthArmy
 {
 private:
+
 	Esoldiers* es;
 	Tanks* t;
 	Gunnerys* g;

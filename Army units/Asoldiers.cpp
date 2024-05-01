@@ -27,7 +27,7 @@ ArmyUnit* Asoldiers::pickAsoldiers()
 	if (!count)
 		return nullptr;
 	if(count>0)
-	count--;
+		count--;
 	ArmyUnit* as;
 	dequeue(as);
 	return as;

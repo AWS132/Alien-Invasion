@@ -5,6 +5,7 @@ class Asoldiers :protected LinkedQueue<ArmyUnit*>
 {
 private:
 	int count;
+	LinkedQueue<ArmyUnit*> as;
 public:
 	Asoldiers();
 	bool addUnit(ArmyUnit* as);

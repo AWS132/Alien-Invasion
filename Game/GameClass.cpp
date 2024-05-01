@@ -41,17 +41,17 @@ void GameClass::initializer(int flag)
     cout << "Simulation Starts.....\n";
     while (EArmy->getCount() && AArmy->getCount() || crntTime <= 40)
     {
-	randGenerator->generator();
-    if(flag)
-    PrintArmies();
-    pokeUnits(flag);
-    if (flag) {
-    klst->printKilled();
-    cout << "==============================================================================\n\n";
-    cout << "Press Enter to Continue";
-    cin.ignore();
-    }
-   }
+        randGenerator->generator();
+        if (flag)
+            PrintArmies();
+        pokeUnits(flag);
+        if (flag) {
+            klst->printKilled();
+            cout << "==============================================================================\n\n";
+            cout << "Press Enter to Continue";
+            cin.ignore();
+        }
+    };
     int x=0;//remove// used to send the winner to the output file
     createOFile(x);
     cout << "Simulation Ends, output file is created\n";
@@ -70,8 +70,12 @@ void GameClass::pokeUnits(int flag )
         EArmy->pickEUnit(EG)->Attack(flag);
     if(AArmy->CountOf(AM))
         AArmy->PickAunit(AM,nl1,nl2)->Attack(flag);
-
-
+    if (EArmy->CountOf(ES))
+        EArmy->pickEUnit(ES)->Attack(flag);
+    if (AArmy->CountOf(AS))
+        AArmy->PickAunit(AS,nl1,nl2)->Attack(flag);
+    if(EArmy->CountOf(HU_))
+        EArmy->pickEUnit(HU_)->Attack(flag);    //the HU needs to be killed!!!!!!!!!!!!!!!!!!
 }
 
 void GameClass::loadData()

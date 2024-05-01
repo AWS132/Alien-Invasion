@@ -65,6 +65,8 @@ int EarthArmy::CountOf(unitType ut)
 		return t->getCount();
 	case EG:
 		return g->getCount();
+	case HU_:
+		return hl->getCount();
 	default:
 		return 0;
 	}
@@ -86,6 +88,7 @@ EarthArmy::~EarthArmy()
 	delete es;
 	delete g;
 	delete hl;
+	delete uml;
 }
 
 ArmyUnit* EarthArmy::pickEUnit(unitType u)
@@ -100,6 +103,9 @@ ArmyUnit* EarthArmy::pickEUnit(unitType u)
 		break;
 	case EG:
 	return g->pickGunnery();
+		break;
+	case HU_:
+		return hl->pickHealer();
 		break;
 	default:
 		return nullptr;
