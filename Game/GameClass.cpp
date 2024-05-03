@@ -57,9 +57,9 @@ void GameClass::initializer(int flag)
         x = 1;
 
     else if (AArmy->getCount() == 0)
-        x = -1;
-    else
         x = 0;
+    else
+        x = -1;
     createOFile(x);
     cout << "Simulation Ends, output file is created\n";
 }
