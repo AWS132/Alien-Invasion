@@ -19,14 +19,14 @@ void Esoldier::Attack(int flag)
 	while (attackCap--) {
 		if ((unit=game->getAArmy()->PickAunit(AS, nl1, nl2), unit)) {
 			unit->DecHlth(pwr);
-			unit->setTa(game->getTime());
+			
 			if (unit->getHealth() > 0)
 			{
 				lst.addUnit(unit);
 			}
 			else {
 				game->AddToKilledList(unit);
-				unit->setTd(game->getTime());
+				
 
 			}
 				toBePrinted.addUnit(unit);

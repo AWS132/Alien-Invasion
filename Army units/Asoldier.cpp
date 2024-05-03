@@ -18,7 +18,7 @@ void Asoldier::Attack(int flag)
 	while (attackCap--) {
 		if ((unit = game->getEArmy()->pickEUnit(ES), unit)) {
 			unit->DecHlth(pwr);
-			unit->setTa(game->getTime());
+		
 			if (unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())
 				game->getEArmy()->AddToUML(unit);	//needs to wait in the UML
 			else if(unit->getHealth() > 0)
@@ -27,7 +27,7 @@ void Asoldier::Attack(int flag)
 			}
 			else {	//dead
 				game->AddToKilledList(unit);
-				unit->setTd(game->getTime());
+				
 			}
 			toBePrinted.addUnit(unit);//to be printed anyway (damaged > 80%,alive,dead)
 		}

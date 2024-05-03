@@ -2,6 +2,7 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include "../Game/GameClass.h"
 using namespace std;
 
 ArmyUnit::ArmyUnit()
@@ -72,7 +73,11 @@ void ArmyUnit::setTd(int time)
 
 bool ArmyUnit::DecHlth(double value)
 {
+	setTa(game->getTime());
 	hlth -= value;
+	if (hlth < 0) {
+	setTd(game->getTime());
+	}
 	return (hlth > 0);
 }
 

@@ -33,13 +33,13 @@ AlienArmy* GameClass::getAArmy()
 
 void GameClass::initializer(int flag)
 {
-	loadData();
+    loadData();
     if (flag)
         cout << "Active Mode\n";
     else
         cout << "Silent Mode\n";
     cout << "Simulation Starts.....\n";
-    while (EArmy->getCount() && AArmy->getCount() || crntTime <= 40)
+    while ((EArmy->getCount() && AArmy->getCount() || crntTime <= 40) && crntTime < 2000)
     {
         randGenerator->generator();
         if (flag)
@@ -52,29 +52,43 @@ void GameClass::initializer(int flag)
             cin.ignore();
         }
     };
-    int x=0;//remove// used to send the winner to the output file
+    int x;//remove// used to send the winner to the output file
+    if (EArmy->getCount() == 0)
+        x = 1;
+
+    else if (AArmy->getCount() == 0)
+        x = -1;
+    else
+        x = 0;
     createOFile(x);
     cout << "Simulation Ends, output file is created\n";
 }
 
-void GameClass::pokeUnits(int flag )
+void GameClass::pokeUnits(int flag)
 {
-    ArmyUnit* nl1=nullptr;
-    ArmyUnit* nl2=nullptr;
+    ArmyUnit* nl1 = nullptr;
+    ArmyUnit* nl2 = nullptr;
     // !!!!!!!!!!!! DON"T FORGET TO CHANGE PICK TO PEEK !!!!!!!!!!!!!!!
     if (flag)
         cout << "===========Units Fighting at Current Step=============\n";
     if (EArmy->CountOf(ET))
         EArmy->pickEUnit(ET)->Attack(flag);
-    if(EArmy->CountOf(EG))
+    if (EArmy->CountOf(EG))
         EArmy->pickEUnit(EG)->Attack(flag);
-    if(AArmy->CountOf(AM))
-        AArmy->PickAunit(AM,nl1,nl2)->Attack(flag);
     if (EArmy->CountOf(ES))
         EArmy->pickEUnit(ES)->Attack(flag);
+    if (AArmy->CountOf(AM))
+        AArmy->PickAunit(AM, nl1, nl2)->Attack(flag);
     if (AArmy->CountOf(AS))
-        AArmy->PickAunit(AS,nl1,nl2)->Attack(flag);
-    if(EArmy->CountOf(HU_))
+        AArmy->PickAunit(AS, nl1, nl2)->Attack(flag);
+    if (AArmy->CountOf(AD)) {
+        AArmy->PickAunit(AD, nl1, nl2);
+        if (nl1 && nl2) {
+            nl1->Attack(flag);
+            nl2->Attack(flag);
+        }
+    }
+    if (EArmy->CountOf(HU_))
         EArmy->pickEUnit(HU_)->Attack(flag);    //the HU needs to be killed!!!!!!!!!!!!!!!!!!
 }
 
