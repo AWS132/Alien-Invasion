@@ -6,8 +6,8 @@ Asoldier::Asoldier(int id, int tj, int health, int power, int capacity, GameClas
 
 void Asoldier::Attack(int flag)
 {
-	tmpList lst;
-	tmpList toBePrinted;	//to print properly
+	genQueueADT lst;
+	genQueueADT toBePrinted;	//to print properly
 	int attackCap = cap;
 	double power = pwr;
 	
@@ -26,18 +26,18 @@ void Asoldier::Attack(int flag)
 				lst.addUnit(unit);	//ready to rejoin the battle
 			}
 			else {	//dead
-				game->AddToKilledList(unit);
+				game->AddToKldList(unit);
 				
 			}
 			toBePrinted.addUnit(unit);//to be printed anyway (damaged > 80%,alive,dead)
 		}
 	}
 	if (flag)
-		toBePrinted.printTmpList();
+		toBePrinted.printList();
 
-	for (;toBePrinted.PickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
+	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
 
 	unit = nullptr;
-	while ((unit = lst.PickUnit(), unit))//if ES reached this stage, its health would be > 20% * startHealth. So it's able to join the battle again
+	while ((unit = lst.pickUnit(), unit))//if ES reached this stage, its health would be > 20% * startHealth. So it's able to join the battle again
 		game->getEArmy()->AddUnit(unit);
 }

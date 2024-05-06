@@ -1,7 +1,7 @@
 #include "AlienArmy.h"
 AlienArmy::AlienArmy() {
 	m = new Monsters;
-	as = new Asoldiers;
+	as = new genQueueADT;
 	d = new Drones;
 	id = 2000;
 }
@@ -36,7 +36,8 @@ void AlienArmy::PrintArmy()
 {
 	cout << " =============== Alien Army Alive Units =============== \n";
 	m->printMonsters();
-	as->printAsoldiers();
+	cout << "AS ";
+	as->printList();
 	d->printDrones();
 }
 
@@ -50,7 +51,7 @@ ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 	switch (u)
 	{
 	case AS:
-		return as->pickAsoldiers();
+		return as->pickUnit();
 	case AM:
 		return m->pickMonster();
 	case AD:
@@ -58,6 +59,24 @@ ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 	default:
 		return nullptr;
 	}
+}ArmyUnit* AlienArmy::peekAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2)
+{
+	ArmyUnit* unt = nullptr;
+	switch (u)
+	{
+	case AS:
+		 as->peek(unt);
+		 break;
+	case AM:
+		 return m->peekMonster();
+	case AD:
+		d->peek(d1);
+		d->Rpeek(d2);
+		break;
+	default:
+		return nullptr;
+	}
+	return unt;
 }
 
 int AlienArmy::CountOf(unitType ut)

@@ -2,23 +2,21 @@
 #include <iostream>
 
 #include "../Army units/Esoldier.h"
-#include "../Army units/Esoldiers.h"
+#include "../Army units/genQueueADT.h"
 #include "Tanks.h"
 #include "Gunnerys.h"
 #include "ArmyUnit.h"
 #include "Tank.h"
 #include "Gunnery.h"
-#include "HL.h"
 #include "UML.h"
 using namespace std;
 class EarthArmy
 {
 private:
 
-	Esoldiers* es;
+	genQueueADT* es,*hl;
 	Tanks* t;
 	Gunnerys* g;
-	HL* hl;
 	UML* uml;
 	int id;
 public:
@@ -32,4 +30,5 @@ public:
 	bool AddToUML(ArmyUnit* unit);
 	~EarthArmy();
 	ArmyUnit* pickEUnit(unitType u);
+	ArmyUnit* peekEUnit(unitType u);
 };

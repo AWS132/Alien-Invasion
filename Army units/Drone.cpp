@@ -12,7 +12,7 @@ Drone::Drone(int id, int tj, int health, int power, int capacity, GameClass* gam
 
 void Drone::Attack(int flag)
 {
-	tmpList lst;
+	genQueueADT lst;
 	double dmg = hlth * pwr / 100.0;
 	ArmyUnit* unt = nullptr;
 	if (flag)
@@ -30,17 +30,22 @@ void Drone::Attack(int flag)
 		}
 	}
 	if (flag)
-		lst.printTmpList();
+		lst.printList();
 
 	while (lst.getCount())
 	{
-		ArmyUnit* unt = lst.PickUnit();
+		ArmyUnit* unt = lst.pickUnit();
 		if (unt && unt->getHealth() > 0)
-			game->AddUnit(unt, 0);
+		{
+			if (unt->getHealth() < 0.2 * unt->getStartHlth())
+				game->getEArmy()->AddToUML(unt);
+			else
+				game->AddUnit(unt, 0);
+		}
 		else
 		{
 			unt->setTd(game->getTime());
-			game->AddToKilledList(unt);
+			game->AddToKldList(unt);
 		}
 	}
 }

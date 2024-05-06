@@ -26,7 +26,7 @@ void Gunnerys::printGunnerys()
 {
 	Node<ArmyUnit*>* ptr = frontPtr;
 
-	cout << counter << " EG [";
+	cout << "EG " << getCount() << " [";
 	while (ptr and ptr->getNext())
 	{
 		ptr->getItem()->Print();

@@ -3,7 +3,7 @@
 #include "../Data Structures/ArrayStack.h"
 #include "../Army units/ArmyUnit.h"   
 using namespace std;
-class Tanks :protected stack<ArmyUnit*>
+class Tanks :public stack<ArmyUnit*>
 {
 
 public:	

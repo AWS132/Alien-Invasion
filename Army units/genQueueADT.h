@@ -3,16 +3,18 @@
 #include <fstream>
 #include "ArmyUnit.h"
 #include "../Data Structures/LinkedQueue.h"
+
 using namespace std;
-class KilledList:protected LinkedQueue<ArmyUnit*> {
+class genQueueADT:public LinkedQueue<ArmyUnit*> {
 private:
 	int count;
 public:
 
-	KilledList();
+	genQueueADT();
 	bool addUnit(ArmyUnit* Unit);
 	int getCount() const;
-	void printKilled();
+	ArmyUnit* pickUnit();
+	void printList();
 	void outKilled(ofstream&,int&, int& , int&,int&,int&,int=0);
-	~KilledList();
+	~genQueueADT();
 };

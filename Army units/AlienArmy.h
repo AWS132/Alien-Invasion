@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include"../Army units/Asoldier.h"
-#include"../Army units/Asoldiers.h"
+#include"../Army units/genQueueADT.h"
 #include "Monsters.h"
 #include "Monster.h"
 #include "Drones.h"
@@ -9,7 +9,7 @@
 #include "ArmyUnit.h"
 class AlienArmy {
 private:
-	Asoldiers* as;
+	genQueueADT* as;
 	Monsters* m;
 	Drones* d;
 	int id;
@@ -20,6 +20,7 @@ public:
 	void PrintArmy();
 	int getCount() const;
 	ArmyUnit* PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
+	ArmyUnit* peekAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2);
 	int CountOf(unitType ut);
 	~AlienArmy();
 };

@@ -2,9 +2,9 @@
 
 EarthArmy::EarthArmy() {
 	t = new Tanks;
-	es = new Esoldiers;
+	es = new genQueueADT;
 	g = new Gunnerys;
-	hl = new HL;
+	hl = new genQueueADT;
 	uml = new UML;
 	id = 1;
 }
@@ -43,10 +43,12 @@ void EarthArmy::AddUnit(ArmyUnit* unit,bool flag)  // flag==>0 returning unit to
 void EarthArmy::PrintArmy()
 {
 	cout << "=============== Earth Army Alive Units===============\n";
-	es->printEsoldiers();
+	cout << "ES ";
+	es->printList();
 	t->printTanks();
 	g->printGunnerys();
-	hl->printHeal();
+	cout << "HU ";
+	hl->printList();
 }
 
 int EarthArmy::getCount() const
@@ -96,7 +98,7 @@ ArmyUnit* EarthArmy::pickEUnit(unitType u)
 	switch (u)
 	{
 	case ES:
-	return es->pickEsoldiers();
+	return es->pickUnit();
 		break;
 	case ET:
 	return t->pickTank();
@@ -105,10 +107,28 @@ ArmyUnit* EarthArmy::pickEUnit(unitType u)
 	return g->pickGunnery();
 		break;
 	case HU_:
-		return hl->pickHealer();
+		return hl->pickUnit();
 		break;
 	default:
 		return nullptr;
 		break;
+	}
+}
+
+ArmyUnit* EarthArmy::peekEUnit(unitType u)
+{
+	ArmyUnit* unt = nullptr;
+	switch (u)
+	{
+	case ES:
+		return (es->peek(unt),unt);
+	case ET:
+		return (t->peek(unt),unt);
+	case EG:
+		return (g->peek(unt), unt);
+	case HU_:
+		return (hl->peek(unt),unt);
+	default:
+		return nullptr;
 	}
 }

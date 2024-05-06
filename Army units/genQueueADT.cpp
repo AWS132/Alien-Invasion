@@ -1,26 +1,36 @@
-#include "KilledList.h"
+#include "genQueueADT.h"
 
-KilledList::KilledList()
+genQueueADT::genQueueADT()
 {
     count = 0;
 }
 
-bool KilledList::addUnit(ArmyUnit* Unit)
+bool genQueueADT::addUnit(ArmyUnit* Unit)
 {
     count++;
     return enqueue(Unit);
 }
 
-int KilledList::getCount() const
+int genQueueADT::getCount() const
 {
     return count;
 }
 
-void KilledList::printKilled()
+ArmyUnit* genQueueADT::pickUnit()
+{
+	if (!count)
+		return nullptr;
+	if (count > 0)
+		count--;
+	ArmyUnit* unt;
+	dequeue(unt);
+	return unt;
+}
+
+void genQueueADT::printList()
 {
    Node< ArmyUnit*>* ptr= frontPtr;
-   cout << "============== Killed/Destructed Units ===============\n";
-	   cout << count << " units [";
+	   cout << count << " [";
 	   while (ptr and ptr->getNext())
 	   {
 		   ptr->getItem()->Print();
@@ -33,7 +43,7 @@ void KilledList::printKilled()
  
 }
 
-void KilledList::outKilled(ofstream& oFile,int& S,int& T,int& G,int& Df,int& Dd ,int type)
+void genQueueADT::outKilled(ofstream& oFile,int& S,int& T,int& G,int& Df,int& Dd ,int type)
 {
 	Node< ArmyUnit*>* ptr = frontPtr;
 	S = T = G = Df = Dd = 0;
@@ -59,7 +69,7 @@ void KilledList::outKilled(ofstream& oFile,int& S,int& T,int& G,int& Df,int& Dd 
 	
 
 
-KilledList::~KilledList()
+genQueueADT::~genQueueADT()
 {
     ArmyUnit* x=nullptr;
     while (dequeue(x)) {

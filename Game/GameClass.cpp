@@ -8,7 +8,7 @@ GameClass::GameClass()
     this->AArmy = new AlienArmy();
     this->EArmy = new EarthArmy();
     this->randGenerator = new randGen(this);
-    this->klst = new KilledList();
+    this->klst = new genQueueADT();
 }
 
 void GameClass::incrementTime()
@@ -46,7 +46,8 @@ void GameClass::initializer(int flag)
             PrintArmies();
         pokeUnits(flag);
         if (flag) {
-            klst->printKilled();
+            cout << "=======================Killed/destructed units=======================\n";
+            klst->printList();
             cout << "==============================================================================\n\n";
             cout << "Press Enter to Continue";
             cin.ignore();
@@ -72,24 +73,24 @@ void GameClass::pokeUnits(int flag)
     if (flag)
         cout << "===========Units Fighting at Current Step=============\n";
     if (EArmy->CountOf(ET))
-        EArmy->pickEUnit(ET)->Attack(flag);
+        EArmy->peekEUnit(ET)->Attack(flag);
     if (EArmy->CountOf(EG))
-        EArmy->pickEUnit(EG)->Attack(flag);
+        EArmy->peekEUnit(EG)->Attack(flag);
     if (EArmy->CountOf(ES))
-        EArmy->pickEUnit(ES)->Attack(flag);
+        EArmy->peekEUnit(ES)->Attack(flag);
     if (AArmy->CountOf(AM))
-        AArmy->PickAunit(AM, nl1, nl2)->Attack(flag);
+        AArmy->peekAunit(AM, nl1, nl2)->Attack(flag);
     if (AArmy->CountOf(AS))
-        AArmy->PickAunit(AS, nl1, nl2)->Attack(flag);
+        AArmy->peekAunit(AS, nl1, nl2)->Attack(flag);
     if (AArmy->CountOf(AD)) {
-        AArmy->PickAunit(AD, nl1, nl2);
+        AArmy->peekAunit(AD, nl1, nl2);
         if (nl1 && nl2) {
             nl1->Attack(flag);
             nl2->Attack(flag);
         }
     }
     if (EArmy->CountOf(HU_))
-        EArmy->pickEUnit(HU_)->Attack(flag);    //the HU needs to be killed!!!!!!!!!!!!!!!!!!
+        EArmy->peekEUnit(HU_)->Attack(flag);    //the HU needs to be killed!!!!!!!!!!!!!!!!!!
 }
 
 void GameClass::loadData()
@@ -138,7 +139,7 @@ ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 }
 
 
-bool GameClass::AddToKilledList(ArmyUnit* unit)
+bool GameClass::AddToKldList(ArmyUnit* unit)
 {
     if (unit)
         return klst->addUnit(unit);
@@ -222,47 +223,6 @@ void GameClass::createOFile(int winner)
     oFile << "Average of Db: " << double(Df + Dd) / (S + G + T) << endl;
     oFile << "Df/Db: " << double(Df) / (Df + Dd) * 100 << endl;
     oFile << "Dd/Db: " << double(Dd) / (Df + Dd) * 100 << endl;
-}
-
-void GameClass::TmpListfn(unitType type, int capacity, int damage)
-{
-    ArmyUnit* nl1 = nullptr ,*nl2 =nullptr;
-    tmpList tmpLst;
-    if (type == AD)
-    {
-        for (int i = 0; i < capacity/2; i++)
-        {
-            PickUnit(type, nl1, nl2);
-            if(nl1)
-            { 
-            nl1->DecHlth(damage);
-            tmpLst.addUnit(nl1);
-
-            }
-            if(nl2)
-            { 
-            nl2->DecHlth(damage);
-            tmpLst.addUnit(nl2);
-            }
-        }
-    }
-    else
-    { 
-        for (int i = 0; i < capacity; i++)
-        {
-            ArmyUnit* unt = PickUnit(type, nl1, nl2);
-            if (unt) {
-                unt->DecHlth(damage);
-                tmpLst.addUnit(unt);
-            }
-        }
-    }
-    int count = tmpLst.getCount();
-    for (int i = 0; i < count; i++)
-    {
-        nl1=tmpLst.PickUnit();
-        AddUnit(nl1);
-    }
 }
 
 int GameClass::CountOf(unitType ut)

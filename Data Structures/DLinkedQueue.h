@@ -191,7 +191,7 @@ Output: The front of the queue.
 template <typename T>
 bool DLinkedQueue<T>:: peek(T& frntEntry) const 
 {
-	if(isEmpty())
+	if (frontPtr == backPtr)
 		return false;
 
 	frntEntry = frontPtr->getItem();
@@ -209,9 +209,8 @@ Output: The back of the queue.
 template <typename T>
 bool DLinkedQueue<T>::Rpeek(T& bckEntry) const
 {
-	if (isEmpty())
+	if (frontPtr == backPtr)
 		return false;
-
 	bckEntry = backPtr->getItem();
 	return true;
 

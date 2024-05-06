@@ -6,7 +6,7 @@ Gunnery::Gunnery(int id, int tj, int health, int power, int capacity, GameClass*
 
 void Gunnery::Attack(int flag) //Attacks drones and monsters
 {
-    tmpList lst;
+    genQueueADT lst;
     int ADtoAttack = cap / 2;
     int AMtoAttack = cap - ADtoAttack;
  /*   if (ADtoAttack & 1 && AMtoAttack > 1)
@@ -71,7 +71,7 @@ void Gunnery::Attack(int flag) //Attacks drones and monsters
     //            }
     //            else
     //            {
-    //                game->AddToKilledList(nl1);
+    //                game->AddToKldList(nl1);
     //            }
     //        }
     //    }
@@ -88,15 +88,15 @@ void Gunnery::Attack(int flag) //Attacks drones and monsters
     }
 
     if (flag)
-        lst.printTmpList();
+        lst.printList();
     while (lst.getCount())
     {
-        ArmyUnit* unt = lst.PickUnit();
+        ArmyUnit* unt = lst.pickUnit();
         if (unt && unt->getHealth() > 0)
             game->AddUnit(unt,0);
         else
         {
-            game->AddToKilledList(unt);
+            game->AddToKldList(unt);
         }
     }
 }

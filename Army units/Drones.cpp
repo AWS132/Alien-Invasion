@@ -20,7 +20,7 @@ bool Drones::addUnit(ArmyUnit* D)
 
 bool Drones::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2, int dum)
 {
-	if (count < 2 && dum || count == 0)
+	if (count == 0)
 		return false;
 	count--;
 	if (dum)
@@ -40,7 +40,7 @@ int Drones::getCount() const
 void Drones::printDrones() const
 {
 	DNode<ArmyUnit*> * temp = frontPtr;
-	cout << count<<" AD [";
+	cout << "AD " << getCount() << " [";
 	if (!temp) cout << "]\n";
 	while (temp!=nullptr) {
 		temp->getItem()->Print();

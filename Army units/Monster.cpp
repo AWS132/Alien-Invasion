@@ -6,7 +6,7 @@ Monster::Monster(int id, int tj, int health, int power, int capacity, GameClass*
 
 void Monster::Attack(int flag) // Attack both ET && ES
 {
-	tmpList lst;
+	genQueueADT lst;
 	int ETtoAttack = cap/2;
 	int EStoAttack = cap - ETtoAttack;
     ArmyUnit* nl1 = nullptr;
@@ -36,15 +36,20 @@ void Monster::Attack(int flag) // Attack both ET && ES
        }
     }
     if (flag)
-        lst.printTmpList();
+        lst.printList();
     while (lst.getCount())
     {
-        ArmyUnit* unt = lst.PickUnit();
+        ArmyUnit* unt = lst.pickUnit();
         if (unt && unt->getHealth() > 0)
-            game->AddUnit(unt, 0);
+        {
+            if (unt->getHealth() < 0.2 * unt->getStartHlth())
+                game->getEArmy()->AddToUML(unt);
+            else
+                game->AddUnit(unt, 0);
+        }
         else
         {
-            game->AddToKilledList(unt);
+            game->AddToKldList(unt);
         }
     }
 }

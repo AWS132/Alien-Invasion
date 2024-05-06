@@ -15,6 +15,7 @@ public:
 	bool addUnit(ArmyUnit* mns);
 	int getCount();
 	ArmyUnit* pickMonster();
+	ArmyUnit* peekMonster();
 	void printMonsters();
 	~Monsters();
 };

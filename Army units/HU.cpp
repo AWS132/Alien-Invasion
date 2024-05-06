@@ -4,10 +4,10 @@ HU::HU(int id, int tj, int health, int power, int capacity, GameClass* game) :Ar
 
 void HU::Attack(int flag)
 {
-	tmpList lst;
+	genQueueADT lst;
 	int attackCap = cap;
 	ArmyUnit* unit = nullptr;
-	tmpList toBePrinted;	//to print properly
+	genQueueADT toBePrinted;	//to print properly
 	if (flag)
 		cout << "HU " << ID << " Heals ";
 	while (attackCap--) {
@@ -15,7 +15,7 @@ void HU::Attack(int flag)
 		{
 			int ta = unit->getTa();
 			if (game->getTime() - ta > 10)
-				game->AddToKilledList(unit);
+				game->AddToKldList(unit);
 			else
 			{
 				if (unit->IncHlth((pwr * hlth))) {	//returns true if health is over than 20% of start health
@@ -24,25 +24,29 @@ void HU::Attack(int flag)
 				else {
 					lst.addUnit(unit);
 				}
+				toBePrinted.addUnit(unit);//to be printed anyway
 			}
-			toBePrinted.addUnit(unit);//to be printed anyway
 		}
 	}
 	if(flag)//if added to killedLst, it didn't get healed (no need to print it)
-		toBePrinted.printTmpList();
+		toBePrinted.printList();
 
-	for (;toBePrinted.PickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
+	if(!toBePrinted.isEmpty())
+	{
+		game->getEArmy()->pickEUnit(HU_);
+		game->AddToKldList(this);	//killing the HU
+	}
+	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
 
-	while ((unit = lst.PickUnit(), unit))
+	while ((unit = lst.pickUnit(), unit))
 		game->getEArmy()->AddToUML(unit);
 
-	game->AddToKilledList(this);	//killing the HU
 
 	/*while (lst.getCount()) {
 		if (unit = lst.PickUnit(), unit) {
 			int ta = unit->getTa();
 			if (game->getTime() - ta > 10)
-				game->AddToKilledList(unit);
+				game->AddToKldList(unit);
 			else
 				game->getEArmy()->AddToUML(unit);
 

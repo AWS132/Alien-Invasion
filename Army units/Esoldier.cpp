@@ -6,15 +6,15 @@ Esoldier::Esoldier(int id, int tj, int health, int power, int capacity, GameClas
 
 void Esoldier::Attack(int flag)
 {
-	tmpList lst;
-	tmpList toBePrinted;	//to print properly
+	genQueueADT lst;
+	genQueueADT toBePrinted;	//to print properly
 	int attackCap = cap;
 	double power = pwr;
 	ArmyUnit* unit = nullptr;
 	ArmyUnit* nl1 = nullptr;
 	ArmyUnit* nl2 = nullptr;
 	if (flag)
-		cout << "ES " << ID << " shots ";
+		cout << "ES " << ID << " shoots ";
 
 	while (attackCap--) {
 		if ((unit=game->getAArmy()->PickAunit(AS, nl1, nl2), unit)) {
@@ -25,7 +25,7 @@ void Esoldier::Attack(int flag)
 				lst.addUnit(unit);
 			}
 			else {
-				game->AddToKilledList(unit);
+				game->AddToKldList(unit);
 				
 
 			}
@@ -33,10 +33,10 @@ void Esoldier::Attack(int flag)
 		}
 	}
 	if (flag)
-		toBePrinted.printTmpList();
+		toBePrinted.printList();
 
-	for (unit = nullptr;toBePrinted.PickUnit(););	//to make the "toBePrinted"list empty to save the kldLst from being destructed!!
+	for (unit = nullptr;toBePrinted.pickUnit(););	//to make the "toBePrinted"list empty to save the kldLst from being destructed!!
 
-	while ((unit = lst.PickUnit(), unit))
+	while ((unit = lst.pickUnit(), unit))
 		game->getAArmy()->AddUnit(unit);
 }

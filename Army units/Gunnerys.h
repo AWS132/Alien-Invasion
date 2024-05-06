@@ -3,7 +3,7 @@
 #include "../Army units/ArmyUnit.h"
 #include "../Data Structures/Pqueue.h"
 using namespace std;
-class Gunnerys :protected pQueue
+class Gunnerys :public pQueue
 {
 private:
 	int counter;

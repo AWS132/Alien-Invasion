@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 #include <fstream>
-#include<../../Army units/tmpList.h>
 using namespace std;
 class GameClass;
 enum unitType {

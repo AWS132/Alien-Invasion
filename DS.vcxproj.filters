@@ -54,13 +54,7 @@
     <ClCompile Include="Army units\Asoldier.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Army units\Asoldiers.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Army units\Esoldier.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Army units\Esoldiers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game\GameClass.cpp">
@@ -69,19 +63,13 @@
     <ClCompile Include="Game\randGen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Army units\KilledList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Army units\tmpList.cpp">
+    <ClCompile Include="Army units\genQueueADT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Army units\UML.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Army units\HU.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Army units\HL.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -146,13 +134,7 @@
     <ClInclude Include="Army units\Asoldier.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Army units\Asoldiers.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Army units\Esoldier.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Army units\Esoldiers.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Game\GameClass.h">
@@ -161,10 +143,7 @@
     <ClInclude Include="Game\randGen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Army units\KilledList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Army units\tmpList.h">
+    <ClInclude Include="Army units\genQueueADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -176,9 +155,6 @@
       <Filter>Header Files</Filter>
     </Text>
     <Text Include="Army units\HU.h">
-      <Filter>Header Files</Filter>
-    </Text>
-    <Text Include="Army units\HL.h">
       <Filter>Header Files</Filter>
     </Text>
   </ItemGroup>

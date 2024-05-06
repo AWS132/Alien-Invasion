@@ -6,7 +6,7 @@ Tank::Tank(int id, int tj, int health, int power, int capacity, GameClass* game)
 
 void Tank::Attack(int flag) //attack monsters
 {
-    tmpList lst;
+    genQueueADT lst;
     int AMtoAttack = cap / 2;
     int AStoAttack = cap - AMtoAttack;
     ArmyUnit* nl1 = nullptr;
@@ -15,7 +15,7 @@ void Tank::Attack(int flag) //attack monsters
     int no_ES = game->CountOf(ES);
     int no_AS = game->CountOf(AS);
     if (flag)
-        cout <<"ET " << ID << " shoots";
+        cout <<"ET " << ID << " shoots ";
     if((long double)(no_ES*1.0/ no_AS)*100<30)
     { 
         double currPercent = (long double)(no_ES *1.0/ no_AS) * 100;
@@ -60,15 +60,15 @@ void Tank::Attack(int flag) //attack monsters
             }
         }
         if (flag)
-            lst.printTmpList();
+            lst.printList();
         while (lst.getCount())
         {
-            ArmyUnit* unt = lst.PickUnit();
+            ArmyUnit* unt = lst.pickUnit();
             if (unt && unt->getHealth() > 0)
                 game->AddUnit(unt);
             else
             {
-                game->AddToKilledList(unt);
+                game->AddToKldList(unt);
             }
         }
 }
