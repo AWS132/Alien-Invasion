@@ -6,15 +6,16 @@ AlienArmy::AlienArmy() {
 	id = 2000;
 }
 
-int AlienArmy::getId() const
+int AlienArmy::getId() /*const*/
 {
+	id++;
 	return id;
 }
 
-void AlienArmy::AddUnit(ArmyUnit* unit,bool flag)
+void AlienArmy::AddUnit(ArmyUnit* unit/*,bool flag*/)
 {
-	if(flag)
-	id += 1;
+	/*if(flag)
+	id += 1;*/
 	unitType type = unit->getType();
 	switch (type)
 	{

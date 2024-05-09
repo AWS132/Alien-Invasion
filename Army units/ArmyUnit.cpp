@@ -71,11 +71,16 @@ void ArmyUnit::setTd(int time)
 		Td = time;
 }
 
+int ArmyUnit::getID() const
+{
+	return ID;
+}
+
 bool ArmyUnit::DecHlth(double value)
 {
 	setTa(game->getTime());
 	hlth -= value;
-	if (hlth < 0) {
+	if (hlth <= 0) {
 	setTd(game->getTime());
 	}
 	return (hlth > 0);

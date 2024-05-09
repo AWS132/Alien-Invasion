@@ -25,13 +25,13 @@ public:
 	int getTime()const;
 	EarthArmy* getEArmy();
 	AlienArmy* getAArmy();
-	void initializer(int x);
+	void initializer(int mode,int fileName);
 	void pokeUnits(int flag);
-	void loadData();
+	void loadData(int fileName);
 	ArmyUnit* PickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
 	bool AddToKldList(ArmyUnit* unit);
 	void PrintArmies()const;
-	void AddUnit(ArmyUnit*u1, bool flag=1);
+	void AddUnit(ArmyUnit*u1);
 	void createOFile(int winner);
 	int CountOf(unitType ut);
 };

@@ -14,8 +14,10 @@ void HU::Attack(int flag)
 		if ((unit = game->getEArmy()->pickFromUML(), unit))
 		{
 			int ta = unit->getTa();
-			if (game->getTime() - ta > 10)
+			if (game->getTime() - ta > 10) {
+				unit->DecHlth(unit->getHealth());
 				game->AddToKldList(unit);
+			}
 			else
 			{
 				if (unit->IncHlth((pwr * hlth))) {	//returns true if health is over than 20% of start health
@@ -34,6 +36,7 @@ void HU::Attack(int flag)
 	if(!toBePrinted.isEmpty())
 	{
 		game->getEArmy()->pickEUnit(HU_);
+		this->DecHlth(this->getHealth());
 		game->AddToKldList(this);	//killing the HU
 	}
 	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!

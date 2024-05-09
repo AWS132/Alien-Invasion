@@ -31,6 +31,7 @@ public:
 	int getTa()const;
 	void setTa(int time);
 	void setTd(int time);
+	int getID()const;
 	virtual void Attack(int)=0; 
 	virtual bool DecHlth(double value);// Decreases the Health by a certain "value" returns false if killed
 	virtual bool IncHlth(double product);// increases the heath by a certain value determined by a given equation,returns false if not over 20%

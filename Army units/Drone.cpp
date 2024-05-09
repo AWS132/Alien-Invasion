@@ -40,7 +40,7 @@ void Drone::Attack(int flag)
 			if (unt->getHealth() < 0.2 * unt->getStartHlth())
 				game->getEArmy()->AddToUML(unt);
 			else
-				game->AddUnit(unt, 0);
+				game->AddUnit(unt/*,0*/);
 		}
 		else
 		{

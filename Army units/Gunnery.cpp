@@ -93,7 +93,7 @@ void Gunnery::Attack(int flag) //Attacks drones and monsters
     {
         ArmyUnit* unt = lst.pickUnit();
         if (unt && unt->getHealth() > 0)
-            game->AddUnit(unt,0);
+            game->AddUnit(unt);
         else
         {
             game->AddToKldList(unt);

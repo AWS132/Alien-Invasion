@@ -11,11 +11,11 @@ int main()
 {
 	GameClass game;
 	cout << "Which mode of operation you want to select:\n1) Active mode\n2) Silent mode\n";
-	int x;
-	cin >> x;
-	game.initializer(x%2);
-
-
+	int mode,fileName;
+	cin >> mode;
+	cout << "pick the number of the input file you want to select\n";
+	cin >> fileName;
+	game.initializer(mode%2,fileName);
 
 	//int x; 
 	//random_device rd;

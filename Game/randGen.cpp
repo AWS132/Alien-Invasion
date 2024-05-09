@@ -13,32 +13,33 @@ ArmyUnit* randGen::createUnit(unitType type)
 	int Upwr = (gen() % (EUP2 - EUP1 + 1)) + EUP1;
 	int h = (gen() % (EH2 - EH1 + 1)) + EH1;
 	int atk = (gen() % (EACap2 - EACap1 + 1)) + EACap1;
-	int eID = game->getEArmy()->getId();
-	int aID = game->getAArmy()->getId();
+	/*int eID = game->getEArmy()->getId();
+	int aID = game->getAArmy()->getId();*/
+	int ID = (type == 6 || type < 3) ? game->getEArmy()->getId() : game->getAArmy()->getId();
 	int tj = game->getTime();
 	ArmyUnit* createdUnit = nullptr;
 	switch (type)
 	{
 	case ES:
-		createdUnit = new Esoldier(eID, tj, h, Upwr, atk, game);
+		createdUnit = new Esoldier(/*eID*/ID, tj, h, Upwr, atk, game);
 		break;
 	case ET:
-		createdUnit = new Tank(eID, tj, h, Upwr, atk, game);
+		createdUnit = new Tank(/*eID*/ID, tj, h, Upwr, atk, game);
 		break;
 	case EG:
-		createdUnit = new Gunnery(eID, tj, h, Upwr, atk, game);
+		createdUnit = new Gunnery(/*eID*/ID, tj, h, Upwr, atk, game);
 		break;
 	case HU_:
-		createdUnit = new HU(eID, tj, h, Upwr, atk, game);
+		createdUnit = new HU(/*eID*/ID, tj, h, Upwr, atk, game);
 		break;
 	case AS:
-		createdUnit = new Asoldier(aID, tj, h, Upwr, atk, game);
+		createdUnit = new Asoldier(/*aID*/ID, tj, h, Upwr, atk, game);
 		break;
 	case AM:
-		createdUnit = new Monster(aID, tj, h, Upwr, atk, game);
+		createdUnit = new Monster(/*aID*/ID, tj, h, Upwr, atk, game);
 		break;
 	case AD:
-		createdUnit = new Drone(aID, tj, h, Upwr, atk, game);
+		createdUnit = new Drone(/*aID*/ID, tj, h, Upwr, atk, game);
 		break;
 	default:
 		createdUnit = nullptr;

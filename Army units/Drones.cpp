@@ -23,7 +23,7 @@ bool Drones::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2, int dum)
 	if (count == 0)
 		return false;
 	count--;
-	if (dum)
+	if (dum&&count)
 	{
 		pop(D2);
 		count--;

@@ -31,15 +31,15 @@ AlienArmy* GameClass::getAArmy()
 	return AArmy;
 }
 
-void GameClass::initializer(int flag)
+void GameClass::initializer(int flag, int fileName)
 {
-    loadData();
+    loadData(fileName);
     if (flag)
         cout << "Active Mode\n";
     else
         cout << "Silent Mode\n";
     cout << "Simulation Starts.....\n";
-    while ((EArmy->getCount() && AArmy->getCount() || crntTime <= 40) && crntTime < 2000)
+    while ((EArmy->getCount() && AArmy->getCount() || crntTime <= 40))
     {
         randGenerator->generator();
         if (flag)
@@ -49,18 +49,26 @@ void GameClass::initializer(int flag)
             cout << "=======================Killed/destructed units=======================\n";
             klst->printList();
             cout << "==============================================================================\n\n";
-            cout << "Press Enter to Continue";
-            cin.ignore();
+            //   cout << "Press Enter to Continue";
+              // cin.ignore();
         }
-    };
-    int x;//remove// used to send the winner to the output file
-    if (EArmy->getCount() == 0)
-        x = 1;
-
-    else if (AArmy->getCount() == 0)
+    }
+    int x;// used to send the winner to the output file
+    if (!EArmy->getCount() && AArmy->getCount()) {
         x = 0;
-    else
+        if (flag)
+            cout << "Aliens won the war\n";
+    }
+    else if (!AArmy->getCount() && EArmy->getCount()) {
+        x = 1;
+        if (flag)
+            cout << "Humans won the war\n";
+    }
+    else {
         x = -1;
+        if (flag)
+            cout << "the battle ended up as a draw\n";
+    }
     createOFile(x);
     cout << "Simulation Ends, output file is created\n";
 }
@@ -69,7 +77,7 @@ void GameClass::pokeUnits(int flag)
 {
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
-    // !!!!!!!!!!!! DON"T FORGET TO CHANGE PICK TO PEEK !!!!!!!!!!!!!!!
+   
     if (flag)
         cout << "===========Units Fighting at Current Step=============\n";
     if (EArmy->CountOf(ET))
@@ -90,17 +98,38 @@ void GameClass::pokeUnits(int flag)
         }
     }
     if (EArmy->CountOf(HU_))
-        EArmy->peekEUnit(HU_)->Attack(flag);    //the HU needs to be killed!!!!!!!!!!!!!!!!!!
+        EArmy->peekEUnit(HU_)->Attack(flag);    
 }
 
-void GameClass::loadData()
+void GameClass::loadData(int fileName)
 {
     int N, prob, ESPer, ETPer, EGPer, HUPer, EUPstart, EUPend, EHstart, EHend, EACapstart, EACapend,
         ASPer, AMPer, ADPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend;
-    ifstream dataFile("data.txt");
-    int a;
+    string s;
+    switch (fileName) {
+    case(2):
+        s = "2";
+        break;
+    case(3):
+        s = "3";
+        break;
+    case(4):
+        s = "4";
+        break;
+    case(5):
+        s = "5";
+        break;
+    case(6):
+        s = "6";
+        break;
+    default:
+        s = "1";
+        break;
+
+    }
+    ifstream dataFile("Inputs/data (" + s + ").txt");
     if (!dataFile)
-        cout << "the file is not found" << endl;
+        cout << "File is not found" << endl;
     else
     {
         //according to the input file's order
@@ -154,7 +183,7 @@ void GameClass::PrintArmies() const
   
 }
 
-void GameClass::AddUnit(ArmyUnit* u1,bool flag)
+void GameClass::AddUnit(ArmyUnit* u1/*, bool flag*/)
 {
     if(u1)
     {
@@ -163,11 +192,11 @@ void GameClass::AddUnit(ArmyUnit* u1,bool flag)
         case ES:
         case ET:
         case EG:
-            EArmy->AddUnit(u1,flag); break;
+            EArmy->AddUnit(u1/*,flag*/); break;
         case AS:
         case AM:
         case AD:
-            AArmy->AddUnit(u1,flag); break;
+            AArmy->AddUnit(u1/*,flag*/); break;
         }
     }
 }
@@ -179,7 +208,7 @@ void GameClass::createOFile(int winner)
 //// Earth ouput 
     int S, T, G,Df,Dd;
     oFile << "Earth Destructed units:\n";
-    klst->outKilled(oFile,S,T,Df,Dd,G);
+    klst->outKilled(oFile,S,T,G,Df,Dd);
     oFile << "Battle result:";
     if (winner == 1)
         oFile << " Win";
@@ -202,7 +231,7 @@ void GameClass::createOFile(int winner)
     oFile << "Dd/Db: " << double(Dd) / (Df + Dd) * 100 << endl;
 //// Alien output 
     oFile << "Alien Destructed units:\n";
-    klst->outKilled(oFile, S, T, G, Df, Dd, 2);
+    klst->outKilled(oFile, S, T, G, Df, Dd, 3);
     oFile << "Battle result:";
     if (winner == 0)
         oFile << " Win";

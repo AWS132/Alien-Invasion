@@ -6,20 +6,21 @@ EarthArmy::EarthArmy() {
 	g = new Gunnerys;
 	hl = new genQueueADT;
 	uml = new UML;
-	id = 1;
+	id = 0;
 }
 
-int EarthArmy::getId() const
+int EarthArmy::getId() /*const*/
 {
+	id++;
 	return id;
 }
 
-void EarthArmy::AddUnit(ArmyUnit* unit,bool flag)  // flag==>0 returning unit to its list from 
+void EarthArmy::AddUnit(ArmyUnit* unit/*,bool flag*/)  // flag==>0 returning unit to its list from 
 {
 	 
 	unitType type = unit->getType();
-	if(flag)
-	id += 1;
+	//if(flag)
+	//id += 1;
 	switch (type)
 	{
 	case ES:
