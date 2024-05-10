@@ -41,6 +41,7 @@ void GameClass::initializer(int flag, int fileName)
     cout << "Simulation Starts.....\n";
     while ((EArmy->getCount() && AArmy->getCount() || crntTime <= 40))
     {
+        EArmy->SpreadInfection();
         randGenerator->generator();
         if (flag)
             PrintArmies();
