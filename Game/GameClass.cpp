@@ -104,7 +104,7 @@ void GameClass::pokeUnits(int flag)
 void GameClass::loadData(int fileName)
 {
     int N, prob, ESPer, ETPer, EGPer, HUPer, EUPstart, EUPend, EHstart, EHend, EACapstart, EACapend,
-        ASPer, AMPer, ADPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend;
+        ASPer, AMPer, ADPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend, infection_Prob;
     string s;
     switch (fileName) {
     case(2):
@@ -133,7 +133,7 @@ void GameClass::loadData(int fileName)
     else
     {
         //according to the input file's order
-        dataFile >> N >> ESPer >> ETPer >> EGPer >> HUPer >> ASPer >> AMPer >> ADPer >> prob >>
+        dataFile >> N >> ESPer >> ETPer >> EGPer >> HUPer >> ASPer >> AMPer >> ADPer >> prob >>infection_Prob>>
             EUPstart >> EUPend >> EHstart >> EHend >> EACapstart >> EACapend >>	//ranges for earths' units
             AUPstart >> AUPend >> AHstart >> AHend >> AACapstart >> AACapend;	//ranges for aliens' units
         //for the - sign in the input file
@@ -142,7 +142,7 @@ void GameClass::loadData(int fileName)
         EACapend = abs(EACapend);   AACapend = abs(AACapend);
     }
     randGenerator->setParameters(N, prob, ESPer, ETPer, EGPer, HUPer, EUPstart, EHstart, EACapstart, EUPend, EHend, EACapend,
-        ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend);
+        ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend, infection_Prob);
 }
 
 ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
@@ -268,6 +268,11 @@ int GameClass::CountOf(unitType ut)
         return AArmy->CountOf(ut);
     default:return 0;
     }
+}
+
+int GameClass::getInfection_perc()
+{
+    return randGenerator->getInfection_perc();
 }
 
 

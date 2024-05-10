@@ -36,7 +36,7 @@ ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int cap
 	Td = -1;
 	Ta = -1;
 	this->game = game;
-
+	infected = 0;       // initially all the units are not infected
 }
 
 unitType ArmyUnit::getType()
@@ -57,6 +57,11 @@ int ArmyUnit::getDd() const
 int ArmyUnit::getTa()const
 {
 	return Ta;
+}
+
+bool ArmyUnit::getInfectionState()
+{
+	return infected;
 }
 
 void ArmyUnit::setTa(int time)
@@ -102,5 +107,10 @@ void ArmyUnit::Output(ofstream& oFile)  //prints the unit's info to the output f
 {
 	oFile << "Td" << setw(6) << "ID" << setw(6) << "Tj" << setw(6) << "Df" << setw(6) << "Dd" << setw(6) << "Db" << endl;
 	oFile << Td<< setw(6)<<ID<<setw(6)<<Tj<< setw(6) <<getDf() <<setw(6)<<getDd()<<setw(6)<<getDf()+getDd()<<endl;
+}
+
+void ArmyUnit::become_infected()
+{
+	infected = 1;    // this unit is infected now;
 }
 

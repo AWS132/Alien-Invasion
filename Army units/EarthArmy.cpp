@@ -133,3 +133,20 @@ ArmyUnit* EarthArmy::peekEUnit(unitType u)
 		return nullptr;
 	}
 }
+
+void EarthArmy::SpreadInfection()
+{
+	int numOfInfected = es->getInfectedCount();
+	while(numOfInfected--)
+	{ 
+		random_device rd;
+		mt19937 gen(rd());
+		int infectionSpreadProb = (gen() % (101)); //(rand() % (ub - lb + 1)) + lb
+		if (infectionSpreadProb < 2)
+		{
+			es->infectRandomly();
+		}
+	}
+	
+
+}

@@ -99,7 +99,7 @@ void randGen::generator()
 }
 
 void randGen::setParameters(int N, int prob, int ESPer, int ETPer, int EGPer, int HUPer, int EUPstart, int EHstart, int EACapstart, int EUPend, int EHend, int EACapend,
-	int ASPer, int ADPer, int AMPer, int AUPstart, int AHstart, int AACapstart, int AUPend, int AHend, int AACapend)
+	int ASPer, int ADPer, int AMPer, int AUPstart, int AHstart, int AACapstart, int AUPend, int AHend, int AACapend,int infProb)
 {
 	this->N = N;
 	this->prob = prob;
@@ -107,4 +107,10 @@ void randGen::setParameters(int N, int prob, int ESPer, int ETPer, int EGPer, in
 	EUP1 = EUPstart; EH1 = EHstart; EACap1 = EACapstart; EUP2 = EUPend; EH2 = EHend; EACap2 = EACapend;	//setting Earths' ranges
 	ASpc = ASPer;  ADpc = ADPer, AMpc = AMPer;	//setting Aliens' %
 	AUP1 = AUPstart; AH1 = AHstart; AACap1 = EACapstart; AUP2 = AUPend; AH2 = AHend; AACap2 = AACapend;	//setting Aliens' ranges
+	infection_Prob = infProb;
+}
+
+int randGen::getInfection_perc()
+{
+	return infection_Prob;
 }

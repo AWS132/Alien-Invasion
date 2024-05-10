@@ -1,19 +1,27 @@
 #include "genQueueADT.h"
+#include"random"
 
 genQueueADT::genQueueADT()
 {
     count = 0;
+	InfectedCount = 0;
 }
 
 bool genQueueADT::addUnit(ArmyUnit* Unit)
 {
     count++;
+	if (Unit->getInfectionState()) InfectedCount++;
     return enqueue(Unit);
 }
 
 int genQueueADT::getCount() const
 {
     return count;
+}
+
+int genQueueADT::getInfectedCount() const
+{
+	return InfectedCount;
 }
 
 ArmyUnit* genQueueADT::pickUnit()
@@ -65,6 +73,47 @@ void genQueueADT::outKilled(ofstream& oFile,int& S,int& T,int& G,int& Df,int& Dd
 		}
 			ptr = ptr->getNext();
 	}
+}
+
+void genQueueADT::infectRandomly()
+{
+	random_device rd;
+	mt19937 gen(rd());
+	int A = (gen() % (count)) + 1;    //(rand() % (ub - lb + 1)) + lb  To generate Random index to be infected ! 
+	Node< ArmyUnit*>* ptr = frontPtr;
+	for (int i = 1; i <= count && InfectedCount<count; i++)
+	{
+		if (A == i)
+		{
+			if (!ptr->getItem()->getInfectionState())
+			{
+				ptr->getItem()->become_infected();
+				InfectedCount++;
+				return;
+			}
+			else
+			{
+				if (i == count)
+				{
+					A = 0;
+					i = 0;
+				}
+				else
+				{
+					A++;
+				}
+			}
+		}
+	}
+	while (ptr and ptr->getNext())
+	{
+		ptr->getItem()->Print();
+		ptr = ptr->getNext();
+		cout << ", ";
+	}
+	if (ptr)
+		ptr->getItem()->Print();
+	cout << "]\n";;
 }
 	
 

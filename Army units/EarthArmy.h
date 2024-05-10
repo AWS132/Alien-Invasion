@@ -31,4 +31,5 @@ public:
 	~EarthArmy();
 	ArmyUnit* pickEUnit(unitType u);
 	ArmyUnit* peekEUnit(unitType u);
+	void SpreadInfection();
 };

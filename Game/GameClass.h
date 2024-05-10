@@ -34,5 +34,6 @@ public:
 	void AddUnit(ArmyUnit*u1);
 	void createOFile(int winner);
 	int CountOf(unitType ut);
+	int getInfection_perc();
 };
 

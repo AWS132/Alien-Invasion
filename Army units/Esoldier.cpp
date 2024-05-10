@@ -16,20 +16,28 @@ void Esoldier::Attack(int flag)
 	if (flag)
 		cout << "ES " << ID << " shoots ";
 
-	while (attackCap--) {
-		if ((unit=game->getAArmy()->PickAunit(AS, nl1, nl2), unit)) {
+
+	while (attackCap--)
+	{
+		if (!infected)  //not infected 
+			unit = game->getAArmy()->PickAunit(AS, nl1, nl2);
+		else            //infected
+			unit = game->getEArmy()->pickEUnit(ES);
+
+		//if ((unit = game->getAArmy()->PickAunit(AS, nl1, nl2), unit))
+		if (unit)
+		{
 			unit->DecHlth(pwr);
-			
+
 			if (unit->getHealth() > 0)
 			{
 				lst.addUnit(unit);
 			}
-			else {
+			else
+			{
 				game->AddToKldList(unit);
-				
-
 			}
-				toBePrinted.addUnit(unit);
+			toBePrinted.addUnit(unit);
 		}
 	}
 	if (flag)
@@ -38,5 +46,10 @@ void Esoldier::Attack(int flag)
 	for (unit = nullptr;toBePrinted.pickUnit(););	//to make the "toBePrinted"list empty to save the kldLst from being destructed!!
 
 	while ((unit = lst.pickUnit(), unit))
-		game->getAArmy()->AddUnit(unit);
+	{
+		if (unit->getType() == AS)
+			game->getAArmy()->AddUnit(unit);
+		else
+			game->getEArmy()->AddUnit(unit);
+	}
 }

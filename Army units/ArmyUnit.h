@@ -18,6 +18,7 @@ protected:
 		,cap	// attack capacity,
 		,Ta		// time it was first attacked initially -1,
 		,Td;	// time it was dismissed from the battle initially -1  
+	bool infected;//infected by monster Attack==>1  not infected==>0 (defualt state)
 	GameClass* game;
 public:
 	ArmyUnit();
@@ -29,6 +30,7 @@ public:
 	int getDf()const;
 	int getDd()const;
 	int getTa()const;
+	bool getInfectionState();
 	void setTa(int time);
 	void setTd(int time);
 	int getID()const;
@@ -37,6 +39,7 @@ public:
 	virtual bool IncHlth(double product);// increases the heath by a certain value determined by a given equation,returns false if not over 20%
 	virtual void Print() const;
 	void Output(ofstream& oFile);
+	void become_infected();        //The AM infeceted this unit
 
 };
 

@@ -31,7 +31,7 @@ void Gunnery::Attack(int flag) //Attacks drones and monsters
                 {
                     damage = (pwr * hlth / 100) / sqrt(nl1->getHealth());
                     nl1->DecHlth(damage);
-                    
+   
                         lst.addUnit(nl1);
                     
                    
