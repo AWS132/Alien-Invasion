@@ -19,6 +19,7 @@ private:
 	Gunnerys* g;
 	UML* uml;
 	int id;
+	int threshold;
 public:
 	EarthArmy();
 	int getId()/*const*/;
@@ -27,6 +28,8 @@ public:
 	int getCount() const;//returns the total count of the current Earth Army
 	int CountOf(unitType ut);
 	int countOfInfected();
+	void setThreshold(int);
+	bool limitReached();
 	ArmyUnit* pickFromUML();
 	bool AddToUML(ArmyUnit* unit);
 	~EarthArmy();

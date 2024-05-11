@@ -17,7 +17,8 @@ void Drone::Attack(int flag)
 	ArmyUnit* unt = nullptr;
 	if (flag)
 		cout << "AD " << ID << " Attacks ";
-	for (int i = 0; i < cap; i++) {
+	int tempCap = min(cap,game->getEArmy()->CountOf(ET)+ game->getEArmy()->CountOf(EG));
+	for (int i = 0; i < tempCap; i++) {
 		if (i % 2) {
 			unt = game->getEArmy()->pickEUnit(EG);
 		}
@@ -27,6 +28,9 @@ void Drone::Attack(int flag)
 		if (unt) {
 			unt->DecHlth(dmg / sqrt(unt->getHealth()));
 			lst.addUnit(unt);
+		}
+		else {
+			tempCap++;
 		}
 	}
 	if (flag)

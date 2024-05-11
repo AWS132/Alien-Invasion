@@ -23,6 +23,22 @@ int UML::getCount() const
 	return count;
 }
 
+void UML::printList()
+{
+	Node< ArmyUnit*>* ptr = frontPtr;
+	cout << "UML " << count << " [";
+	while (ptr and ptr->getNext())
+	{
+		ptr->getItem()->Print();
+		ptr = ptr->getNext();
+		cout << ", ";
+	}
+	if (ptr)
+		ptr->getItem()->Print();
+	cout << "]\n";
+
+}
+
 UML::~UML()
 {
 	ArmyUnit* x;

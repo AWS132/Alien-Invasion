@@ -9,5 +9,6 @@ public:
 	bool addUnit(ArmyUnit* Unit);
 	ArmyUnit* pickUnit();
 	int getCount() const;
+	void printList();
 	~UML();
 };

@@ -72,6 +72,12 @@
     <ClCompile Include="Army units\HU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Army units\allyArmy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Army units\SU.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Army units\ArmyUnit.h">
@@ -144,6 +150,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Army units\genQueueADT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\allyArmy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Army units\SU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

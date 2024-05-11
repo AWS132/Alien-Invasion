@@ -9,6 +9,7 @@ GameClass::GameClass()
     this->EArmy = new EarthArmy();
     this->randGenerator = new randGen(this);
     this->klst = new genQueueADT();
+    SArmy = new allyArmy();
 }
 
 void GameClass::incrementTime()
@@ -31,6 +32,11 @@ AlienArmy* GameClass::getAArmy()
 	return AArmy;
 }
 
+allyArmy* GameClass::getSArmy()
+{
+    return SArmy;
+}
+
 void GameClass::initializer(int flag, int fileName)
 {
     loadData(fileName);
@@ -43,6 +49,10 @@ void GameClass::initializer(int flag, int fileName)
     {
         EArmy->SpreadInfection();
         randGenerator->generator();
+        if (EArmy->limitReached())
+            SArmy->call();
+        if (!EArmy->countOfInfected())
+            SArmy->withdraw();
         if (flag)
             PrintArmies();
         pokeUnits(flag);
@@ -50,8 +60,8 @@ void GameClass::initializer(int flag, int fileName)
             cout << "=======================Killed/destructed units=======================\n";
             klst->printList();
             cout << "==============================================================================\n\n";
-            //   cout << "Press Enter to Continue";
-              // cin.ignore();
+            cout << "Press Enter to Continue";
+            cin.ignore();
         }
     }
     int x;// used to send the winner to the output file
@@ -100,13 +110,15 @@ void GameClass::pokeUnits(int flag)
         }
     }
     if (EArmy->CountOf(HU_))
-        EArmy->peekEUnit(HU_)->Attack(flag);    
+        EArmy->peekEUnit(HU_)->Attack(flag);
+    if (SArmy->getCount()) 
+        SArmy->peekSUnit()->Attack(flag);
 }
 
 void GameClass::loadData(int fileName)
 {
-    int N, prob, ESPer, ETPer, EGPer, HUPer, EUPstart, EUPend, EHstart, EHend, EACapstart, EACapend,
-        ASPer, AMPer, ADPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend, infection_Prob;
+    int N, prob, SN, SProb, ESPer, ETPer, EGPer, HUPer, EUPstart, EUPend, EHstart, EHend, EACapstart, EACapend,
+        ASPer, AMPer, ADPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend, SUPstart, SHstart, SACapstart, SUPend, SHend, SACapend, infection_Prob, threshold;
     string s;
     switch (fileName) {
     case(2):
@@ -135,16 +147,18 @@ void GameClass::loadData(int fileName)
     else
     {
         //according to the input file's order
-        dataFile >> N >> ESPer >> ETPer >> EGPer >> HUPer >> ASPer >> AMPer >> ADPer >> prob >>infection_Prob>>
+        dataFile >> N >> SN >> ESPer >> ETPer >> EGPer >> HUPer >> ASPer >> AMPer >> ADPer >> prob >> SProb >> infection_Prob >> threshold >>
             EUPstart >> EUPend >> EHstart >> EHend >> EACapstart >> EACapend >>	//ranges for earths' units
-            AUPstart >> AUPend >> AHstart >> AHend >> AACapstart >> AACapend;	//ranges for aliens' units
+            AUPstart >> AUPend >> AHstart >> AHend >> AACapstart >> AACapend >>	//ranges for aliens' units
+            SUPstart >> SUPend >> SHstart >> SHend >> SACapstart >> SACapend;	//ranges for aliens' units
         //for the - sign in the input file
-        EUPend = abs(EUPend);   AUPend = abs(AUPend);
-        EHend = abs(EHend);     AHend = abs(AHend);
-        EACapend = abs(EACapend);   AACapend = abs(AACapend);
+        EUPend = abs(EUPend);   AUPend = abs(AUPend); SUPend = abs(SUPend);
+        EHend = abs(EHend);     AHend = abs(AHend); SHend = abs(SHend);
+        EACapend = abs(EACapend);   AACapend = abs(AACapend); SACapend = abs(SACapend);
     }
-    randGenerator->setParameters(N, prob, ESPer, ETPer, EGPer, HUPer, EUPstart, EHstart, EACapstart, EUPend, EHend, EACapend,
-        ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend, infection_Prob);
+    randGenerator->setParameters(N, prob, SN, SProb, ESPer, ETPer, EGPer, HUPer, EUPstart, EHstart, EACapstart, EUPend, EHend, EACapend,
+        ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend, SHstart, SHend, SUPstart, SUPend, SACapstart, SACapend, infection_Prob);
+    EArmy->setThreshold(threshold);
 }
 
 ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
@@ -182,7 +196,8 @@ void GameClass::PrintArmies() const
     cout << "Current time step: " << this->crntTime<<endl;
     EArmy->PrintArmy();
     AArmy->PrintArmy();
-  
+    SArmy->PrintArmy();
+    
 }
 
 void GameClass::AddUnit(ArmyUnit* u1/*, bool flag*/)
@@ -252,19 +267,17 @@ void GameClass::createOFile(int winner)
     else
         oFile << " Draw";
     oFile << endl;
-    if (S + AArmy->CountOf(AS))
+    
         oFile << "Total AS: " << S + AArmy->CountOf(AS) << endl;
-    if (T + AArmy->CountOf(AM))
         oFile << "Total AM: " << T + AArmy->CountOf(AM) << endl;
-    if (G + AArmy->CountOf(AD))
         oFile << "Total AD: " << G + EArmy->CountOf(AD) << endl;
-    if (double(S) / (S + AArmy->CountOf(AS)))
+    if ( (S + AArmy->CountOf(AS)))
         oFile << "Percentage of AS: " << double(S) / (S + AArmy->CountOf(AS)) << endl;
-    if (double(T) / (T + AArmy->CountOf(AM)))
+    if ( (T + AArmy->CountOf(AM)))
         oFile << "Percentage of AM: " << double(T) / (T + AArmy->CountOf(AM)) << endl;
-    if (double(G) / (G + AArmy->CountOf(AD)))
+    if ((G + AArmy->CountOf(AD)))
         oFile << "Percentage of AD: " << double(G) / (G + AArmy->CountOf(AD)) << endl;
-    if (double(S + G + T) / (S + G + T + AArmy->getCount()))
+    if  (S + G + T + AArmy->getCount())
         oFile << "Percentage of Total destructed unites to Total units: " << double(S + G + T) / (S + G + T + AArmy->getCount()) << endl;
     if ((S + G + T)) {
         oFile << "Average of Df: " << double(Df) / (S + G + T) << endl;

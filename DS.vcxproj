@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Army units\AlienArmy.cpp" />
+    <ClCompile Include="Army units\allyArmy.cpp" />
     <ClCompile Include="Army units\ArmyUnit.cpp" />
     <ClCompile Include="Army units\Asoldier.cpp" />
     <ClCompile Include="Army units\Drone.cpp" />
@@ -32,6 +33,7 @@
     <ClCompile Include="Army units\genQueueADT.cpp" />
     <ClCompile Include="Army units\Monster.cpp" />
     <ClCompile Include="Army units\Monsters.cpp" />
+    <ClCompile Include="Army units\SU.cpp" />
     <ClCompile Include="Army units\Tank.cpp" />
     <ClCompile Include="Army units\Tanks.cpp" />
     <ClCompile Include="Army units\UML.cpp" />
@@ -41,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Army units\AlienArmy.h" />
+    <ClInclude Include="Army units\allyArmy.h" />
     <ClInclude Include="Army units\ArmyUnit.h" />
     <ClInclude Include="Army units\Asoldier.h" />
     <ClInclude Include="Army units\Drone.h" />
@@ -52,6 +55,7 @@
     <ClInclude Include="Army units\genQueueADT.h" />
     <ClInclude Include="Army units\Monster.h" />
     <ClInclude Include="Army units\Monsters.h" />
+    <ClInclude Include="Army units\SU.h" />
     <ClInclude Include="Army units\Tank.h" />
     <ClInclude Include="Army units\Tanks.h" />
     <ClInclude Include="Data Structures\ArrayStack.h" />

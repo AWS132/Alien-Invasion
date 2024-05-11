@@ -66,10 +66,12 @@ void Monster::Attack(int flag) // Attack both ET && ES
         ArmyUnit* unt = lst.pickUnit();
         if (unt && unt->getHealth() > 0)
         {
-            /*if (unt->getHealth() < 0.2 * unt->getStartHlth())
-                game->getEArmy()->AddToUML(unt);*/
-            if (unt->getHealth() < 0.2)
-                game->AddUnit(unt/*,0*/);
+            if (unt->getHealth() < 0.2 * unt->getStartHlth())
+                game->getEArmy()->AddToUML(unt);
+            else
+                game->AddUnit(unt);
+            /*if (unt->getHealth() < 0.2)
+                game->AddUnit(unt);*/
         }
         else
         {

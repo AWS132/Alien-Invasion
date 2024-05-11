@@ -162,13 +162,18 @@ ArmyUnit* genQueueADT::pickInfected()
 	}
 	return nullptr;
 }
+
+void genQueueADT::destructAll()
+{
+	ArmyUnit* x = nullptr;
+	while (dequeue(x)) {
+		if (x) delete x;
+	}
+}
 	
 
 
 genQueueADT::~genQueueADT()
 {
-    ArmyUnit* x=nullptr;
-    while (dequeue(x)) {
-        if (x) delete x;
-    }
+	destructAll();
 }

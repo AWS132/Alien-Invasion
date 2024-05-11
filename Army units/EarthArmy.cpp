@@ -50,6 +50,8 @@ void EarthArmy::PrintArmy()
 	g->printGunnerys();
 	cout << "HU ";
 	hl->printList();
+	
+	uml->printList();
 }
 
 int EarthArmy::getCount() const
@@ -84,9 +86,21 @@ ArmyUnit* EarthArmy::pickFromUML()
 	return  uml->pickUnit();
 }
 
+void EarthArmy::setThreshold(int limit)
+{
+	threshold = limit;
+}
+
 bool EarthArmy::AddToUML(ArmyUnit* unit)
 {
 	return uml->addUnit(unit);
+}
+
+
+bool EarthArmy::limitReached()//if the percentage of infected solidiers surpassed a certain threshold this returns true
+{
+	if (!CountOf(AS)) return false;
+	return (countOfInfected()*100/CountOf(AS)>=threshold);
 }
 
 EarthArmy::~EarthArmy()
@@ -156,6 +170,4 @@ void EarthArmy::SpreadInfection()
 			es->infectRandomly();
 		}
 	}
-	
-
 }
