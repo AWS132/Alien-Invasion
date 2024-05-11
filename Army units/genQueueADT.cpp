@@ -10,8 +10,11 @@ genQueueADT::genQueueADT()
 
 bool genQueueADT::addUnit(ArmyUnit* Unit)
 {
-    count++;
-	if (Unit->getInfectionState()) InfectedCount++;
+	if (!Unit)
+		return false;
+	count++;
+	if (Unit->getInfectionState())
+		InfectedCount++;
     return enqueue(Unit);
 }
 
@@ -31,9 +34,10 @@ ArmyUnit* genQueueADT::pickUnit()
 		return nullptr;
 	if (count > 0)
 		count--;
+
 	ArmyUnit* unt;
 	dequeue(unt);
-	if (unt->getInfectionState()) InfectedCount--;
+	if (unt && unt->getInfectionState())InfectedCount--;
 	return unt;
 }
 
@@ -131,14 +135,23 @@ ArmyUnit* genQueueADT::pickInfected()
 	
 	next = ptr->getNext();
 	if (ptr->getItem()->getInfectionState())	//if the infected ES is at the beginning
-		return (dequeue(unt), unt);	//returns dequeued unit
+	{
+		count--;
+		InfectedCount--;
+		dequeue(unt);
+		return unt; //returns dequeued unit
+	}
 
 	while (next) {
 		if (next->getItem()->getInfectionState())
 		{
 			ptr->setNext(next->getNext());
 			unt = next->getItem();
+			if (!next->getNext())
+				backPtr = ptr;
 			delete next;
+			count--;
+			InfectedCount--;
 			return unt;
 		}
 		else

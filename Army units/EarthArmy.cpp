@@ -59,7 +59,6 @@ int EarthArmy::getCount() const
 
 int EarthArmy::CountOf(unitType ut)
 {
-
 	switch (ut)
 	{
 	case ES:
@@ -73,6 +72,11 @@ int EarthArmy::CountOf(unitType ut)
 	default:
 		return 0;
 	}
+}
+
+int EarthArmy::countOfInfected()
+{
+	return es->getInfectedCount();
 }
 
 ArmyUnit* EarthArmy::pickFromUML()
@@ -134,6 +138,11 @@ ArmyUnit* EarthArmy::peekEUnit(unitType u)
 	}
 }
 
+ArmyUnit* EarthArmy::pickInfUnit()
+{
+	return es->pickInfected();
+}
+
 void EarthArmy::SpreadInfection()
 {
 	int numOfInfected = es->getInfectedCount();
@@ -142,7 +151,7 @@ void EarthArmy::SpreadInfection()
 		random_device rd;
 		mt19937 gen(rd());
 		int infectionSpreadProb = (gen() % (101)); //(rand() % (ub - lb + 1)) + lb
-		if (infectionSpreadProb < 2)
+		if (infectionSpreadProb <2)
 		{
 			es->infectRandomly();
 		}

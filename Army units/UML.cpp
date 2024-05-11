@@ -13,7 +13,8 @@ bool UML::addUnit(ArmyUnit* Unit)
 
 ArmyUnit* UML::pickUnit()
 {
-	count--;
+	if(count)
+		count--;
 	return dequeue();
 }
 

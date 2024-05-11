@@ -91,7 +91,8 @@ void GameClass::pokeUnits(int flag)
         AArmy->peekAunit(AM, nl1, nl2)->Attack(flag);
     if (AArmy->CountOf(AS))
         AArmy->peekAunit(AS, nl1, nl2)->Attack(flag);
-    if (AArmy->CountOf(AD)) {
+    if (AArmy->CountOf(AD)) 
+    {
         AArmy->peekAunit(AD, nl1, nl2);
         if (nl1 && nl2) {
             nl1->Attack(flag);

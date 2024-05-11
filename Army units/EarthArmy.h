@@ -26,10 +26,12 @@ public:
 	void PrintArmy();
 	int getCount() const;//returns the total count of the current Earth Army
 	int CountOf(unitType ut);
+	int countOfInfected();
 	ArmyUnit* pickFromUML();
 	bool AddToUML(ArmyUnit* unit);
 	~EarthArmy();
 	ArmyUnit* pickEUnit(unitType u);
 	ArmyUnit* peekEUnit(unitType u);
+	ArmyUnit* pickInfUnit();
 	void SpreadInfection();
 };

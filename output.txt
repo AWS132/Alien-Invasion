@@ -1,88 +1,116 @@
 Earth Destructed units:
 Td    ID    Tj    Df    Dd    Db
-4     6     4     0     0     0
-Td    ID    Tj    Df    Dd    Db
-5     5     4     0     1     1
-Td    ID    Tj    Df    Dd    Db
-5     1     1     4     0     4
-Td    ID    Tj    Df    Dd    Db
-12    12    12     0     0     0
-Td    ID    Tj    Df    Dd    Db
-13     7    10     0     3     3
-Td    ID    Tj    Df    Dd    Db
-13     4     4     0     9     9
-Td    ID    Tj    Df    Dd    Db
-26    18    26     0     0     0
-Td    ID    Tj    Df    Dd    Db
-26    14    23     0     3     3
-Td    ID    Tj    Df    Dd    Db
-26    16    26     0     0     0
+68    49    49     0    19    19
 Battle result: Win
-Total ES: 7
+Total ES: 42
 Total ET: 4
-Total EG: 4
-Total HU: 2
-Percentage of ES: 1
-Percentage of ET: 0
+Total EG: 17
+Total HU: 0
+Percentage of ES: 0
+Percentage of ET: 0.25
 Percentage of EG: 0
-Percentage of HU: 1
-Percentage of Total destructed unites to Total units: 0.411765
-Average of Df: 0.444444
-Average of Dd: 1.77778
-Average of Db: 2.22222
-Df/Db: 20
-Dd/Db: 80
-Alien Destructed units:
-Td    ID    Tj    Df    Dd    Db
-6  2004     4     0     2     2
-Td    ID    Tj    Df    Dd    Db
-9  2006     4     0     5     5
-Td    ID    Tj    Df    Dd    Db
-9  2002     1     0     8     8
-Td    ID    Tj    Df    Dd    Db
-11  2001     1     0    10    10
-Td    ID    Tj    Df    Dd    Db
-11  2005     4     0     7     7
-Td    ID    Tj    Df    Dd    Db
-11  2008    10     0     1     1
-Td    ID    Tj    Df    Dd    Db
-11  2009    10     0     1     1
-Td    ID    Tj    Df    Dd    Db
-13  2003     1     0    12    12
-Td    ID    Tj    Df    Dd    Db
-15  2010    12     0     3     3
-Td    ID    Tj    Df    Dd    Db
-16  2011    12     0     4     4
-Td    ID    Tj    Df    Dd    Db
-17  2007    10     0     7     7
-Td    ID    Tj    Df    Dd    Db
-18  2012    12     0     6     6
-Td    ID    Tj    Df    Dd    Db
-25  2013    23     0     2     2
-Td    ID    Tj    Df    Dd    Db
-29  2015    23     0     6     6
-Td    ID    Tj    Df    Dd    Db
-29  2015    23     0     6     6
-Td    ID    Tj    Df    Dd    Db
-31  2014    23     0     8     8
-Td    ID    Tj    Df    Dd    Db
-31  2016    26     0     5     5
-Td    ID    Tj    Df    Dd    Db
-29  2015    23     0     6     6
-Td    ID    Tj    Df    Dd    Db
-32  2017    26     0     6     6
-Td    ID    Tj    Df    Dd    Db
-40  2018    26     0    14    14
-Battle result: Lose
-Total AS: 8
-Total AM: 9
-Total AD: 3
-Percentage of AS: 1
-Percentage of AM: 1
-Percentage of AD: 1
-Percentage of Total destructed unites to Total units: 1
+Percentage of Total destructed unites to Total units: 0.015873
 Average of Df: 0
-Average of Dd: 5.95
-Average of Db: 5.95
+Average of Dd: 19
+Average of Db: 19
 Df/Db: 0
 Dd/Db: 100
+Alien Destructed units:
+Td    ID    Tj    Df    Dd    Db
+15  2010     8     2     5     7
+Td    ID    Tj    Df    Dd    Db
+17  2011     8     0     9     9
+Td    ID    Tj    Df    Dd    Db
+23  2005     6     0    17    17
+Td    ID    Tj    Df    Dd    Db
+23  2007     7     0    16    16
+Td    ID    Tj    Df    Dd    Db
+26  2001     4     2    20    22
+Td    ID    Tj    Df    Dd    Db
+31  2003     4     2    25    27
+Td    ID    Tj    Df    Dd    Db
+40  2008     7     0    33    33
+Td    ID    Tj    Df    Dd    Db
+40  2014    13     2    25    27
+Td    ID    Tj    Df    Dd    Db
+40  2040    40     0     0     0
+Td    ID    Tj    Df    Dd    Db
+44  2029    25     0    19    19
+Td    ID    Tj    Df    Dd    Db
+48  2032    27     0    21    21
+Td    ID    Tj    Df    Dd    Db
+48  2030    25     3    20    23
+Td    ID    Tj    Df    Dd    Db
+48  2038    34     6     8    14
+Td    ID    Tj    Df    Dd    Db
+49  2031    27     2    20    22
+Td    ID    Tj    Df    Dd    Db
+51  2025    24     0    27    27
+Td    ID    Tj    Df    Dd    Db
+53  2037    34     0    19    19
+Td    ID    Tj    Df    Dd    Db
+54  2049    49     0     5     5
+Td    ID    Tj    Df    Dd    Db
+55  2033    27     1    27    28
+Td    ID    Tj    Df    Dd    Db
+56  2048    48     1     7     8
+Td    ID    Tj    Df    Dd    Db
+58  2027    24     0    34    34
+Td    ID    Tj    Df    Dd    Db
+58  2017    15     0    43    43
+Td    ID    Tj    Df    Dd    Db
+59  2053    51     0     8     8
+Td    ID    Tj    Df    Dd    Db
+59  2042    40     0    19    19
+Td    ID    Tj    Df    Dd    Db
+60  2021    16     2    42    44
+Td    ID    Tj    Df    Dd    Db
+62  2020    16     0    46    46
+Td    ID    Tj    Df    Dd    Db
+63  2051    49     1    13    14
+Td    ID    Tj    Df    Dd    Db
+65  2057    65     0     0     0
+Td    ID    Tj    Df    Dd    Db
+67  2052    51     0    16    16
+Td    ID    Tj    Df    Dd    Db
+69  2054    51     3    15    18
+Td    ID    Tj    Df    Dd    Db
+70  2062    70     0     0     0
+Td    ID    Tj    Df    Dd    Db
+73  2063    70     0     3     3
+Td    ID    Tj    Df    Dd    Db
+75  2058    66     1     8     9
+Td    ID    Tj    Df    Dd    Db
+76  2067    76     0     0     0
+Td    ID    Tj    Df    Dd    Db
+77  2055    65     0    12    12
+Td    ID    Tj    Df    Dd    Db
+78  2056    65     0    13    13
+Td    ID    Tj    Df    Dd    Db
+81  2059    66     0    15    15
+Td    ID    Tj    Df    Dd    Db
+81  2070    81     0     0     0
+Td    ID    Tj    Df    Dd    Db
+82  2060    66     0    16    16
+Td    ID    Tj    Df    Dd    Db
+82  2065    72     0    10    10
+Td    ID    Tj    Df    Dd    Db
+83  2072    81     0     2     2
+Td    ID    Tj    Df    Dd    Db
+88  2068    76     0    12    12
+Td    ID    Tj    Df    Dd    Db
+89  2071    81     0     8     8
+Td    ID    Tj    Df    Dd    Db
+89  2069    76     0    13    13
+Battle result: Lose
+Total AS: 5
+Total AM: 38
+Percentage of AS: 1
+Percentage of AM: 1
+Percentage of AD: -nan(ind)
+Percentage of Total destructed unites to Total units: 1
+Average of Df: 0.651163
+Average of Dd: 15.6047
+Average of Db: 16.2558
+Df/Db: 4.00572
+Dd/Db: 95.9943

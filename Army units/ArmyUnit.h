@@ -41,6 +41,8 @@ public:
 	virtual void Print() const;
 	void Output(ofstream& oFile);
 	void become_infected();        //The AM infeceted this unit
+	void become_immune();        //became immune 
+	bool isImmune();	
 
 };
 

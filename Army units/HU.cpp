@@ -14,13 +14,24 @@ void HU::Attack(int flag)
 		if ((unit = game->getEArmy()->pickFromUML(), unit))
 		{
 			int ta = unit->getTa();
-			if (game->getTime() - ta > 10) {
+			if (game->getTime() - ta > 10) {	
 				unit->DecHlth(unit->getHealth());
 				game->AddToKldList(unit);
 			}
 			else
 			{
-				if (unit->IncHlth((pwr * hlth))) {	//returns true if health is over than 20% of start health
+				if (unit->getInfectionState())//divided by 2 to take double the time
+				{
+					if (unit->IncHlth((pwr * hlth) / 2))	//returns true if health is over than 20% of start health
+					{//if true => would be immune ;)
+						unit->become_immune();
+						game->getEArmy()->AddUnit(unit);
+					}
+					else
+						lst.addUnit(unit);
+					
+				}
+				else if (unit->IncHlth((pwr * hlth))) {	//returns true if health is over than 20% of start health
 					game->getEArmy()->AddUnit(unit);
 				}
 				else {

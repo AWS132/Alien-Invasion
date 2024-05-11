@@ -101,7 +101,10 @@ bool ArmyUnit::IncHlth(double product)
 
 void ArmyUnit::Print() const
 {
+	if (infected)
+		cout << "*!*";
 	cout << ID;
+	
 }
 
 void ArmyUnit::Output(ofstream& oFile)  //prints the unit's info to the output file
@@ -113,5 +116,17 @@ void ArmyUnit::Output(ofstream& oFile)  //prints the unit's info to the output f
 void ArmyUnit::become_infected()
 {
 	infected = 1;    // this unit is infected now;
+}
+
+void ArmyUnit::become_immune()
+{
+	infected = false;	//not infected anymore ^_^
+	immune = true;
+}
+
+bool ArmyUnit::isImmune()
+{
+
+	return immune;
 }
 
