@@ -99,8 +99,8 @@ bool EarthArmy::AddToUML(ArmyUnit* unit)
 
 bool EarthArmy::limitReached()//if the percentage of infected solidiers surpassed a certain threshold this returns true
 {
-	if (!CountOf(AS)) return false;
-	return (countOfInfected()*100/CountOf(AS)>=threshold);
+	if (!CountOf(ES)) return false;
+	return (countOfInfected()*100/CountOf(ES)>=threshold);
 }
 
 EarthArmy::~EarthArmy()

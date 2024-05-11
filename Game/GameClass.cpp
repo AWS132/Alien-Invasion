@@ -172,6 +172,8 @@ ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
         return EArmy->pickEUnit(ET);
     case EG:
         return EArmy->pickEUnit(EG);
+    case HU_:
+        return EArmy->pickEUnit(HU_);
     case AS:
         return AArmy->PickAunit(AS,d1,d2);
     case AM:
@@ -209,11 +211,14 @@ void GameClass::AddUnit(ArmyUnit* u1/*, bool flag*/)
         case ES:
         case ET:
         case EG:
+        case HU_:
             EArmy->AddUnit(u1/*,flag*/); break;
         case AS:
         case AM:
         case AD:
             AArmy->AddUnit(u1/*,flag*/); break;
+        case SU_:
+            SArmy->AddUnit(u1);
         }
     }
 }

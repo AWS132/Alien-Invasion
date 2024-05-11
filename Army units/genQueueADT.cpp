@@ -165,6 +165,7 @@ ArmyUnit* genQueueADT::pickInfected()
 
 void genQueueADT::destructAll()
 {
+	count = 0;
 	ArmyUnit* x = nullptr;
 	while (dequeue(x)) {
 		if (x) delete x;
