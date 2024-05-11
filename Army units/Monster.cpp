@@ -8,8 +8,8 @@ void Monster::Attack(int flag) // Attack both ET && ES
 {
 	genQueueADT lst;
     int infection_Percentage = game->getInfection_perc();
-	int ETtoAttack = cap/2;
-	int EStoAttack = cap - ETtoAttack;
+	int ETtoAttack = min(cap/2,game->CountOf(ET));
+	int EStoAttack = min(cap - ETtoAttack, game->CountOf(ES));
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
     double damage;
@@ -70,8 +70,6 @@ void Monster::Attack(int flag) // Attack both ET && ES
                 game->getEArmy()->AddToUML(unt);
             else
                 game->AddUnit(unt);
-            /*if (unt->getHealth() < 0.2)
-                game->AddUnit(unt);*/
         }
         else
         {

@@ -7,20 +7,14 @@ Gunnery::Gunnery(int id, int tj, int health, int power, int capacity, GameClass*
 void Gunnery::Attack(int flag) //Attacks drones and monsters
 {
     genQueueADT lst;
-    int ADtoAttack = cap / 2;
-    int AMtoAttack = cap - ADtoAttack;
- /*   if (ADtoAttack & 1 && AMtoAttack > 1)
-    {
-        ADtoAttack++;
-        AMtoAttack--;
-    }*/
+    int ADtoAttack =min(cap/2,game->CountOf(AD));
+    int AMtoAttack =min(cap - ADtoAttack, game->CountOf(AM));
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
     double damage;
     if (flag)
         cout <<"EG " << ID << " shoots ";
-  /*  if ((ADtoAttack & 1) == 0)
-    { */
+
         for (int i = 0; i < ADtoAttack;)
         {
             if (i + 1 == ADtoAttack  && ADtoAttack & 1)
@@ -31,15 +25,11 @@ void Gunnery::Attack(int flag) //Attacks drones and monsters
                 {
                     damage = (pwr * hlth / 100) / sqrt(nl1->getHealth());
                     nl1->DecHlth(damage);
-   
-                        lst.addUnit(nl1);
-                    
-                   
+                    lst.addUnit(nl1);
                 }
             }
             else
             { 
-
                 game->PickUnit(AD, nl1, nl2);
                 i += 2;
                 if (nl1)
@@ -56,26 +46,6 @@ void Gunnery::Attack(int flag) //Attacks drones and monsters
                 }
             }
         }
-    //}
-    //else
-    //{
-    //    for (int i = 0; i < ADtoAttack; i++)
-    //    {
-    //         game->PickUnit(AD, nl1, nl2,0);
-    //        if (nl1)
-    //        {
-    //            damage = (pwr * hlth / 100) / sqrt(nl1->getHealth());
-    //            if (nl1->DecHlth(damage))
-    //            {
-    //                lst.addUnit(nl1);
-    //            }
-    //            else
-    //            {
-    //                game->AddToKldList(nl1);
-    //            }
-    //        }
-    //    }
-    //}
     for (int i = 0; i < AMtoAttack; i++)
     {
         ArmyUnit* unt = game->PickUnit(AM, nl1, nl2);

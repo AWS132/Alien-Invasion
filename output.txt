@@ -1,53 +1,11 @@
 Earth Destructed units:
-Battle result: Lose
+Battle result: Draw
 Total ES: 0
 Total ET: 0
 Total EG: 0
 Total HU: 0
 Alien Destructed units:
-Td    ID    Tj    Df    Dd    Db
-30  2006     3     0    27    27
-Td    ID    Tj    Df    Dd    Db
-33  2011    13     0    20    20
-Td    ID    Tj    Df    Dd    Db
-44  2002     2     0    42    42
-Td    ID    Tj    Df    Dd    Db
-44  2019    26     1    17    18
-Td    ID    Tj    Df    Dd    Db
-47  2022    29     0    18    18
-Td    ID    Tj    Df    Dd    Db
-57  2001     2     0    55    55
-Td    ID    Tj    Df    Dd    Db
-57  2001     2     0    55    55
-Td    ID    Tj    Df    Dd    Db
-61  2037    49     0    12    12
-Td    ID    Tj    Df    Dd    Db
-64  2018    21     5    38    43
-Td    ID    Tj    Df    Dd    Db
-69  2025    33     0    36    36
-Td    ID    Tj    Df    Dd    Db
-72  2031    42     0    30    30
-Td    ID    Tj    Df    Dd    Db
-74  2054    61     0    13    13
-Td    ID    Tj    Df    Dd    Db
-86  2049    57     2    27    29
-Td    ID    Tj    Df    Dd    Db
-88  2005     3     0    85    85
-Td    ID    Tj    Df    Dd    Db
-92  2046    56     8    28    36
-Td    ID    Tj    Df    Dd    Db
-106  2058    64     0    42    42
-Td    ID    Tj    Df    Dd    Db
-113  2026    33     0    80    80
-Battle result: Win
+Battle result: Draw
 Total AS: 0
-Total AM: 41
-Total AD: 5
-Percentage of AM: 0.292683
-Percentage of AD: 0.128205
-Percentage of Total destructed unites to Total units: 0.2125
-Average of Df: 0.941176
-Average of Dd: 36.7647
-Average of Db: 37.7059
-Df/Db: 2.4961
-Dd/Db: 97.5039
+Total AM: 0
+Total AD: 0

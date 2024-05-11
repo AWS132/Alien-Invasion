@@ -7,13 +7,13 @@ Tank::Tank(int id, int tj, int health, int power, int capacity, GameClass* game)
 void Tank::Attack(int flag) //attack monsters
 {
     genQueueADT lst;
-    int AMtoAttack = cap / 2;
-    int AStoAttack = cap - AMtoAttack;
+    int no_AS = game->CountOf(AS);
+    int AMtoAttack=min(cap/2, game->CountOf(AM));
+    int AStoAttack=min(cap- AMtoAttack,game->CountOf(AS));
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
     double damage;
     int no_ES = game->CountOf(ES);
-    int no_AS = game->CountOf(AS);
     if (flag)
         cout <<"ET " << ID << " shoots ";
     if((long double)(no_ES*1.0/ no_AS)*100<30)
