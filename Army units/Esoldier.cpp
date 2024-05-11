@@ -14,8 +14,11 @@ void Esoldier::Attack(int flag)
 	ArmyUnit* nl1 = nullptr;
 	ArmyUnit* nl2 = nullptr;
 	double damage;
-	if (flag)
-		cout << "ES " << ID << " shoots ";
+	if (flag) {
+		cout << "ES ";
+		this->Print();
+		cout<< " shoots ";
+	}
 
 	int infToAttack = min(cap / 2, game->getEArmy()->countOfInfected());
 	int AsToAttack = min(cap - infToAttack, game->getAArmy()->CountOf(AS));

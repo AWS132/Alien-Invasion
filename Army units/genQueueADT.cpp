@@ -114,15 +114,6 @@ void genQueueADT::infectRandomly()
 			}
 		}
 	}
-	while (ptr and ptr->getNext())
-	{
-		ptr->getItem()->Print();
-		ptr = ptr->getNext();
-		cout << ", ";
-	}
-	if (ptr)
-		ptr->getItem()->Print();
-	cout << "]\n";;
 }
 
 ArmyUnit* genQueueADT::pickInfected()
