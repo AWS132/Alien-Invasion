@@ -15,7 +15,7 @@ ArmyUnit* randGen::createUnit(unitType type)
 	int atk = (gen() % (EACap2 - EACap1 + 1)) + EACap1;
 	/*int eID = game->getEArmy()->getId();
 	int aID = game->getAArmy()->getId();*/
-	int ID = (type == 6 || type < 3) ? game->getEArmy()->getId() : game->getAArmy()->getId();
+	int ID = ( type < 4) ? game->getEArmy()->getId() : game->getAArmy()->getId();
 	int tj = game->getTime();
 	ArmyUnit* createdUnit = nullptr;
 	switch (type)
