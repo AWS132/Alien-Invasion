@@ -134,7 +134,7 @@ void randGen::setParameters(int N, int prob, int sn, int sprob, int ESPer, int E
 	this->ESpc = ESPer; this->ETpc = ETPer; this->EGpc = EGPer; HUpc = HUPer;	//setting Earths' %
 	EUP1 = EUPstart; EH1 = EHstart; EACap1 = EACapstart; EUP2 = EUPend; EH2 = EHend; EACap2 = EACapend;	//setting Earths' ranges
 	ASpc = ASPer;  ADpc = ADPer, AMpc = AMPer;	//setting Aliens' %
-	AUP1 = AUPstart; AH1 = AHstart; AACap1 = EACapstart; AUP2 = AUPend; AH2 = AHend; AACap2 = AACapend;	//setting Aliens' ranges
+	AUP1 = AUPstart; AH1 = AHstart; AACap1 = AACapstart; AUP2 = AUPend; AH2 = AHend; AACap2 = AACapend;	//setting Aliens' ranges
 	SUP1 = SPstart; SUP2 = SPend; SH1 = SHstart; SH2 = SHend; SACap1 = SCstart; SACap2 = SCend;
 	infection_Prob = infProb;
 }
