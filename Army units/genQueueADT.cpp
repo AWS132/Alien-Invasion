@@ -1,6 +1,7 @@
 #include "genQueueADT.h"
 #include"random"
 
+
 genQueueADT::genQueueADT()
 {
     count = 0;
@@ -48,18 +49,20 @@ void genQueueADT::printList()
 	   }
 	   if (ptr)
 		   ptr->getItem()->Print();
-	   cout << "]\n";;
+	   cout << "]\n";
  
 }
 
-void genQueueADT::outKilled(ofstream& oFile,int& S,int& T,int& G,int& Df,int& Dd ,int type)
+
+
+void genQueueADT::outKilled(ofstream& oFile, int& S, int& T, int& G, int& HU, int& Df, int& Dd, int type)
 {
 	Node< ArmyUnit*>* ptr = frontPtr;
-	S = T = G = Df = Dd = 0;
+	S = T = G = HU = Df = Dd = 0;
 	while (ptr)
 	{
 		unitType x = ptr->getItem()->getType();
-		if (x >= type && x < type + 3)
+		if (x >= type && x < type + 4)
 		{
 			if (x == ES + type)
 				S++;
@@ -67,15 +70,16 @@ void genQueueADT::outKilled(ofstream& oFile,int& S,int& T,int& G,int& Df,int& Dd
 				T++;
 			else if (x == EG + type)
 				G++;
-			
+			else if (x == HU_ + type)
+				HU++;
 			ptr->getItem()->Output(oFile);
-			Dd+=ptr->getItem()->getDd();
+			Dd += ptr->getItem()->getDd();
 			Df += ptr->getItem()->getDf();
 		}
-			ptr = ptr->getNext();
+		ptr = ptr->getNext();
 	}
-}
 
+}
 void genQueueADT::infectRandomly()
 {
 	random_device rd;

@@ -4,7 +4,7 @@
 using namespace std;
 class GameClass;
 enum unitType {
-	ES,ET,EG,AS,AM,AD,HU_
+	ES, ET, EG, HU_, AS, AM, AD
 };
 class ArmyUnit
 {
