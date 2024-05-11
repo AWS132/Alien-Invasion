@@ -32,6 +32,7 @@ ArmyUnit* genQueueADT::pickUnit()
 		count--;
 	ArmyUnit* unt;
 	dequeue(unt);
+	if (unt->getInfectionState()) InfectedCount--;
 	return unt;
 }
 
@@ -114,6 +115,35 @@ void genQueueADT::infectRandomly()
 	if (ptr)
 		ptr->getItem()->Print();
 	cout << "]\n";;
+}
+
+ArmyUnit* genQueueADT::pickInfected()
+{
+	Node< ArmyUnit*>* ptr = frontPtr,*next;
+	ArmyUnit* unt;
+
+	if (!ptr)
+		return nullptr;
+	
+	next = ptr->getNext();
+	if (ptr->getItem()->getInfectionState())	//if the infected ES is at the beginning
+		return (dequeue(unt), unt);	//returns dequeued unit
+
+	while (next) {
+		if (next->getItem()->getInfectionState())
+		{
+			ptr->setNext(next->getNext());
+			unt = next->getItem();
+			delete next;
+			return unt;
+		}
+		else
+		{
+			ptr = next;
+			next = next->getNext();
+		}
+	}
+	return nullptr;
 }
 	
 

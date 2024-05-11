@@ -43,7 +43,7 @@ void Esoldier::Attack(int flag)
 	if (flag)
 		toBePrinted.printList();
 
-	for (unit = nullptr;toBePrinted.pickUnit(););	//to make the "toBePrinted"list empty to save the kldLst from being destructed!!
+	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted"list empty to save the kldLst from being destructed!!
 
 	while ((unit = lst.pickUnit(), unit))
 	{

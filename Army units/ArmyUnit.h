@@ -18,7 +18,8 @@ protected:
 		,cap	// attack capacity,
 		,Ta		// time it was first attacked initially -1,
 		,Td;	// time it was dismissed from the battle initially -1  
-	bool infected;//infected by monster Attack==>1  not infected==>0 (defualt state)
+	bool infected//infected by monster Attack==>1  not infected==>0 (defualt state)
+		,immune;// protected from being infected again
 	GameClass* game;
 public:
 	ArmyUnit();

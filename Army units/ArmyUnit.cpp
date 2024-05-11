@@ -37,6 +37,7 @@ ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int cap
 	Ta = -1;
 	this->game = game;
 	infected = 0;       // initially all the units are not infected
+	immune = false;	// initially all ESs are not immuned yet
 }
 
 unitType ArmyUnit::getType()
