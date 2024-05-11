@@ -11,12 +11,29 @@ ArmyUnit* randGen::createUnit(unitType type)
 {
 	random_device rd;
 	mt19937 gen(rd());
-	int Upwr = (gen() % (EUP2 - EUP1 + 1)) + EUP1;
-	int h = (gen() % (EH2 - EH1 + 1)) + EH1;
-	int atk = (gen() % (EACap2 - EACap1 + 1)) + EACap1;
-	/*int eID = game->getEArmy()->getId();
-	int aID = game->getAArmy()->getId();*/
-	int ID = ( type < 4) ? game->getEArmy()->getId() :(type<7)? game->getAArmy()->getId():game->getSArmy()->getId();
+	int Upwr;
+	int h;
+	int atk;
+	int ID;
+	if (type < 4) {
+		Upwr = (gen() % (EUP2 - EUP1 + 1)) + EUP1;
+		h = (gen() % (EH2 - EH1 + 1)) + EH1;
+		atk = (gen() % (EACap2 - EACap1 + 1)) + EACap1;
+		ID = game->getEArmy()->getId();
+	}
+	else if (type < 7) {
+		Upwr = (gen() % (AUP2 - AUP1 + 1)) + AUP1;
+		h = (gen() % (AH2 - AH1 + 1)) + AH1;
+		atk = (gen() % (AACap2 - AACap1 + 1)) + AACap1;
+		ID = game->getAArmy()->getId();
+	}
+	else {
+		Upwr = (gen() % (SUP2 - SUP1 + 1)) + SUP1;
+		h = (gen() % (SH2 - SH1 + 1)) + SH1;
+		atk = (gen() % (SACap2 - SACap1 + 1)) + SACap1;
+		ID = game->getSArmy()->getId();
+	}
+
 	int tj = game->getTime();
 	ArmyUnit* createdUnit = nullptr;
 	switch (type)
