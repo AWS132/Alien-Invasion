@@ -229,9 +229,10 @@ void GameClass::createOFile(int winner)
 {
     ofstream oFile("output.txt");
     //// Earth ouput 
-    int S, T, G, HU, Df, Dd;
+    int S, T, G, HU, infectedUnits,Df, Dd;
     oFile << "Earth Destructed units:\n";
     klst->outKilled(oFile, S, T, G, HU, Df, Dd);
+    infectedUnits = klst->getImmuneCount() + klst->getInfectedCount() + EArmy->countOfInfected() + EArmy->countOfImmune();
     oFile << "Battle result:";
     if (winner == 1)
         oFile << " Win";
@@ -244,16 +245,23 @@ void GameClass::createOFile(int winner)
     oFile << "Total ET: " << T + EArmy->CountOf(ET) << endl;
     oFile << "Total EG: " << G + EArmy->CountOf(EG) << endl;
     oFile << "Total HU: " << HU + EArmy->CountOf(HU_) << endl;
-    if (S + EArmy->CountOf(ES))
+    oFile << "Total Units in the UML: " << EArmy->getUMLCount() << endl;
+    oFile << "Total Infected Units: " << infectedUnits << endl;
+    if (S + EArmy->CountOf(ES)) {
         oFile << "Percentage of ES: " << double(S) / (S + EArmy->CountOf(ES)) << endl;
+        oFile << "Percentage of Infected ES: " << infectedUnits / (S + EArmy->CountOf(ES)) << endl;
+    }
     if (T + EArmy->CountOf(ET))
         oFile << "Percentage of ET: " << double(T) / (T + EArmy->CountOf(ET)) << endl;
     if (G + EArmy->CountOf(EG))
         oFile << "Percentage of EG: " << double(G) / (G + EArmy->CountOf(EG)) << endl;
     if (HU + EArmy->CountOf(HU_))
         oFile << "Percentage of HU: " << double(HU) / (HU + EArmy->CountOf(HU_)) << endl;
-    if ((S + G + T + EArmy->getCount()))
-        oFile << "Percentage of Total destructed unites to Total units: " << double(S + G + T) / (S + G + T + HU + EArmy->getCount()) << endl;
+    if ((S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount())) {
+        oFile << "Percentage of Total destructed units to Total units: " << double(S + G + T) / (S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount()) << endl;
+        oFile << "Percentage of Total Healed Units to Total Units: " << EArmy->getHealedCount() / (S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount()) << endl;
+
+    }
     if ((S + G + T + HU)) {
         oFile << "Average of Df: " << double(Df) / (S + G + T + HU) << endl;
         oFile << "Average of Dd: " << double(Dd) / (S + G + T + HU) << endl;
@@ -285,7 +293,7 @@ void GameClass::createOFile(int winner)
     if ((G + AArmy->CountOf(AD)))
         oFile << "Percentage of AD: " << double(G) / (G + AArmy->CountOf(AD)) << endl;
     if  (S + G + T + AArmy->getCount())
-        oFile << "Percentage of Total destructed unites to Total units: " << double(S + G + T) / (S + G + T + AArmy->getCount()) << endl;
+        oFile << "Percentage of Total Destructed Units to Total Units: " << double(S + G + T) / (S + G + T + AArmy->getCount()) << endl;
     if ((S + G + T)) {
         oFile << "Average of Df: " << double(Df) / (S + G + T) << endl;
         oFile << "Average of Dd: " << double(Dd) / (S + G + T) << endl;
@@ -315,6 +323,8 @@ int GameClass::CountOf(unitType ut)
     default:return 0;
     }
 }
+
+
 
 int GameClass::getInfection_perc()
 {

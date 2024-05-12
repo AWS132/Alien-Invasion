@@ -66,7 +66,7 @@ void genQueueADT::outKilled(ofstream& oFile, int& S, int& T, int& G, int& HU, in
 	while (ptr)
 	{
 		unitType x = ptr->getItem()->getType();
-		if (x >= type && x < type + 4)
+		if (x >= type && x < type + 4 && x != 7)
 		{
 			if (x == ES + type)
 				S++;
@@ -152,6 +152,19 @@ ArmyUnit* genQueueADT::pickInfected()
 		}
 	}
 	return nullptr;
+}
+
+int genQueueADT::getImmuneCount() const
+{
+	Node< ArmyUnit*>* ptr = frontPtr;
+	int immCount=0;
+	while (ptr) {
+		if (ptr->getItem()->isImmune()) {
+			immCount++;
+		}
+		ptr = ptr->getNext();
+	}
+	return immCount;
 }
 
 void genQueueADT::destructAll()

@@ -20,6 +20,7 @@ private:
 	UML* uml;
 	int id;
 	int threshold;
+	int totalHealed;
 public:
 	EarthArmy();
 	int getId()/*const*/;
@@ -28,9 +29,13 @@ public:
 	int getCount() const;//returns the total count of the current Earth Army
 	int CountOf(unitType ut);
 	int countOfInfected();
+	int countOfImmune();
+	void incHealed();
+	int getHealedCount();
 	void setThreshold(int);
 	bool limitReached();
 	ArmyUnit* pickFromUML();
+	int getUMLCount();
 	bool AddToUML(ArmyUnit* unit);
 	~EarthArmy();
 	ArmyUnit* pickEUnit(unitType u);

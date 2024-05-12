@@ -7,6 +7,7 @@ EarthArmy::EarthArmy() {
 	hl = new genStackADT;
 	uml = new UML;
 	id = 0;
+	totalHealed = 0;
 }
 
 int EarthArmy::getId() /*const*/
@@ -81,6 +82,10 @@ int EarthArmy::countOfInfected()
 {
 	return es->getInfectedCount();
 }
+int EarthArmy::countOfImmune()
+{
+	return es->getImmuneCount();
+}
 
 ArmyUnit* EarthArmy::pickFromUML()
 {
@@ -111,6 +116,15 @@ EarthArmy::~EarthArmy()
 	delete g;
 	delete hl;
 	delete uml;
+}
+
+void EarthArmy::incHealed()
+{
+	totalHealed++;
+}
+int EarthArmy::getHealedCount()
+{
+	return totalHealed;
 }
 
 ArmyUnit* EarthArmy::pickEUnit(unitType u)
@@ -151,6 +165,11 @@ ArmyUnit* EarthArmy::peekEUnit(unitType u)
 	default:
 		return nullptr;
 	}
+}
+
+int EarthArmy::getUMLCount()
+{
+	return uml->getCount();
 }
 
 ArmyUnit* EarthArmy::pickInfUnit()

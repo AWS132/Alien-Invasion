@@ -26,13 +26,15 @@ void HU::Attack(int flag)
 					{//if true => would be immune ;)
 						unit->become_immune();
 						game->getEArmy()->AddUnit(unit);
+						game->getEArmy()->incHealed();
 					}
 					else
 						lst.addUnit(unit);
-					
+
 				}
 				else if (unit->IncHlth((pwr * hlth))) {	//returns true if health is over than 20% of start health
 					game->getEArmy()->AddUnit(unit);
+					game->getEArmy()->incHealed();
 				}
 				else {
 					lst.addUnit(unit);

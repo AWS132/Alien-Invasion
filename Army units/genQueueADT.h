@@ -20,6 +20,7 @@ public:
 	void outKilled(ofstream&,int&, int& ,int&, int&,int&,int&,int=0);
 	void infectRandomly();
 	ArmyUnit* pickInfected();
+	int getImmuneCount()const;
 	void destructAll();
 	~genQueueADT();
 };
