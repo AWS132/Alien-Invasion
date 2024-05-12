@@ -204,7 +204,7 @@ void GameClass::PrintArmies() const
     
 }
 
-void GameClass::AddUnit(ArmyUnit* u1/*, bool flag*/)
+void GameClass::AddUnit(ArmyUnit* u1)
 {
     if(u1)
     {
@@ -214,11 +214,11 @@ void GameClass::AddUnit(ArmyUnit* u1/*, bool flag*/)
         case ET:
         case EG:
         case HU_:
-            EArmy->AddUnit(u1/*,flag*/); break;
+            EArmy->AddUnit(u1); break;
         case AS:
         case AM:
         case AD:
-            AArmy->AddUnit(u1/*,flag*/); break;
+            AArmy->AddUnit(u1); break;
         case SU_:
             SArmy->AddUnit(u1);
         }

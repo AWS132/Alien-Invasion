@@ -14,6 +14,7 @@ void Asoldier::Attack(int flag)
 	double power = pwr;
 	double damage;
 	ArmyUnit* unit = nullptr;
+	ArmyUnit* dummy = nullptr;
 	if (flag)
 		cout << "AS " << ID << " shoots ";
 	for (int i = 0; i < SUCap; i++)
@@ -36,7 +37,7 @@ void Asoldier::Attack(int flag)
 		}
 	}
 	while (ESCap--) {
-		unit = game->getEArmy()->pickEUnit(ES);
+		unit = game->PickUnit(ES, dummy, dummy);
 		if (unit) {
 			damage = (pwr * hlth / 100) / sqrt(unit->getHealth());
 			unit->DecHlth(damage);
@@ -62,5 +63,5 @@ void Asoldier::Attack(int flag)
 
 	unit = nullptr;
 	while ((unit = lst.pickUnit(), unit))//if ES reached this stage, its health would be > 20% * startHealth. So it's able to join the battle again
-		game->getEArmy()->AddUnit(unit);
+		game->AddUnit(unit);
 }

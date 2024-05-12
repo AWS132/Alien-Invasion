@@ -43,7 +43,7 @@ void Monster::Attack(int flag) // Attack both ET && ES
     for (int i = 0; i < EStoAttack; i++)
     {
         ArmyUnit* unt;
-        unt = game->getEArmy()->pickEUnit(ES);
+        unt = game->PickUnit(ES,nl1,nl2);
         if (unt)
         {
             damage = (pwr * hlth / 100) / sqrt(unt->getHealth());

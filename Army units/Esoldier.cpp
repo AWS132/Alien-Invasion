@@ -19,10 +19,6 @@ void Esoldier::Attack(int flag)
 		this->Print();
 		cout<< " shoots ";
 	}
-
-	/*int infToAttack = min(cap / 2, game->getEArmy()->countOfInfected());
-	int AsToAttack = min(cap - infToAttack, game->getAArmy()->CountOf(AS));*/
-
 	int infToAttack = min(cap - min(cap / 2, game->getAArmy()->CountOf(AS)), game->getEArmy()->countOfInfected());
 	int AsToAttack = min(cap - infToAttack, game->getAArmy()->CountOf(AS));
 
@@ -70,22 +66,23 @@ void Esoldier::Attack(int flag)
 	}
 	else //infected would attack only ES & SU
 	{
+		ArmyUnit* dummy = nullptr;
 		int tempCap = min(cap, game->CountOf(SU_) + game->CountOf(ES) - game->getEArmy()->countOfInfected());
 		for (int i{}; i < tempCap; i++) {
 			if (i % 2 && game->getEArmy()->countOfInfected() < game->CountOf(ES))
 			{
 				while (true)
 				{
-					unit = game->getEArmy()->pickEUnit(ES);
+					unit = game->PickUnit(ES, dummy, dummy);
 					if (!unit->getInfectionState())//not infected 
 						break;
 					else
-						game->getEArmy()->AddUnit(unit);
+						game->AddUnit(unit);
 				}
 
 			}
 			else {
-				ArmyUnit* dummy = nullptr;
+				
 				unit = game->PickUnit(SU_, dummy, dummy);
 			}
 			if (unit)
