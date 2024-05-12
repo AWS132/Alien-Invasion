@@ -9,12 +9,13 @@ void SU::Attack(int flag)
 	genQueueADT lst;
 	double dmg = hlth * pwr / 100.0;
 	ArmyUnit* unt = nullptr;
+	ArmyUnit* unit = nullptr;
 	if (flag)
 		cout << "SU " << ID << " Attacks ";
 	int tempCap = min(cap, game->CountOf(AS) + game->getEArmy()->countOfInfected());
 	for (int i = 0; i < tempCap; i++) {
 		if (i % 2) {
-			unt = game->getEArmy()->pickEUnit(AS);
+			unt = game->PickUnit(AS, unit, unit);
 		}
 		else {
 			unt = game->getEArmy()->pickInfUnit();
