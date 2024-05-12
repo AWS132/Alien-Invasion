@@ -23,7 +23,7 @@ void Monster::Attack(int flag) // Attack both ET && ES
         ArmyUnit* unt = game->PickUnit(ET, nl1, nl2);
         if (unt)
         {
-            damage = pwr;// (pwr * hlth / 100) / sqrt(unt->getHealth());
+            damage =  (pwr * hlth / 100) / sqrt(unt->getHealth());
             unt->DecHlth(damage);
             lst.addUnit(unt);
         }
@@ -46,7 +46,7 @@ void Monster::Attack(int flag) // Attack both ET && ES
         unt = game->getEArmy()->pickEUnit(ES);
         if (unt)
         {
-            damage = pwr;// (pwr * hlth / 100) / sqrt(unt->getHealth());
+            damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
             int infectionProb = (gen() % (101));
             //would be attacked if ->not about to be killed ,infcProp ,immune or already infected
             if (unt->getHealth() > damage || infectionProb > infection_Percentage || unt->isImmune() || unt->getInfectionState())
