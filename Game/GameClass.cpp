@@ -329,7 +329,3 @@ int GameClass::getInfection_perc()
 {
     return randGenerator->getInfection_perc();
 }
-
-
-
-
