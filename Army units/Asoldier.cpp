@@ -8,14 +8,34 @@ void Asoldier::Attack(int flag)
 {
 	genQueueADT lst;
 	genQueueADT toBePrinted;	//to print properly
-	int attackCap = cap;
+	
+	int SUCap = min(cap - min(cap / 2, (game->CountOf(ES) - game->getEArmy()->countOfInfected())), game->CountOf(SU_));
+	int ESCap = min(cap - SUCap, (game->CountOf(ES) - game->getEArmy()->countOfInfected()));
 	double power = pwr;
 	double damage;
 	ArmyUnit* unit = nullptr;
 	if (flag)
-		cout << "AS " << ID << " shots ";
+		cout << "AS " << ID << " shoots ";
+	for (int i = 0; i < SUCap; i++)
+	{
+		ArmyUnit* unt = game->PickUnit(SU_, unit, unit);		
 
-	while (attackCap--) {
+		if (unt)
+		{
+			damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
+			unt->DecHlth(damage);
+			if (unt->getHealth() > 0)
+			{
+				lst.addUnit(unt);	//ready to rejoin the battle
+			}
+			else {	//dead
+				game->AddToKldList(unt);
+
+			}
+			toBePrinted.addUnit(unt);
+		}
+	}
+	while (ESCap--) {
 		
 		if (game->getEArmy()->countOfInfected() < game->CountOf(ES))
 		{

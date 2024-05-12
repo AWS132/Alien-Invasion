@@ -22,9 +22,9 @@ void Esoldier::Attack(int flag)
 
 	int infToAttack = min(cap / 2, game->getEArmy()->countOfInfected());
 	int AsToAttack = min(cap - infToAttack, game->getAArmy()->CountOf(AS));
-	if(!infected)//normal ES would attack AS and infected ES
+	if (!infected)//normal ES would attack AS and infected ES
 	{
-		for (int i{};i < infToAttack;i++) {//for attacking infected ES
+		for (int i{}; i < infToAttack; i++) {//for attacking infected ES
 			unit = game->getEArmy()->pickInfUnit();
 			if (unit)
 			{
@@ -44,7 +44,7 @@ void Esoldier::Attack(int flag)
 				toBePrinted.addUnit(unit);
 			}
 		}
-		for (int i{};i < AsToAttack;i++) {//for attacking AS
+		for (int i{}; i < AsToAttack; i++) {//for attacking AS
 			unit = game->getAArmy()->PickAunit(AS, nl1, nl2);
 
 			if (unit)
@@ -64,10 +64,11 @@ void Esoldier::Attack(int flag)
 			}
 		}
 	}
-	else //infected would attack only ES
+	else //infected would attack only ES & SU
 	{
-		for (int i{};i < cap;i++) {
-			if (game->getEArmy()->countOfInfected() < game->CountOf(ES))
+		int tempCap = min(cap, game->CountOf(SU_) + game->CountOf(ES) - game->getEArmy()->countOfInfected());
+		for (int i{}; i < tempCap; i++) {
+			if (i % 2 && game->getEArmy()->countOfInfected() < game->CountOf(ES))
 			{
 				while (true)
 				{
@@ -77,35 +78,41 @@ void Esoldier::Attack(int flag)
 					else
 						game->getEArmy()->AddUnit(unit);
 				}
-				if (unit)
-				{
-					damage = (pwr * hlth / 100) / sqrt(unit->getHealth());
-					unit->DecHlth(damage);
 
-					if (unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())//if infected ES <20% , add to uml to be healed and be immune
-						game->getEArmy()->AddToUML(unit);	//needs to wait in the UML
-					else if (unit->getHealth() > 0)
-					{
-						lst.addUnit(unit);
-					}
-					else
-					{
-						game->AddToKldList(unit);
-					}
-					toBePrinted.addUnit(unit);
-				}
 			}
-			else break;
+			else {
+				ArmyUnit* dummy = nullptr;
+				unit = game->PickUnit(SU_, dummy, dummy);
+			}
+			if (unit)
+			{
+				damage = (pwr * hlth / 100) / sqrt(unit->getHealth());
+				unit->DecHlth(damage);
+
+				if (unit->getType() == ES && unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())//if infected ES <20% , add to uml to be healed and be immune
+					game->getEArmy()->AddToUML(unit);	//needs to wait in the UML
+				else if (unit->getHealth() > 0)
+				{
+					lst.addUnit(unit);
+				}
+				else
+				{
+					game->AddToKldList(unit);
+				}
+				toBePrinted.addUnit(unit);
+			}
+			else {
+				tempCap++;
+			}
 		}
 	}
-	
-	if (flag)
-		toBePrinted.printList();
+		if (flag)
+			toBePrinted.printList();
 
-	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted"list empty to save the kldLst from being destructed!!
+		for (; toBePrinted.pickUnit(););	//to make the "toBePrinted"list empty to save the kldLst from being destructed!!
 
-	while ((unit = lst.pickUnit(), unit))
-	{
-		game->getEArmy()->AddUnit(unit);
+		while ((unit = lst.pickUnit(), unit))
+		{
+			game->getEArmy()->AddUnit(unit);
+		}
 	}
-}

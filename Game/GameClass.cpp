@@ -180,6 +180,8 @@ ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
         return AArmy->PickAunit(AM, d1, d2);
     case AD:
         return AArmy->PickAunit(AD, d1, d2,dm);
+    case SU_:
+        return SArmy->pickSUnit();
     default:
         return nullptr;
     }
@@ -302,11 +304,14 @@ int GameClass::CountOf(unitType ut)
     case ES:
     case ET:
     case EG:
+    case HU_:
         return EArmy->CountOf(ut);
     case AS:
     case AM:
     case AD:    
         return AArmy->CountOf(ut);
+    case SU_:
+        return SArmy->getCount();
     default:return 0;
     }
 }

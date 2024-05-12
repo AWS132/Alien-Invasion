@@ -8,8 +8,10 @@ void Monster::Attack(int flag) // Attack both ET && ES
 {
 	genQueueADT lst;
     int infection_Percentage = game->getInfection_perc();
-	int ETtoAttack = min(cap/2,game->CountOf(ET));
-	int EStoAttack = min(cap - ETtoAttack, game->CountOf(ES));
+    int divFactor = (game->CountOf(SU_)) ? 3 : 2;
+    int ETtoAttack = min(cap - min(cap / divFactor, game->CountOf(ES)) - min(cap / divFactor, game->CountOf(SU_)), game->CountOf(ET));
+	int EStoAttack = min(cap - ETtoAttack - min(cap / divFactor, game->CountOf(SU_)), game->CountOf(ES));
+    int SUtoAttack = min(cap - ETtoAttack - EStoAttack, game->CountOf(SU_));
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
     double damage;
@@ -19,6 +21,16 @@ void Monster::Attack(int flag) // Attack both ET && ES
     for (int i = 0; i < ETtoAttack; i++)
     {
         ArmyUnit* unt = game->PickUnit(ET, nl1, nl2);
+        if (unt)
+        {
+            damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
+            unt->DecHlth(damage);
+            lst.addUnit(unt);
+        }
+    }
+    for (int i = 0; i < SUtoAttack; i++)
+    {
+        ArmyUnit* unt = game->PickUnit(SU_, nl1, nl2);
         if (unt)
         {
             damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
