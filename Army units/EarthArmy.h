@@ -3,7 +3,7 @@
 
 #include "../Army units/Esoldier.h"
 #include "../Army units/genQueueADT.h"
-#include "Tanks.h"
+#include "genStackADT.h"
 #include "Gunnerys.h"
 #include "ArmyUnit.h"
 #include "Tank.h"
@@ -14,8 +14,8 @@ class EarthArmy
 {
 private:
 
-	genQueueADT* es,*hl;
-	Tanks* t;
+	genQueueADT* es;
+	genStackADT* t, * hl;
 	Gunnerys* g;
 	UML* uml;
 	int id;

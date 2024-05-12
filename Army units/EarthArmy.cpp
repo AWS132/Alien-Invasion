@@ -1,10 +1,10 @@
 #include "EarthArmy.h"
 
 EarthArmy::EarthArmy() {
-	t = new Tanks;
+	t = new genStackADT;
 	es = new genQueueADT;
 	g = new Gunnerys;
-	hl = new genQueueADT;
+	hl = new genStackADT;
 	uml = new UML;
 	id = 0;
 }
@@ -46,7 +46,8 @@ void EarthArmy::PrintArmy()
 	cout << "=============== Earth Army Alive Units===============\n";
 	cout << "ES ";
 	es->printList();
-	t->printTanks();
+	cout << "ET ";
+	t->printList();
 	g->printGunnerys();
 	cout << "HU ";
 	hl->printList();
@@ -120,7 +121,7 @@ ArmyUnit* EarthArmy::pickEUnit(unitType u)
 	return es->pickUnit();
 		break;
 	case ET:
-	return t->pickTank();
+	return t->pickUnit();
 		break;
 	case EG:
 	return g->pickGunnery();

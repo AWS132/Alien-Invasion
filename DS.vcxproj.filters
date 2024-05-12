@@ -24,7 +24,7 @@
     <ClCompile Include="Army units\ArmyUnit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Army units\Tanks.cpp">
+    <ClCompile Include="Army units\genStackADT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Army units\Monsters.cpp">
@@ -104,7 +104,7 @@
     <ClInclude Include="Data Structures\DLinkedQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Army units\Tanks.h">
+    <ClInclude Include="Army units\genStackADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Army units\Drones.h">
