@@ -60,8 +60,8 @@ void GameClass::initializer(int flag, int fileName)
             cout << "=======================Killed/destructed units=======================\n";
             klst->printList();
             cout << "==============================================================================\n\n";
-            cout << "Press Enter to Continue";
-            cin.ignore();
+           cout << "Press Enter to Continue";
+           cin.ignore();
         }
     }
     int x;// used to send the winner to the output file
@@ -249,7 +249,7 @@ void GameClass::createOFile(int winner)
     oFile << "Total Infected Units: " << infectedUnits << endl;
     if (S + EArmy->CountOf(ES)) {
         oFile << "Percentage of ES: " << double(S) / (S + EArmy->CountOf(ES)) << endl;
-        oFile << "Percentage of Infected ES: " << infectedUnits / (S + EArmy->CountOf(ES)) << endl;
+        oFile << "Percentage of Infected ES: " << double(infectedUnits) / (S + EArmy->CountOf(ES)) << endl;
     }
     if (T + EArmy->CountOf(ET))
         oFile << "Percentage of ET: " << double(T) / (T + EArmy->CountOf(ET)) << endl;
@@ -259,8 +259,7 @@ void GameClass::createOFile(int winner)
         oFile << "Percentage of HU: " << double(HU) / (HU + EArmy->CountOf(HU_)) << endl;
     if ((S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount())) {
         oFile << "Percentage of Total destructed units to Total units: " << double(S + G + T) / (S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount()) << endl;
-        oFile << "Percentage of Total Healed Units to Total Units: " << EArmy->getHealedCount() / (S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount()) << endl;
-
+        oFile << "Percentage of Total Healed Units to Total Units: " << double(EArmy->getHealedCount()) / (S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount()) << endl;
     }
     if ((S + G + T + HU)) {
         oFile << "Average of Df: " << double(Df) / (S + G + T + HU) << endl;
@@ -285,7 +284,7 @@ void GameClass::createOFile(int winner)
     
         oFile << "Total AS: " << S + AArmy->CountOf(AS) << endl;
         oFile << "Total AM: " << T + AArmy->CountOf(AM) << endl;
-        oFile << "Total AD: " << G + EArmy->CountOf(AD) << endl;
+        oFile << "Total AD: " << G + AArmy->CountOf(AD) << endl;
     if ( (S + AArmy->CountOf(AS)))
         oFile << "Percentage of AS: " << double(S) / (S + AArmy->CountOf(AS)) << endl;
     if ( (T + AArmy->CountOf(AM)))

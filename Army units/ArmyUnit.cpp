@@ -95,7 +95,7 @@ bool ArmyUnit::DecHlth(double value)
 bool ArmyUnit::IncHlth(double product)
 {
 	double imp = (product / 100) / sqrt(hlth);
-	hlth += imp;
+	hlth += min(imp, startHlth - hlth);
 	return (hlth > (0.2 * startHlth));
 }
 
