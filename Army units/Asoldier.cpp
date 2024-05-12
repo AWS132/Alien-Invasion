@@ -36,36 +36,24 @@ void Asoldier::Attack(int flag)
 		}
 	}
 	while (ESCap--) {
-		
-		if (game->getEArmy()->countOfInfected() < game->CountOf(ES))
-		{
-			while (true)
+		unit = game->getEArmy()->pickEUnit(ES);
+		if (unit) {
+			damage = (pwr * hlth / 100) / sqrt(unit->getHealth());
+			unit->DecHlth(damage);
+
+			if (unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())
+				game->getEArmy()->AddToUML(unit);	//needs to wait in the UML
+			else if (unit->getHealth() > 0)
 			{
-				unit = game->getEArmy()->pickEUnit(ES);
-				if (!unit->getInfectionState())//not infected 
-					break;
-				else
-					game->getEArmy()->AddUnit(unit);
+				lst.addUnit(unit);	//ready to rejoin the battle
 			}
-			if (unit) {
-				damage = (pwr * hlth / 100) / sqrt(unit->getHealth());
-				unit->DecHlth(damage);
+			else {	//dead
+				game->AddToKldList(unit);
 
-				if (unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())
-					game->getEArmy()->AddToUML(unit);	//needs to wait in the UML
-				else if (unit->getHealth() > 0)
-				{
-					lst.addUnit(unit);	//ready to rejoin the battle
-				}
-				else {	//dead
-					game->AddToKldList(unit);
-
-				}
-				toBePrinted.addUnit(unit);//to be printed anyway (damaged > 80%,alive,dead)
 			}
+			toBePrinted.addUnit(unit);//to be printed anyway (damaged > 80%,alive,dead)
 		}
-		else//if there is no any ES to attack
-			break;
+
 	}
 	if (flag)
 		toBePrinted.printList();

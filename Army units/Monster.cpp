@@ -43,32 +43,22 @@ void Monster::Attack(int flag) // Attack both ET && ES
     for (int i = 0; i < EStoAttack; i++)
     {
         ArmyUnit* unt;
-        if (game->getEArmy()->countOfInfected() < game->CountOf(ES))
+        unt = game->getEArmy()->pickEUnit(ES);
+        if (unt)
         {
-            while (true)
+            damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
+            int infectionProb = (gen() % (101));
+            //would be attacked if ->not about to be killed ,infcProp ,immune or already infected
+            if (unt->getHealth() > damage || infectionProb > infection_Percentage || unt->isImmune() || unt->getInfectionState())
             {
-                unt = game->getEArmy()->pickEUnit(ES);
-                if (unt && !unt->getInfectionState())//not infected 
-                    break;
-                else
-                    game->getEArmy()->AddUnit(unt);
+                unt->DecHlth(damage);
             }
-            if (unt)
+            else
             {
-                damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
-                int infectionProb = (gen() % (101));
-                if (unt->getHealth() > damage || infectionProb > infection_Percentage || unt->isImmune())
-                {
-                    unt->DecHlth(damage);
-                }
-                else
-                {
-                    unt->become_infected();
-                }
-                lst.addUnit(unt);
+                unt->become_infected();
             }
+            lst.addUnit(unt);
         }
-        else break;
     }
     if (flag)
         lst.printList();

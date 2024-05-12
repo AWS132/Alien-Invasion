@@ -20,8 +20,12 @@ void Esoldier::Attack(int flag)
 		cout<< " shoots ";
 	}
 
-	int infToAttack = min(cap / 2, game->getEArmy()->countOfInfected());
+	/*int infToAttack = min(cap / 2, game->getEArmy()->countOfInfected());
+	int AsToAttack = min(cap - infToAttack, game->getAArmy()->CountOf(AS));*/
+
+	int infToAttack = min(cap - min(cap / 2, game->getAArmy()->CountOf(AS)), game->getEArmy()->countOfInfected());
 	int AsToAttack = min(cap - infToAttack, game->getAArmy()->CountOf(AS));
+
 	if (!infected)//normal ES would attack AS and infected ES
 	{
 		for (int i{}; i < infToAttack; i++) {//for attacking infected ES
