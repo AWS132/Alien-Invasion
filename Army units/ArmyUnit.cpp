@@ -77,9 +77,19 @@ void ArmyUnit::setTd(int time)
 		Td = time;
 }
 
+void ArmyUnit::setTjUML(int time)
+{
+	TjUML = time;
+}
+
 int ArmyUnit::getID() const
 {
 	return ID;
+}
+
+int ArmyUnit::getTjUML() const
+{
+	return TjUML;
 }
 
 bool ArmyUnit::DecHlth(double value)
