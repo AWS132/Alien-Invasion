@@ -77,9 +77,10 @@ void ArmyUnit::setTd(int time)
 		Td = time;
 }
 
-void ArmyUnit::setTjUML(int time)
+void ArmyUnit::setTjUML()
 {
-	TjUML = time;
+	
+	TjUML = game->getTime();
 }
 
 int ArmyUnit::getID() const

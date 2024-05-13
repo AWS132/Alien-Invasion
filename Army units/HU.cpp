@@ -56,7 +56,6 @@ void HU::Attack(int flag)
 
 	while ((unit = lst.pickUnit(), unit))
 	{
-		unit->setTjUML(game->getTime());	//setting the time that the unit joined the UML
 		game->getEArmy()->AddToUML(unit);
 	}
 

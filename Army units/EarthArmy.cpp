@@ -98,6 +98,7 @@ void EarthArmy::setThreshold(int limit)
 
 bool EarthArmy::AddToUML(ArmyUnit* unit)
 {
+	unit->setTjUML();
 	return uml->addUnit(unit);
 }
 

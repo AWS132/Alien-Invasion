@@ -35,7 +35,7 @@ public:
 	bool getInfectionState();
 	void setTa(int time);
 	void setTd(int time);
-	void setTjUML(int time);
+	void setTjUML();
 	int getID()const;
 	int getTjUML()const;
 	virtual void Attack(int)=0; 

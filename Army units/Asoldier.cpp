@@ -44,7 +44,6 @@ void Asoldier::Attack(int flag)
 
 			if (unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())
 			{
-				unit->setTjUML(game->getTime());	//setting the time that the unit joined the UML
 				game->getEArmy()->AddToUML(unit);	//needs to wait in the UML
 			}
 			else if (unit->getHealth() > 0)
