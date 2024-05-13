@@ -29,7 +29,7 @@ public:
 	int getCount() const;//returns the total count of the current Earth Army
 	int CountOf(unitType ut);
 	int countOfInfected();
-	int countOfImmune();
+	int countTotalInf();
 	void incHealed();
 	int getHealedCount();
 	void setThreshold(int);
