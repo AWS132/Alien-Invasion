@@ -86,38 +86,40 @@ void randGen::generator()
 
 	if (A <= prob) {
 		//for earth
-		for (int i{}; i < N; i++) {
-			random_device rd;
-			mt19937 gen(rd());
-			int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
-			if (B <= ESpc) {
-				game->getEArmy()->AddUnit(createUnit(ES));
+		if (game->getEArmy()->checkID())
+			for (int i{}; i < N; i++) {
+				random_device rd;
+				mt19937 gen(rd());
+				int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
+				if (B <= ESpc) {
+					game->getEArmy()->AddUnit(createUnit(ES));
+				}
+				else if (B <= ESpc + ETpc) {
+					game->getEArmy()->AddUnit(createUnit(ET));
+				}
+				else if (B <= ESpc + ETpc + EGpc)
+					game->getEArmy()->AddUnit(createUnit(EG));
+				else
+					game->getEArmy()->AddUnit(createUnit(HU_));
 			}
-			else if (B <= ESpc + ETpc) {
-				game->getEArmy()->AddUnit(createUnit(ET));
-			}
-			else if (B <= ESpc + ETpc + EGpc)
-				game->getEArmy()->AddUnit(createUnit(EG));
-			else
-				game->getEArmy()->AddUnit(createUnit(HU_));
-		}
 		//for aliens
-		for (int i{}; i < N; i++) {
-			random_device rd;
-			mt19937 gen(rd());
-			int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
-			if (B <= ASpc) {
-				game->getAArmy()->AddUnit(createUnit(AS));
+		if (game->getAArmy()->checkID())
+			for (int i{}; i < N; i++) {
+				random_device rd;
+				mt19937 gen(rd());
+				int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
+				if (B <= ASpc) {
+					game->getAArmy()->AddUnit(createUnit(AS));
+				}
+				else if (B <= ASpc + AMpc) {
+					game->getAArmy()->AddUnit(createUnit(AM));
+				}
+				else
+					game->getAArmy()->AddUnit(createUnit(AD));
 			}
-			else if (B <= ASpc + AMpc) {
-				game->getAArmy()->AddUnit(createUnit(AM));
-			}
-			else
-				game->getAArmy()->AddUnit(createUnit(AD));
-		}
 	}
 	//for Ally units
-	if (A <= Sprob && game->getSArmy()->getStatus()) {
+	if (A <= Sprob && game->getSArmy()->getStatus() && game->getSArmy()->checkID()) {
 		for (int i = 0; i < SN; i++) {
 			game->getSArmy()->AddUnit(createUnit(SU_));
 		}

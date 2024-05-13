@@ -3,19 +3,20 @@ AlienArmy::AlienArmy() {
 	m = new Monsters;
 	as = new genQueueADT;
 	d = new Drones;
-	id = 2000;
+	id = 1999;
 }
 
-int AlienArmy::getId() /*const*/
+int AlienArmy::getId()
 {
-	id++;
-	return id;
+	return ++id;
+}
+bool AlienArmy::checkID() {
+	return id < 2999;
 }
 
-void AlienArmy::AddUnit(ArmyUnit* unit/*,bool flag*/)
+void AlienArmy::AddUnit(ArmyUnit* unit)
 {
-	/*if(flag)
-	id += 1;*/
+	
 	unitType type = unit->getType();
 	switch (type)
 	{

@@ -2,14 +2,14 @@
 
 allyArmy::allyArmy()
 {
-	id = 4000;
+	id = 3999;
 	su = new genQueueADT;
 	isCalled = false;
 }
 
 int allyArmy::getId()
 {
-	return id++;
+	return ++id;
 }
 
 void allyArmy::AddUnit(ArmyUnit* unit)
@@ -30,6 +30,10 @@ void allyArmy::call()
 
 bool allyArmy::getStatus() {
 	return isCalled;
+}
+bool allyArmy::checkID()
+{
+	return id<4999;
 }
 void allyArmy::withdraw()
 {

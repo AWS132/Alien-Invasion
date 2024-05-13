@@ -16,6 +16,7 @@ public:
 	void PrintArmy();
 	void call();
 	bool getStatus();
+	bool checkID();
 	void withdraw();
 	int getCount() const;//returns the total count of the current ally Army
 	~allyArmy();

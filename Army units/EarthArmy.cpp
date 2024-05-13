@@ -10,18 +10,17 @@ EarthArmy::EarthArmy() {
 	totalHealed = 0;
 }
 
-int EarthArmy::getId() /*const*/
+int EarthArmy::getId()
 {
-	id++;
-	return id;
+	return ++id;
 }
-
-void EarthArmy::AddUnit(ArmyUnit* unit/*,bool flag*/)  // flag==>0 returning unit to its list from 
+bool EarthArmy::checkID() {
+	return id < 999;
+}
+void EarthArmy::AddUnit(ArmyUnit* unit)  
 {
 	 
 	unitType type = unit->getType();
-	//if(flag)
-	//id += 1;
 	switch (type)
 	{
 	case ES:

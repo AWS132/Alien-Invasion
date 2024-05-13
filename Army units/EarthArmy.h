@@ -35,6 +35,7 @@ public:
 	void setThreshold(int);
 	bool limitReached();
 	ArmyUnit* pickFromUML();
+	bool checkID();//returns true if the id is less than 1000
 	int getUMLCount();
 	bool AddToUML(ArmyUnit* unit);
 	~EarthArmy();
