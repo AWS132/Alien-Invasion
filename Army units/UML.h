@@ -9,6 +9,7 @@ public:
 	bool addUnit(ArmyUnit* Unit);
 	ArmyUnit* pickUnit();
 	int getCount() const;
+	int getTotalInfCount() const;
 	void printList();
 	~UML();
 };

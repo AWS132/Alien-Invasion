@@ -81,9 +81,9 @@ int EarthArmy::countOfInfected()
 {
 	return es->getInfectedCount();
 }
-int EarthArmy::countOfImmune()
+int EarthArmy::countTotalInf()	//returns the total count of infected + immune soldiers
 {
-	return es->getImmuneCount();
+	return es->getImmuneCount() + countOfInfected() + uml->getTotalInfCount();
 }
 
 ArmyUnit* EarthArmy::pickFromUML()

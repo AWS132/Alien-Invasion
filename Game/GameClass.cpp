@@ -232,7 +232,7 @@ void GameClass::createOFile(int winner)
     int S, T, G, HU, infectedUnits,Df, Dd;
     oFile << "Earth Destructed units:\n";
     klst->outKilled(oFile, S, T, G, HU, Df, Dd);
-    infectedUnits = klst->getImmuneCount() + klst->getInfectedCount() + EArmy->countOfInfected() + EArmy->countOfImmune();
+    infectedUnits = klst->getImmuneCount() + klst->getInfectedCount() + EArmy->countTotalInf();
     oFile << "Battle result:";
     if (winner == 1)
         oFile << " Win";

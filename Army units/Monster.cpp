@@ -49,7 +49,7 @@ void Monster::Attack(int flag) // Attack both ET && ES
             damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
             int infectionProb = (gen() % (101));
             //would be attacked if ->not about to be killed ,infcProp ,immune or already infected
-            if (unt->getHealth() > damage || infectionProb > infection_Percentage || unt->isImmune() || unt->getInfectionState())
+            if (/*unt->getHealth() > damage ||*/ infectionProb > infection_Percentage || unt->isImmune() || unt->getInfectionState())
             {
                 unt->DecHlth(damage);
             }

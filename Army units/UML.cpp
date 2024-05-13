@@ -23,6 +23,20 @@ int UML::getCount() const
 	return count;
 }
 
+int UML::getTotalInfCount() const
+{
+	Node< ArmyUnit*>* ptr = frontPtr;
+	int infCount = 0;
+	while (ptr) {
+		if (ptr->getItem()->isImmune()||ptr->getItem()->getInfectionState()) {
+			infCount++;
+		}
+		ptr = ptr->getNext();
+	}
+	return infCount;
+}
+
+
 void UML::printList()
 {
 	Node< ArmyUnit*>* ptr = frontPtr;
