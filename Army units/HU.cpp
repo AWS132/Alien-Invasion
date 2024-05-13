@@ -13,8 +13,8 @@ void HU::Attack(int flag)
 	while (attackCap--) {
 		if ((unit = game->getEArmy()->pickFromUML(), unit))
 		{
-			int ta = unit->getTa();
-			if (game->getTime() - ta > 10) {	
+			int tjUML = unit->getTjUML();
+			if (game->getTime() - tjUML > 10) {
 				unit->DecHlth(unit->getHealth());
 				game->AddToKldList(unit);
 			}
@@ -55,7 +55,10 @@ void HU::Attack(int flag)
 	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
 
 	while ((unit = lst.pickUnit(), unit))
+	{
+		unit->setTjUML(game->getTime());	//setting the time that the unit joined the UML
 		game->getEArmy()->AddToUML(unit);
+	}
 
 
 	/*while (lst.getCount()) {

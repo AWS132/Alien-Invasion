@@ -32,7 +32,10 @@ void Esoldier::Attack(int flag)
 				unit->DecHlth(damage);
 
 				if (unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())//if infected ES <20% , add to uml to be healed and be immune
+				{
+					unit->setTjUML(game->getTime());	//setting the time that the unit joined the UML
 					game->getEArmy()->AddToUML(unit);	//needs to wait in the UML
+				}
 				else if (unit->getHealth() > 0)
 				{
 					lst.addUnit(unit);
@@ -91,7 +94,10 @@ void Esoldier::Attack(int flag)
 				unit->DecHlth(damage);
 
 				if (unit->getType() == ES && unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())//if infected ES <20% , add to uml to be healed and be immune
+				{
+					unit->setTjUML(game->getTime());	//setting the time that the unit joined the UML
 					game->getEArmy()->AddToUML(unit);	//needs to wait in the UML
+				}
 				else if (unit->getHealth() > 0)
 				{
 					lst.addUnit(unit);

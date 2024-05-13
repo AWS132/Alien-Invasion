@@ -37,7 +37,10 @@ void SU::Attack(int flag)
 		if (unt && unt->getHealth() > 0)
 		{
 			if (unt->getHealth() < 0.2 * unt->getStartHlth() && unt->getType() == ES)
+			{
+				unt->setTjUML(game->getTime());	//setting the time that the unit joined the UML
 				game->getEArmy()->AddToUML(unt);
+			}
 			else
 				game->AddUnit(unt);
 		}
