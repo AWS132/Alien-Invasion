@@ -51,8 +51,9 @@ void EarthArmy::PrintArmy()
 	g->printGunnerys();
 	cout << "HU ";
 	hl->printList();
-	
 	uml->printList();
+	cout << "Percentage of Infected Soldiers: "<<((countOfInfected())? countOfInfected()*100.0/CountOf(ES):0)<<"%\n";
+
 }
 
 int EarthArmy::getCount() const
@@ -106,7 +107,7 @@ bool EarthArmy::AddToUML(ArmyUnit* unit)
 bool EarthArmy::limitReached()//if the percentage of infected solidiers surpassed a certain threshold this returns true
 {
 	if (!CountOf(ES)) return false;
-	return (countOfInfected()*100/CountOf(ES)>=threshold);
+	return (countOfInfected() * 100.0 / CountOf(ES) >= threshold);
 }
 
 EarthArmy::~EarthArmy()
@@ -180,12 +181,12 @@ ArmyUnit* EarthArmy::pickInfUnit()
 void EarthArmy::SpreadInfection()
 {
 	int numOfInfected = es->getInfectedCount();
-	while(numOfInfected--)
-	{ 
+	while (numOfInfected--)
+	{
 		random_device rd;
 		mt19937 gen(rd());
 		int infectionSpreadProb = (gen() % (101)); //(rand() % (ub - lb + 1)) + lb
-		if (infectionSpreadProb <2)
+		if (infectionSpreadProb < 2)
 		{
 			es->infectRandomly();
 		}
