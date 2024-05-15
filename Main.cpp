@@ -1,5 +1,4 @@
  #include<iostream>
-#include <vector>
 #include "Game/GameClass.h"
 using namespace std;
 int main()
@@ -9,9 +8,4 @@ int main()
 	int mode;
 	cin >> mode;
 	game.initializer(mode%2);
-	vector<bool> x(game.getSArmy()->getId()-4000, false);
-	game.check(x);
-	for (auto value : x) {
-		cout << value;
-	}
 }
