@@ -57,7 +57,10 @@ ArmyUnit* AllyArmy::pickSUnit()
 
 void AllyArmy::destructAll()
 {
-	su->destructAll();
+	ArmyUnit* x = nullptr;
+	while ((x = su->pickUnit(), x)) {
+		x->addToKlst();
+	}
 }
 
 ArmyUnit* AllyArmy::peekSUnit()

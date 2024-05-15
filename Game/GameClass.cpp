@@ -311,10 +311,16 @@ int GameClass::countOf(unitType ut)
     default:return 0;
     }
 }
-
-
-
 int GameClass::getInfectionPerc()
 {
     return randGenerator->getInfectionPerc();
+}
+
+GameClass::~GameClass()
+{
+    delete EArmy;
+    delete AArmy;
+    delete SArmy;
+    delete randGenerator;
+    delete klst;
 }

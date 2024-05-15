@@ -21,6 +21,5 @@ public:
 	void infectRandomly();
 	ArmyUnit* pickInfected();
 	int getImmuneCount()const;
-	void destructAll();
 	~GenQueueADT();
 };

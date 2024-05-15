@@ -118,9 +118,6 @@ void Esoldier::attack(int flag)
 
 		while ((unit = lst.pickUnit(), unit))
 		{
-			if(unit->getType()<4)
-			game->getEArmy()->addUnit(unit);
-			else
-			game->getAArmy()->addUnit(unit);
+			game->addUnit(unit);
 		}
 	}

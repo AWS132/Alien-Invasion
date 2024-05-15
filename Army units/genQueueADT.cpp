@@ -34,7 +34,6 @@ ArmyUnit* GenQueueADT::pickUnit()
 		return nullptr;
 	if (count > 0)
 		count--;
-
 	ArmyUnit* unt;
 	dequeue(unt);
 	if (unt && unt->getInfectionState())InfectedCount--;
@@ -167,18 +166,10 @@ int GenQueueADT::getImmuneCount() const
 	return immCount;
 }
 
-void GenQueueADT::destructAll()
+GenQueueADT::~GenQueueADT()
 {
-	count = 0;
 	ArmyUnit* x = nullptr;
 	while (dequeue(x)) {
 		if (x) delete x;
 	}
-}
-	
-
-
-GenQueueADT::~GenQueueADT()
-{
-	destructAll();
 }

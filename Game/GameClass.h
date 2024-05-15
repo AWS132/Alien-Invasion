@@ -39,5 +39,6 @@ public:
 	void createOFile(int winner);
 	int countOf(unitType ut);
 	int getInfectionPerc();
+	~GameClass();
 };
 

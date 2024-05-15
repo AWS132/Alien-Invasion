@@ -124,6 +124,12 @@ void ArmyUnit::output(ofstream& oFile)  //prints the unit's info to the output f
 	oFile << Td<< setw(6)<<ID<<setw(6)<<Tj<< setw(6) <<getDf() <<setw(6)<<getDd()<<setw(6)<<getDf()+getDd()<<endl;
 }
 
+void ArmyUnit::addToKlst()
+{
+	this->decHlth(hlth);
+	game->addToKldList(this);
+}
+
 void ArmyUnit::becomeInfected()
 {
 	infected = 1;    // this unit is infected now;
@@ -137,7 +143,6 @@ void ArmyUnit::becomeImmune()
 
 bool ArmyUnit::isImmune()
 {
-
 	return immune;
 }
 
