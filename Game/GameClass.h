@@ -29,15 +29,15 @@ public:
 	EarthArmy* getEArmy();
 	AlienArmy* getAArmy();
 	AllyArmy* getSArmy();
-	void initializer(int mode,int fileName);
+	void initializer(int mode);
 	void pokeUnits(int flag);
-	void loadData(int fileName);
-	ArmyUnit* pickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
+	bool loadData(int fileName);
+	ArmyUnit* pickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2, int dm = 1);
 	bool addToKldList(ArmyUnit* unit);
-	void PrintArmies()const;
-	void addUnit(ArmyUnit*u1);
+	void printArmies()const;
+	void addUnit(ArmyUnit* u1);
 	void createOFile(int winner);
 	int countOf(unitType ut);
-	int getInfection_perc();
+	int getInfectionPerc();
 };
 

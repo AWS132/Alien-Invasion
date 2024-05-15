@@ -38,7 +38,7 @@ void SU::attack(int flag)
 		{
 			if (unt->getHealth() < 0.2 * unt->getStartHlth() && unt->getType() == ES)
 			{
-				game->getEArmy()->AddToUML(unt);
+				game->getEArmy()->addToUML(unt);
 			}
 			else
 				game->addUnit(unt);

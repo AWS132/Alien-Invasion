@@ -138,10 +138,10 @@ void RandGen::setParameters(int N, int prob, int sn, int sprob, int ESPer, int E
 	ASpc = ASPer;  ADpc = ADPer, AMpc = AMPer;	//setting Aliens' %
 	AUP1 = AUPstart; AH1 = AHstart; AACap1 = AACapstart; AUP2 = AUPend; AH2 = AHend; AACap2 = AACapend;	//setting Aliens' ranges
 	SUP1 = SPstart; SUP2 = SPend; SH1 = SHstart; SH2 = SHend; SACap1 = SCstart; SACap2 = SCend;
-	infection_Prob = infProb;
+	infectionProb = infProb;
 }
 
-int RandGen::getInfection_perc()
+int RandGen::getInfectionPerc()
 {
-	return infection_Prob;
+	return infectionProb;
 }

@@ -56,7 +56,7 @@ void HU::attack(int flag)
 
 	while ((unit = lst.pickUnit(), unit))
 	{
-		game->getEArmy()->AddToUML(unit);
+		game->getEArmy()->addToUML(unit);
 	}
 
 
@@ -66,7 +66,7 @@ void HU::attack(int flag)
 			if (game->getTime() - ta > 10)
 				game->addToKldList(unit);
 			else
-				game->getEArmy()->AddToUML(unit);
+				game->getEArmy()->addToUML(unit);
 
 		}
 	}*/

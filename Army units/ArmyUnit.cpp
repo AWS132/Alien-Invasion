@@ -118,7 +118,7 @@ void ArmyUnit::print() const
 	
 }
 
-void ArmyUnit::Output(ofstream& oFile)  //prints the unit's info to the output file
+void ArmyUnit::output(ofstream& oFile)  //prints the unit's info to the output file
 {
 	oFile << "Td" << setw(6) << "ID" << setw(6) << "Tj" << setw(6) << "Df" << setw(6) << "Dd" << setw(6) << "Db" << endl;
 	oFile << Td<< setw(6)<<ID<<setw(6)<<Tj<< setw(6) <<getDf() <<setw(6)<<getDd()<<setw(6)<<getDf()+getDd()<<endl;

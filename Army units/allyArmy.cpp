@@ -17,7 +17,7 @@ void AllyArmy::addUnit(ArmyUnit* unit)
 	su->addUnit(unit);
 }
 
-void AllyArmy::PrintArmy()
+void AllyArmy::printArmy()
 {
 	cout << "======================Ally Army======================\nSU ";
 	su->printList();

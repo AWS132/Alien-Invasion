@@ -1,6 +1,7 @@
 #include "GameClass.h"
 #include <fstream>
 #include <iostream>
+#include <string>
 using namespace std;
 GameClass::GameClass()
 {
@@ -37,31 +38,37 @@ AllyArmy* GameClass::getSArmy()
     return SArmy;
 }
 
-void GameClass::initializer(int flag, int fileName)
+void GameClass::initializer(int flag) //resposible for the game logic
 {
-    loadData(fileName);
+    //to load data from a valid input file
+    int fileName;
+    do {
+    cout << "pick the number of the input file you want to select\n";
+    cin >> fileName;
+    } while (!loadData(fileName));
     if (flag)
         cout << "Active Mode\n";
     else
         cout << "Silent Mode\n";
     cout << "Simulation Starts.....\n";
+    //the battle begins from here
     while ((EArmy->getCount() && AArmy->getCount() || crntTime <= 40))
     {
-        EArmy->SpreadInfection();
+        EArmy->spreadInfection();
         randGenerator->generator();
         if (EArmy->limitReached())
             SArmy->call();
         if (!EArmy->countOfInfected())
             SArmy->withdraw();
         if (flag)
-            PrintArmies();
+            printArmies();
         pokeUnits(flag);
         if (flag) {
             cout << "=======================Killed/destructed units=======================\n";
             klst->printList();
             cout << "==============================================================================\n\n";
-           cout << "Press Enter to Continue";
-           cin.ignore();
+            cout << "Press Enter to Continue";
+            cin.ignore();
         }
     }
     int x;// used to send the winner to the output file
@@ -84,7 +91,7 @@ void GameClass::initializer(int flag, int fileName)
     cout << "Simulation Ends, output file is created\n";
 }
 
-void GameClass::pokeUnits(int flag)
+void GameClass::pokeUnits(int flag) // a function to make aliens', earth's and allies' units attack each other
 {
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
@@ -115,42 +122,24 @@ void GameClass::pokeUnits(int flag)
         SArmy->peekSUnit()->attack(flag);
 }
 
-void GameClass::loadData(int fileName)
+bool GameClass::loadData(int fileName)  // loads data from an input file returns true if a valid input file is entered and false otherwise
 {
     int N, prob, SN, SProb, ESPer, ETPer, EGPer, HUPer, EUPstart, EUPend, EHstart, EHend, EACapstart, EACapend,
         ASPer, AMPer, ADPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend, SUPstart, SHstart, SACapstart, SUPend, SHend, SACapend, infection_Prob, threshold;
-    string s;
-    switch (fileName) {
-    case(2):
-        s = "2";
-        break;
-    case(3):
-        s = "3";
-        break;
-    case(4):
-        s = "4";
-        break;
-    case(5):
-        s = "5";
-        break;
-    case(6):
-        s = "6";
-        break;
-    default:
-        s = "1";
-        break;
-
-    }
+    string s = to_string(fileName);
     ifstream dataFile("Inputs/data (" + s + ").txt");
     if (!dataFile)
+    {
         cout << "File is not found" << endl;
+        return false;
+    }
     else
     {
         //according to the input file's order
         dataFile >> N >> SN >> ESPer >> ETPer >> EGPer >> HUPer >> ASPer >> AMPer >> ADPer >> prob >> SProb >> infection_Prob >> threshold >>
-            EUPstart >> EUPend >> EHstart >> EHend >> EACapstart >> EACapend >>	//ranges for earths' units
+            EUPstart >> EUPend >> EHstart >> EHend >> EACapstart >> EACapend >>	//ranges for earth's units
             AUPstart >> AUPend >> AHstart >> AHend >> AACapstart >> AACapend >>	//ranges for aliens' units
-            SUPstart >> SUPend >> SHstart >> SHend >> SACapstart >> SACapend;	//ranges for aliens' units
+            SUPstart >> SUPend >> SHstart >> SHend >> SACapstart >> SACapend;	//ranges for allies' units
         //for the - sign in the input file
         EUPend = abs(EUPend);   AUPend = abs(AUPend); SUPend = abs(SUPend);
         EHend = abs(EHend);     AHend = abs(AHend); SHend = abs(SHend);
@@ -159,10 +148,10 @@ void GameClass::loadData(int fileName)
     randGenerator->setParameters(N, prob, SN, SProb, ESPer, ETPer, EGPer, HUPer, EUPstart, EHstart, EACapstart, EUPend, EHend, EACapend,
         ASPer, ADPer, AMPer, AUPstart, AHstart, AACapstart, AUPend, AHend, AACapend, SHstart, SHend, SUPstart, SUPend, SACapstart, SACapend, infection_Prob);
     EArmy->setThreshold(threshold);
+    return true;
 }
 
-ArmyUnit* GameClass::pickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
-
+ArmyUnit* GameClass::pickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm) // used to pick a/two unit/s given a unit type
  {
     switch (unit)
     {
@@ -195,12 +184,12 @@ bool GameClass::addToKldList(ArmyUnit* unit)
     else return false;
 }
 
-void GameClass::PrintArmies() const
+void GameClass::printArmies() const
 {
     cout << "Current time step: " << this->crntTime<<endl;
-    EArmy->PrintArmy();
-    AArmy->PrintArmy();
-    SArmy->PrintArmy();
+    EArmy->printArmy();
+    AArmy->printArmy();
+    SArmy->printArmy();
     
 }
 
@@ -225,7 +214,7 @@ void GameClass::addUnit(ArmyUnit* u1)
     }
 }
 
-void GameClass::createOFile(int winner)
+void GameClass::createOFile(int winner) //creates the output file
 {
     ofstream oFile("output.txt");
     //// Earth ouput 
@@ -325,7 +314,7 @@ int GameClass::countOf(unitType ut)
 
 
 
-int GameClass::getInfection_perc()
+int GameClass::getInfectionPerc()
 {
-    return randGenerator->getInfection_perc();
+    return randGenerator->getInfectionPerc();
 }

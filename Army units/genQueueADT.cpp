@@ -76,7 +76,7 @@ void GenQueueADT::outKilled(ofstream& oFile, int& S, int& T, int& G, int& HU, in
 				G++;
 			else if (x == HU_ + type)
 				HU++;
-			ptr->getItem()->Output(oFile);
+			ptr->getItem()->output(oFile);
 			Dd += ptr->getItem()->getDd();
 			Df += ptr->getItem()->getDf();
 		}

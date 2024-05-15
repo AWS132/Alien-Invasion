@@ -13,7 +13,7 @@ public:
 	AllyArmy();
 	int getId();
 	void addUnit(ArmyUnit* unit);
-	void PrintArmy();
+	void printArmy();
 	void call();
 	bool getStatus();
 	bool checkID();

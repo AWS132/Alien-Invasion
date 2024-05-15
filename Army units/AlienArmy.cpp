@@ -34,7 +34,7 @@ void AlienArmy::addUnit(ArmyUnit* unit)
 	}
 }
 
-void AlienArmy::PrintArmy()
+void AlienArmy::printArmy()
 {
 	cout << " =============== Alien Army Alive Units =============== \n";
 	m->printMonsters();

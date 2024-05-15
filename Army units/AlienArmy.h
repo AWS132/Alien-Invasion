@@ -17,7 +17,7 @@ public:
 	AlienArmy();
 	int getId()/*const*/;
 	void addUnit(ArmyUnit* unit/*, bool flag=1*/);
-	void PrintArmy();
+	void printArmy();
 	bool checkID();
 	int getCount() const;
 	ArmyUnit* pickAUnit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);

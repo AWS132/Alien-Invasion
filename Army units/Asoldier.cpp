@@ -44,7 +44,7 @@ void Asoldier::attack(int flag)
 
 			if (unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())
 			{
-				game->getEArmy()->AddToUML(unit);	//needs to wait in the UML
+				game->getEArmy()->addToUML(unit);	//needs to wait in the UML
 			}
 			else if (unit->getHealth() > 0)
 			{

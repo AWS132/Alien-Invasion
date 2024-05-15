@@ -41,7 +41,7 @@ void EarthArmy::addUnit(ArmyUnit* unit)
 	}
 }
 
-void EarthArmy::PrintArmy()
+void EarthArmy::printArmy()
 {
 	cout << "=============== Earth Army Alive Units===============\n";
 	cout << "ES ";
@@ -97,7 +97,7 @@ void EarthArmy::setThreshold(int limit)
 	threshold = limit;
 }
 
-bool EarthArmy::AddToUML(ArmyUnit* unit)
+bool EarthArmy::addToUML(ArmyUnit* unit)
 {
 	unit->setTjUML();
 	return uml->addUnit(unit);
@@ -178,7 +178,7 @@ ArmyUnit* EarthArmy::pickInfUnit()
 	return es->pickInfected();
 }
 
-void EarthArmy::SpreadInfection()
+void EarthArmy::spreadInfection()
 {
 	int numOfInfected = es->getInfectedCount();
 	while (numOfInfected--)
