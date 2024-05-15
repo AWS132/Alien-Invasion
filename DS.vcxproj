@@ -24,7 +24,7 @@
     <ClCompile Include="Army units\ArmyUnit.cpp" />
     <ClCompile Include="Army units\Asoldier.cpp" />
     <ClCompile Include="Army units\Drone.cpp" />
-    <ClCompile Include="Army units\Drones.cpp" />
+    <ClCompile Include="Army units\DroneADT.cpp" />
     <ClCompile Include="Army units\EarthArmy.cpp" />
     <ClCompile Include="Army units\Esoldier.cpp" />
     <ClCompile Include="Army units\Gunnery.cpp" />

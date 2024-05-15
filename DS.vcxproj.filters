@@ -18,7 +18,7 @@
     <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Army units\Drones.cpp">
+    <ClCompile Include="Army units\DroneADT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Army units\ArmyUnit.cpp">
