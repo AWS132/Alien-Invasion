@@ -4,16 +4,16 @@ Tank::Tank(int id, int tj, int health, int power, int capacity, GameClass* game)
 {
 }
 
-void Tank::Attack(int flag) //attack monsters
+void Tank::attack(int flag) //attack monsters
 {
     genQueueADT lst;
-    int no_AS = game->CountOf(AS);
-    int AMtoAttack=min(cap/2, game->CountOf(AM));
-    int AStoAttack=min(cap- AMtoAttack,game->CountOf(AS));
+    int no_AS = game->countOf(AS);
+    int AMtoAttack=min(cap/2, game->countOf(AM));
+    int AStoAttack=min(cap- AMtoAttack,game->countOf(AS));
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
     double damage;
-    int no_ES = game->CountOf(ES);
+    int no_ES = game->countOf(ES);
     if (flag)
         cout <<"ET " << ID << " shoots ";
     if((long double)(no_ES*1.0/ no_AS)*100<30)
@@ -23,15 +23,15 @@ void Tank::Attack(int flag) //attack monsters
         {
             if (currPercent < 80)
             {
-                ArmyUnit* unt = game->PickUnit(AS, nl1, nl2);
+                ArmyUnit* unt = game->pickUnit(AS, nl1, nl2);
                 if (unt)
                 {
                     damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
-                    unt->DecHlth(damage);
+                    unt->decHlth(damage);
                     lst.addUnit(unt);
                 }
-                no_ES = game->CountOf(ES);
-                no_AS = game->CountOf(AS);
+                no_ES = game->countOf(ES);
+                no_AS = game->countOf(AS);
                 currPercent = (long double)(no_ES *1.0/ no_AS) * 100;
             }
             else
@@ -48,11 +48,11 @@ void Tank::Attack(int flag) //attack monsters
 
         for (int i = 0; i < AMtoAttack; i++)
         {
-            ArmyUnit* unt = game->PickUnit(AM, nl1, nl2);
+            ArmyUnit* unt = game->pickUnit(AM, nl1, nl2);
             if (unt)
             {
                 damage = (pwr * hlth / 100.0) / sqrt(unt->getHealth());
-                unt->DecHlth(damage);
+                unt->decHlth(damage);
                 
                     lst.addUnit(unt);
                 
@@ -65,10 +65,10 @@ void Tank::Attack(int flag) //attack monsters
         {
             ArmyUnit* unt = lst.pickUnit();
             if (unt && unt->getHealth() > 0)
-                game->AddUnit(unt);
+                game->addUnit(unt);
             else
             {
-                game->AddToKldList(unt);
+                game->addToKldList(unt);
             }
         }
 }

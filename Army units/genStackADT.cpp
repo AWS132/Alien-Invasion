@@ -30,7 +30,7 @@ void genStackADT::printList()
 	{ 
 	for (int i = 0; i <= top; i++)
 	{
-		items[i]->Print();
+		items[i]->print();
 		if(i-top)
 		cout << ", ";
 	}

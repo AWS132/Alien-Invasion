@@ -4,7 +4,7 @@ SU::SU(int id, int tj, int health, int power, int capacity, GameClass* game) :Ar
 {
 }
 
-void SU::Attack(int flag) 
+void SU::attack(int flag)
 {
 	genQueueADT lst;
 	double dmg = hlth * pwr / 100.0;
@@ -12,16 +12,16 @@ void SU::Attack(int flag)
 	ArmyUnit* unit = nullptr;
 	if (flag)
 		cout << "SU " << ID << " Attacks ";
-	int tempCap = min(cap, game->CountOf(AS) + game->getEArmy()->countOfInfected());
+	int tempCap = min(cap, game->countOf(AS) + game->getEArmy()->countOfInfected());
 	for (int i = 0; i < tempCap; i++) {
 		if (i % 2) {
-			unt = game->PickUnit(AS, unit, unit);
+			unt = game->pickUnit(AS, unit, unit);
 		}
 		else {
 			unt = game->getEArmy()->pickInfUnit();
 		}
 		if (unt) {
-			unt->DecHlth(dmg / sqrt(unt->getHealth()));
+			unt->decHlth(dmg / sqrt(unt->getHealth()));
 			lst.addUnit(unt);
 		}
 		else {
@@ -41,11 +41,11 @@ void SU::Attack(int flag)
 				game->getEArmy()->AddToUML(unt);
 			}
 			else
-				game->AddUnit(unt);
+				game->addUnit(unt);
 		}
 		else
 		{
-			game->AddToKldList(unt);
+			game->addToKldList(unt);
 		}
 	}
 

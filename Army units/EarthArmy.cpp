@@ -3,7 +3,7 @@
 EarthArmy::EarthArmy() {
 	t = new genStackADT;
 	es = new genQueueADT;
-	g = new Gunnerys;
+	g = new GunneryADT;
 	hl = new genStackADT;
 	uml = new UML;
 	id = 0;
@@ -17,7 +17,7 @@ int EarthArmy::getId()
 bool EarthArmy::checkID() {
 	return id < 999;
 }
-void EarthArmy::AddUnit(ArmyUnit* unit)  
+void EarthArmy::addUnit(ArmyUnit* unit)  
 {
 	 
 	unitType type = unit->getType();
@@ -52,7 +52,7 @@ void EarthArmy::PrintArmy()
 	cout << "HU ";
 	hl->printList();
 	uml->printList();
-	cout << "Percentage of Infected Soldiers: "<<((countOfInfected())? countOfInfected()*100.0/CountOf(ES):0)<<"%\n";
+	cout << "Percentage of Infected Soldiers: "<<((countOfInfected())? countOfInfected()*100.0/countOf(ES):0)<<"%\n";
 
 }
 
@@ -61,7 +61,7 @@ int EarthArmy::getCount() const
 	return es->getCount() + t->getCount() + g->getCount() + hl->getCount();
 }
 
-int EarthArmy::CountOf(unitType ut)
+int EarthArmy::countOf(unitType ut)
 {
 	switch (ut)
 	{
@@ -106,8 +106,8 @@ bool EarthArmy::AddToUML(ArmyUnit* unit)
 
 bool EarthArmy::limitReached()//if the percentage of infected solidiers surpassed a certain threshold this returns true
 {
-	if (!CountOf(ES)) return false;
-	return (countOfInfected() * 100.0 / CountOf(ES) >= threshold);
+	if (!countOf(ES)) return false;
+	return (countOfInfected() * 100.0 / countOf(ES) >= threshold);
 }
 
 EarthArmy::~EarthArmy()

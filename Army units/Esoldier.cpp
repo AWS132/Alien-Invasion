@@ -4,7 +4,7 @@ Esoldier::Esoldier(int id, int tj, int health, int power, int capacity, GameClas
 
 }
 
-void Esoldier::Attack(int flag)
+void Esoldier::attack(int flag)
 {
 	genQueueADT lst;
 	genQueueADT toBePrinted;	//to print properly
@@ -16,11 +16,11 @@ void Esoldier::Attack(int flag)
 	double damage;
 	if (flag) {
 		cout << "ES ";
-		this->Print();
+		this->print();
 		cout<< " shoots ";
 	}
-	int infToAttack = min(cap - min(cap / 2, game->getAArmy()->CountOf(AS)), game->getEArmy()->countOfInfected());
-	int AsToAttack = min(cap - infToAttack, game->getAArmy()->CountOf(AS));
+	int infToAttack = min(cap - min(cap / 2, game->getAArmy()->countOf(AS)), game->getEArmy()->countOfInfected());
+	int AsToAttack = min(cap - infToAttack, game->getAArmy()->countOf(AS));
 
 	if (!infected)//normal ES would attack AS and infected ES
 	{
@@ -29,7 +29,7 @@ void Esoldier::Attack(int flag)
 			if (unit)
 			{
 				damage = (pwr * hlth / 100) / sqrt(unit->getHealth());
-				unit->DecHlth(damage);
+				unit->decHlth(damage);
 
 				if (unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())//if infected ES <20% , add to uml to be healed and be immune
 				{
@@ -41,18 +41,18 @@ void Esoldier::Attack(int flag)
 				}
 				else
 				{
-					game->AddToKldList(unit);
+					game->addToKldList(unit);
 				}
 				toBePrinted.addUnit(unit);
 			}
 		}
 		for (int i{}; i < AsToAttack; i++) {//for attacking AS
-			unit = game->getAArmy()->PickAunit(AS, nl1, nl2);
+			unit = game->getAArmy()->pickAUnit(AS, nl1, nl2);
 
 			if (unit)
 			{
 				damage = (pwr * hlth / 100) / sqrt(unit->getHealth());
-				unit->DecHlth(damage);
+				unit->decHlth(damage);
 
 				if (unit->getHealth() > 0)
 				{
@@ -60,7 +60,7 @@ void Esoldier::Attack(int flag)
 				}
 				else
 				{
-					game->AddToKldList(unit);
+					game->addToKldList(unit);
 				}
 				toBePrinted.addUnit(unit);
 			}
@@ -69,28 +69,28 @@ void Esoldier::Attack(int flag)
 	else //infected would attack only ES & SU
 	{
 		ArmyUnit* dummy = nullptr;
-		int tempCap = min(cap, game->CountOf(SU_) + game->CountOf(ES) - game->getEArmy()->countOfInfected());
+		int tempCap = min(cap, game->countOf(SU_) + game->countOf(ES) - game->getEArmy()->countOfInfected());
 		for (int i{}; i < tempCap; i++) {
-			if (i % 2 && game->getEArmy()->countOfInfected() < game->CountOf(ES))
+			if (i % 2 && game->getEArmy()->countOfInfected() < game->countOf(ES))
 			{
 				while (true)
 				{
-					unit = game->PickUnit(ES, dummy, dummy);
+					unit = game->pickUnit(ES, dummy, dummy);
 					if (!unit->getInfectionState())//not infected 
 						break;
 					else
-						game->AddUnit(unit);
+						game->addUnit(unit);
 				}
 
 			}
 			else {
 				
-				unit = game->PickUnit(SU_, dummy, dummy);
+				unit = game->pickUnit(SU_, dummy, dummy);
 			}
 			if (unit)
 			{
 				damage = (pwr * hlth / 100) / sqrt(unit->getHealth());
-				unit->DecHlth(damage);
+				unit->decHlth(damage);
 
 				if (unit->getType() == ES && unit->getHealth() > 0 && unit->getHealth() < 0.2 * unit->getStartHlth())//if infected ES <20% , add to uml to be healed and be immune
 				{
@@ -102,7 +102,7 @@ void Esoldier::Attack(int flag)
 				}
 				else
 				{
-					game->AddToKldList(unit);
+					game->addToKldList(unit);
 				}
 				toBePrinted.addUnit(unit);
 			}
@@ -119,8 +119,8 @@ void Esoldier::Attack(int flag)
 		while ((unit = lst.pickUnit(), unit))
 		{
 			if(unit->getType()<4)
-			game->getEArmy()->AddUnit(unit);
+			game->getEArmy()->addUnit(unit);
 			else
-			game->getAArmy()->AddUnit(unit);
+			game->getAArmy()->addUnit(unit);
 		}
 	}

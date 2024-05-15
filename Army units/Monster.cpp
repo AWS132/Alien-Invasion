@@ -4,14 +4,14 @@ Monster::Monster(int id, int tj, int health, int power, int capacity, GameClass*
 {
 }
 
-void Monster::Attack(int flag) // Attack both ET && ES
+void Monster::attack(int flag) // Attack both ET && ES
 {
 	genQueueADT lst;
-    int infection_Percentage = game->getInfection_perc();
-    int divFactor = (game->CountOf(SU_)) ? 3 : 2;
-    int ETtoAttack = min(cap - min(cap / divFactor, game->CountOf(ES)) - min(cap / divFactor, game->CountOf(SU_)), game->CountOf(ET));
-	int EStoAttack = min(cap - ETtoAttack - min(cap / divFactor, game->CountOf(SU_)), game->CountOf(ES));
-    int SUtoAttack = min(cap - ETtoAttack - EStoAttack, game->CountOf(SU_));
+    int infectionPercentage = game->getInfection_perc();
+    int divFactor = (game->countOf(SU_)) ? 3 : 2;
+    int ETtoAttack = min(cap - min(cap / divFactor, game->countOf(ES)) - min(cap / divFactor, game->countOf(SU_)), game->countOf(ET));
+	int EStoAttack = min(cap - ETtoAttack - min(cap / divFactor, game->countOf(SU_)), game->countOf(ES));
+    int SUtoAttack = min(cap - ETtoAttack - EStoAttack, game->countOf(SU_));
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
     double damage;
@@ -20,21 +20,21 @@ void Monster::Attack(int flag) // Attack both ET && ES
         cout << "AM " << ID << " Attacks ";
     for (int i = 0; i < ETtoAttack; i++)
     {
-        ArmyUnit* unt = game->PickUnit(ET, nl1, nl2);
+        ArmyUnit* unt = game->pickUnit(ET, nl1, nl2);
         if (unt)
         {
             damage =  (pwr * hlth / 100) / sqrt(unt->getHealth());
-            unt->DecHlth(damage);
+            unt->decHlth(damage);
             lst.addUnit(unt);
         }
     }
     for (int i = 0; i < SUtoAttack; i++)
     {
-        ArmyUnit* unt = game->PickUnit(SU_, nl1, nl2);
+        ArmyUnit* unt = game->pickUnit(SU_, nl1, nl2);
         if (unt)
         {
             damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
-            unt->DecHlth(damage);
+            unt->decHlth(damage);
             lst.addUnit(unt);
         }
     }
@@ -43,19 +43,19 @@ void Monster::Attack(int flag) // Attack both ET && ES
     for (int i = 0; i < EStoAttack; i++)
     {
         ArmyUnit* unt;
-        unt = game->PickUnit(ES,nl1,nl2);
+        unt = game->pickUnit(ES,nl1,nl2);
         if (unt)
         {
             damage = (pwr * hlth / 100) / sqrt(unt->getHealth());
             int infectionProb = (gen() % (101));
             //would be attacked if ->not about to be killed ,infcProp ,immune or already infected
-            if (/*unt->getHealth() > damage ||*/ infectionProb > infection_Percentage || unt->isImmune() || unt->getInfectionState())
+            if (/*unt->getHealth() > damage ||*/ infectionProb > infectionPercentage || unt->isImmune() || unt->getInfectionState())
             {
-                unt->DecHlth(damage);
+                unt->decHlth(damage);
             }
             else
             {
-                unt->become_infected();
+                unt->becomeInfected();
             }
             lst.addUnit(unt);
         }
@@ -73,11 +73,11 @@ void Monster::Attack(int flag) // Attack both ET && ES
                 game->getEArmy()->AddToUML(unt);
             }
             else
-                game->AddUnit(unt);
+                game->addUnit(unt);
         }
         else
         {
-            game->AddToKldList(unt);
+            game->addToKldList(unt);
         }
     }
     

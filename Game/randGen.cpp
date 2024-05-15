@@ -92,15 +92,15 @@ void randGen::generator()
 				mt19937 gen(rd());
 				int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
 				if (B <= ESpc) {
-					game->getEArmy()->AddUnit(createUnit(ES));
+					game->getEArmy()->addUnit(createUnit(ES));
 				}
 				else if (B <= ESpc + ETpc) {
-					game->getEArmy()->AddUnit(createUnit(ET));
+					game->getEArmy()->addUnit(createUnit(ET));
 				}
 				else if (B <= ESpc + ETpc + EGpc)
-					game->getEArmy()->AddUnit(createUnit(EG));
+					game->getEArmy()->addUnit(createUnit(EG));
 				else
-					game->getEArmy()->AddUnit(createUnit(HU_));
+					game->getEArmy()->addUnit(createUnit(HU_));
 			}
 		//for aliens
 		if (game->getAArmy()->checkID())
@@ -109,19 +109,19 @@ void randGen::generator()
 				mt19937 gen(rd());
 				int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
 				if (B <= ASpc) {
-					game->getAArmy()->AddUnit(createUnit(AS));
+					game->getAArmy()->addUnit(createUnit(AS));
 				}
 				else if (B <= ASpc + AMpc) {
-					game->getAArmy()->AddUnit(createUnit(AM));
+					game->getAArmy()->addUnit(createUnit(AM));
 				}
 				else
-					game->getAArmy()->AddUnit(createUnit(AD));
+					game->getAArmy()->addUnit(createUnit(AD));
 			}
 	}
 	//for Ally units
 	if (A <= Sprob && game->getSArmy()->getStatus() && game->getSArmy()->checkID()) {
 		for (int i = 0; i < SN; i++) {
-			game->getSArmy()->AddUnit(createUnit(SU_));
+			game->getSArmy()->addUnit(createUnit(SU_));
 		}
 	}
 }

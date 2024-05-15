@@ -93,7 +93,7 @@ int ArmyUnit::getTjUML() const
 	return TjUML;
 }
 
-bool ArmyUnit::DecHlth(double value)
+bool ArmyUnit::decHlth(double value)
 {
 	setTa(game->getTime());
 	hlth -= value;
@@ -103,14 +103,14 @@ bool ArmyUnit::DecHlth(double value)
 	return (hlth > 0);
 }
 
-bool ArmyUnit::IncHlth(double product)
+bool ArmyUnit::incHlth(double product)
 {
 	double imp = (product / 100) / sqrt(hlth);
 	hlth += min(imp, startHlth - hlth);
 	return (hlth > (0.2 * startHlth));
 }
 
-void ArmyUnit::Print() const
+void ArmyUnit::print() const
 {
 	if (infected)
 		cout << "*!*";
@@ -124,12 +124,12 @@ void ArmyUnit::Output(ofstream& oFile)  //prints the unit's info to the output f
 	oFile << Td<< setw(6)<<ID<<setw(6)<<Tj<< setw(6) <<getDf() <<setw(6)<<getDd()<<setw(6)<<getDf()+getDd()<<endl;
 }
 
-void ArmyUnit::become_infected()
+void ArmyUnit::becomeInfected()
 {
 	infected = 1;    // this unit is infected now;
 }
 
-void ArmyUnit::become_immune()
+void ArmyUnit::becomeImmune()
 {
 	infected = false;	//not infected anymore ^_^
 	immune = true;

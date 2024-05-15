@@ -10,7 +10,7 @@ Drone::Drone(int id, int tj, int health, int power, int capacity, GameClass* gam
 }
 
 
-void Drone::Attack(int flag)
+void Drone::attack(int flag)
 {
 	genQueueADT lst;
 	double dmg = hlth * pwr / 100.0;
@@ -18,16 +18,16 @@ void Drone::Attack(int flag)
 	ArmyUnit* unit = nullptr;
 	if (flag)
 		cout << "AD " << ID << " Attacks ";
-	int tempCap = min(cap,game->getEArmy()->CountOf(ET)+ game->getEArmy()->CountOf(EG));
+	int tempCap = min(cap,game->getEArmy()->countOf(ET)+ game->getEArmy()->countOf(EG));
 	for (int i = 0; i < tempCap; i++) {
 		if (i % 2) {
-			unt = game->PickUnit(EG,unit,unit);
+			unt = game->pickUnit(EG,unit,unit);
 		}
 		else {
-			unt = game->PickUnit(ET,unit,unit);
+			unt = game->pickUnit(ET,unit,unit);
 		}
 		if (unt) {
-			unt->DecHlth(dmg / sqrt(unt->getHealth()));
+			unt->decHlth(dmg / sqrt(unt->getHealth()));
 			lst.addUnit(unt);
 		}
 		else {
@@ -47,12 +47,12 @@ void Drone::Attack(int flag)
 				game->getEArmy()->AddToUML(unt);
 			}
 			else
-				game->AddUnit(unt);
+				game->addUnit(unt);
 		}
 		else
 		{
 			unt->setTd(game->getTime());
-			game->AddToKldList(unt);
+			game->addToKldList(unt);
 		}
 	}
 }

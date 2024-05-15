@@ -27,7 +27,7 @@ int main()
 	//		cout << ": Pick Earth Soldier and insert it again";
 	//		ArmyUnit* unit = nullptr;
 	//		unit = game.PickUnit(ES, nl, nl);
-	//		game.AddUnit(unit);
+	//		game.addUnit(unit);
 	//	}
 	//	else if (x > 10 && x < 20)
 	//	{
@@ -43,9 +43,9 @@ int main()
 	//		unit = game.PickUnit(EG, nl, nl);
 	//		if(unit)
 	//		{
-	//			unit->DecHlth(0.5 * unit->getHealth());
+	//			unit->decHlth(0.5 * unit->getHealth());
 	//		}
-	//		game.AddUnit(unit);
+	//		game.addUnit(unit);
 	//	}
 
 	//	else if (x > 30 && x < 40)
@@ -66,7 +66,7 @@ int main()
 
 	//		for (int i = 0; i < 5; i++)
 	//		{
-	//			game.AddUnit(mns[i]);
+	//			game.addUnit(mns[i]);
 	//		}
 	//	}
 	//	else if (x > 50 && x < 60)

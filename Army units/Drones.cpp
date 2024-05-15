@@ -43,7 +43,7 @@ void Drones::printDrones() const
 	cout << "AD " << getCount() << " [";
 	if (!temp) cout << "]\n";
 	while (temp!=nullptr) {
-		temp->getItem()->Print();
+		temp->getItem()->print();
 		temp = temp->getNext();
 		if (temp) cout << ", ";
 		else cout << "]\n";

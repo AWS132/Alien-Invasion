@@ -32,12 +32,12 @@ public:
 	void initializer(int mode,int fileName);
 	void pokeUnits(int flag);
 	void loadData(int fileName);
-	ArmyUnit* PickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
-	bool AddToKldList(ArmyUnit* unit);
+	ArmyUnit* pickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
+	bool addToKldList(ArmyUnit* unit);
 	void PrintArmies()const;
-	void AddUnit(ArmyUnit*u1);
+	void addUnit(ArmyUnit*u1);
 	void createOFile(int winner);
-	int CountOf(unitType ut);
+	int countOf(unitType ut);
 	int getInfection_perc();
 };
 

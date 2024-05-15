@@ -43,12 +43,12 @@ void UML::printList()
 	cout << "UML " << count << " [";
 	while (ptr and ptr->getNext())
 	{
-		ptr->getItem()->Print();
+		ptr->getItem()->print();
 		ptr = ptr->getNext();
 		cout << ", ";
 	}
 	if (ptr)
-		ptr->getItem()->Print();
+		ptr->getItem()->print();
 	cout << "]\n";
 
 }

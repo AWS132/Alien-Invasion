@@ -1,6 +1,6 @@
 #include "AlienArmy.h"
 AlienArmy::AlienArmy() {
-	m = new Monsters;
+	m = new MonsterADT;
 	as = new genQueueADT;
 	d = new Drones;
 	id = 1999;
@@ -14,7 +14,7 @@ bool AlienArmy::checkID() {
 	return id < 2999;
 }
 
-void AlienArmy::AddUnit(ArmyUnit* unit)
+void AlienArmy::addUnit(ArmyUnit* unit)
 {
 	
 	unitType type = unit->getType();
@@ -48,7 +48,7 @@ int AlienArmy::getCount() const
 	return as->getCount()+m->getCount()+d->getCount();
 }
 
-ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
+ArmyUnit* AlienArmy::pickAUnit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 {
 	switch (u)
 	{
@@ -81,7 +81,7 @@ ArmyUnit* AlienArmy::PickAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 	return unt;
 }
 
-int AlienArmy::CountOf(unitType ut)
+int AlienArmy::countOf(unitType ut)
 {
 	switch (ut)
 	{

@@ -91,28 +91,28 @@ void GameClass::pokeUnits(int flag)
    
     if (flag)
         cout << "===========Units Fighting at Current Step=============\n";
-    if (EArmy->CountOf(ET))
-        EArmy->peekEUnit(ET)->Attack(flag);
-    if (EArmy->CountOf(EG))
-        EArmy->peekEUnit(EG)->Attack(flag);
-    if (EArmy->CountOf(ES))
-        EArmy->peekEUnit(ES)->Attack(flag);
-    if (AArmy->CountOf(AM))
-        AArmy->peekAunit(AM, nl1, nl2)->Attack(flag);
-    if (AArmy->CountOf(AS))
-        AArmy->peekAunit(AS, nl1, nl2)->Attack(flag);
-    if (AArmy->CountOf(AD)) 
+    if (EArmy->countOf(ET))
+        EArmy->peekEUnit(ET)->attack(flag);
+    if (EArmy->countOf(EG))
+        EArmy->peekEUnit(EG)->attack(flag);
+    if (EArmy->countOf(ES))
+        EArmy->peekEUnit(ES)->attack(flag);
+    if (AArmy->countOf(AM))
+        AArmy->peekAunit(AM, nl1, nl2)->attack(flag);
+    if (AArmy->countOf(AS))
+        AArmy->peekAunit(AS, nl1, nl2)->attack(flag);
+    if (AArmy->countOf(AD)) 
     {
         AArmy->peekAunit(AD, nl1, nl2);
         if (nl1 && nl2) {
-            nl1->Attack(flag);
-            nl2->Attack(flag);
+            nl1->attack(flag);
+            nl2->attack(flag);
         }
     }
-    if (EArmy->CountOf(HU_))
-        EArmy->peekEUnit(HU_)->Attack(flag);
+    if (EArmy->countOf(HU_))
+        EArmy->peekEUnit(HU_)->attack(flag);
     if (SArmy->getCount()) 
-        SArmy->peekSUnit()->Attack(flag);
+        SArmy->peekSUnit()->attack(flag);
 }
 
 void GameClass::loadData(int fileName)
@@ -161,7 +161,7 @@ void GameClass::loadData(int fileName)
     EArmy->setThreshold(threshold);
 }
 
-ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
+ArmyUnit* GameClass::pickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 
  {
     switch (unit)
@@ -175,11 +175,11 @@ ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
     case HU_:
         return EArmy->pickEUnit(HU_);
     case AS:
-        return AArmy->PickAunit(AS,d1,d2);
+        return AArmy->pickAUnit(AS,d1,d2);
     case AM:
-        return AArmy->PickAunit(AM, d1, d2);
+        return AArmy->pickAUnit(AM, d1, d2);
     case AD:
-        return AArmy->PickAunit(AD, d1, d2,dm);
+        return AArmy->pickAUnit(AD, d1, d2,dm);
     case SU_:
         return SArmy->pickSUnit();
     default:
@@ -188,7 +188,7 @@ ArmyUnit* GameClass::PickUnit(unitType unit,ArmyUnit*& d1, ArmyUnit*& d2,int dm)
 }
 
 
-bool GameClass::AddToKldList(ArmyUnit* unit)
+bool GameClass::addToKldList(ArmyUnit* unit)
 {
     if (unit)
         return klst->addUnit(unit);
@@ -204,7 +204,7 @@ void GameClass::PrintArmies() const
     
 }
 
-void GameClass::AddUnit(ArmyUnit* u1)
+void GameClass::addUnit(ArmyUnit* u1)
 {
     if(u1)
     {
@@ -214,13 +214,13 @@ void GameClass::AddUnit(ArmyUnit* u1)
         case ET:
         case EG:
         case HU_:
-            EArmy->AddUnit(u1); break;
+            EArmy->addUnit(u1); break;
         case AS:
         case AM:
         case AD:
-            AArmy->AddUnit(u1); break;
+            AArmy->addUnit(u1); break;
         case SU_:
-            SArmy->AddUnit(u1);
+            SArmy->addUnit(u1);
         }
     }
 }
@@ -241,22 +241,22 @@ void GameClass::createOFile(int winner)
     else
         oFile << " Draw";
     oFile << endl;
-    oFile << "Total ES: " << S + EArmy->CountOf(ES) << endl;
-    oFile << "Total ET: " << T + EArmy->CountOf(ET) << endl;
-    oFile << "Total EG: " << G + EArmy->CountOf(EG) << endl;
-    oFile << "Total HU: " << HU + EArmy->CountOf(HU_) << endl;
+    oFile << "Total ES: " << S + EArmy->countOf(ES) << endl;
+    oFile << "Total ET: " << T + EArmy->countOf(ET) << endl;
+    oFile << "Total EG: " << G + EArmy->countOf(EG) << endl;
+    oFile << "Total HU: " << HU + EArmy->countOf(HU_) << endl;
     oFile << "Total Units in the UML: " << EArmy->getUMLCount() << endl;
     oFile << "Total Infected Units: " << infectedUnits << endl;
-    if (S + EArmy->CountOf(ES)) {
-        oFile << "Percentage of ES: " << double(S) / (S + EArmy->CountOf(ES)) << endl;
-        oFile << "Percentage of Infected ES: " << double(infectedUnits) / (S + EArmy->CountOf(ES)) << endl;
+    if (S + EArmy->countOf(ES)) {
+        oFile << "Percentage of ES: " << double(S) / (S + EArmy->countOf(ES)) << endl;
+        oFile << "Percentage of Infected ES: " << double(infectedUnits) / (S + EArmy->countOf(ES)) << endl;
     }
-    if (T + EArmy->CountOf(ET))
-        oFile << "Percentage of ET: " << double(T) / (T + EArmy->CountOf(ET)) << endl;
-    if (G + EArmy->CountOf(EG))
-        oFile << "Percentage of EG: " << double(G) / (G + EArmy->CountOf(EG)) << endl;
-    if (HU + EArmy->CountOf(HU_))
-        oFile << "Percentage of HU: " << double(HU) / (HU + EArmy->CountOf(HU_)) << endl;
+    if (T + EArmy->countOf(ET))
+        oFile << "Percentage of ET: " << double(T) / (T + EArmy->countOf(ET)) << endl;
+    if (G + EArmy->countOf(EG))
+        oFile << "Percentage of EG: " << double(G) / (G + EArmy->countOf(EG)) << endl;
+    if (HU + EArmy->countOf(HU_))
+        oFile << "Percentage of HU: " << double(HU) / (HU + EArmy->countOf(HU_)) << endl;
     if ((S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount())) {
         oFile << "Percentage of Total destructed units to Total units: " << double(S + G + T) / (S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount()) << endl;
         oFile << "Percentage of Total Healed Units to Total Units: " << double(EArmy->getHealedCount()) / (S + G + T + HU + EArmy->getCount() + EArmy->getUMLCount()) << endl;
@@ -282,15 +282,15 @@ void GameClass::createOFile(int winner)
         oFile << " Draw";
     oFile << endl;
     
-        oFile << "Total AS: " << S + AArmy->CountOf(AS) << endl;
-        oFile << "Total AM: " << T + AArmy->CountOf(AM) << endl;
-        oFile << "Total AD: " << G + AArmy->CountOf(AD) << endl;
-    if ( (S + AArmy->CountOf(AS)))
-        oFile << "Percentage of AS: " << double(S) / (S + AArmy->CountOf(AS)) << endl;
-    if ( (T + AArmy->CountOf(AM)))
-        oFile << "Percentage of AM: " << double(T) / (T + AArmy->CountOf(AM)) << endl;
-    if ((G + AArmy->CountOf(AD)))
-        oFile << "Percentage of AD: " << double(G) / (G + AArmy->CountOf(AD)) << endl;
+        oFile << "Total AS: " << S + AArmy->countOf(AS) << endl;
+        oFile << "Total AM: " << T + AArmy->countOf(AM) << endl;
+        oFile << "Total AD: " << G + AArmy->countOf(AD) << endl;
+    if ( (S + AArmy->countOf(AS)))
+        oFile << "Percentage of AS: " << double(S) / (S + AArmy->countOf(AS)) << endl;
+    if ( (T + AArmy->countOf(AM)))
+        oFile << "Percentage of AM: " << double(T) / (T + AArmy->countOf(AM)) << endl;
+    if ((G + AArmy->countOf(AD)))
+        oFile << "Percentage of AD: " << double(G) / (G + AArmy->countOf(AD)) << endl;
     if  (S + G + T + AArmy->getCount())
         oFile << "Percentage of Total Destructed Units to Total Units: " << double(S + G + T) / (S + G + T + AArmy->getCount()) << endl;
     if ((S + G + T)) {
@@ -304,7 +304,7 @@ void GameClass::createOFile(int winner)
     }
 }
 
-int GameClass::CountOf(unitType ut)
+int GameClass::countOf(unitType ut)
 {
     switch (ut)
     {
@@ -312,11 +312,11 @@ int GameClass::CountOf(unitType ut)
     case ET:
     case EG:
     case HU_:
-        return EArmy->CountOf(ut);
+        return EArmy->countOf(ut);
     case AS:
     case AM:
     case AD:    
-        return AArmy->CountOf(ut);
+        return AArmy->countOf(ut);
     case SU_:
         return SArmy->getCount();
     default:return 0;

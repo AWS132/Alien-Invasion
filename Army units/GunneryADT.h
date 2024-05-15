@@ -3,15 +3,15 @@
 #include "../Army units/ArmyUnit.h"
 #include "../Data Structures/Pqueue.h"
 using namespace std;
-class Gunnerys :public pQueue
+class GunneryADT :public pQueue
 {
 private:
 	int counter;
 public:
-	Gunnerys();
+	GunneryADT();
 	bool addUnit(ArmyUnit* gn);
 	int getCount();
 	ArmyUnit* pickGunnery();
 	void printGunnerys();
-	~Gunnerys();
+	~GunneryADT();
 };

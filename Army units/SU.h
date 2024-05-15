@@ -6,5 +6,5 @@ class SU :public ArmyUnit
 {
 public:
 	SU(int id,  int tj, int health, int power, int capacity, GameClass* game);
-	void Attack(int flag);
+	void attack(int flag);
 };

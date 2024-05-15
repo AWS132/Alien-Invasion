@@ -1,44 +1,44 @@
-#include "Gunnerys.h"
-Gunnerys::Gunnerys()
+#include "GunneryADT.h"
+GunneryADT::GunneryADT()
 {
 	counter = 0;
 }
 
-bool Gunnerys::addUnit(ArmyUnit* gn)
+bool GunneryADT::addUnit(ArmyUnit* newGunnery)
 {
 	counter++;
-	return enqueue(gn);
+	return enqueue(newGunnery);
 }
 
-int Gunnerys::getCount()
+int GunneryADT::getCount()
 {
 	return counter;
 }
 
-ArmyUnit* Gunnerys::pickGunnery()
+ArmyUnit* GunneryADT::pickGunnery()
 {
 	if(counter>0){
-	counter--;
+	counter--;               //upadting the counter if it is not empty
 	}
 	return dequeue();
 }
-void Gunnerys::printGunnerys()
+void GunneryADT::printGunnerys()
 {
 	Node<ArmyUnit*>* ptr = frontPtr;
 
 	cout << "EG " << getCount() << " [";
 	while (ptr and ptr->getNext())
 	{
-		ptr->getItem()->Print();
+		ptr->getItem()->print();
 		ptr = ptr->getNext();
 		cout << ", ";
 	}
 	if(ptr)
-		ptr->getItem()->Print();
+		ptr->getItem()->print();
 	cout << "]\n";
 }
 
-Gunnerys::~Gunnerys()
+GunneryADT::~GunneryADT()
 {
 	Node<ArmyUnit*>* ptr1 = frontPtr;
 	Node<ArmyUnit*>* ptr2 = frontPtr;

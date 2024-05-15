@@ -38,13 +38,13 @@ public:
 	void setTjUML();
 	int getID()const;
 	int getTjUML()const;
-	virtual void Attack(int)=0; 
-	virtual bool DecHlth(double value);// Decreases the Health by a certain "value" returns false if killed
-	virtual bool IncHlth(double product);// increases the heath by a certain value determined by a given equation,returns false if not over 20%
-	virtual void Print() const;
+	virtual void attack(int)=0; 
+	virtual bool decHlth(double value);// Decreases the Health by a certain "value" returns false if killed
+	virtual bool incHlth(double product);// increases the heath by a certain value determined by a given equation,returns false if not over 20%
+	virtual void print() const;
 	void Output(ofstream& oFile);
-	void become_infected();        //The AM infeceted this unit
-	void become_immune();        //became immune 
+	void becomeInfected();        //The AM infeceted this unit
+	void becomeImmune();        //became immune 
 	bool isImmune();	
 
 };

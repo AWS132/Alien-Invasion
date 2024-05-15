@@ -12,7 +12,7 @@ private:
 public:
 	allyArmy();
 	int getId();
-	void AddUnit(ArmyUnit* unit);
+	void addUnit(ArmyUnit* unit);
 	void PrintArmy();
 	void call();
 	bool getStatus();

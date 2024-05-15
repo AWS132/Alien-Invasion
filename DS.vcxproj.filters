@@ -27,7 +27,7 @@
     <ClCompile Include="Army units\genStackADT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Army units\Monsters.cpp">
+    <ClCompile Include="Army units\MonsterADT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Army units\Gunnery.cpp">
@@ -42,7 +42,7 @@
     <ClCompile Include="Army units\EarthArmy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Army units\Gunnerys.cpp">
+    <ClCompile Include="Army units\GunneryADT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Army units\Monster.cpp">
@@ -110,7 +110,7 @@
     <ClInclude Include="Army units\Drones.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Army units\Monsters.h">
+    <ClInclude Include="Army units\MonsterADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Army units\Gunnery.h">
@@ -128,7 +128,7 @@
     <ClInclude Include="Army units\EarthArmy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Army units\Gunnerys.h">
+    <ClInclude Include="Army units\GunneryADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Army units\Monster.h">

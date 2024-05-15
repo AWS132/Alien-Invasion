@@ -12,7 +12,7 @@ int allyArmy::getId()
 	return ++id;
 }
 
-void allyArmy::AddUnit(ArmyUnit* unit)
+void allyArmy::addUnit(ArmyUnit* unit)
 {
 	su->addUnit(unit);
 }

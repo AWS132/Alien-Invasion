@@ -47,12 +47,12 @@ void genQueueADT::printList()
 	   cout << count << " [";
 	   while (ptr and ptr->getNext())
 	   {
-		   ptr->getItem()->Print();
+		   ptr->getItem()->print();
 		   ptr = ptr->getNext();
 		   cout << ", ";
 	   }
 	   if (ptr)
-		   ptr->getItem()->Print();
+		   ptr->getItem()->print();
 	   cout << "]\n";
  
 }
@@ -96,7 +96,7 @@ void genQueueADT::infectRandomly()
 		{
 			if (!ptr->getItem()->getInfectionState())
 			{
-				ptr->getItem()->become_infected();
+				ptr->getItem()->becomeInfected();
 				InfectedCount++;
 				return;
 			}

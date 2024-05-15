@@ -1,10 +1,9 @@
 #pragma once
 #include <iostream>
-
 #include "../Army units/Esoldier.h"
 #include "../Army units/genQueueADT.h"
 #include "genStackADT.h"
-#include "Gunnerys.h"
+#include "GunneryADT.h"
 #include "ArmyUnit.h"
 #include "Tank.h"
 #include "Gunnery.h"
@@ -16,7 +15,7 @@ private:
 
 	genQueueADT* es;
 	genStackADT* t, * hl;
-	Gunnerys* g;
+	GunneryADT* g;
 	UML* uml;
 	int id;
 	int threshold;
@@ -24,10 +23,10 @@ private:
 public:
 	EarthArmy();
 	int getId()/*const*/;
-	void AddUnit(ArmyUnit* unit/*, bool flag = 1*/);
+	void addUnit(ArmyUnit* unit/*, bool flag = 1*/);
 	void PrintArmy();
 	int getCount() const;//returns the total count of the current Earth Army
-	int CountOf(unitType ut);
+	int countOf(unitType ut);
 	int countOfInfected();
 	int countTotalInf();
 	void incHealed();

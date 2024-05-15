@@ -4,18 +4,18 @@
 #include <time.h>
 #include "../Army units/ArmyUnit.h"
 using namespace std;
-class Monsters
+class MonsterADT
 {
-	enum { MAX_SIZE = 1000 };
+	enum { MAX_SIZE = 1000 };		// The max size of the array
 protected:
 	ArmyUnit* monsters[MAX_SIZE];
 	int counter;
 public:
-	Monsters();
+	MonsterADT();
 	bool addUnit(ArmyUnit* mns);
 	int getCount();
 	ArmyUnit* pickMonster();
 	ArmyUnit* peekMonster();
 	void printMonsters();
-	~Monsters();
+	~MonsterADT();
 };

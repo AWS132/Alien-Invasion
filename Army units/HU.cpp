@@ -2,7 +2,7 @@
 
 HU::HU(int id, int tj, int health, int power, int capacity, GameClass* game) :ArmyUnit(id, HU_, tj, health, power, capacity, game) {}
 
-void HU::Attack(int flag)
+void HU::attack(int flag)
 {
 	genQueueADT lst;
 	int attackCap = cap;
@@ -15,25 +15,25 @@ void HU::Attack(int flag)
 		{
 			int tjUML = unit->getTjUML();
 			if (game->getTime() - tjUML > 10) {
-				unit->DecHlth(unit->getHealth());
-				game->AddToKldList(unit);
+				unit->decHlth(unit->getHealth());
+				game->addToKldList(unit);
 			}
 			else
 			{
 				if (unit->getInfectionState())//divided by 2 to take double the time
 				{
-					if (unit->IncHlth((pwr * hlth) / 2))	//returns true if health is over than 20% of start health
+					if (unit->incHlth((pwr * hlth) / 2))	//returns true if health is over than 20% of start health
 					{//if true => would be immune ;)
-						unit->become_immune();
-						game->getEArmy()->AddUnit(unit);
+						unit->becomeImmune();
+						game->getEArmy()->addUnit(unit);
 						game->getEArmy()->incHealed();
 					}
 					else
 						lst.addUnit(unit);
 
 				}
-				else if (unit->IncHlth((pwr * hlth))) {	//returns true if health is over than 20% of start health
-					game->getEArmy()->AddUnit(unit);
+				else if (unit->incHlth((pwr * hlth))) {	//returns true if health is over than 20% of start health
+					game->getEArmy()->addUnit(unit);
 					game->getEArmy()->incHealed();
 				}
 				else {
@@ -49,8 +49,8 @@ void HU::Attack(int flag)
 	if(!toBePrinted.isEmpty())
 	{
 		game->getEArmy()->pickEUnit(HU_);
-		this->DecHlth(this->getHealth());
-		game->AddToKldList(this);	//killing the HU
+		this->decHlth(this->getHealth());
+		game->addToKldList(this);	//killing the HU
 	}
 	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
 
@@ -64,7 +64,7 @@ void HU::Attack(int flag)
 		if (unit = lst.PickUnit(), unit) {
 			int ta = unit->getTa();
 			if (game->getTime() - ta > 10)
-				game->AddToKldList(unit);
+				game->addToKldList(unit);
 			else
 				game->getEArmy()->AddToUML(unit);
 
