@@ -34,7 +34,7 @@ int main()
 	//		cout << ": Pick Earth tank from its list and move it to the kld lst";
 	//		ArmyUnit* unit = nullptr;
 	//		unit = game.PickUnit(ET, nl, nl);
-	//		game.AddTogenQueueADT(unit);
+	//		game.AddToGenQueueADT(unit);
 	//	}
 	//	else if (x > 20 && x < 30)
 	//	{
@@ -51,7 +51,7 @@ int main()
 	//	else if (x > 30 && x < 40)
 	//	{
 	//		cout << ": Pick 5 Alien soldiers, decrement their health, put them in a tmp lst and return them to their list";
-	//		game.genQueueADTfn(AS,5,10);
+	//		game.GenQueueADTfn(AS,5,10);
 	//	}
 	//	else if (x > 40 && x < 50)
 	//	{
@@ -83,7 +83,7 @@ int main()
 	//		}
 	//		for (int i = 0; i < 6; i++)
 	//		{
-	//			game.AddTogenQueueADT(drns[i]);
+	//			game.AddToGenQueueADT(drns[i]);
 	//		}
 	//	}
 	//	cout << endl;

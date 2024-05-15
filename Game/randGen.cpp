@@ -1,5 +1,5 @@
-#include "../Game/randGen.h"
-#include "../Army units/genStackADT.h"
+#include "../Game/RandGen.h"
+#include "../Army units/GenStackADT.h"
 #include "../Army units/Esoldier.h"
 #include "../Army units/Asoldier.h"
 #include "../Army units/Tank.h"
@@ -7,7 +7,7 @@
 #include "../Army units/Monster.h"
 #include "../Army units/HU.h"
 #include "../Army units/SU.h"
-ArmyUnit* randGen::createUnit(unitType type)
+ArmyUnit* RandGen::createUnit(unitType type)
 {
 	random_device rd;
 	mt19937 gen(rd());
@@ -71,12 +71,12 @@ ArmyUnit* randGen::createUnit(unitType type)
 
 
 
-randGen::randGen(GameClass* game)
+RandGen::RandGen(GameClass* game)
 {
 	this->game = game;
 }
 
-void randGen::generator()
+void RandGen::generator()
 {
 	game->incrementTime();
 	random_device rd;
@@ -126,7 +126,7 @@ void randGen::generator()
 	}
 }
 
-void randGen::setParameters(int N, int prob, int sn, int sprob, int ESPer, int ETPer, int EGPer, int HUPer, int EUPstart, int EHstart, int EACapstart, int EUPend, int EHend, int EACapend,
+void RandGen::setParameters(int N, int prob, int sn, int sprob, int ESPer, int ETPer, int EGPer, int HUPer, int EUPstart, int EHstart, int EACapstart, int EUPend, int EHend, int EACapend,
 	int ASPer, int ADPer, int AMPer, int AUPstart, int AHstart, int AACapstart, int AUPend, int AHend, int AACapend, int SHstart, int SHend, int SPstart, int SPend, int SCstart, int SCend, int infProb)
 {
 	this->N = N;
@@ -141,7 +141,7 @@ void randGen::setParameters(int N, int prob, int sn, int sprob, int ESPer, int E
 	infection_Prob = infProb;
 }
 
-int randGen::getInfection_perc()
+int RandGen::getInfection_perc()
 {
 	return infection_Prob;
 }

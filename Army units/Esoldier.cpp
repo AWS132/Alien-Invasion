@@ -6,8 +6,8 @@ Esoldier::Esoldier(int id, int tj, int health, int power, int capacity, GameClas
 
 void Esoldier::attack(int flag)
 {
-	genQueueADT lst;
-	genQueueADT toBePrinted;	//to print properly
+	GenQueueADT lst;
+	GenQueueADT toBePrinted;	//to print properly
 	int attackCap = cap;
 	double power = pwr;
 	ArmyUnit* unit = nullptr;

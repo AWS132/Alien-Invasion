@@ -1,9 +1,9 @@
-#include "genStackADT.h"
-genStackADT::genStackADT()
+#include "GenStackADT.h"
+GenStackADT::GenStackADT()
 {
 }
 
-bool genStackADT::addUnit(ArmyUnit* unt)
+bool GenStackADT::addUnit(ArmyUnit* unt)
 {
 	if (push(unt))
 	{
@@ -15,7 +15,7 @@ bool genStackADT::addUnit(ArmyUnit* unt)
 	}
 }
 
-ArmyUnit* genStackADT::pickUnit()
+ArmyUnit* GenStackADT::pickUnit()
 {
 
 	ArmyUnit* unt = pop();
@@ -23,7 +23,7 @@ ArmyUnit* genStackADT::pickUnit()
 }
 
 
-void genStackADT::printList()
+void GenStackADT::printList()
 {
 	cout << getCount()<<" [";
 	if(top>=0)
@@ -38,12 +38,12 @@ void genStackADT::printList()
 	cout << "]\n";
 }
 
-int genStackADT::getCount()
+int GenStackADT::getCount()
 {
 	return top+1;
 }
 
-genStackADT::~genStackADT()
+GenStackADT::~GenStackADT()
 {
 	for (int i = 0; i <=top; i++)
 	{

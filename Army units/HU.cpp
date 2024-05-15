@@ -4,10 +4,10 @@ HU::HU(int id, int tj, int health, int power, int capacity, GameClass* game) :Ar
 
 void HU::attack(int flag)
 {
-	genQueueADT lst;
+	GenQueueADT lst;
 	int attackCap = cap;
 	ArmyUnit* unit = nullptr;
-	genQueueADT toBePrinted;	//to print properly
+	GenQueueADT toBePrinted;	//to print properly
 	if (flag)
 		cout << "HU " << ID << " Heals ";
 	while (attackCap--) {

@@ -1,10 +1,10 @@
 #include "EarthArmy.h"
 
 EarthArmy::EarthArmy() {
-	t = new genStackADT;
-	es = new genQueueADT;
+	t = new GenStackADT;
+	es = new GenQueueADT;
 	g = new GunneryADT;
-	hl = new genStackADT;
+	hl = new GenStackADT;
 	uml = new UML;
 	id = 0;
 	totalHealed = 0;

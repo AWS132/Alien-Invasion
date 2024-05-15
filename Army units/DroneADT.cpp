@@ -1,24 +1,24 @@
 #pragma once 
-#include "Drones.h"
+#include "DroneADT.h"
 #include <iostream>
 #include"ArmyUnit.h"
 #include "..\Data Structures\DNode.h"
 using namespace std;
 
-Drones::Drones()
+DroneADT::DroneADT()
 {
 	count = 0;
 }
 
 
 
-bool Drones::addUnit(ArmyUnit* D)
+bool DroneADT::addUnit(ArmyUnit* D)
 {
 	count++;
 	return enqueue(D);
 }
 
-bool Drones::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2, int dum)
+bool DroneADT::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2, int dum)
 {
 	if (count == 0)
 		return false;
@@ -32,12 +32,12 @@ bool Drones::pickDrones(ArmyUnit*& D1, ArmyUnit*& D2, int dum)
 
 }
 
-int Drones::getCount() const
+int DroneADT::getCount() const
 {
 	return count;
 }
 
-void Drones::printDrones() const
+void DroneADT::printDrones() const
 {
 	DNode<ArmyUnit*> * temp = frontPtr;
 	cout << "AD " << getCount() << " [";
@@ -50,7 +50,7 @@ void Drones::printDrones() const
 	}
 }
 
-Drones::~Drones()
+DroneADT::~DroneADT()
 {
 	ArmyUnit* x;
 	while (dequeue(x)) {

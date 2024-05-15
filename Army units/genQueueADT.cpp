@@ -1,14 +1,14 @@
-#include "genQueueADT.h"
+#include "GenQueueADT.h"
 #include"random"
 
 
-genQueueADT::genQueueADT()
+GenQueueADT::GenQueueADT()
 {
     count = 0;
 	InfectedCount = 0;
 }
 
-bool genQueueADT::addUnit(ArmyUnit* Unit)
+bool GenQueueADT::addUnit(ArmyUnit* Unit)
 {
 	if (!Unit)
 		return false;
@@ -18,17 +18,17 @@ bool genQueueADT::addUnit(ArmyUnit* Unit)
     return enqueue(Unit);
 }
 
-int genQueueADT::getCount() const
+int GenQueueADT::getCount() const
 {
     return count;
 }
 
-int genQueueADT::getInfectedCount() const
+int GenQueueADT::getInfectedCount() const
 {
 	return InfectedCount;
 }
 
-ArmyUnit* genQueueADT::pickUnit()
+ArmyUnit* GenQueueADT::pickUnit()
 {
 	if (!count)
 		return nullptr;
@@ -41,7 +41,7 @@ ArmyUnit* genQueueADT::pickUnit()
 	return unt;
 }
 
-void genQueueADT::printList()
+void GenQueueADT::printList()
 {
    Node< ArmyUnit*>* ptr= frontPtr;
 	   cout << count << " [";
@@ -59,7 +59,7 @@ void genQueueADT::printList()
 
 
 
-void genQueueADT::outKilled(ofstream& oFile, int& S, int& T, int& G, int& HU, int& Df, int& Dd, int type)
+void GenQueueADT::outKilled(ofstream& oFile, int& S, int& T, int& G, int& HU, int& Df, int& Dd, int type)
 {
 	Node< ArmyUnit*>* ptr = frontPtr;
 	S = T = G = HU = Df = Dd = 0;
@@ -84,7 +84,7 @@ void genQueueADT::outKilled(ofstream& oFile, int& S, int& T, int& G, int& HU, in
 	}
 
 }
-void genQueueADT::infectRandomly()
+void GenQueueADT::infectRandomly()
 {
 	random_device rd;
 	mt19937 gen(rd());
@@ -116,7 +116,7 @@ void genQueueADT::infectRandomly()
 	}
 }
 
-ArmyUnit* genQueueADT::pickInfected()
+ArmyUnit* GenQueueADT::pickInfected()
 {
 	Node< ArmyUnit*>* ptr = frontPtr,*next;
 	ArmyUnit* unt;
@@ -154,7 +154,7 @@ ArmyUnit* genQueueADT::pickInfected()
 	return nullptr;
 }
 
-int genQueueADT::getImmuneCount() const
+int GenQueueADT::getImmuneCount() const
 {
 	Node< ArmyUnit*>* ptr = frontPtr;
 	int immCount=0;
@@ -167,7 +167,7 @@ int genQueueADT::getImmuneCount() const
 	return immCount;
 }
 
-void genQueueADT::destructAll()
+void GenQueueADT::destructAll()
 {
 	count = 0;
 	ArmyUnit* x = nullptr;
@@ -178,7 +178,7 @@ void genQueueADT::destructAll()
 	
 
 
-genQueueADT::~genQueueADT()
+GenQueueADT::~GenQueueADT()
 {
 	destructAll();
 }

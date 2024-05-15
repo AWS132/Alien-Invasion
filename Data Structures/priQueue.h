@@ -2,7 +2,7 @@
 #include<../../Army units/ArmyUnit.h>
 #include<../../Data Structures/LinkedQueue.h>
 class ArmyUnit;
-class priQueue :public LinkedQueue<ArmyUnit*>
+class PriQueue :public LinkedQueue<ArmyUnit*>
 {
 public:
 	bool enqueue(ArmyUnit* eu)//earth unit

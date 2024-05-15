@@ -1,26 +1,26 @@
 #pragma once
 #include "../Army units/EarthArmy.h"
 #include "../Army units/AlienArmy.h"
-#include "../Army units/allyArmy.h"
-#include "../Game/randGen.h"
-#include "../Army units/genQueueADT.h"
+#include "../Army units/AllyArmy.h"
+#include "../Game/RandGen.h"
+#include "../Army units/GenQueueADT.h"
 #include <iostream>
 #include <fstream>
 using namespace std;
 class AlienArmy;
 class EarthArmy;
-class allyArmy;
-class randGen;
-class genQueueADT;
+class AllyArmy;
+class RandGen;
+class GenQueueADT;
 
 class GameClass
 {
 private:
 	EarthArmy* EArmy;
 	AlienArmy* AArmy;
-	allyArmy* SArmy;
-	randGen* randGenerator;
-	genQueueADT* klst;
+	AllyArmy* SArmy;
+	RandGen* randGenerator;
+	GenQueueADT* klst;
 	int crntTime;
 public:
 	GameClass();
@@ -28,7 +28,7 @@ public:
 	int getTime()const;
 	EarthArmy* getEArmy();
 	AlienArmy* getAArmy();
-	allyArmy* getSArmy();
+	AllyArmy* getSArmy();
 	void initializer(int mode,int fileName);
 	void pokeUnits(int flag);
 	void loadData(int fileName);

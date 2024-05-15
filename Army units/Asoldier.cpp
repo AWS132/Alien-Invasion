@@ -6,8 +6,8 @@ Asoldier::Asoldier(int id, int tj, int health, int power, int capacity, GameClas
 
 void Asoldier::attack(int flag)
 {
-	genQueueADT lst;
-	genQueueADT toBePrinted;	//to print properly
+	GenQueueADT lst;
+	GenQueueADT toBePrinted;	//to print properly
 	
 	int SUCap = min(cap - min(cap / 2, (game->countOf(ES) - game->getEArmy()->countOfInfected())), game->countOf(SU_));
 	int ESCap = min(cap - SUCap, (game->countOf(ES) - game->getEArmy()->countOfInfected()));

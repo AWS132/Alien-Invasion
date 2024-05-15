@@ -24,7 +24,7 @@
     <ClCompile Include="Army units\ArmyUnit.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Army units\genStackADT.cpp">
+    <ClCompile Include="Army units\GenStackADT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Army units\MonsterADT.cpp">
@@ -60,10 +60,10 @@
     <ClCompile Include="Game\GameClass.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Game\randGen.cpp">
+    <ClCompile Include="Game\RandGen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Army units\genQueueADT.cpp">
+    <ClCompile Include="Army units\GenQueueADT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Army units\UML.cpp">
@@ -72,7 +72,7 @@
     <ClCompile Include="Army units\HU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Army units\allyArmy.cpp">
+    <ClCompile Include="Army units\AllyArmy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Army units\SU.cpp">
@@ -104,10 +104,10 @@
     <ClInclude Include="Data Structures\DLinkedQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Army units\genStackADT.h">
+    <ClInclude Include="Army units\GenStackADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Army units\Drones.h">
+    <ClInclude Include="Army units\DroneADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Army units\MonsterADT.h">
@@ -146,13 +146,13 @@
     <ClInclude Include="Game\GameClass.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Game\randGen.h">
+    <ClInclude Include="Game\RandGen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Army units\genQueueADT.h">
+    <ClInclude Include="Army units\GenQueueADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Army units\allyArmy.h">
+    <ClInclude Include="Army units\AllyArmy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Army units\SU.h">
@@ -160,7 +160,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Data Structures\priQueue.h">
+    <Text Include="Data Structures\PriQueue.h">
       <Filter>Header Files</Filter>
     </Text>
     <Text Include="Army units\UML.h">

@@ -6,7 +6,7 @@ Monster::Monster(int id, int tj, int health, int power, int capacity, GameClass*
 
 void Monster::attack(int flag) // Attack both ET && ES
 {
-	genQueueADT lst;
+	GenQueueADT lst;
     int infectionPercentage = game->getInfection_perc();
     int divFactor = (game->countOf(SU_)) ? 3 : 2;
     int ETtoAttack = min(cap - min(cap / divFactor, game->countOf(ES)) - min(cap / divFactor, game->countOf(SU_)), game->countOf(ET));

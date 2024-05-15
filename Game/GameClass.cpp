@@ -7,9 +7,9 @@ GameClass::GameClass()
     crntTime = 0;
     this->AArmy = new AlienArmy();
     this->EArmy = new EarthArmy();
-    this->randGenerator = new randGen(this);
-    this->klst = new genQueueADT();
-    SArmy = new allyArmy();
+    this->randGenerator = new RandGen(this);
+    this->klst = new GenQueueADT();
+    SArmy = new AllyArmy();
 }
 
 void GameClass::incrementTime()
@@ -32,7 +32,7 @@ AlienArmy* GameClass::getAArmy()
 	return AArmy;
 }
 
-allyArmy* GameClass::getSArmy()
+AllyArmy* GameClass::getSArmy()
 {
     return SArmy;
 }

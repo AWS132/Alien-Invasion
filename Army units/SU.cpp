@@ -6,7 +6,7 @@ SU::SU(int id, int tj, int health, int power, int capacity, GameClass* game) :Ar
 
 void SU::attack(int flag)
 {
-	genQueueADT lst;
+	GenQueueADT lst;
 	double dmg = hlth * pwr / 100.0;
 	ArmyUnit* unt = nullptr;
 	ArmyUnit* unit = nullptr;

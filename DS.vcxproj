@@ -20,7 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Army units\AlienArmy.cpp" />
-    <ClCompile Include="Army units\allyArmy.cpp" />
+    <ClCompile Include="Army units\AllyArmy.cpp" />
     <ClCompile Include="Army units\ArmyUnit.cpp" />
     <ClCompile Include="Army units\Asoldier.cpp" />
     <ClCompile Include="Army units\Drone.cpp" />
@@ -30,34 +30,34 @@
     <ClCompile Include="Army units\Gunnery.cpp" />
     <ClCompile Include="Army units\GunneryADT.cpp" />
     <ClCompile Include="Army units\HU.cpp" />
-    <ClCompile Include="Army units\genQueueADT.cpp" />
+    <ClCompile Include="Army units\GenQueueADT.cpp" />
     <ClCompile Include="Army units\Monster.cpp" />
     <ClCompile Include="Army units\MonsterADT.cpp" />
     <ClCompile Include="Army units\SU.cpp" />
     <ClCompile Include="Army units\Tank.cpp" />
-    <ClCompile Include="Army units\genStackADT.cpp" />
+    <ClCompile Include="Army units\GenStackADT.cpp" />
     <ClCompile Include="Army units\UML.cpp" />
     <ClCompile Include="Game\GameClass.cpp" />
-    <ClCompile Include="Game\randGen.cpp" />
+    <ClCompile Include="Game\RandGen.cpp" />
     <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Army units\AlienArmy.h" />
-    <ClInclude Include="Army units\allyArmy.h" />
+    <ClInclude Include="Army units\AllyArmy.h" />
     <ClInclude Include="Army units\ArmyUnit.h" />
     <ClInclude Include="Army units\Asoldier.h" />
     <ClInclude Include="Army units\Drone.h" />
-    <ClInclude Include="Army units\Drones.h" />
+    <ClInclude Include="Army units\DroneADT.h" />
     <ClInclude Include="Army units\EarthArmy.h" />
     <ClInclude Include="Army units\Esoldier.h" />
     <ClInclude Include="Army units\Gunnery.h" />
     <ClInclude Include="Army units\GunneryADT.h" />
-    <ClInclude Include="Army units\genQueueADT.h" />
+    <ClInclude Include="Army units\GenQueueADT.h" />
     <ClInclude Include="Army units\Monster.h" />
     <ClInclude Include="Army units\MonsterADT.h" />
     <ClInclude Include="Army units\SU.h" />
     <ClInclude Include="Army units\Tank.h" />
-    <ClInclude Include="Army units\genStackADT.h" />
+    <ClInclude Include="Army units\GenStackADT.h" />
     <ClInclude Include="Data Structures\ArrayStack.h" />
     <ClInclude Include="Data Structures\DLinkedQueue.h" />
     <ClInclude Include="Data Structures\DNode.h" />
@@ -67,12 +67,12 @@
     <ClInclude Include="Data Structures\QueueADT.h" />
     <ClInclude Include="Data Structures\StackADT.h" />
     <ClInclude Include="Game\GameClass.h" />
-    <ClInclude Include="Game\randGen.h" />
+    <ClInclude Include="Game\RandGen.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="Army units\HU.h" />
     <Text Include="Army units\UML.h" />
-    <Text Include="Data Structures\priQueue.h" />
+    <Text Include="Data Structures\PriQueue.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

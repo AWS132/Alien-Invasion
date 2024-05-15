@@ -1,6 +1,6 @@
 #pragma once
-#include "../Data Structures/priQueue.h"
-class UML :public priQueue
+#include "../Data Structures/PriQueue.h"
+class UML :public PriQueue
 {
 private:
 	int count;

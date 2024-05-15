@@ -3,14 +3,14 @@
 #include "../Data Structures/ArrayStack.h"
 #include "../Army units/ArmyUnit.h"   
 using namespace std;
-class genStackADT :public stack<ArmyUnit*>
+class GenStackADT :public stack<ArmyUnit*>
 {
 
 public:	
-	genStackADT();
+	GenStackADT();
 	bool addUnit(ArmyUnit* unt);
 	ArmyUnit* pickUnit();
 	void printList();
 	int getCount();
-	~genStackADT();
+	~GenStackADT();
 };

@@ -1,66 +1,66 @@
-#include "allyArmy.h"
+#include "AllyArmy.h"
 
-allyArmy::allyArmy()
+AllyArmy::AllyArmy()
 {
 	id = 3999;
-	su = new genQueueADT;
+	su = new GenQueueADT;
 	isCalled = false;
 }
 
-int allyArmy::getId()
+int AllyArmy::getId()
 {
 	return ++id;
 }
 
-void allyArmy::addUnit(ArmyUnit* unit)
+void AllyArmy::addUnit(ArmyUnit* unit)
 {
 	su->addUnit(unit);
 }
 
-void allyArmy::PrintArmy()
+void AllyArmy::PrintArmy()
 {
 	cout << "======================Ally Army======================\nSU ";
 	su->printList();
 }
 
-void allyArmy::call()
+void AllyArmy::call()
 {
 	isCalled = true;
 }
 
-bool allyArmy::getStatus() {
+bool AllyArmy::getStatus() {
 	return isCalled;
 }
-bool allyArmy::checkID()
+bool AllyArmy::checkID()
 {
 	return id<4999;
 }
-void allyArmy::withdraw()
+void AllyArmy::withdraw()
 {
 	isCalled = false;
 	destructAll();
 }
-int allyArmy::getCount() const
+int AllyArmy::getCount() const
 {
 	return su->getCount();
 }
 
-allyArmy::~allyArmy()
+AllyArmy::~AllyArmy()
 {
 	delete su;
 }
 
-ArmyUnit* allyArmy::pickSUnit()
+ArmyUnit* AllyArmy::pickSUnit()
 {
 	return su->pickUnit();
 }
 
-void allyArmy::destructAll()
+void AllyArmy::destructAll()
 {
 	su->destructAll();
 }
 
-ArmyUnit* allyArmy::peekSUnit()
+ArmyUnit* AllyArmy::peekSUnit()
 {
 	ArmyUnit* unt = nullptr;
 	return (su->peek(unt),unt);

@@ -12,7 +12,7 @@ Drone::Drone(int id, int tj, int health, int power, int capacity, GameClass* gam
 
 void Drone::attack(int flag)
 {
-	genQueueADT lst;
+	GenQueueADT lst;
 	double dmg = hlth * pwr / 100.0;
 	ArmyUnit* unt = nullptr;
 	ArmyUnit* unit = nullptr;

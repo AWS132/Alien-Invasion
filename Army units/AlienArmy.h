@@ -1,17 +1,17 @@
 #pragma once
 #include <iostream>
 #include"../Army units/Asoldier.h"
-#include"../Army units/genQueueADT.h"
+#include"../Army units/GenQueueADT.h"
 #include "MonsterADT.h"
 #include "Monster.h"
-#include "Drones.h"
+#include "DroneADT.h"
 #include "Drone.h"
 #include "ArmyUnit.h"
 class AlienArmy {
 private:
-	genQueueADT* as;
+	GenQueueADT* as;
 	MonsterADT* m;
-	Drones* d;
+	DroneADT* d;
 	int id;
 public:
 	AlienArmy();

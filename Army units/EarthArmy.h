@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
 #include "../Army units/Esoldier.h"
-#include "../Army units/genQueueADT.h"
-#include "genStackADT.h"
+#include "../Army units/GenQueueADT.h"
+#include "GenStackADT.h"
 #include "GunneryADT.h"
 #include "ArmyUnit.h"
 #include "Tank.h"
@@ -13,8 +13,8 @@ class EarthArmy
 {
 private:
 
-	genQueueADT* es;
-	genStackADT* t, * hl;
+	GenQueueADT* es;
+	GenStackADT* t, * hl;
 	GunneryADT* g;
 	UML* uml;
 	int id;

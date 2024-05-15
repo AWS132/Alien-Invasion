@@ -6,7 +6,7 @@ Gunnery::Gunnery(int id, int tj, int health, int power, int capacity, GameClass*
 
 void Gunnery::attack(int flag) //Attacks drones and monsters
 {
-    genQueueADT lst;
+    GenQueueADT lst;
     int ADtoAttack = min(cap - min(cap / 2, game->countOf(AM)), game->countOf(AD));
     int AMtoAttack =min(cap - ADtoAttack, game->countOf(AM));
     ArmyUnit* nl1 = nullptr;

@@ -6,7 +6,7 @@ Tank::Tank(int id, int tj, int health, int power, int capacity, GameClass* game)
 
 void Tank::attack(int flag) //attack monsters
 {
-    genQueueADT lst;
+    GenQueueADT lst;
     int no_AS = game->countOf(AS);
     int AMtoAttack=min(cap/2, game->countOf(AM));
     int AStoAttack=min(cap- AMtoAttack,game->countOf(AS));

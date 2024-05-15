@@ -5,13 +5,13 @@
 #include "../Data Structures/LinkedQueue.h"
 
 using namespace std;
-class genQueueADT:public LinkedQueue<ArmyUnit*> {
+class GenQueueADT:public LinkedQueue<ArmyUnit*> {
 private:
 	int count;
 	int InfectedCount;
 public:
 
-	genQueueADT();
+	GenQueueADT();
 	bool addUnit(ArmyUnit* Unit);
 	int getCount() const;
 	int getInfectedCount() const;
@@ -22,5 +22,5 @@ public:
 	ArmyUnit* pickInfected();
 	int getImmuneCount()const;
 	void destructAll();
-	~genQueueADT();
+	~GenQueueADT();
 };

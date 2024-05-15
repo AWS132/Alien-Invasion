@@ -6,7 +6,7 @@
 #include <random>
 #include <time.h>
 class GameClass;
-class randGen
+class RandGen
 {
 private:
 	GameClass* game;
@@ -17,7 +17,7 @@ private:
 		N, prob, infection_Prob;
 public:
 	ArmyUnit* createUnit(unitType type);	//utility function
-	randGen(GameClass* game);
+	RandGen(GameClass* game);
 	void generator();
 	void setParameters(int N, int prob,int sn, int sprob, int ESPer, int ETPer, int EGPer, int HUPer, int EUPstart, int EHstart, int EACapstart, int EUPend, int EHend, int EACapend,
 		int ASPer, int ADPer, int AMPer, int AUPstart, int AHstart, int AACapstart, int AUPend, int AHend, int AACapend, int SHstart,int SHend,int SPstart,int SPend,int SCstart,int SCend,int infProb);

@@ -1,8 +1,8 @@
 #include "AlienArmy.h"
 AlienArmy::AlienArmy() {
 	m = new MonsterADT;
-	as = new genQueueADT;
-	d = new Drones;
+	as = new GenQueueADT;
+	d = new DroneADT;
 	id = 1999;
 }
 

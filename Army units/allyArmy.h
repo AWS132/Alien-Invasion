@@ -1,16 +1,16 @@
 #pragma once
 #include <iostream>
-#include "../Army units/genQueueADT.h"
+#include "../Army units/GenQueueADT.h"
 #include "ArmyUnit.h"
 using namespace std;
-class allyArmy
+class AllyArmy
 {
 private:
-	genQueueADT* su;
+	GenQueueADT* su;
 	int id;
 	bool isCalled;
 public:
-	allyArmy();
+	AllyArmy();
 	int getId();
 	void addUnit(ArmyUnit* unit);
 	void PrintArmy();
@@ -19,7 +19,7 @@ public:
 	bool checkID();
 	void withdraw();
 	int getCount() const;//returns the total count of the current ally Army
-	~allyArmy();
+	~AllyArmy();
 	ArmyUnit* pickSUnit();
 	void destructAll();
 	ArmyUnit* peekSUnit();
