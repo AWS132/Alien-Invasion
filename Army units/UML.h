@@ -10,6 +10,7 @@ public:
 	ArmyUnit* pickUnit();
 	int getCount() const;
 	int getTotalInfCount() const;
+	int getESCount() const;
 	void printList();
 	~UML();
 };

@@ -37,6 +37,20 @@ int UML::getTotalInfCount() const
 }
 
 
+int UML::getESCount() const
+{
+	Node< ArmyUnit*>* ptr = frontPtr;
+	int ESCount = 0;
+	while (ptr) {
+		if (ptr->getItem()->getType() == ES) {
+			ESCount++;
+		}
+		else
+			break;
+		ptr = ptr->getNext();
+	}
+	return ESCount;
+}
 void UML::printList()
 {
 	Node< ArmyUnit*>* ptr = frontPtr;
