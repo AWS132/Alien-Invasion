@@ -99,8 +99,13 @@ void EarthArmy::setThreshold(int limit)
 
 bool EarthArmy::addToUML(ArmyUnit* unit)
 {
-	unit->setTjUML();
-	return uml->addUnit(unit);
+	if ((unit->getHealth() < 0.2 * unit->getStartHlth() && (unit->getType() == ET || unit->getType() == ES))) {
+		unit->setTjUML();
+		return uml->addUnit(unit);
+	}
+	else
+		return false;
+	
 }
 
 

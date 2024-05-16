@@ -42,11 +42,7 @@ void Drone::attack(bool gameMode)
 		ArmyUnit* unt = lst.pickUnit();
 		if (unt && unt->getHealth() > 0)
 		{
-			if (unt->getHealth() < 0.2 * unt->getStartHlth())
-			{
-				game->getEArmy()->addToUML(unt);
-			}
-			else
+			if (!game->getEArmy()->addToUML(unt))
 				game->addUnit(unt);
 		}
 		else
