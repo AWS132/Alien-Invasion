@@ -29,14 +29,14 @@ public:
 	EarthArmy* getEArmy();
 	AlienArmy* getAArmy();
 	AllyArmy* getSArmy();
-	void initializer(int mode);
-	void pokeUnits(int flag);
-	bool loadData(int fileName);
+	void initializer(int mode);//resposible for the game logic
+	void pokeUnits(int flag);	//pokes both aliens and earthers to attack each other
+	bool loadData(int fileName);//loads the data from the file
 	ArmyUnit* pickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2, int dm = 1);
 	bool addToKldList(ArmyUnit* unit);
 	void printArmies()const;
-	void addUnit(ArmyUnit* u1);
-	void createOFile(int winner);
+	void addUnit(ArmyUnit* u1);//adds the unit to the appropriate army
+	void createOFile(int winner);//creates output file
 	int countOf(unitType ut);
 	int getInfectionPerc();
 	~GameClass();

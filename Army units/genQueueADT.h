@@ -14,12 +14,12 @@ public:
 	GenQueueADT();
 	bool addUnit(ArmyUnit* Unit);
 	int getCount() const;
-	int getInfectedCount() const;
+	int getInfectedCount() const;//returns the count of infected ES
 	ArmyUnit* pickUnit();
 	void printList();
-	void outKilled(ofstream&,int&, int& ,int&, int&,int&,int&,int=0);
-	void infectRandomly();
-	ArmyUnit* pickInfected();
-	int getImmuneCount()const;
+	void outKilled(ofstream&,int&, int& ,int&, int&,int&,int&,int=0);// Writes killed unit information to file
+	void infectRandomly();	//responsible for spreading infection in ES list randomly
+	ArmyUnit* pickInfected();//picks an infected ES from its list
+	int getImmuneCount()const;//count of immune units
 	~GenQueueADT();
 };

@@ -22,8 +22,8 @@ private:
 	int totalHealed;
 public:
 	EarthArmy();
-	int getId()/*const*/;
-	void addUnit(ArmyUnit* unit/*, bool flag = 1*/);
+	int getId();
+	void addUnit(ArmyUnit* unit);
 	void printArmy();
 	int getCount() const;//returns the total count of the current Earth Army
 	int countOf(unitType ut);

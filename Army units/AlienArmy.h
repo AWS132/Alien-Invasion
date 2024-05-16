@@ -15,10 +15,10 @@ private:
 	int id;
 public:
 	AlienArmy();
-	int getId()/*const*/;
-	void addUnit(ArmyUnit* unit/*, bool flag=1*/);
+	int getId();
+	void addUnit(ArmyUnit* unit);
 	void printArmy();
-	bool checkID();
+	bool checkID();//assures that the ids stays within the range (2000->2999) 
 	int getCount() const;
 	ArmyUnit* pickAUnit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2,int dm=1);
 	ArmyUnit* peekAunit(unitType u,ArmyUnit*& d1, ArmyUnit*& d2);

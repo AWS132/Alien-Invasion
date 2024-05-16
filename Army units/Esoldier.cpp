@@ -69,7 +69,7 @@ void Esoldier::attack(int flag)
 	else //infected would attack only ES & SU
 	{
 		ArmyUnit* dummy = nullptr;
-		int tempCap = min(cap, game->countOf(SU_) + game->countOf(ES) - game->getEArmy()->countOfInfected());
+		int tempCap = min(cap, game->countOf(SU_) + game->countOf(ES) - game->getEArmy()->countOfInfected());//to determine the capacity correctly
 		for (int i{}; i < tempCap; i++) {
 			if (i % 2 && game->getEArmy()->countOfInfected() < game->countOf(ES))
 			{

@@ -9,8 +9,8 @@ void Asoldier::attack(int flag)
 	GenQueueADT lst;
 	GenQueueADT toBePrinted;	//to print properly
 	
-	int SUCap = min(cap - min(cap / 2, (game->countOf(ES) - game->getEArmy()->countOfInfected())), game->countOf(SU_));
-	int ESCap = min(cap - SUCap, (game->countOf(ES) - game->getEArmy()->countOfInfected()));
+	int SUCap = min(cap - min(cap / 2, (game->countOf(ES))), game->countOf(SU_));
+	int ESCap = min(cap - SUCap, (game->countOf(ES)));
 	double power = pwr;
 	double damage;
 	ArmyUnit* unit = nullptr;

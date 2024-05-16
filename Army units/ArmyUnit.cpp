@@ -36,8 +36,8 @@ ArmyUnit::ArmyUnit(int id, unitType Type, int tj, int health, int power, int cap
 	Td = -1;
 	Ta = -1;
 	this->game = game;
-	infected = 0;       // initially all the units are not infected
-	immune = false;	// initially all ESs are not immuned yet
+	infected = 0;	//initially all the units are not infected
+	immune = false;	//initially all ESs are not immune yet
 }
 
 unitType ArmyUnit::getType()
@@ -103,7 +103,7 @@ bool ArmyUnit::decHlth(double value)
 	return (hlth > 0);
 }
 
-bool ArmyUnit::incHlth(double product)
+bool ArmyUnit::incHlth(double product)//returns true if it's eligible to return back to the battle
 {
 	double imp = (product / 100) / sqrt(hlth);
 	hlth += min(imp, startHlth - hlth);
@@ -138,7 +138,7 @@ void ArmyUnit::becomeInfected()
 void ArmyUnit::becomeImmune()
 {
 	infected = false;	//not infected anymore ^_^
-	immune = true;
+	immune = true;		
 }
 
 bool ArmyUnit::isImmune()
