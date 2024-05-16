@@ -2,7 +2,7 @@
 
 HU::HU(int id, int tj, int health, int power, int capacity, GameClass* game) :ArmyUnit(id, HU_, tj, health, power, capacity, game) {}
 
-void HU::attack(bool gameMode)
+bool HU::attack(bool gameMode)
 {
 	GenQueueADT lst;
 	int attackCap = cap;
@@ -43,20 +43,20 @@ void HU::attack(bool gameMode)
 			}
 		}
 	}
-	if(gameMode)//if added to killedLst, it didn't get healed (no need to print it)
+	if (gameMode)//if added to killedLst, it didn't get healed (no need to print it)
 		toBePrinted.printList();
-
-	if(!toBePrinted.isEmpty())
+	bool occurred = !toBePrinted.isEmpty();
+	if (!toBePrinted.isEmpty())
 	{
 		game->getEArmy()->pickEUnit(HU_);
 		this->decHlth(this->getHealth());
 		game->addToKldList(this);	//killing the HU
 	}
-	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
+	for (; toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
 
 	while ((unit = lst.pickUnit(), unit))
 	{
 		game->getEArmy()->addToUML(unit);
 	}
-
-};
+	return occurred;
+}

@@ -4,7 +4,7 @@ Tank::Tank(int id, int tj, int health, int power, int capacity, GameClass* game)
 {
 }
 
-void Tank::attack(bool gameMode)  // Attack AM , AS (sometimes)
+bool Tank::attack(bool gameMode)  // Attack AM , AS (sometimes)
 {
     GenQueueADT lst;             //temp list to keep the attacked units
 
@@ -71,7 +71,7 @@ void Tank::attack(bool gameMode)  // Attack AM , AS (sometimes)
 
         if (gameMode)
             lst.printList();        //printing the temp list (The attacked units )
-
+        bool occurred = !lst.isEmpty();
         while (lst.getCount())
         {
             ArmyUnit* unt = lst.pickUnit();
@@ -82,4 +82,5 @@ void Tank::attack(bool gameMode)  // Attack AM , AS (sometimes)
                 game->addToKldList(unt);
             }
         }
+        return occurred;
 }

@@ -4,7 +4,7 @@ SU::SU(int id, int tj, int health, int power, int capacity, GameClass* game) :Ar
 {
 }
 
-void SU::attack(bool gameMode)
+bool SU::attack(bool gameMode)
 {
 	GenQueueADT lst;
 	double dmg = hlth * pwr / 100.0;
@@ -30,7 +30,7 @@ void SU::attack(bool gameMode)
 	}
 	if (gameMode)
 		lst.printList();
-
+	bool occurred = !lst.isEmpty();
 	while (lst.getCount())
 	{
 		ArmyUnit* unt = lst.pickUnit();
@@ -48,5 +48,5 @@ void SU::attack(bool gameMode)
 			game->addToKldList(unt);
 		}
 	}
-
+	return occurred;
 }

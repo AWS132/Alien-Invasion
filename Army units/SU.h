@@ -6,5 +6,5 @@ class SU :public ArmyUnit
 {
 public:
 	SU(int id,  int tj, int health, int power, int capacity, GameClass* game);
-	void attack(bool gameMode);
+	bool attack(bool gameMode);
 };

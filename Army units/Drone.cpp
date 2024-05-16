@@ -10,7 +10,7 @@ Drone::Drone(int id, int tj, int health, int power, int capacity, GameClass* gam
 }
 
 
-void Drone::attack(bool gameMode)
+bool Drone::attack(bool gameMode)
 {
 	GenQueueADT lst;
 	double dmg = hlth * pwr / 100.0;
@@ -36,7 +36,7 @@ void Drone::attack(bool gameMode)
 	}
 	if (gameMode)
 		lst.printList();
-
+	bool occurred = !lst.isEmpty();
 	while (lst.getCount())
 	{
 		ArmyUnit* unt = lst.pickUnit();
@@ -51,4 +51,5 @@ void Drone::attack(bool gameMode)
 			game->addToKldList(unt);
 		}
 	}
+	return occurred;
 }

@@ -4,7 +4,7 @@ Monster::Monster(int id, int tj, int health, int power, int capacity, GameClass*
 {
 }
 
-void Monster::attack(bool gameMode) // Attack ET , ES , SU
+bool Monster::attack(bool gameMode) // Attack ET , ES , SU
 {
 	GenQueueADT lst;       //temp list to keep the attacked units
     int infectionPercentage = game->getInfectionPerc(); 
@@ -73,7 +73,7 @@ void Monster::attack(bool gameMode) // Attack ET , ES , SU
     }
     if (gameMode)  
         lst.printList();            //printing the temp list (The attacked units )
-
+    bool occurred = !lst.isEmpty();
     while (lst.getCount())
     {
         ArmyUnit* unt = lst.pickUnit();
@@ -91,5 +91,5 @@ void Monster::attack(bool gameMode) // Attack ET , ES , SU
             game->addToKldList(unt);
         }
     }
-    
+    return occurred;
 }

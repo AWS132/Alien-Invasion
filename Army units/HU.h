@@ -6,5 +6,5 @@ class HU :public ArmyUnit
 
 public:
 	HU(int id, int tj, int health, int power, int capacity, GameClass* game);
-	void attack(bool gameMode);
+	bool attack(bool gameMode);
 };

@@ -43,8 +43,8 @@ void GameClass::initializer(bool gameMode) //resposible for the game logic
     //to load data from a valid input file
     int fileName;
     do {
-    cout << "pick the number of the input file you want to select\n";
-    cin >> fileName;
+        cout << "pick the number of the input file you want to select\n";
+        cin >> fileName;
     } while (!loadData(fileName));
     if (gameMode)
         cout << "Active Mode\n";
@@ -52,7 +52,9 @@ void GameClass::initializer(bool gameMode) //resposible for the game logic
         cout << "Silent Mode\n";
     cout << "Simulation Starts.....\n";
     //the battle begins from here
-    while ((EArmy->getCount() && AArmy->getCount() || crntTime <= 40))
+    int winner = -1;// used to send the winner to the output file
+    bool isAttacked = false;
+    while (!isConcluded(winner, isAttacked))
     {
         EArmy->spreadInfection();
         randGenerator->generator();
@@ -62,7 +64,7 @@ void GameClass::initializer(bool gameMode) //resposible for the game logic
             SArmy->withdraw();
         if (gameMode)
             printArmies();
-        pokeUnits(gameMode);
+        isAttacked = pokeUnits(gameMode);
         if (gameMode) {
             cout << "=======================Killed/destructed units=======================\n";
             klst->printList();
@@ -71,55 +73,67 @@ void GameClass::initializer(bool gameMode) //resposible for the game logic
             cin.ignore();
         }
     }
-    int x;// used to send the winner to the output file
-    if (!EArmy->getCount() && AArmy->getCount()) {
-        x = 0;
-        if (gameMode)
+    if (gameMode) {
+        if (!winner)
             cout << "Aliens won the war\n";
-    }
-    else if (!AArmy->getCount() && EArmy->getCount()) {
-        x = 1;
-        if (gameMode)
+        else if (winner == 1) {
             cout << "Humans won the war\n";
-    }
-    else {
-        x = -1;
-        if (gameMode)
+        }
+        else {
             cout << "the battle ended up as a draw\n";
+        }
     }
-    createOFile(x);
+    createOFile(winner);
     cout << "Simulation Ends, output file is created\n";
 }
+bool GameClass::isConcluded(int& winner, bool isAttacked) {
+    if (crntTime <= 40)
+        return false;
+    if (!AArmy->getCount() && EArmy->getCount()) {
+        winner = 1;
+        return true;
+    }
+    if (AArmy->getCount() && !EArmy->getCount()) {
+        winner = 0;
+        return true;
+    }
+    if (!AArmy->getCount() && !EArmy->getCount() || (!isAttacked && !EArmy->checkID() && !AArmy->checkID() && !(SArmy->checkID() && SArmy->getStatus()))) {
+        winner = -1;
+        return true;
+    }
+    return false;
+}
 
-void GameClass::pokeUnits(bool gameMode) // a function to make aliens', earth's and allies' units attack each other
+bool GameClass::pokeUnits(bool gameMode) // a function to make aliens', earth's and allies' units attack each other
 {
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
-   
+    bool isAttacked = false; //checks if someone is attacked crnt timestep
     if (gameMode)
         cout << "===========Units Fighting at Current Step=============\n";
     if (EArmy->countOf(ET))
-        EArmy->peekEUnit(ET)->attack(gameMode);
+        isAttacked = EArmy->peekEUnit(ET)->attack(gameMode) || isAttacked;
     if (EArmy->countOf(EG))
-        EArmy->peekEUnit(EG)->attack(gameMode);
+        isAttacked = EArmy->peekEUnit(EG)->attack(gameMode) || isAttacked;
     if (EArmy->countOf(ES))
-        EArmy->peekEUnit(ES)->attack(gameMode);
+        isAttacked = EArmy->peekEUnit(ES)->attack(gameMode) || isAttacked;
     if (AArmy->countOf(AM))
-        AArmy->peekAunit(AM, nl1, nl2)->attack(gameMode);
+        isAttacked = AArmy->peekAunit(AM, nl1, nl2)->attack(gameMode) || isAttacked;
     if (AArmy->countOf(AS))
-        AArmy->peekAunit(AS, nl1, nl2)->attack(gameMode);
-    if (AArmy->countOf(AD)) 
+        isAttacked = AArmy->peekAunit(AS, nl1, nl2)->attack(gameMode) || isAttacked;
+    if (AArmy->countOf(AD))
     {
         AArmy->peekAunit(AD, nl1, nl2);
         if (nl1 && nl2) {
-            nl1->attack(gameMode);
-            nl2->attack(gameMode);
+            isAttacked = nl1->attack(gameMode) || isAttacked;
+            isAttacked = nl2->attack(gameMode) || isAttacked;
         }
     }
     if (EArmy->countOf(HU_))
-        EArmy->peekEUnit(HU_)->attack(gameMode);
-    if (SArmy->getCount()) 
-        SArmy->peekSUnit()->attack(gameMode);
+        isAttacked = EArmy->peekEUnit(HU_)->attack(gameMode) || isAttacked;
+    if (SArmy->getCount())
+        isAttacked = SArmy->peekSUnit()->attack(gameMode) || isAttacked;
+    return isAttacked;
 }
 
 bool GameClass::loadData(int fileName)  // loads data from an input file returns true if a valid input file is entered and false otherwise

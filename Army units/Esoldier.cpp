@@ -4,7 +4,7 @@ Esoldier::Esoldier(int id, int tj, int health, int power, int capacity, GameClas
 
 }
 
-void Esoldier::attack(bool gameMode)
+bool Esoldier::attack(bool gameMode)
 {
 	GenQueueADT lst;
 	GenQueueADT toBePrinted;	//to print properly
@@ -113,11 +113,12 @@ void Esoldier::attack(bool gameMode)
 	}
 		if (gameMode)
 			toBePrinted.printList();
-
+		bool occurred = !toBePrinted.isEmpty();
 		for (; toBePrinted.pickUnit(););	//to make the "toBePrinted"list empty to save the kldLst from being destructed!!
 
 		while ((unit = lst.pickUnit(), unit))
 		{
 			game->addUnit(unit);
 		}
-	}
+		return occurred;
+}

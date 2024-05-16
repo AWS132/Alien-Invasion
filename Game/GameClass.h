@@ -29,8 +29,9 @@ public:
 	EarthArmy* getEArmy();
 	AlienArmy* getAArmy();
 	AllyArmy* getSArmy();
+	bool isConcluded(int&, bool isAttacked);
 	void initializer(bool gameMode);//resposible for the game logic
-	void pokeUnits(bool gameMode);	//pokes both aliens and earthers to attack each other
+	bool pokeUnits(bool gameMode);	//pokes both aliens and earthers to attack each other
 	bool loadData(int fileName);//loads the data from the file
 	ArmyUnit* pickUnit(unitType unit, ArmyUnit*& d1, ArmyUnit*& d2, int dm = 1);
 	bool addToKldList(ArmyUnit* unit);

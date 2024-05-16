@@ -4,7 +4,7 @@ Asoldier::Asoldier(int id, int tj, int health, int power, int capacity, GameClas
 {
 }
 
-void Asoldier::attack(bool gameMode)
+bool Asoldier::attack(bool gameMode)
 {
 	GenQueueADT lst;
 	GenQueueADT toBePrinted;	//to print properly
@@ -60,10 +60,11 @@ void Asoldier::attack(bool gameMode)
 	}
 	if (gameMode)
 		toBePrinted.printList();
-
+	bool occurred = !toBePrinted.isEmpty();
 	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
 
 	unit = nullptr;
 	while ((unit = lst.pickUnit(), unit))//if ES reached this stage, its health would be > 20% * startHealth. So it's able to join the battle again
 		game->addUnit(unit);
+	return occurred;
 }

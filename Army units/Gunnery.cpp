@@ -4,7 +4,7 @@ Gunnery::Gunnery(int id, int tj, int health, int power, int capacity, GameClass*
 {
 }
 
-void Gunnery::attack(bool gameMode)  //Attacks drones and monsters
+bool Gunnery::attack(bool gameMode)  //Attacks drones and monsters
 {
     GenQueueADT lst;     //temp list to keep the attacked units
                     /********Number of units to be attacked by the gunnery********/
@@ -65,7 +65,7 @@ void Gunnery::attack(bool gameMode)  //Attacks drones and monsters
     if (gameMode)
         lst.printList();    //printing the temp list (The attacked units )
 
-
+    bool occurred = !lst.isEmpty();
     while (lst.getCount())
     {
         ArmyUnit* unt = lst.pickUnit();
@@ -76,4 +76,5 @@ void Gunnery::attack(bool gameMode)  //Attacks drones and monsters
             game->addToKldList(unt);
         }
     }
+    return occurred;
 }
