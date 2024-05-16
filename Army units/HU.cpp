@@ -2,13 +2,13 @@
 
 HU::HU(int id, int tj, int health, int power, int capacity, GameClass* game) :ArmyUnit(id, HU_, tj, health, power, capacity, game) {}
 
-void HU::attack(int flag)
+void HU::attack(bool gameMode)
 {
 	GenQueueADT lst;
 	int attackCap = cap;
 	ArmyUnit* unit = nullptr;
 	GenQueueADT toBePrinted;	//to print properly
-	if (flag)
+	if (gameMode)
 		cout << "HU " << ID << " Heals ";
 	while (attackCap--) {
 		if ((unit = game->getEArmy()->pickFromUML(), unit))
@@ -43,7 +43,7 @@ void HU::attack(int flag)
 			}
 		}
 	}
-	if(flag)//if added to killedLst, it didn't get healed (no need to print it)
+	if(gameMode)//if added to killedLst, it didn't get healed (no need to print it)
 		toBePrinted.printList();
 
 	if(!toBePrinted.isEmpty())

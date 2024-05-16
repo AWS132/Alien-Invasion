@@ -4,7 +4,7 @@ Asoldier::Asoldier(int id, int tj, int health, int power, int capacity, GameClas
 {
 }
 
-void Asoldier::attack(int flag)
+void Asoldier::attack(bool gameMode)
 {
 	GenQueueADT lst;
 	GenQueueADT toBePrinted;	//to print properly
@@ -15,7 +15,7 @@ void Asoldier::attack(int flag)
 	double damage;
 	ArmyUnit* unit = nullptr;
 	ArmyUnit* dummy = nullptr;
-	if (flag)
+	if (gameMode)
 		cout << "AS " << ID << " shoots ";
 	for (int i = 0; i < SUCap; i++)
 	{
@@ -58,7 +58,7 @@ void Asoldier::attack(int flag)
 		}
 
 	}
-	if (flag)
+	if (gameMode)
 		toBePrinted.printList();
 
 	for (;toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!

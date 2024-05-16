@@ -4,7 +4,7 @@ Esoldier::Esoldier(int id, int tj, int health, int power, int capacity, GameClas
 
 }
 
-void Esoldier::attack(int flag)
+void Esoldier::attack(bool gameMode)
 {
 	GenQueueADT lst;
 	GenQueueADT toBePrinted;	//to print properly
@@ -14,7 +14,7 @@ void Esoldier::attack(int flag)
 	ArmyUnit* nl1 = nullptr;
 	ArmyUnit* nl2 = nullptr;
 	double damage;
-	if (flag) {
+	if (gameMode) {
 		cout << "ES ";
 		this->print();
 		cout<< " shoots ";
@@ -111,7 +111,7 @@ void Esoldier::attack(int flag)
 			}
 		}
 	}
-		if (flag)
+		if (gameMode)
 			toBePrinted.printList();
 
 		for (; toBePrinted.pickUnit(););	//to make the "toBePrinted"list empty to save the kldLst from being destructed!!

@@ -38,7 +38,7 @@ void GunneryADT::printGunnerys()
 	cout << "]\n";
 }
 
-GunneryADT::~GunneryADT()
+GunneryADT::~GunneryADT()      // deleting the all Gunnerys at the end of simulation
 {
 	Node<ArmyUnit*>* ptr1 = frontPtr;
 	Node<ArmyUnit*>* ptr2 = frontPtr;

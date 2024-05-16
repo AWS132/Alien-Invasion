@@ -5,6 +5,6 @@ class Esoldier : public ArmyUnit
 {
 public:
 	Esoldier(int id, int tj, int health, int power, int capacity, GameClass* game);
-	void attack(int flag);
+	void attack(bool gameMode);
 };
 

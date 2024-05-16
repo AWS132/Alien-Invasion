@@ -6,5 +6,5 @@ class Tank :public ArmyUnit
 {
 public:
 	Tank(int id,  int tj, int health, int power, int capacity, GameClass* game);
-	void attack(int flag);
+	void attack(bool gameMode);  
 };

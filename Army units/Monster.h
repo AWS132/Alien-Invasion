@@ -7,5 +7,5 @@ class Monster :public ArmyUnit
 
 public:
 	Monster(int id, int tj, int health, int power, int capacity,GameClass* game);
-	void attack(int flag);
+	void attack(bool gameMode);
 };

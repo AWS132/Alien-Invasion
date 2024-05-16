@@ -38,7 +38,7 @@ public:
 	void setTjUML();
 	int getID()const;
 	int getTjUML()const;
-	virtual void attack(int)=0; 
+	virtual void attack(bool)=0; 
 	virtual bool decHlth(double value);// Decreases the Health by a certain "value" returns false if killed
 	virtual bool incHlth(double product);// increases the heath by a certain value determined by a given equation,returns false if not over 20%
 	virtual void print() const;

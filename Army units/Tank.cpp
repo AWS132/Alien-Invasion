@@ -4,7 +4,7 @@ Tank::Tank(int id, int tj, int health, int power, int capacity, GameClass* game)
 {
 }
 
-void Tank::attack(int flag) //attack monsters
+void Tank::attack(bool gameMode) //attack monsters
 {
     GenQueueADT lst;
     int no_AS = game->countOf(AS);
@@ -14,7 +14,7 @@ void Tank::attack(int flag) //attack monsters
     ArmyUnit* nl2 = nullptr;
     double damage;
     int no_ES = game->countOf(ES);
-    if (flag)
+    if (gameMode)
         cout <<"ET " << ID << " shoots ";
     if((long double)(no_ES*1.0/ no_AS)*100<30)
     { 
@@ -59,8 +59,9 @@ void Tank::attack(int flag) //attack monsters
              
             }
         }
-        if (flag)
+        if (gameMode)
             lst.printList();
+
         while (lst.getCount())
         {
             ArmyUnit* unt = lst.pickUnit();
