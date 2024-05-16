@@ -46,11 +46,10 @@ bool HU::attack(bool gameMode)
 	if (gameMode)//if added to killedLst, it didn't get healed (no need to print it)
 		toBePrinted.printList();
 	bool occurred = !toBePrinted.isEmpty();
-	if (!toBePrinted.isEmpty())
+	if (occurred)
 	{
 		game->getEArmy()->pickEUnit(HU_);
-		this->decHlth(this->getHealth());
-		game->addToKldList(this);	//killing the HU
+		this->addToKlst();	//killing the HU
 	}
 	for (; toBePrinted.pickUnit(););	//to make the "toBePrinted" list empty to save the kldLst from being destructed!!
 
