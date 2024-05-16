@@ -218,7 +218,7 @@ void GameClass::createOFile(int winner) //creates the output file
 {
     ofstream oFile("output.txt");
     //// Earth ouput 
-    int S, T, G, HU, infectedUnits,Df, Dd;
+    int S, T, G, HU, infectedUnits, Df, Dd;
     oFile << "Earth Destructed units:\n";
     klst->outKilled(oFile, S, T, G, HU, Df, Dd);
     infectedUnits = klst->getImmuneCount() + klst->getInfectedCount() + EArmy->countTotalInf();
@@ -270,22 +270,36 @@ void GameClass::createOFile(int winner) //creates the output file
     else
         oFile << " Draw";
     oFile << endl;
-    
-        oFile << "Total AS: " << S + AArmy->countOf(AS) << endl;
-        oFile << "Total AM: " << T + AArmy->countOf(AM) << endl;
-        oFile << "Total AD: " << G + AArmy->countOf(AD) << endl;
-    if ( (S + AArmy->countOf(AS)))
+
+    oFile << "Total AS: " << S + AArmy->countOf(AS) << endl;
+    oFile << "Total AM: " << T + AArmy->countOf(AM) << endl;
+    oFile << "Total AD: " << G + AArmy->countOf(AD) << endl;
+    if ((S + AArmy->countOf(AS)))
         oFile << "Percentage of AS: " << double(S) / (S + AArmy->countOf(AS)) << endl;
-    if ( (T + AArmy->countOf(AM)))
+    if ((T + AArmy->countOf(AM)))
         oFile << "Percentage of AM: " << double(T) / (T + AArmy->countOf(AM)) << endl;
     if ((G + AArmy->countOf(AD)))
         oFile << "Percentage of AD: " << double(G) / (G + AArmy->countOf(AD)) << endl;
-    if  (S + G + T + AArmy->getCount())
+    if (S + G + T + AArmy->getCount())
         oFile << "Percentage of Total Destructed Units to Total Units: " << double(S + G + T) / (S + G + T + AArmy->getCount()) << endl;
     if ((S + G + T)) {
         oFile << "Average of Df: " << double(Df) / (S + G + T) << endl;
         oFile << "Average of Dd: " << double(Dd) / (S + G + T) << endl;
         oFile << "Average of Db: " << double(Df + Dd) / (S + G + T) << endl;
+    }
+    if (Df + Dd) {
+        oFile << "Df/Db: " << double(Df) / (Df + Dd) * 100 << endl;
+        oFile << "Dd/Db: " << double(Dd) / (Df + Dd) * 100 << endl;
+    }
+    oFile << "Ally Army Destructed Units:\n";
+    klst->outKilled(oFile, S, T, G, HU, Df, Dd, 7);
+    oFile << "Total SU: " << S + SArmy->getCount() << endl;
+    if ((S + SArmy->getCount()))
+        oFile << "Percentage of SU: " << double(S) / (SArmy->getCount()) << endl;
+    if ((S)) {
+        oFile << "Average of Df: " << double(Df) / (S) << endl;
+        oFile << "Average of Dd: " << double(Dd) / (S) << endl;
+        oFile << "Average of Db: " << double(Df + Dd) / (S) << endl;
     }
     if (Df + Dd) {
         oFile << "Df/Db: " << double(Df) / (Df + Dd) * 100 << endl;
