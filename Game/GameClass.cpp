@@ -38,7 +38,7 @@ AllyArmy* GameClass::getSArmy()
     return SArmy;
 }
 
-void GameClass::initializer(int flag) //resposible for the game logic
+void GameClass::initializer(bool gameMode) //resposible for the game logic
 {
     //to load data from a valid input file
     int fileName;
@@ -46,7 +46,7 @@ void GameClass::initializer(int flag) //resposible for the game logic
     cout << "pick the number of the input file you want to select\n";
     cin >> fileName;
     } while (!loadData(fileName));
-    if (flag)
+    if (gameMode)
         cout << "Active Mode\n";
     else
         cout << "Silent Mode\n";
@@ -60,10 +60,10 @@ void GameClass::initializer(int flag) //resposible for the game logic
             SArmy->call();
         if (!EArmy->countOfInfected())
             SArmy->withdraw();
-        if (flag)
+        if (gameMode)
             printArmies();
-        pokeUnits(flag);
-        if (flag) {
+        pokeUnits(gameMode);
+        if (gameMode) {
             cout << "=======================Killed/destructed units=======================\n";
             klst->printList();
             cout << "==============================================================================\n\n";
@@ -74,52 +74,52 @@ void GameClass::initializer(int flag) //resposible for the game logic
     int x;// used to send the winner to the output file
     if (!EArmy->getCount() && AArmy->getCount()) {
         x = 0;
-        if (flag)
+        if (gameMode)
             cout << "Aliens won the war\n";
     }
     else if (!AArmy->getCount() && EArmy->getCount()) {
         x = 1;
-        if (flag)
+        if (gameMode)
             cout << "Humans won the war\n";
     }
     else {
         x = -1;
-        if (flag)
+        if (gameMode)
             cout << "the battle ended up as a draw\n";
     }
     createOFile(x);
     cout << "Simulation Ends, output file is created\n";
 }
 
-void GameClass::pokeUnits(int flag) // a function to make aliens', earth's and allies' units attack each other
+void GameClass::pokeUnits(bool gameMode) // a function to make aliens', earth's and allies' units attack each other
 {
     ArmyUnit* nl1 = nullptr;
     ArmyUnit* nl2 = nullptr;
    
-    if (flag)
+    if (gameMode)
         cout << "===========Units Fighting at Current Step=============\n";
     if (EArmy->countOf(ET))
-        EArmy->peekEUnit(ET)->attack(flag);
+        EArmy->peekEUnit(ET)->attack(gameMode);
     if (EArmy->countOf(EG))
-        EArmy->peekEUnit(EG)->attack(flag);
+        EArmy->peekEUnit(EG)->attack(gameMode);
     if (EArmy->countOf(ES))
-        EArmy->peekEUnit(ES)->attack(flag);
+        EArmy->peekEUnit(ES)->attack(gameMode);
     if (AArmy->countOf(AM))
-        AArmy->peekAunit(AM, nl1, nl2)->attack(flag);
+        AArmy->peekAunit(AM, nl1, nl2)->attack(gameMode);
     if (AArmy->countOf(AS))
-        AArmy->peekAunit(AS, nl1, nl2)->attack(flag);
+        AArmy->peekAunit(AS, nl1, nl2)->attack(gameMode);
     if (AArmy->countOf(AD)) 
     {
         AArmy->peekAunit(AD, nl1, nl2);
         if (nl1 && nl2) {
-            nl1->attack(flag);
-            nl2->attack(flag);
+            nl1->attack(gameMode);
+            nl2->attack(gameMode);
         }
     }
     if (EArmy->countOf(HU_))
-        EArmy->peekEUnit(HU_)->attack(flag);
+        EArmy->peekEUnit(HU_)->attack(gameMode);
     if (SArmy->getCount()) 
-        SArmy->peekSUnit()->attack(flag);
+        SArmy->peekSUnit()->attack(gameMode);
 }
 
 bool GameClass::loadData(int fileName)  // loads data from an input file returns true if a valid input file is entered and false otherwise
