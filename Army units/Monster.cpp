@@ -46,7 +46,7 @@ void Monster::attack(bool gameMode) // Attack ET , ES , SU
             lst.addUnit(unt);
         }
     }
-                               /******************Attacking soldiers******************/
+                               /******************Attacking Earth Soldiers******************/
     random_device rd;
     mt19937 gen(rd());
     for (int i = 0; i < EStoAttack; i++)
@@ -59,6 +59,7 @@ void Monster::attack(bool gameMode) // Attack ET , ES , SU
             int infectionProb = (gen() % (101));
 
             //would be attacked if ->not about to be killed ,infcProp ,immune or already infected
+            //Attack or infect
             if (/*unt->getHealth() > damage ||*/ infectionProb > infectionPercentage || unt->isImmune() || unt->getInfectionState())
             {
                 unt->decHlth(damage);

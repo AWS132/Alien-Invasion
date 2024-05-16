@@ -12,7 +12,7 @@ protected:
 	int counter;
 public:
 	MonsterADT();
-	bool addUnit(ArmyUnit* mns);
+	bool addUnit(ArmyUnit* newMonster);
 	int getCount();
 	ArmyUnit* pickMonster();
 	ArmyUnit* peekMonster();

@@ -27,7 +27,7 @@ ArmyUnit* MonsterADT::pickMonster()
 		mt19937 gen(rd());
 		int randomIndex= (gen() % (counter));			//(rand() % (ub - lb + 1)) + lb to generate random index form 0 to counter-1
 		ArmyUnit* targetMonster = monsters[randomIndex];
-		monsters[randomIndex] = monsters[--counter];
+		monsters[randomIndex] = monsters[--counter];   // putting the last monster in the place of the picked one the decrement the counter
 		return targetMonster;
 	}
 	else
