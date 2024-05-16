@@ -47,7 +47,7 @@ void Tank::attack(bool gameMode)  // Attack AM , AS (sometimes)
             }
             else
             {
-                AMtoAttack += AStoAttack - (i); // if there are more AS to be attack but the currPercent is more than 80
+                AMtoAttack = min(AMtoAttack + AStoAttack - i, game->countOf(AM));// if there are more AS to be attack but the currPercent is more than 80
                 break;
             }
         }
