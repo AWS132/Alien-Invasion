@@ -86,8 +86,8 @@ void RandGen::generator()
 
 	if (A <= prob) {
 		//for earth
-		if (game->getEArmy()->checkID())
-			for (int i{}; i < N; i++) {
+		for (int i{}; i < N; i++) {
+			if (game->getEArmy()->checkID()) {
 				random_device rd;
 				mt19937 gen(rd());
 				int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
@@ -102,9 +102,11 @@ void RandGen::generator()
 				else
 					game->getEArmy()->addUnit(createUnit(HU_));
 			}
+		}
 		//for aliens
-		if (game->getAArmy()->checkID())
-			for (int i{}; i < N; i++) {
+
+		for (int i{}; i < N; i++) {
+			if (game->getAArmy()->checkID()) {
 				random_device rd;
 				mt19937 gen(rd());
 				int B = (gen() % (100)) + 1;	//(rand() % (ub - lb + 1)) + lb			
@@ -117,11 +119,13 @@ void RandGen::generator()
 				else
 					game->getAArmy()->addUnit(createUnit(AD));
 			}
+		}
 	}
 	//for Ally units
-	if (A <= Sprob && game->getSArmy()->getStatus() && game->getSArmy()->checkID()) {
+	if (A <= Sprob && game->getSArmy()->getStatus()) {
 		for (int i = 0; i < SN; i++) {
-			game->getSArmy()->addUnit(createUnit(SU_));
+			if (game->getSArmy()->checkID())
+				game->getSArmy()->addUnit(createUnit(SU_));
 		}
 	}
 }

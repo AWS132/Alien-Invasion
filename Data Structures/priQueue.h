@@ -12,7 +12,7 @@ public:
 		{
 			frontPtr = newNodePtr;
 			backPtr = frontPtr;
-			backPtr->setNext(nullptr);
+			return true;
 		}
 		else
 		{

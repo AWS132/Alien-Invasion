@@ -7,6 +7,7 @@ UML::UML()
 
 bool UML::addUnit(ArmyUnit* Unit)
 {
+	if (!Unit) return false;
 	count++;
 	return enqueue(Unit);
 }

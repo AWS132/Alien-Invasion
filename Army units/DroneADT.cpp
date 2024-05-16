@@ -14,6 +14,7 @@ DroneADT::DroneADT()
 
 bool DroneADT::addUnit(ArmyUnit* D)
 {
+	if (!D) return false;
 	count++;
 	return enqueue(D);
 }
