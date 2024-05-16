@@ -230,18 +230,18 @@ void GameClass::createOFile(int winner) //creates the output file
     else
         oFile << " Draw";
     oFile << endl;
-    oFile << "Total ES: " << S + EArmy->countOf(ES) << endl;
-    oFile << "Total ET: " << T + EArmy->countOf(ET) << endl;
+    oFile << "Total ES: " << S + EArmy->countOf(ES) + EArmy->getUMLESCount() << endl;
+    oFile << "Total ET: " << T + EArmy->countOf(ET) + EArmy->getUMLCount() - EArmy->getUMLESCount() << endl;
     oFile << "Total EG: " << G + EArmy->countOf(EG) << endl;
     oFile << "Total HU: " << HU + EArmy->countOf(HU_) << endl;
     oFile << "Total Units in the UML: " << EArmy->getUMLCount() << endl;
     oFile << "Total Infected Units: " << infectedUnits << endl;
-    if (S + EArmy->countOf(ES)) {
-        oFile << "Percentage of ES: " << double(S) / (S + EArmy->countOf(ES)) << endl;
-        oFile << "Percentage of Infected ES: " << double(infectedUnits) / (S + EArmy->countOf(ES)) << endl;
+    if (S + EArmy->countOf(ES) + EArmy->getUMLESCount()) {
+        oFile << "Percentage of ES: " << double(S) / (S + EArmy->countOf(ES) + EArmy->getUMLESCount()) << endl;
+        oFile << "Percentage of Infected ES: " << double(infectedUnits) / (S + EArmy->countOf(ES) + EArmy->getUMLESCount()) << endl;
     }
-    if (T + EArmy->countOf(ET))
-        oFile << "Percentage of ET: " << double(T) / (T + EArmy->countOf(ET)) << endl;
+    if (T + EArmy->countOf(ET) + EArmy->getUMLCount() - EArmy->getUMLESCount())
+        oFile << "Percentage of ET: " << double(T) / (T + EArmy->countOf(ET) + EArmy->getUMLCount() - EArmy->getUMLESCount()) << endl;
     if (G + EArmy->countOf(EG))
         oFile << "Percentage of EG: " << double(G) / (G + EArmy->countOf(EG)) << endl;
     if (HU + EArmy->countOf(HU_))
@@ -295,7 +295,7 @@ void GameClass::createOFile(int winner) //creates the output file
     klst->outKilled(oFile, S, T, G, HU, Df, Dd, 7);
     oFile << "Total SU: " << S + SArmy->getCount() << endl;
     if ((S + SArmy->getCount()))
-        oFile << "Percentage of SU: " << double(S) / (SArmy->getCount()) << endl;
+        oFile << "Percentage of SU: " << double(S) / (S + SArmy->getCount()) << endl;
     if ((S)) {
         oFile << "Average of Df: " << double(Df) / (S) << endl;
         oFile << "Average of Dd: " << double(Dd) / (S) << endl;

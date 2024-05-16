@@ -110,6 +110,11 @@ bool EarthArmy::limitReached()//if the percentage of infected solidiers surpasse
 	return (countOfInfected() * 100.0 / countOf(ES) >= threshold);
 }
 
+int EarthArmy::getUMLESCount()
+{
+	return uml->getESCount();
+}
+
 EarthArmy::~EarthArmy()
 {
 	delete t;

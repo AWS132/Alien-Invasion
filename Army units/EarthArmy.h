@@ -36,6 +36,7 @@ public:
 	ArmyUnit* pickFromUML();
 	bool checkID();//returns true if the id is less than 1000
 	int getUMLCount();
+	int getUMLESCount();
 	bool addToUML(ArmyUnit* unit);
 	~EarthArmy();
 	ArmyUnit* pickEUnit(unitType u);
