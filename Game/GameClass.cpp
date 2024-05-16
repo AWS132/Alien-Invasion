@@ -43,7 +43,7 @@ void GameClass::initializer(bool gameMode) //resposible for the game logic
     //to load data from a valid input file
     int fileName;
     do {
-        cout << "pick the number of the input file you want to select\n1) Strong/Strong\n2) Strong/Weak\n3) Weak/Strong\n4) Weak/Weak\n5) Medium/Medium\n 6)OverPowered/Medium\n";
+        cout << "pick the number of the input file you want to select\n1) Strong/Strong\n2) Strong/Weak\n3) Weak/Strong\n4) Weak/Weak\n5) Medium/Medium\n6) OverPowered/Medium\n";
         cin >> fileName;
     } while (!loadData(fileName));
     if (gameMode)
