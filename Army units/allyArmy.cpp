@@ -2,7 +2,7 @@
 
 AllyArmy::AllyArmy()
 {
-	id = 3999;
+	id = 4000;
 	su = new GenQueueADT;
 	isCalled = false;
 }

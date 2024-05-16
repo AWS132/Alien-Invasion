@@ -65,7 +65,7 @@ void GenQueueADT::outKilled(ofstream& oFile, int& S, int& T, int& G, int& HU, in
 	while (ptr)
 	{
 		unitType x = ptr->getItem()->getType();
-		if (x >= type && x < type + 4 && x != 7)
+		if (x >= type && x < type + 4 - type % 3)
 		{
 			if (x == ES + type)
 				S++;
