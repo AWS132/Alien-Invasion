@@ -52,6 +52,7 @@ int UML::getESCount() const
 	}
 	return ESCount;
 }
+
 void UML::printList()
 {
 	Node< ArmyUnit*>* ptr = frontPtr;
